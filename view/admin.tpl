@@ -14,16 +14,16 @@
 		<!--                       CSS                       -->
 
 		<!-- Reset Stylesheet -->
-		<link rel="stylesheet" href="http://{ $ENGINE_RESSOURCE}/themes/admin/reset.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="{ $ENGINE_RESSOURCE}/themes/admin/reset.css" type="text/css" media="screen">
 
 		<!-- Main Stylesheet -->
-		<link rel="stylesheet" href="http://{ $ENGINE_RESSOURCE }/themes/admin/style.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="{ $ENGINE_RESSOURCE }/themes/admin/style.css" type="text/css" media="screen">
 
         <!-- Invalid Stylesheet. This makes stuff look pretty. Remove it if you want the CSS completely valid -->
-        <link rel="stylesheet" href="http://{ $ENGINE_RESSOURCE }/themes/admin/invalid.css" type="text/css" media="screen">
+        <link rel="stylesheet" href="{ $ENGINE_RESSOURCE }/themes/admin/invalid.css" type="text/css" media="screen">
 
         <!-- Invalid Stylesheet. This makes stuff look pretty. Remove it if you want the CSS completely valid -->
-        <link rel="stylesheet" href="http://{ $ENGINE_RESSOURCE }/themes/admin/datepicker/datepicker.css" type="text/css" media="screen">
+        <link rel="stylesheet" href="{ $ENGINE_RESSOURCE }/themes/admin/datepicker/datepicker.css" type="text/css" media="screen">
 
 		<!-- Colour Schemes
 
@@ -39,18 +39,18 @@
 		<!--                       Javascripts                       -->
 
 		<!-- jQuery -->
-		<script type="text/javascript" src="http://{ $ENGINE_RESSOURCE }/js/admin/jquery-1.js"></script>
+		<script type="text/javascript" src="{ $ENGINE_RESSOURCE }/js/admin/jquery-1.js"></script>
 
 		<!-- jQuery Configuration -->
-		<script type="text/javascript" src="http://{ $ENGINE_RESSOURCE}/js/admin/simpla.js"></script>
+		<script type="text/javascript" src="{ $ENGINE_RESSOURCE}/js/admin/simpla.js"></script>
 
 		<!-- Facebox jQuery Plugin -->
-		<script type="text/javascript" src="http://{ $ENGINE_RESSOURCE }/js/admin/facebox.js"></script>
+		<script type="text/javascript" src="{ $ENGINE_RESSOURCE }/js/admin/facebox.js"></script>
 
 		<!-- jQuery WYSIWYG Plugin -->
-        <script type="text/javascript" src="http://{ $ENGINE_RESSOURCE }/js/admin/jquery.js"></script>
+        <script type="text/javascript" src="{ $ENGINE_RESSOURCE }/js/admin/jquery.js"></script>
 
-    <script type="text/javascript" src="http://{ $ENGINE_RESSOURCE }/js/admin/datepicker/datepicker.packed.js"></script>
+    <script type="text/javascript" src="{ $ENGINE_RESSOURCE }/js/admin/datepicker/datepicker.packed.js"></script>
 
 
 	</head><body><div id="body-wrapper"> <!-- Wrapper for the radial gradient background -->
@@ -60,7 +60,7 @@
 			<h1 id="sidebar-title"><a href="#">Simpla Admin</a></h1>
 
 			<!-- Logo (221px wide) -->
-			<a href="#"><img id="logo" src="http://{ $ENGINE_RESSOURCE }/themes/admin/style/logo.png" alt="Simpla Admin logo"></a>
+			<a href="#"><img id="logo" src="{ $ENGINE_RESSOURCE }/themes/admin/style/logo.png" alt="Simpla Admin logo"></a>
 
 			<!-- Sidebar Profile links -->
 			<div id="profile-links">
