@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<title>{ $title }</title>
-		<link href="{ $SYS_FOLDER }themes/ac_login.css" type="text/css" media="screen" rel="stylesheet" />
+		<link href="{$ENGINE_RESSOURCE}themes/ac_login.css" type="text/css" media="screen" rel="stylesheet" />
 	</head>
 	<body id="login">
 
@@ -33,7 +33,7 @@
                             <input name="user_password" id="user_password" type="password" />
                         </p>
                         <button type="submit" class="positive" name="Submit">
-                            <img src="{ $SYS_FOLDER }themes/ac_login/key.png" alt="Announcement"/>Login
+                            <img src="{ $ENGINE_RESSOURCE }themes/ac_login/key.png" alt="Announcement"/>Login
                         </button>
                         <a href="{ $SYS_FOLDER }ac_login/disconnect/">Disconnect</a>
                       </fieldset>
