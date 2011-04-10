@@ -1,0 +1,251 @@
+<?php
+
+/**
+ * convert unicode to utf-8
+ * 
+ * copy from http://www.blogjava.net/xiaomage234/archive/2009/02/25/256576.html, and we just changed it's name
+ *
+ * @param string $escstr string to convert
+ * @return string utf-8 string
+ */
+function unicode_to_utf8($escstr){
+  preg_match_all("/\\\u[0-9A-Za-z]{4}|\\\.{2}|[0-9a-zA-Z.+-_]+/",$escstr,$matches); //prt($matches);
+  $ar = &$matches[0];
+  $c = "";
+  foreach($ar as $val){
+ if (substr($val,0,1)!="\\") { //如果是字母数字+-_.的ascii码
+     $c .=$val;
+ }
+ elseif (substr($val,1,1)!="u") { //如果是非字母数字+-_.的ascii码
+  $x = hexdec(substr($val,1,2));
+     $c .=chr($x);
+ }
+ else { //如果是大于0xFF的码
+  $val = intval(substr($val,2),16);
+  if($val < 0x7F){        // 0000-007F
+   $c .= chr($val);
+  }elseif($val < 0x800) { // 0080-0800
+   $c .= chr(0xC0 | ($val / 64));
+   $c .= chr(0x80 | ($val % 64));
+  }else{                // 0800-FFFF
+   $c .= chr(0xE0 | (($val / 64) / 64));
+   $c .= chr(0x80 | (($val / 64) % 64));
+   $c .= chr(0x80 | ($val % 64));
+  }
+ }
+  }
+  return $c;
+}
+
+/**
+ * PHP Integration of Open Flash Chart
+ * Copyright (C) 2008 John Glazebrook <open-flash-chart@teethgrinder.co.uk>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+ */
+
+// Pretty print some JSON
+//modified by iwind
+function json_format_html($json)
+{
+	$json = preg_replace("/\\\u[0-9a-f]{4,}/e", 'unicode_to_utf8("\\0")', $json);
+    $tab = "&nbsp;&nbsp;";
+    $new_json = "";
+    $indent_level = 0;
+    $in_string = false;
+
+/*
+ commented out by monk.e.boy 22nd May '08
+ because my web server is PHP4, and
+ json_* are PHP5 functions...
+
+    $json_obj = json_decode($json);
+
+    if($json_obj === false)
+        return false;
+
+    $json = json_encode($json_obj);
+*/
+    $len = strlen($json);
+
+    for($c = 0; $c < $len; $c++)
+    {
+        $char = $json[$c];
+        switch($char)
+        {
+            case '{':
+            case '[':
+            	$char = "<font color=\"green\">" . $char . "</font>";//iwind
+                if(!$in_string) {
+                    $new_json .= $char . "<br/>" . str_repeat($tab, $indent_level+1);
+                    $indent_level++;
+                }
+                else {
+                    $new_json .= $char;
+                }
+                break;
+            case '}':
+            case ']':
+            	$char = "<font color=\"green\">" . $char . "</font>";//iwind
+                if(!$in_string)
+                {
+                    $indent_level--;
+                    $new_json .= "<br/>" . str_repeat($tab, $indent_level) . $char;
+                }
+                else
+                {
+                    $new_json .= $char;
+                }
+                break;
+            case ',':
+            	$char = "<font color=\"green\">" . $char . "</font>";//iwind
+                if(!$in_string) {
+                    $new_json .= ",<br/>" . str_repeat($tab, $indent_level);
+                }
+                else {
+                    $new_json .= $char;
+                }
+                break;
+            case ':':
+            	$char = "<font color=\"green\">" . $char . "</font>";//iwind
+                if($in_string) {
+                    $new_json .= ": ";
+                }
+                else {
+                    $new_json .= $char;
+                }
+                break;
+            case '"':
+                if($c > 0 && $json[$c-1] != '\\') {
+                    $in_string = !$in_string;
+                    if ($in_string) {
+                    	$new_json .= "<font color=\"#DD0000\">" . $char;
+                    }
+                    else {
+                    	$new_json .= $char . "</font>";
+                    }
+       				break;
+                }
+                else if ($c == 0) {
+                	$in_string = !$in_string;
+                	$new_json .= "<font color=\"red\">" . $char;
+                	break;
+                }
+            default:
+            	if (!$in_string && trim($char) !== "") {
+            		$char = "<font color=\"blue\">" . $char . "</font>";
+            	}
+            	else {
+            		$char = htmlspecialchars($char);
+            	}
+                $new_json .= $char;
+                break;
+        }
+    }
+	
+    $new_json = preg_replace_callback("{(<font color=\"blue\">([\da-zA-Z_\.]+)</font>)+}", create_function('$match','
+    	$string = str_replace("<font color=\"blue\">", "", $match[0]);
+    	$string = str_replace("</font>", "", $string);
+    	return "<font color=\"blue\" class=\"no_string_var\">" . $string  . "</font>";
+    '), $new_json);
+    return $new_json;
+}
+
+
+function json_format($json)
+{
+    $tab = "  ";
+    $new_json = "";
+    $indent_level = 0;
+    $in_string = false;
+
+/*
+ commented out by monk.e.boy 22nd May '08
+ because my web server is PHP4, and
+ json_* are PHP5 functions...
+
+    $json_obj = json_decode($json);
+
+    if($json_obj === false)
+        return false;
+
+    $json = json_encode($json_obj);
+*/
+    $len = strlen($json);
+
+    for($c = 0; $c < $len; $c++)
+    {
+        $char = $json[$c];
+        switch($char)
+        {
+            case '{':
+            case '[':
+                if(!$in_string)
+                {
+                    $new_json .= $char . "\n" . str_repeat($tab, $indent_level+1);
+                    $indent_level++;
+                }
+                else
+                {
+                    $new_json .= $char;
+                }
+                break;
+            case '}':
+            case ']':
+                if(!$in_string)
+                {
+                    $indent_level--;
+                    $new_json .= "\n" . str_repeat($tab, $indent_level) . $char;
+                }
+                else
+                {
+                    $new_json .= $char;
+                }
+                break;
+            case ',':
+                if(!$in_string)
+                {
+                    $new_json .= ",\n" . str_repeat($tab, $indent_level);
+                }
+                else
+                {
+                    $new_json .= $char;
+                }
+                break;
+            case ':':
+                if(!$in_string)
+                {
+                    $new_json .= ": ";
+                }
+                else
+                {
+                    $new_json .= $char;
+                }
+                break;
+            case '"':
+                if($c > 0 && $json[$c-1] != '\\')
+                {
+                    $in_string = !$in_string;
+                }
+            default:
+                $new_json .= $char;
+                break;
+        }
+    }
+
+    return $new_json;
+}
+
+?>
