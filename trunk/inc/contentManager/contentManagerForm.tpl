@@ -1,7 +1,7 @@
 <!-- Auto form -->
 {strip}
 {if $formCompteur == 1}
-<script type="text/javascript" src="{$BASE_URL}/js/admin/datepicker/datepicker.packed.js"></script>
+<script type="text/javascript" src="{$ENGINE_RESSOURCE}/js/admin/datepicker/datepicker.packed.js"></script>
 {/if}
 
 <form method="post" class="validity niceform" id="form_{$formUID}">
