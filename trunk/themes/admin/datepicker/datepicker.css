@@ -1,0 +1,62 @@
+input.fd-hidden-input,select.fd-hidden-input{display:none;}
+.fd-screen-reader{position:absolute;left:-999em;top:0;width:1px;height:1px;overflow:hidden;outline:0 none;-moz-outline:0 none;}
+a.dp-disabled,.dp-disabled table{opacity:.3!important;filter:alpha(opacity=40);}
+.dp-disabled,.dp-disabled td,.dp-disabled th,.dp-disabled th span{cursor:default!important;}
+a.date-picker-control:focus,div.datePicker table td:focus{overflow:hidden;outline:0 none;-moz-outline:0 none;color:#6482aa!important;}
+div.datePicker{position:absolute;z-index:9999;text-align:center;font:900 .8em/1em Verdana, Sans-Serif;background:transparent;-moz-user-select:none;-khtml-user-select:none;}
+div.static-datepicker{position:relative;top:5px;left:0;}
+div.datePicker table{height:auto;border-collapse:separate;border:1px solid #ccc;background:#fff url(style/gradient-e5e5e5-ffffff.gif) repeat-x 0 -20px;text-align:center;border-spacing:2px;width:auto;empty-cells:show;border-radius:.8em;-moz-border-radius:.8em;-moz-box-shadow:0 0 5px #aaa;margin:0;padding:.3em;}
+div.datePicker tfoot th.drag-enabled,div.datePicker thead th.drag-enabled,div.datePicker thead th.drag-enabled span{cursor:move;}
+iframe.iehack{position:absolute;background:#fff;z-index:9998;border:0;display:none;margin:0;padding:0;}
+a.date-picker-control:link,a.date-picker-control:visited{position:relative;display:0;border:0 none;background:transparent url(style/cal-grey.gif) no-repeat 50% 50%;min-width:16px;line-height:1;cursor:pointer;visibility:visible;text-decoration:none;vertical-align:top;margin:0 0 0 4px;padding:0;}
+a.date-picker-control:hover,a.date-picker-control:active,a.date-picker-control:focus,a.dp-button-active:link,a.dp-button-active:visited,a.dp-button-active:hover,a.dp-button-active:active,a.dp-button-active:focus{background:transparent url(style/cal.gif) no-repeat 50% 50%!important;}
+* html a.date-picker-control{width:16px;}
+a.date-picker-control{display:inline-block;}
+a.date-picker-control span{display:block;width:16px;height:16px;margin:auto 0;}
+div.datePicker thead th span{display:block;text-align:center;line-height:1em;border:0 none;background:transparent;font-weight:700;cursor:pointer;margin:0;padding:0;}
+div.datePicker th span.month-display,div.datePicker th span.year-display{display:inline;text-transform:uppercase;letter-spacing:1px;font:normal 1.2em Verdana, Sans-Serif;cursor:default;}
+div.datePicker th span.prev-but,div.datePicker th span.next-but{font-weight:lighter;font-size:2.4em;font-family:georgia, times new roman, palatino, times, bookman, serif;cursor:pointer!important;}
+div.datePicker th span.prev-but:hover,div.datePicker th span.next-but:hover,div.datePicker th span.today-but:hover{color:#a84444;}
+div.datePicker th span.today-but{text-align:center;font:normal 1em Verdana, Sans-Serif;width:100%;text-decoration:none;padding-top:.3em;text-transform:uppercase;vertical-align:middle;cursor:pointer!important;margin:0 auto;}
+div.dp-disabled th span.prev-but,div.dp-disabled th span.next-but,div.dp-disabled th span.today-but,div.dp-disabled th span.prev-but:hover,div.dp-disabled th span.next-but:hover,div.dp-disabled th span.today-but:hover,div.datePicker th span.prev-but.fd-disabled:hover,div.datePicker th span.next-but.fd-disabled:hover,div.datePicker thead th span.fd-disabled,div.datePicker th span.fd-disabled:hover{color:#aaa;cursor:default!important;opacity:1;}
+div.datePicker th span.fd-day-header{text-align:center;font:900 1em Verdana, Sans-Serif;text-decoration:none;text-transform:lowercase;cursor:pointer;margin:0 auto;}
+div.datePicker table td,div.datePicker table tbody th{text-align:center;vertical-align:middle;cursor:pointer;background:#fff url(style/gradient-e5e5e5-ffffff.gif) repeat-x 0 -40px;width:3em;height:3em;overflow:hidden;outline:transparent none 0;border:1px solid #ccc;text-transform:none;-moz-border-radius:2px;border-radius:2px;padding:0;}
+div.datePicker table td:focus,div.datePicker table td:active{outline:0 none red;}
+div.datePicker table th{border:0 none;font-weight:700;color:#222;text-align:center;vertical-align:middle;text-transform:none;padding:0;}
+div.datePicker table thead th{height:auto!important;}
+div.datePicker table tbody th{border:1px solid #dcdcdc;}
+div.datePicker table thead th.date-picker-week-header,div.datePicker table tbody th.date-picker-week-header{font-style:oblique;background:transparent;cursor:default;}
+div.datePicker table thead th.date-picker-week-header{cursor:help;border:0 none;padding:0 0 .2em;}
+div.datePicker tfoot th{cursor:default;font-weight:400;text-transform:uppercase;letter-spacing:.1em;border:0 none;background:#fff;height:2.8em;}
+div.datePicker table tbody td.date-picker-unused{background:#fff url(style/backstripes.gif);cursor:default!important;border-color:#dcdcdc;}
+div.datePicker table thead th.date-picker-title{width:auto;height:auto;padding:.4em 0;}
+div.datePicker table thead th.date-picker-day-header{text-transform:lowercase;cursor:help;height:auto;}
+div.datePicker table tbody td.date-picker-today{background:#fff url(style/bullet2.gif) no-repeat 0 0;color:#646464!important;}
+div.datePicker table tbody td.month-out.date-picker-highlight{color:#a86!important;}
+div.datePicker table tbody td.date-picker-highlight,div.datePicker table thead th.date-picker-highlight{color:#a86666!important;}
+div.datePicker table tbody td.date-picker-hover{background:#fff url(style/bg_header.jpg) no-repeat 0 0;cursor:pointer;color:#6482aa;text-shadow:0 1px 1px #fff;border-color:#6482aa!important;}
+div.datePicker table tbody td.day-disabled{background:#fff url(style/backstripes.gif) no-repeat 0 0;color:#aaa!important;cursor:default;text-decoration:line-through;}
+div.datePicker table tbody td.month-out{color:#aaa!important;background:#fff url(style/gradient-e5e5e5-ffffff.gif) repeat-x 0 -40px;border-color:#ddd;}
+div.datePicker table tbody td.date-picker-selected-date{color:#333!important;border-color:#333!important;}
+div.datePicker table tbody td.out-of-range,div.datePicker table tbody td.not-selectable{color:#ccc!important;font-style:oblique;background:#fcfcfc!important;cursor:default!important;}
+div.datePicker table tbody th.month-out,div.datePicker table tbody th.out-of-range{color:#aaa!important;font-style:oblique;background:#fcfcfc!important;}
+div.datePicker table tbody th.out-of-range{opacity:0.6;filter:alpha(opacity=60);}
+div.datePicker table tbody td.not-selectable{opacity:0.8;filter:alpha(opacity=80);}
+div.datePicker table tbody tr{display:table-row;}
+div.datePicker table tfoot sup{font-size:.86em;letter-spacing:normal;text-transform:none;height:0;line-height:1;position:relative;top:-.2em;vertical-align:baseline!important;}
+div.datePicker table thead th.date-picker-day-header,div.datePicker table thead span.month-display,div.datePicker table thead span.year-display{text-shadow:0 1px 1px #fff;}
+div.datepicker-focus table.datePickerTable{border-color:#999!important;}
+div.datePicker table tbody tr td:focus,div.datePicker table tbody td.date-picker-hover{overflow:hidden;outline:0 solid red;-moz-outline:0 none;-o-highlight:0 none;color:#6482aa!important;}
+div.static-datepicker table{-moz-box-shadow:0 0 0 transparent;}
+div.datepicker-focus table{outline:none;-moz-box-shadow:0 0 5px #aaa;}
+:-o-prefocus{outline:0;}
+* html div.datePicker table td{background-image:none;}
+* html div.datePicker table td.date-picker-unused{background:#f2f2f2;}
+body.fd-drag-active{-webkit-user-select:none;}
+@media screen and -webkit-min-device-pixel-ratio0 {
+div.datePicker table{border-spacing:.3em;-webkit-box-shadow:0 0 5px #aaa;-webkit-border-radius:.8em;}
+div.static-datepicker table{-webkit-box-shadow:0 0 0 transparent;}
+div.datepicker-focus table{-webkit-box-shadow:0 0 5px #aaa;}
+div.datePicker table td,div.datePicker table tbody th{-webkit-border-radius:2px;padding:.1em;}
+div.datePicker table tbody td.date-picker-hover{-webkit-box-shadow:0 0 1px #6482aa;}
+}
