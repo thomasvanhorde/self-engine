@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<arborescence>
+    <install>
+        <title>Installation</title>
+        <controller>install</controller>
+        <layout>install.tpl</layout>
+        <accessControl>
+            <login>admin</login>
+            <password>a7cadb54ca75f2595c6a2a2139aa3e94</password> <!-- admin, voir site/encode/<<string>> -->
+        </accessControl>
+    </install>
+    <encode>
+        <title>Chaine encode</title>
+        <controller>encode</controller>
+        <layout>vide.tpl</layout>
+    </encode>
+    <ac_login>
+        <title>Access Control</title>
+        <controller>access_control</controller>
+        <layout>AC_login.tpl</layout>
+        <disconnect>
+            <title>Access Control - Disconnect</title>
+            <controller>access_control</controller>
+            <layout>AC_login.tpl</layout>
+            <method>disconnect</method>
+        </disconnect>
+    </ac_login>
+    <admin>
+        <title>Administrator interface</title>
+        <controller>admin</controller>
+        <layout>admin.tpl</layout>
+        <accessControl>
+            <login>admin</login>
+            <password>a7cadb54ca75f2595c6a2a2139aa3e94</password> <!-- admin, voir site/encode/<<string>> -->
+        </accessControl>
+        <content-manager>
+            <structures>
+                <title>Gestion de structures</title>
+                <controller>admin/structures</controller>
+                <layout>admin.tpl</layout>
+            </structures>
+            <contenus>
+                <title>Gestion de contenu</title>
+                <controller>admin/content</controller>
+                <layout>admin.tpl</layout>
+            </contenus>
+        </content-manager>
+    </admin>
+    <phpinfo>
+        <title>Php Info</title>
+        <controller>admin</controller>
+        <method>phpinfo</method>
+    </phpinfo>
+</arborescence>

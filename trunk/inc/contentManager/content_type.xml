@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<contentType>
+    <type id="10">input</type>
+    <type id="11">password</type>
+    <type id="12">email</type>
+    <type id="13">number</type>
+    <type id="15">checkbox</type>
+    <type id="20">textarea simple</type>
+    <type id="21">textarea wysiwyg</type>
+    <type id="30">date</type>
+    <type id="40">media</type>
+    <type id="50">select</type>
+    <type id="60">contenu</type>
+</contentType>

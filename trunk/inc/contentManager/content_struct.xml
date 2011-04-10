@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<contentStruct>
+
+    <element id="article" locked="true">
+        <name>Defaut - Article</name>
+        <description>Structure de base d'un article</description>
+        <types>
+            <type refType="10">
+                <name>Titre</name>
+                <id>title</id>
+                <valeur/>
+                <limit>70</limit>
+                <index>true</index>
+            </type>
+            <type refType="40">
+                <name>Image</name>
+                <id>picture</id>
+                <valeur></valeur>
+            </type>
+            <type refType="20">
+                <name>Chapeau</name>
+                <id>strapline</id>
+                <valeur>800</valeur>
+                <index>true</index>
+            </type>
+            <type refType="21">
+                <name>Corps du texte</name>
+                <id>content</id>
+                <valeur></valeur>
+            </type>
+        </types>
+    </element>
+
+    <element id="calendrier" locked="true">
+        <name>Defaut - Calendrier</name>
+        <description>Liste d'évènements</description>
+        <types>
+            <type refType="10">
+                <name>Titre</name>
+                <id>title</id>
+                <valeur></valeur>
+                <limit>40</limit>
+                <index>true</index>
+            </type>
+            <type refType="21">
+                <name>Description</name>
+                <id>description</id>
+                <valeur></valeur>
+                <index>true</index>
+            </type>
+            <type refType="30">
+                <name>Date</name>
+                <id>date</id>
+                <valeur></valeur>
+                <index>true</index>
+            </type>
+        </types>
+    </element>
+
+</contentStruct>

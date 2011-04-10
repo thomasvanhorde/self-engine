@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<coremessage>
+    <message id="ERR_LOAD_CLASS">Impossible de charger la class</message>
+    <message id="ERR_LOAD_CLASS_LESS">Impossible de charger la class Less PHP</message>
+    <message id="ERR_LOAD_CLASS_PHPMAILER">Impossible d'inclure la class PhpMailer</message>
+    <message id="ERR_LOAD_CLASS_LOADER">Impossible d'inclure la class ClassLoader</message>
+    <message id="ERR_LOAD_CLASS_SMARTY">Impossible d'inclure Smarty</message>
+    <message id="ERR_LOAD_CLASS_PDF">Impossible d'inclure la class Html2PDF</message>
+    <message id="MESS_BASE_START">Base::start()</message>
+    <message id="MESS_BASE_END">End Base::start()</message>
+    <message id="MESS_BLOCK">Block</message>
+    <message id="MESS_FOLDER_BDD_NOT_FOUND">Bdd folder not found in </message>
+    <message id="MESS_ERR_ACCESS_CONTROL">Access control denied</message>
+    <message id="MESS_ERR_SAVE_COMPILED_OBJ">Sauvegarde d'objet compilé interdit!</message>
+    <message id="MESS_ERR_ACCESS_CONTROL_BAD_MDP">Login/password failed</message>
+    <message id="MESS_ACCESS_CONTROL_ALLOW">Access control allowed</message>
+</coremessage>
