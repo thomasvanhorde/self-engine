@@ -10,7 +10,7 @@
 
 
 
-    <div id="mmenu" style="height:30px; overflow:auto;">
+    <div id="mmenu" style="overflow:auto;">
         <a id="rename" hreh="#" title="Renommer">Renommer</a>
         <a id="remove" hreh="#" title="Supprimer">Supprimer</a>
         <a id="add_folder" hreh="#" title="Ajouter un dossier">Ajouter un dossier</a>
