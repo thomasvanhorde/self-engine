@@ -300,8 +300,8 @@
 			initially_open : [],
 			rtl			: false,
 			strings		: {
-				loading		: "Loading ...",
-				new_node	: "New node"
+				loading		: "Chargement ...",
+				new_node	: "Nouveau"
 			}
 		},
 		_fn : { 

@@ -75,6 +75,7 @@ $(function () {
 				}
 			}
 		})
+            
 		.bind("create.jstree", function (e, data) {
 			$.post(
 				"data/create_node/",
@@ -136,13 +137,26 @@ $(function () {
     });
 
     function generateYT_form(){
-        nodeId = jQuery('.jstree-clicked').parent().attr('id').replace("node_","");
-        $.ajax({
-          url: "youtube-form/?nodeID="+nodeId,
-          success: function(data){
-            jQuery('#youtubeForm .inner').html(data);
-          }
-        });
+        tryDom = jQuery('.jstree-clicked').parent().attr('id');
+        if(tryDom != undefined) {
+            tryID = jQuery('.jstree-clicked').parent().attr('id').replace("node_","");
+            if(tryID != undefined){
+                var nodeREL = jQuery('.jstree-clicked').parent().attr('rel');
+                if(nodeREL == 'folder'){
+                    nodeId = tryID;
+
+                    $.ajax({
+                      url: "youtube-form/?nodeID="+nodeId,
+                      success: function(data){
+                        jQuery('#youtubeForm .inner').html(data);
+                      }
+                    });
+                }else {
+                    jQuery('#youtubeForm .inner').html('Veuillez choisir un dossier');
+                }
+            }
+        }else
+            jQuery('#youtubeForm .inner').html('Veuillez choisir un dossier');
     }
 
 	$("#mmenu a").click(function () {
@@ -175,6 +189,11 @@ $(function () {
         jQuery('#youtubeForm').fadeIn();
     });
 
+
+
+    jQuery.each(jQuery('#mediatheque li.jstree-open'), function(i, l){
+        jQuery(l).removeClass('jstree-open').addClass('jstree-closed');
+    });
 
 
 });
