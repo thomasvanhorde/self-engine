@@ -98,8 +98,36 @@
     background-position: 0 0;
 }
 
+.jstree-0 li[rel="videoYoutube"] > a > .jstree-icon {
+    background-image: url("youtube.png");
+    background-position: 0 0;
+}
+
 
 
 .jstree ul, .jstree li {
     padding:0!important;
 }
+
+
+#logo_upload, #logo_uploadYT, #add_folder, #remove, #rename {
+    height:32px;
+    width:32px;
+    display: block;
+    text-indent:-10000px;
+    float:left;
+    margin-left:10px;
+    cursor:pointer;
+}
+
+#mediatheque { clear: both;padding-top: 20px;}
+
+#logo_upload { background:url("file_up.png"); }
+#logo_uploadYT { background:url("youtube_up.png"); }
+#add_folder {background:url('folder_add.png');}
+#remove {background:url('delete.png');}
+#rename {background:url('edit.png');}
+.ucLoader {background:url('uc-load.gif'); display:block;width:48px; height:48px;}
+
+
+#uploadForm, #youtubeForm { display:none; clear:both;margin-top: 20px;}
