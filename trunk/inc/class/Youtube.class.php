@@ -47,7 +47,7 @@ class Youtube {
                       $authenticationURL);
     }
 
-    function uploadForm($title = 'default title', $description = 'default description', $category = 'Comedy', $tag = 'my Tag') {
+    function uploadForm($redirect = false, $title = 'default title', $description = 'default description', $category = 'Comedy', $tag = 'my Tag') {
         // Note that this example creates an unversioned service object.
         // You do not need to specify a version number to upload content
         // since the upload behavior is the same for all API versions.
@@ -70,14 +70,17 @@ class Youtube {
         $postUrl = $tokenArray['url'];
 
         // place to redirect user after upload
-        $nextUrl = 'http://www.example.com/youtube_uploads';
+        if($redirect)
+            $nextUrl = $redirect;
+        else
+            $nextUrl = HTTP_HOST_REQUEST;
 
         // build the form
         $form = '<form action="'. $postUrl .'?nexturl='. $nextUrl .
                 '" method="post" enctype="multipart/form-data">'.
                 '<input name="file" type="file"/>'.
                 '<input name="token" type="hidden" value="'. $tokenValue .'"/>'.
-                '<input value="Upload Video File" type="submit" />'.
+                '<input value="Envoyer une vidéo" type="submit" />'.
                 '</form>';
         
         return $form;
@@ -95,7 +98,6 @@ class Youtube {
     {
       return $this->_instance->getVideoFeed($location);
     }
-
 
     
 }

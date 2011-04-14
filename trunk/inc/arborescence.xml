@@ -43,6 +43,18 @@
                 <method>upload</method>
                 <layout>vide.tpl</layout>
             </upload>
+            <youtube-form>
+                <title>form youtbe file</title>
+                <controller>admin/media</controller>
+                <method>getYoutubeForm</method>
+                <layout>vide.tpl</layout>
+            </youtube-form>
+            <upload-youtube>
+                <title>upload youtbe file</title>
+                <controller>admin/media</controller>
+                <method>uploadYoutbe</method>
+                <layout>vide.tpl</layout>
+            </upload-youtube>
             <data>
                 <title>get data</title>
                 <controller>admin/media</controller>
