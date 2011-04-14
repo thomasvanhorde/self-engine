@@ -24,7 +24,7 @@
 /**
  * @see Zend_Gdata_App_CaptchaRequiredException
  */
-require_once 'Zend/Gdata/App/AuthException.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/App/AuthException.php';
 
 /**
  * Gdata exceptions

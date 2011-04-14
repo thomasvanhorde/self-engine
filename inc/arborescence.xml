@@ -33,6 +33,41 @@
             <login>admin</login>
             <password>a7cadb54ca75f2595c6a2a2139aa3e94</password> <!-- admin, voir site/encode/<<string>> -->
         </accessControl>
+        <media>
+            <title>Médiathèque</title>
+            <controller>admin/media</controller>
+            <layout>admin.tpl</layout>
+            <upload>
+                <title>upload file</title>
+                <controller>admin/media</controller>
+                <method>upload</method>
+                <layout>vide.tpl</layout>
+            </upload>
+            <data>
+                <title>get data</title>
+                <controller>admin/media</controller>
+                <method>data</method>
+                <layout>vide.tpl</layout>
+                <create_node>
+                    <title>Create node data</title>
+                    <controller>admin/media</controller>
+                    <method>createNode</method>
+                    <layout>vide.tpl</layout>
+                </create_node>
+                <rename_node>
+                    <title>rename node</title>
+                    <controller>admin/media</controller>
+                    <method>renameNode</method>
+                    <layout>vide.tpl</layout>
+                </rename_node>
+                <remove_node>
+                    <title>rename node</title>
+                    <controller>admin/media</controller>
+                    <method>removeNode</method>
+                    <layout>vide.tpl</layout>
+                </remove_node>
+            </data>
+        </media>
         <content-manager>
             <structures>
                 <title>Gestion de structures</title>

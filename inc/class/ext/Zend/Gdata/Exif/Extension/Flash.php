@@ -24,12 +24,12 @@
 /**
  * @see Zend_Gdata_Extension
  */
-require_once 'Zend/Gdata/Extension.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Extension.php';
 
 /**
  * @see Zend_Gdata_Exif
  */
-require_once 'Zend/Gdata/Exif.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Exif.php';
 
 /**
  * Represents the exif:flash element used by the Gdata Exif extensions.

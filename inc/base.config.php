@@ -54,6 +54,7 @@ define('INFOS_XML_CORE_MESSAGE','coremessage.xml');
 define('INFOS_XML_CONTENT_TYPE','content_type.xml');
 define('INFOS_XML_CONTENT_STRUCT','content_struct.xml');
 define('INFOS_XML',FOLDER_INC.'arborescence.xml');
+define('INFOS_JSON_MEDIA',FOLDER_INC.'media.json');
 define('INFOS_INDEX','index');
 define('INFOS_TITLE','title');
 define('INFOS_CONTROLLER','controller');
