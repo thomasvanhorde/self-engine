@@ -24,7 +24,7 @@
 /**
  * @see Zend_Gdata_App_Extension
  */
-require_once 'Zend/Gdata/App/Extension.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/App/Extension.php';
 
 /**
  * Represents the atom:updated element

@@ -24,7 +24,7 @@
 /**
  * @see Zend_Gdata_App_Base
  */
-require_once 'Zend/Gdata/App/Base.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/App/Base.php';
 
 /**
  * Gdata App extensions

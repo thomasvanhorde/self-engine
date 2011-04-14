@@ -23,12 +23,12 @@
 /**
  * @see Zend_Gdata_Entry
  */
-require_once 'Zend/Gdata/App/Extension/Link.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/App/Extension/Link.php';
 
 /**
  * @see Zend_Gdata_Entry
  */
-require_once 'Zend/Gdata/Calendar/Extension/WebContent.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Calendar/Extension/WebContent.php';
 
 
 /**

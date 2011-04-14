@@ -24,7 +24,7 @@
 /**
  * @see Zend_Gdata_App_Extension_Text
  */
-require_once 'Zend/Gdata/App/Extension/Text.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/App/Extension/Text.php';
 
 /**
  * Represents the atom:content element

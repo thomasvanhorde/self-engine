@@ -24,12 +24,12 @@
 /**
  * @see Zend_Gdata_Extension
  */
-require_once 'Zend/Gdata/Extension.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Extension.php';
 
 /**
  * @see Zend_Gdata_Photos
  */
-require_once 'Zend/Gdata/Photos.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Photos.php';
 
 /**
  * Represents the gphoto:checksum element used by the API.

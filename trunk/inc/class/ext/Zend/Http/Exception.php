@@ -23,7 +23,7 @@
 /**
  * @see Zend_Exception
  */
-require_once 'Zend/Exception.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Exception.php';
 
 /**
  * @category   Zend
