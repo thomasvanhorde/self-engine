@@ -70,4 +70,8 @@ define('INFOS_ACCESS_CONTROL_PASSWORD','password');
  * Others define
  */
 define('HTTP_HOST',$_SERVER['HTTP_HOST']);
-define('HTTP_HOST_REQUEST','http://'.$_SERVER['HTTP_HOST'].$_SERVER['REDIRECT_URL']);
+
+if(isset($_SERVER['REDIRECT_URL']))
+    define('HTTP_HOST_REQUEST','http://'.$_SERVER['HTTP_HOST'].$_SERVER['REDIRECT_URL']);
+else
+    define('HTTP_HOST_REQUEST','http://'.$_SERVER['HTTP_HOST']);
