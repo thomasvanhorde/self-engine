@@ -17,7 +17,7 @@ class Controller {
 	function Controller($ControllerName = false, $method = false){
 		if($ControllerName) {
             $ControllerName = explode('/', $ControllerName);
-            // Gestion des param�tres de la m�thode (facultatif)
+            // Gestion des paramètres de la méthode (facultatif)
             $a = explode('#(#', $method);
             $method = $a[0];
             if(isset($a[1])){
@@ -38,7 +38,7 @@ class Controller {
 			if(!$method)
 				$method = INFOS_METHOD_DEFAUT;
 
-			// On appel la m�thode
+			// On appel la méthode
             if(isset($array) && is_array($array))
 			    $ControlerObj->$method($array);
             else
