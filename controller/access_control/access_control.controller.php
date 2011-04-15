@@ -5,7 +5,7 @@ class access_control_controller {
     private $_view;
     
     public  function  __construct(){
-        $this->_view = Base::Load(CLASS_VUE);
+        $this->_view = Base::Load(CLASS_VIEW);
     }
 
     public  function defaut(){}
