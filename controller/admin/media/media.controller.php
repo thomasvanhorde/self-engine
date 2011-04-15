@@ -41,9 +41,6 @@ class media_controller {
     function upload(){
         $upload = $this->_classMedia->upload($_FILES['new_media']);
         if (empty($upload->error)) {
-            echo 'image renamed "foo" copied';
-            var_dump($_POST);
-            var_dump($upload);
             $this->_classMedia->addNode(
                 $_POST['node'],
                 $upload->file_src_name,
