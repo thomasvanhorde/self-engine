@@ -25,7 +25,7 @@ Class Base {
      * @description initialise la vue
      */
 	function __construct(){
-        $this->_view = Base::Load(CLASS_VUE);
+        $this->_view = Base::Load(CLASS_VIEW);
 	}
 
     /***

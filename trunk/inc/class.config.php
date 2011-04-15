@@ -8,7 +8,7 @@
 	 */
 
 	// Classes de l'engine
-	define_once('CLASS_VUE','View');
+	define_once('CLASS_VIEW','View');
 	define_once('CLASS_BASE','Base');
 	define_once('CLASS_BDD','BddMongoDB');
 	define_once('CLASS_CORE_MESSAGE','Coremessage');
