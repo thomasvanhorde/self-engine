@@ -64,9 +64,9 @@
 
 			<!-- Sidebar Profile links -->
 			<div id="profile-links">
-				Hello, <a href="#" title="Edit your profile">John Doe</a>, you have <a href="#messages" rel="modal" title="3 Messages">3 Messages</a><br>
+				Hello, <a href="#">{$myName}</a><br>
 				<br>
-				<a href="#" title="View the Site">View the Site</a> | <a href="#" title="Sign Out">Sign Out</a>
+				<a href="{$SYS_FOLDER}" title="View the Site">View the Site</a> | <a href="{$SYS_FOLDER}ac_login/disconnect/" title="Sign Out">Sign Out</a>
 			</div>
 
 			{ $admin_mainNav }

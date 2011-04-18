@@ -33,6 +33,7 @@ class access_control_controller {
 
                 unset($_SESSION[SESSION_REDIRECT]);
                 $_SESSION[SESSION_ACCESS_CONTROL][(string)$ControllerName] = true;
+                $_SESSION[SESSION_ACCESS_CONTROL]['login'] = $data['user_name'];
                 header('location: '.SYS_FOLDER.substr($redirect, 1));
             }
             else {

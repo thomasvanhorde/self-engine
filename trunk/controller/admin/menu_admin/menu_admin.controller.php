@@ -34,6 +34,7 @@
             $complete_url = implode('/',$_GET['url']);
             $this->_view->assign('myCompletURL', $complete_url);
             $this->_view->assign('myURL', $_GET['url']);
+            $this->_view->assign('myName', $_SESSION[SESSION_ACCESS_CONTROL]['login']);
             $this->_view->addBlock('admin_mainNav', 'admin_mainNav.tpl', 'view/admin/');
         }
     }
