@@ -5,7 +5,6 @@ class media_controller extends Component{
     private $_classMedia;
 
     function __construct(){
-        parent::__construct();
         $this->_contentManager = Base::Load(CLASS_CONTENT_MANAGER);
         $this->_classMedia = Base::Load(CLASS_MEDIA);
     }

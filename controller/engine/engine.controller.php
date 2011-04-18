@@ -1,13 +1,9 @@
 <?php
 
-class engine_controller {
+class engine_controller extends Component{
 
-    public  function engine_controller(){
-		$this->_view = Base::Load(CLASS_COMPONENT)->_view;
-	}
-	
-        public  function defaut(){
-	}
+    public  function defaut(){}
+    
 }
 
 
