@@ -31,6 +31,7 @@ class Controller {
                 elseif(file_exists(ENGINE_URL.FOLDER_APPLICATION.implode('/',$ControllerName).'/'.$ControllerName[count($ControllerName)-1].CONTROLLER_EXT))
                     include_once ENGINE_URL.FOLDER_APPLICATION.implode('/',$ControllerName).'/'.$ControllerName[count($ControllerName)-1].CONTROLLER_EXT;
             }
+            
             $ControllerName = $ControllerName[count($ControllerName)-1].CONTROLLER_NAME_EXT;
 
             $ControlerObj = new $ControllerName;

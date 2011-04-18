@@ -1,11 +1,11 @@
 <?php
 
-class media_controller {
+class media_controller extends Component{
 
-    private $_data, $_classMedia;
+    private $_classMedia;
 
     function __construct(){
-        $this->_view = Base::Load('Component')->_view;
+        parent::__construct();
         $this->_contentManager = Base::Load(CLASS_CONTENT_MANAGER);
         $this->_classMedia = Base::Load(CLASS_MEDIA);
     }

@@ -46,6 +46,10 @@ Class Base {
         return $_SESSION['location'][count($_SESSION['location']) - $number];
     }
 
+    public function getView(){
+        return $this->_view;
+    }
+
     /**
      * @param  $ClassName
      * @param bool $param
@@ -142,7 +146,7 @@ Class Base {
 		// Views controller path
 		$ComponentObj->_view->_folder = FOLDER_APPLICATION.implode('/',$ControllerName).'/'.FOLDER_VIEW;
 
-        
+
         // Access Control
         if(!empty($ControllerAccessControl)){
 

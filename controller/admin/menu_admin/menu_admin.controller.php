@@ -5,24 +5,7 @@
 	 *	@author Thomas Van Horde
 	 *	@version 1.0
 	 */
-	class menu_admin_controller {
-
-		// Attributs de la classe
-		private $_view;
-
-		/**
-		 *	Constructeur :
-		 		- Récupération de la bonne instance de Smarty
-		 		- Déclaration du dossier contenant les vues de ce contrôleur
-		 *
-		 *	@author Thomas Van Horde
-		 *	@version 1.1
-		 *	@see: CLASS_COMPONENT
-		 *	@see: CLASS_USER
-		 */
-        function __construct() {
-            $this->_view = Base::Load(CLASS_COMPONENT)->_view;
-        }
+	class menu_admin_controller extends Component {
 
 		/**
 		 *	Envoi des données au gabarit
@@ -36,6 +19,8 @@
             $this->_view->assign('myURL', $_GET['url']);
             $this->_view->assign('myName', $_SESSION[SESSION_ACCESS_CONTROL]['login']);
             $this->_view->addBlock('admin_mainNav', 'admin_mainNav.tpl', 'view/admin/');
+
+            $this->_view->addBlock('google_analytics', 'google_analytics.tpl', 'view/');
         }
     }
 
