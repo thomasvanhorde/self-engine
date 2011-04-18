@@ -35,7 +35,8 @@ class Controller {
             $ControllerName = $ControllerName[count($ControllerName)-1].CONTROLLER_NAME_EXT;
 
             $ControlerObj = new $ControllerName;
-
+            $ControlerObj->setConstruct();
+            
 			if(!$method)
 				$method = INFOS_METHOD_DEFAUT;
 
@@ -44,6 +45,8 @@ class Controller {
 			    $ControlerObj->$method($array);
             else
                 $ControlerObj->$method();
+
+
 		}
 	}
 	

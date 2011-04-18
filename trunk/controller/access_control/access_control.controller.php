@@ -1,12 +1,8 @@
 <?php
 
-class access_control_controller {
+class access_control_controller extends Component{
 
-    private $_view;
-    
-    public  function  __construct(){
-        $this->_view = Base::Load(CLASS_VIEW);
-    }
+    public  function  __construct(){ }
 
     public  function defaut(){}
 

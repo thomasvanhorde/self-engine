@@ -3,7 +3,6 @@
 class content_controller extends Component{
 
     public  function __construct(){
-        parent::__construct();
         $this->_contentManager = Base::Load(CLASS_CONTENT_MANAGER);
     }
 
