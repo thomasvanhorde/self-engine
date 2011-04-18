@@ -69,7 +69,7 @@
 				<a href="#" title="View the Site">View the Site</a> | <a href="#" title="Sign Out">Sign Out</a>
 			</div>
 
-			{ $mainNav }
+			{ $admin_mainNav }
 
 			<div id="messages" style="display: none;"> <!-- Messages are shown when a link with these attributes are clicked: href="#messages" rel="modal"  -->
 

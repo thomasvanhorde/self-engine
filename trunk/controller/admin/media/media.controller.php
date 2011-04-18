@@ -7,8 +7,6 @@ class media_controller {
     function __construct(){
         $this->_view = Base::Load('Component')->_view;
         $this->_contentManager = Base::Load(CLASS_CONTENT_MANAGER);
-        $this->_view->addBlock('mainNav', 'admin_mainNav.tpl', 'view/admin/');
-
         $this->_classMedia = Base::Load(CLASS_MEDIA);
     }
 
