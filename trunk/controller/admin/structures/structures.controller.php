@@ -1,13 +1,10 @@
 <?php
 
-class structures_controller {
+class structures_controller extends Component{
 
     public  function __construct(){
-        $this->_view = Base::Load('Component')->_view;
+        parent::__construct();
         $this->_contentManager = Base::Load(CLASS_CONTENT_MANAGER);
-        $this->_BBD = Base::Load(CLASS_BDD)->_connexion;
-        // Left Nav
-        $this->_view->addBlock('mainNav', 'admin_mainNav.tpl', 'view/admin/');        
     }
 
     public  function defaut(){
