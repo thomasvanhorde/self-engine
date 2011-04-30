@@ -1,0 +1,10 @@
+User-Agent: *
+Disallow: /controller/
+Disallow: /cache/
+Disallow: /ext/
+Disallow: /inc/
+Disallow: /js/
+Disallow: /themes/
+Disallow: /view/
+Disallow: /error_config.php
+Sitemap: {$HTTP_HOST}/sitemap.xml

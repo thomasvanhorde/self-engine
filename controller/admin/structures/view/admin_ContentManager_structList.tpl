@@ -1,3 +1,5 @@
+<h3>Liste des structures</h3>
+
 <table>
     <tr>
         <th>Nom</th>

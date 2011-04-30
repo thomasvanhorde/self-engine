@@ -33,13 +33,13 @@ class structures_controller extends Component{
     }
 
 
-    public  function deleteStruct($uid){
+    public function deleteStruct($uid){
         $uid = $this->_contentManager->_struct->delete($uid);
         header('location: '.$_SERVER['REDIRECT_URL'].'../../');
         exit();
     }
 
-    public  function newStruct(){
+    public function newStruct(){
         $type = $this->_contentManager->getType();
         $structAll = $this->_contentManager->getStructAll();
 
@@ -53,7 +53,7 @@ class structures_controller extends Component{
         $this->_view->addBlock('content', 'admin_ContentManager_structEdit.tpl');
     }
 
-    public  function cloneStruct($structID){
+    public function cloneStruct($structID){
         $this->_view->assign('clone',true);
         $this->editStruct($structID);
     }
@@ -84,7 +84,7 @@ class structures_controller extends Component{
         $this->newStruct();
     }
 
-    public  function POST_structEdit($data){
+    public function POST_structEdit($data){
         $uid = $this->_contentManager->_struct->save($data);
 
         if(isset($data['id']) && !empty($data['id']))

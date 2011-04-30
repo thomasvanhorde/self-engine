@@ -34,6 +34,7 @@ class Controller {
             
             $ControllerName = $ControllerName[count($ControllerName)-1].CONTROLLER_NAME_EXT;
 
+            // Call view instance
             $ControlerObj = new $ControllerName;
             $ControlerObj->setConstruct();
             

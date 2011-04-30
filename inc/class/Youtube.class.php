@@ -86,8 +86,8 @@ class Youtube {
         return $form;
     }
 
-    function getVideoEntry($videoID){
-        return $this->_instance->getVideoEntry($videoID);
+    function getVideoEntry($videoID, $full = false){
+        return $this->_instance->getVideoEntry($videoID, null, $full);
     }
 
     function getVideo(){
@@ -96,8 +96,16 @@ class Youtube {
 
     function getVideoFeed($location = Zend_Gdata_YouTube::VIDEO_URI)
     {
-      return $this->_instance->getVideoFeed($location);
+        return $this->_instance->getVideoFeed($location);
     }
 
-    
+    function updateEntry($videoEntry, $putUrl = null){
+        return $this->_instance->updateEntry($videoEntry, $videoEntry->getEditLink()->getHref());
+    }
+
+    function delete($videoEntry){
+        return $this->_instance->delete($videoEntry);
+    }
+
+
 }

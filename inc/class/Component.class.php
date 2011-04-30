@@ -9,15 +9,17 @@
 class Component {
     
 	public $_view;
-	public $_bdd;
+//	public $_bdd;
 
-    public function __construct(){
-
-    }
+    public function __construct(){ }
 
     public function setConstruct(){
-        $this->_bdd = Base::Load(CLASS_BDD)->_connexion;
+    //    $this->_bdd = Base::Load(CLASS_BDD)->_connexion;
         $this->_view = Base::Load(CLASS_BASE)->getView();
+    }
+
+    public function setContentType($contentType){
+        Base::Load(CLASS_BASE)->setContentType($contentType);
     }
 
 }

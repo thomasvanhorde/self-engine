@@ -110,7 +110,7 @@
 }
 
 
-#logo_upload, #logo_uploadYT, #add_folder, #remove, #rename {
+#logo_upload, #logo_uploadYT, #add_folder, #remove, #rename, #info {
     height:32px;
     width:32px;
     display: block;
@@ -127,6 +127,7 @@
 #add_folder {background:url('folder_add.png');}
 #remove {background:url('delete.png');}
 #rename {background:url('edit.png');}
+#info {background:url('get_info.png');}
 .ucLoader {background:url('uc-load.gif'); display:block;width:48px; height:48px;}
 
 

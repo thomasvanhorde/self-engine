@@ -4,9 +4,12 @@
 <script type="text/javascript" src="{$ENGINE_RESSOURCE}js/admin/jquery.cookie.js"></script>
 <script type="text/javascript" src="{$ENGINE_RESSOURCE}js/admin/jquery.hotkeys.js"></script>
 <script type="text/javascript" src="{$ENGINE_RESSOURCE}js/admin/jquery.jstree.js"></script>
+<script type="text/javascript" src="{$ENGINE_RESSOURCE}js/admin/jquery.nyroModal.custom.min.js"></script>
+<script type="text/javascript" src="{$ENGINE_RESSOURCE}js/admin/jquery.nyroModal.ie6.min.js"></script>
 <script type="text/javascript" src="{$ENGINE_RESSOURCE}js/admin/media.js"></script>
 
 <link rel="stylesheet" href="{$ENGINE_RESSOURCE}themes/admin/jsTree/default/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="{$ENGINE_RESSOURCE}themes/admin/nyroModal/nyroModal.css" type="text/css" media="screen" />
 
 
 
@@ -16,6 +19,7 @@
         <a id="add_folder" hreh="#" title="Ajouter un dossier">Ajouter un dossier</a>
         <a id="logo_upload" hreh="#" title="Envoyer un fichier">Envoyer un fichier</a>
         <a id="logo_uploadYT" hreh="#" title="Envoyer une vidéo Youtube">Envoyer une vidéo Youtube</a>
+        <a id="info" href="#" title="Plus d'informations">Plus d'informations</a>
     </div>
     <div id="youtubeForm" class="form_opt"><div class="inner"></div></div>
 
@@ -29,3 +33,4 @@
     
     <!-- the tree container (notice NOT an UL node) -->
     <div id="mediatheque" class="mediatheque"></div>
+

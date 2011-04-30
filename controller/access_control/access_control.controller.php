@@ -2,11 +2,11 @@
 
 class access_control_controller extends Component{
 
-    public  function  __construct(){ }
+    public function  __construct(){ }
 
-    public  function defaut(){}
+    public function defaut(){}
 
-    public  function POST_connect($data){
+    public function POST_connect($data){
         if(isset($data['user_name']) && isset($data['user_password'])){
             // To redirect 
             $redirect = selDecode($_SESSION['redirect'], 'base64');
@@ -26,7 +26,6 @@ class access_control_controller extends Component{
 
             // TEST LOGIN & MDP
             if($ControllerAccessControlLogin == $data['user_name'] && selEncode($data['user_password'], ENCODE_METHOD) == $ControllerAccessControlPassword){
-
                 unset($_SESSION[SESSION_REDIRECT]);
                 $_SESSION[SESSION_ACCESS_CONTROL][(string)$ControllerName] = true;
                 $_SESSION[SESSION_ACCESS_CONTROL]['login'] = $data['user_name'];
