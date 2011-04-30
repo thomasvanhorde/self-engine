@@ -19,12 +19,14 @@ Class Base {
 	protected $_view;
 	protected $_bdd;
 	protected $_buffer;
+    protected $_contentType;
 
     /**
      * @return void
      * @description initialise la vue
      */
 	function __construct(){
+        $this->_contentType = "text/html";
         $this->_view = Base::Load(CLASS_VIEW);
 	}
 
@@ -48,6 +50,10 @@ Class Base {
 
     public function getView(){
         return $this->_view;
+    }
+
+    public function setContentType($contentType){
+        $this->_contentType = $contentType;
     }
 
     /**
@@ -317,6 +323,13 @@ Class Base {
      * @description display buffer
      */
     public function Display(){
+
+        if (DEV)
+            header("Pragma: no-cache");
+
+
+        header('Content-type: '.$this->_contentType.'; charset=utf-8');
+
         if(GZIP_COMPRESS)
             echo compress_output_option($this->_buffer);
         else

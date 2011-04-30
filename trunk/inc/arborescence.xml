@@ -1,5 +1,17 @@
 <?xml version="1.0"?>
 <arborescence>
+    <robot.txt>
+        <title></title>
+        <controller>engine</controller>
+        <method>robot</method>
+        <layout>vide.tpl</layout>
+    </robot.txt>
+    <sitemap.xml>
+        <title></title>
+        <controller>engine</controller>
+        <method>siteMap</method>
+        <layout>vide.tpl</layout>
+    </sitemap.xml>
     <encode>
         <title>Chaine encode</title>
         <controller>encode</controller>
@@ -38,6 +50,11 @@
                     <controller>admin/menu_admin</controller>
                 </block>
             </blocks>
+            <get-preview>
+                <controller>admin/media</controller>
+                <method>getPreview</method>
+                <layout>vide.tpl</layout>
+            </get-preview>
             <upload>
                 <title>upload file</title>
                 <controller>admin/media</controller>

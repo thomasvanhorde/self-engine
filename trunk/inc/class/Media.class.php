@@ -40,8 +40,11 @@ class Media {
         return (object)$data;
     }
 
-    public function get($id){
-        $data = $this->assignIdParent(json_decode($this->load(), false)->media);
+    public function get($id, $byParent = true){
+        if($byParent)
+            $data = $this->assignIdParent(json_decode($this->load(), false)->media);
+        else
+            $data = $this->assignId(json_decode($this->load(), false)->media);
 
         if(isset($data->$id))
             return json_encode($data->$id);
@@ -72,6 +75,13 @@ class Media {
     public function renameNode($nodeID, $title){
         $data = $this->assignId(json_decode($this->load(), false)->media);
         $id = self::IDprefix.$nodeID;
+
+        if($data->$id->attr->rel == 'videoYoutube'){
+            $video = BASE::Load(CLASS_YOUTUBE)->getVideoEntry($data->$id->file->dataYoutube->id, true);
+            $video->setVideoTitle($title);
+            BASE::Load(CLASS_YOUTUBE)->updateEntry($video);
+        }
+
         $data->$id->data = $title;
         $this->save(json_encode(array('media' => $data)));
         return json_encode(array('status'=> 1));
@@ -82,6 +92,10 @@ class Media {
         $id = self::IDprefix.$nodeID;
 
         if($data->$id->state != self::stateClose){
+            if($data->$id->attr->rel == 'videoYoutube'){
+                $video = BASE::Load(CLASS_YOUTUBE)->getVideoEntry($data->$id->file->dataYoutube->id, true);
+                BASE::Load(CLASS_YOUTUBE)->delete($video);
+            }
             unset($data->$id);
             $this->save(json_encode(array('media' => $data)));
             return json_encode(array('status'=> 1));

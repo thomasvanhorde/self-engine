@@ -5,7 +5,6 @@ class media_controller extends Component{
     private $_classMedia;
 
     function __construct(){
-        $this->_contentManager = Base::Load(CLASS_CONTENT_MANAGER);
         $this->_classMedia = Base::Load(CLASS_MEDIA);
     }
 
@@ -69,5 +68,23 @@ class media_controller extends Component{
         );
 
         header('location: ../../');exit();
+    }
+
+    function getPreview(){
+        $mediaID = $_GET['param'][0];
+        $data = json_decode($this->_classMedia->get('node_'.$mediaID,false));
+
+        $this->_view->assign('media',$data);
+
+        switch($data->attr->rel){
+            case 'videoYoutube':
+                $this->_view->addBlock('data','edit_youtube.tpl');
+                break;
+            default:
+                $this->_view->addBlock('data','edit_default.tpl');
+                break;
+        }
+
+        //var_dump($data);exit();
     }
 }
