@@ -1,4 +1,4 @@
-var nodeID;
+var nodeID, nodeREL;
 
 function uploadFile(){
     nodeID = jQuery('.jstree-clicked').parent().attr('id').replace("node_","");
@@ -130,11 +130,24 @@ $(function () {
 
 
     $('#mediatheque li a,#mediatheque li ins').live('click', function() {
-        var nodeREL = jQuery(this).parent().attr('rel');
+        nodeREL = jQuery(this).parent().attr('rel');
         if(nodeREL == "folder") {
             generateYT_form();
         }
     });
+
+    $('#mediatheque li a').live('click', function() {
+        nodeREL = jQuery(this).parent().attr('rel');
+        if(nodeREL != "folder") {
+            nodeID = jQuery(this).parent().attr('id').replace("node_","");
+            jQuery('#info')
+                    .attr('href','get-preview/'+nodeID+'/')
+                    .nyroModal();
+        }
+    });
+
+
+
 
     function generateYT_form(){
         tryDom = jQuery('.jstree-clicked').parent().attr('id');
@@ -190,6 +203,11 @@ $(function () {
     });
 
 
+    jQuery('#info').click(function (){
+        if(nodeREL != "folder") {
+            nodeID = jQuery('.jstree-clicked').parent().attr('id').replace("node_","");
+        }
+    });
 
     jQuery.each(jQuery('#mediatheque li.jstree-open'), function(i, l){
         jQuery(l).removeClass('jstree-open').addClass('jstree-closed');
