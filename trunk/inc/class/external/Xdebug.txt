@@ -1,0 +1,2 @@
+Un truc qui peut être très utile :
+http://www.siteduzero.com/tutoriel-3-95248-php-utiliser-un-debogueur-pour-php-xdebug.html

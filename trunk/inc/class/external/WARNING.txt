@@ -1,0 +1,3 @@
+Ne pas utiliser ces class directement !
+passer par nos class qui elles vont faire appel à doctrine, smarty etc ..
+On ne doit surtout pas toucher au class externes
