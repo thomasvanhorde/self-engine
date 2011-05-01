@@ -102,7 +102,14 @@ Class Base {
         $baseUrl = str_replace('//','/',$baseUrl);
         define('BASE_URL', 'http://'.$baseUrl);
     }
-	
+
+
+    public function redirectAC($url_access){
+        echo '<META HTTP-EQUIV="Refresh" CONTENT="3; URL='.SYS_FOLDER.'ac_login/">';
+        $_SESSION[SESSION_REDIRECT] = $url_access;
+        Base::Load(CLASS_CORE_MESSAGE)->Critic('MESS_ERR_ACCESS_CONTROL');
+    }
+
 	/**
      * @param  $Folder
      * @return void
@@ -159,9 +166,7 @@ Class Base {
             if(isset($ControllerAccessControl->login) && isset($ControllerAccessControl->password)) {
                 $url_access = selEncode($Folder,'base64');
                 if(!isset($_SESSION[SESSION_ACCESS_CONTROL][$ControllerName[count($ControllerName)-1]]) || !$_SESSION[SESSION_ACCESS_CONTROL][$ControllerName[count($ControllerName)-1]]){    // Access denied ?
-                    echo '<META HTTP-EQUIV="Refresh" CONTENT="3; URL='.SYS_FOLDER.'ac_login/">';
-                    $_SESSION[SESSION_REDIRECT] = $url_access;
-                    Base::Load(CLASS_CORE_MESSAGE)->Critic('MESS_ERR_ACCESS_CONTROL');
+                    $this->redirectAC($url_access);
                 }
             }
 
