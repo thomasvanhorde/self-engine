@@ -99,7 +99,7 @@ class Youtube {
         return $this->_instance->getVideoFeed($location);
     }
 
-    function updateEntry($videoEntry, $putUrl = null){
+    function updateEntry($videoEntry){
         return $this->_instance->updateEntry($videoEntry, $videoEntry->getEditLink()->getHref());
     }
 
