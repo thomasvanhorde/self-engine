@@ -17,6 +17,7 @@ else
 class Youtube {
 
     const authenticationURL = 'https://www.google.com/accounts/ClientLogin';
+    const tokenHandlerUrl = 'http://gdata.youtube.com/action/GetUploadToken';
     private $_instance;
 
     function __construct(){
@@ -27,24 +28,23 @@ class Youtube {
 
         $httpClient = $this->clientLogin();
 
-        $developerKey = YOUTUBE_DEV_KEY;
-        $applicationId = YOUTUBE_APP_ID;
-        $clientId = YOUTUBE_CLIENT_ID;
+        $developerKey = selDecode(YOUTUBE_DEV_KEY);
+        $applicationId = selDecode(YOUTUBE_APP_ID);
+        $clientId = selDecode(YOUTUBE_CLIENT_ID);
         $this->_instance = new Zend_Gdata_YouTube($httpClient, $applicationId, $clientId, $developerKey);
         $this->_instance ->setMajorProtocolVersion(2);
     }
 
     private function clientLogin(){
-        $authenticationURL= self::authenticationURL;
         return Zend_Gdata_ClientLogin::getHttpClient(
-                      YOUTUBE_LOGIN,
-                      YOUTUBE_PWD,
+                      selDecode(YOUTUBE_LOGIN),
+                      selDecode(YOUTUBE_PWD),
                       'youtube',
                       null,
                       'MySource', // a short string identifying your application
                       null,
                       null,
-                      $authenticationURL);
+                      self::authenticationURL);
     }
 
     function uploadForm($redirect = false, $title = 'default title', $description = 'default description', $category = 'Comedy', $tag = 'my Tag') {
@@ -64,8 +64,7 @@ class Youtube {
         // and that individual keywords cannot contain whitespace
         $myVideoEntry->SetVideoTags($tag);
 
-        $tokenHandlerUrl = 'http://gdata.youtube.com/action/GetUploadToken';
-        $tokenArray = $this->_instance->getFormUploadToken($myVideoEntry, $tokenHandlerUrl);
+        $tokenArray = $this->_instance->getFormUploadToken($myVideoEntry, self::tokenHandlerUrl);
         $tokenValue = $tokenArray['token'];
         $postUrl = $tokenArray['url'];
 

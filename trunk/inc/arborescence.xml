@@ -39,7 +39,7 @@
         </blocks>
         <accessControl>
             <login>admin</login>
-            <password>a7cadb54ca75f2595c6a2a2139aa3e94</password> <!-- admin, voir site/encode/<<string>> -->
+            <password>1d331eb197460fd48f292d0c49411135</password> <!-- admin, voir site/encode/<<string>> -->
         </accessControl>
         <media>
             <title>Médiathèque</title>

@@ -24,6 +24,15 @@ class access_control_controller extends Component{
             $ControllerAccessControlLogin = $ControllerAccessControl->$ControllerAccessControlLogin;
             $ControllerAccessControlPassword = $ControllerAccessControl->$ControllerAccessControlPassword;
 
+
+            if(is_array($ControllerAccessControlLogin))
+                $ControllerAccessControlLogin = $ControllerAccessControlLogin[count($ControllerAccessControlLogin) - 1];
+
+            if(is_array($ControllerAccessControlPassword))
+                $ControllerAccessControlPassword = $ControllerAccessControlPassword[count($ControllerAccessControlPassword) - 1];
+
+
+            
             // TEST LOGIN & MDP
             if($ControllerAccessControlLogin == $data['user_name'] && selEncode($data['user_password'], ENCODE_METHOD) == $ControllerAccessControlPassword){
                 unset($_SESSION[SESSION_REDIRECT]);
