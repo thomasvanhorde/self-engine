@@ -6,7 +6,7 @@
  */
 
 
-class Media {
+class Media extends SuperClass{
 
     const IDprefix = 'node_';
     const stateClose = "closed";
@@ -75,12 +75,9 @@ class Media {
     public function renameNode($nodeID, $title){
         $data = $this->assignId(json_decode($this->load(), false)->media);
         $id = self::IDprefix.$nodeID;
-
-        if($data->$id->attr->rel == 'videoYoutube'){
-            $video = BASE::Load(CLASS_YOUTUBE)->getVideoEntry($data->$id->file->dataYoutube->id, true);
-            $video->setVideoTitle($title);
-            BASE::Load(CLASS_YOUTUBE)->updateEntry($video);
-        }
+        
+        foreach($this->getExtensions() as $extension)
+            $extension->renameNode($data->$id, $title);
 
         $data->$id->data = $title;
         $this->save(json_encode(array('media' => $data)));
@@ -92,10 +89,10 @@ class Media {
         $id = self::IDprefix.$nodeID;
 
         if($data->$id->state != self::stateClose){
-            if($data->$id->attr->rel == 'videoYoutube'){
-                $video = BASE::Load(CLASS_YOUTUBE)->getVideoEntry($data->$id->file->dataYoutube->id, true);
-                BASE::Load(CLASS_YOUTUBE)->delete($video);
-            }
+
+            foreach($this->getExtensions() as $extension)
+                $extension->removeNode($data->$id);
+
             unset($data->$id);
             $this->save(json_encode(array('media' => $data)));
             return json_encode(array('status'=> 1));

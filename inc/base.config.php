@@ -5,7 +5,8 @@
  */
 define('FOLDER_INC', 'inc/');
 define('FOLDER_CLASS', FOLDER_INC.'class/');
-define('FOLDER_CLASS_EXT', FOLDER_CLASS.'ext/');
+define('FOLDER_CLASS_EXT', FOLDER_CLASS.'external/');
+define('FOLDER_CLASS_EXTENSION', FOLDER_CLASS.'extension/');
 define('FOLDER_CLASS_BDD', FOLDER_CLASS.'bdd/');
 define('FOLDER_CLASS_BDD_MODEL', FOLDER_CLASS_BDD.'modeles/');
 define('FOLDER_CLASS_BDD_CLASS', FOLDER_CLASS_BDD.'class/');
@@ -29,6 +30,12 @@ define('TEMPLATE_EXT','');
 define('CONTROLLER_EXT','.controller.php');
 define('CONTROLLER_NAME_EXT','_controller');
 define('CONTROLLER_POST_PREC','POST_');
+
+/*
+ * Extension define
+ */
+define('EXTENSION_EXT','.ext.php');
+define('EXTENSION_NAME_EXT','_extension');
 
 /*
  * Class define

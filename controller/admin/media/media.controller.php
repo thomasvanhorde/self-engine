@@ -57,12 +57,11 @@ class media_controller extends Component{
         $data['embed'] = 'http://www.youtube.com/embed/'.$_GET['id'];
         $data['flashPlayer'] = $video->getFlashPlayerUrl();
         $data['duration'] = $video->getVideoDuration();
-        $data['title'] = $video->getVideoTitle();
         $data['description'] = $video->getVideoDescription();
         
         $this->_classMedia->addNode(
             $_GET['param'][0],
-            $data['title'],
+            $video->getVideoTitle(),
             'videoYoutube',
             array('dataYoutube' => $data)
         );
