@@ -6,7 +6,7 @@
  */
 
 
-abstract class SimpleContentManager {
+class SimpleContentManager {
 
     protected $_collection;
     protected $_contentManager;
@@ -15,6 +15,10 @@ abstract class SimpleContentManager {
         $this->_contentManager = Base::Load(CLASS_CONTENT_MANAGER);
         $this->_bdd = Base::Load(CLASS_BDD)->_connexion->selectCollection(CONTENT_MANAGER_COLLECTION);
         $this->_view = Base::Load(CLASS_COMPONENT)->_view;
+    }
+
+    public function setCollection($collectionID){
+        $this->_collection = $collectionID;
     }
 
     /***

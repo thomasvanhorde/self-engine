@@ -18,7 +18,8 @@
 	define_once('CLASS_DEBUG','Debug');
 	define_once('CLASS_INSTALL','Install');
 	define_once('CLASS_CSS','Css');
-	define_once('CLASS_CONTENT_MANAGER','ContentManager');
+    define_once('CLASS_CONTENT_MANAGER','ContentManager');
+    define_once('CLASS_SIMPLE_CM','SimpleContentManager');
 	define_once('CLASS_PDF','Pdf');
     define_once('CLASS_LESS','Less_php');
     define_once('CLASS_MEDIA','Media');

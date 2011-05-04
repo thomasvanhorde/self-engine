@@ -4,6 +4,7 @@ class content_controller extends Component{
 
     public  function __construct(){
         $this->_contentManager = Base::Load(CLASS_CONTENT_MANAGER);
+        $this->_simpleCM = Base::Load(CLASS_SIMPLE_CM);
     }
 
     public  function defaut(){
@@ -56,52 +57,14 @@ class content_controller extends Component{
 
     public  function edit($id){
         $content = $this->_contentManager->findOne($id);
-        $this->_view->assign('data',$content);
-        $this->_view->assign('id',$id);
-        $this->add($content['collection']);
+        $this->_simpleCM->setCollection($content['collection']);
+        $this->_simpleCM->editForm('content', $id, 'contentEdit');
     }
 
 
     public function add($type){
-        $struct = $this->_contentManager->getStruct($type);
-        $type = $this->_contentManager->getType();
-
-        $data = (array)$struct;
-        $data['id'] = $data['@attributes']['id'];
-        $data['types'] = (array)$data['types'];
-
-        foreach($data['types']['type'] as $i => $u){
-            $data['types'][$i] = (array)$data['types']['type'][$i];
-            $data['types'][$i]['refType'] = $data['types'][$i]['@attributes']['refType'];
-
-            if(isset($data['types'][$i]['valeur']))
-            $data['types'][$i]['valeur'] = (string)$data['types'][$i]['valeur'];
-        }
-        unset($data['types']['type']);
-
-
-        // $this->_contentManager->getStructAll($rowData['collection']);
-        foreach($data['types'] as $t){
-            if(!empty($t['contentRef'])){
-                $ref = $t['contentRef'];
-                $ContentData = $this->_contentManager->getDataAll($ref);
-                foreach($ContentData  as $uidData => $u){
-                    $StrucData = $this->_contentManager->getStructAll($u['collection']);
-                    foreach($StrucData->types->type as $t){
-                        if($t->index){
-                            $index[$ref][$uidData] = $u[(string)$t->id];
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-        if(isset($index))
-            $this->_view->assign('index',$index);
-    
-        $this->_view->assign('typeList',$type);
-        $this->_view->assign('struct',$data);
-        $this->_view->addBlock('content', 'admin_ContentManager_contentEdit.tpl');
+        $this->_simpleCM->setCollection($type);
+        $this->_simpleCM->addForm('content', 'contentEdit');
     }
 
 
