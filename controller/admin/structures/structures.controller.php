@@ -90,7 +90,7 @@ class structures_controller extends Component{
         if(isset($data['id']) && !empty($data['id']))
             header('location: '.$_SERVER['REDIRECT_URL']);
         else
-            header('location: '.$_SERVER['REDIRECT_URL'].'../'.$uid.'/');
+            header('location: '.$_SERVER['REDIRECT_URL'].'../structures/'.$uid.'/');
 
         exit();
     }

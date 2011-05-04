@@ -6,7 +6,7 @@
  */
 
 
-class Media extends SuperClass{
+class Media extends Model{
 
     const IDprefix = 'node_';
     const stateClose = "closed";
@@ -22,7 +22,7 @@ class Media extends SuperClass{
         return $this->_data;
     }
 
-    private function assignIdParent($obj){
+    public function assignIdParent($obj){
         $data = array();
         foreach($obj as $tmp){
            if(isset($tmp->attr->parent))
@@ -31,7 +31,7 @@ class Media extends SuperClass{
         return (object)$data;
     }
 
-    private function assignId($obj){
+    public function assignId($obj){
         $data = array();
         foreach($obj as $tmp){
            if(isset($tmp->attr->id))
@@ -91,7 +91,8 @@ class Media extends SuperClass{
         if($data->$id->state != self::stateClose){
 
             foreach($this->getExtensions() as $extension)
-                $extension->removeNode($data->$id);
+                if(isset($data->$id))
+                    $extension->removeNode($data->$id);
 
             unset($data->$id);
             $this->save(json_encode(array('media' => $data)));
@@ -106,6 +107,8 @@ class Media extends SuperClass{
 
         if($upload->file_is_image)
             $upload->Process('media/images/');
+        elseif($upload->file_src_mime == 'application/pdf')
+            $upload->Process('media/pdf/');
         else
             $upload->Process('media/');
 
@@ -117,6 +120,18 @@ class Media extends SuperClass{
         fseek ($fp, 0);
         fputs ($fp, $data);
         fclose ($fp);
+    }
+
+    public function editData($nodeID, $key, $value){
+        $data = $this->assignId(json_decode($this->load(), false)->media);
+        $id = $nodeID;
+
+        foreach($this->getExtensions() as $extension)
+            $extension->editData($data->$id, $key, $value);
+
+        $data->$id->$key = $value;
+        $this->save(json_encode(array('media' => $data)));
+        return json_encode(array('status'=> 1));
     }
 
 }

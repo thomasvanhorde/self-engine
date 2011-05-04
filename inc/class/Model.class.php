@@ -1,6 +1,6 @@
 <?php
 
-class SuperClass {
+class Model {
 
     private function getClassName(){
         $trace = debug_backtrace();
@@ -32,7 +32,7 @@ class SuperClass {
             }
             else {
                 $t = explode(EXTENSION_EXT, $Entry);
-                
+
                 $tmp['directory'] = $Directory;
                 $tmp['file'] = $Entry;
                 $tmp['name'] = $t[0];
@@ -43,5 +43,5 @@ class SuperClass {
 
         return $return;
     }
-    
+
 }
