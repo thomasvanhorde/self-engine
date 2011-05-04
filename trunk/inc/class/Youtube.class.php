@@ -18,6 +18,7 @@ class Youtube {
 
     const authenticationURL = 'https://www.google.com/accounts/ClientLogin';
     const tokenHandlerUrl = 'http://gdata.youtube.com/action/GetUploadToken';
+    const clientIdentif = 'self::engine';
     private $_instance;
 
     function __construct(){
@@ -39,15 +40,15 @@ class Youtube {
         return Zend_Gdata_ClientLogin::getHttpClient(
                       selDecode(YOUTUBE_LOGIN),
                       selDecode(YOUTUBE_PWD),
-                      'youtube',
+                      Zend_Gdata_YouTube::AUTH_SERVICE_NAME,
                       null,
-                      'MySource', // a short string identifying your application
+                      self::clientIdentif,
                       null,
                       null,
-                      self::authenticationURL);
+                      Zend_Gdata_YouTube::CLIENTLOGIN_URL);
     }
 
-    function uploadForm($redirect = false, $title = 'default title', $description = 'default description', $category = 'Comedy', $tag = 'my Tag') {
+    function uploadForm($redirect = false, $title = 'default title', $description = '', $category = 'Comedy', $tag = 'my Tag') {
         // Note that this example creates an unversioned service object.
         // You do not need to specify a version number to upload content
         // since the upload behavior is the same for all API versions.

@@ -41,7 +41,7 @@ class media_controller extends Component{
                 $_POST['node'],
                 $upload->file_src_name,
                 $upload->file_src_mime,
-                array('url' => $upload->file_dst_pathname)
+                array('url' => stripslashes($upload->file_dst_pathname))
             );
             header('location: ../');exit();
         } else {
@@ -57,7 +57,7 @@ class media_controller extends Component{
         $data['embed'] = 'http://www.youtube.com/embed/'.$_GET['id'];
         $data['flashPlayer'] = $video->getFlashPlayerUrl();
         $data['duration'] = $video->getVideoDuration();
-        $data['description'] = $video->getVideoDescription();
+    //    $data['description'] = $video->getVideoDescription();
         
         $this->_classMedia->addNode(
             $_GET['param'][0],
@@ -85,5 +85,10 @@ class media_controller extends Component{
         }
 
         //var_dump($data);exit();
+    }
+
+    function POST_edit($data){
+        foreach($data['data'] as $key => $value)
+            $this->_classMedia->editData($data['nodeID'], $key, $value);
     }
 }
