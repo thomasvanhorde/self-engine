@@ -2,8 +2,6 @@
 
 class Media_Youtube_extension {
 
-    var $_yt;
-
     public function __construct(){}
 
     public function renameNode($data, $title){

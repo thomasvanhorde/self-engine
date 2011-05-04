@@ -1,4 +1,4 @@
-<div style="width:450px;">
+<div style="width:515px;">
 
     <h2>Edition - {$media->attr->rel}</h2>
 

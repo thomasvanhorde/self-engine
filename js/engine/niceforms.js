@@ -8,7 +8,7 @@ Feel free to use and modify but please keep this copyright intact.
 #################################################################*/
 
 //Theme Variables - edit these to match your theme
-var imagesPath = BASE_URL+"themes/admin/niceforms/img/";
+var imagesPath = ENGINE_RESSOURCE+"themes/admin/niceforms/img/";
 var selectRightWidthSimple = 19;
 var selectRightWidthScroll = 2;
 var selectMaxHeight = 200;
@@ -326,9 +326,9 @@ function textarea(el) { //extend Textareas
 		var top = this.parentNode;
 		if(this.previousSibling) {var where = this.previousSibling;}
 		else {var where = top.childNodes[0];}
-		top.insertBefore(el.topRight, where);
-		top.insertBefore(el.right, where);
-		top.insertBefore(el.bottomRight, where);
+		if(!jQuery(el).hasClass('wysiwyg')) top.insertBefore(el.topRight, where);
+		if(!jQuery(el).hasClass('wysiwyg')) top.insertBefore(el.right, where);
+		if(!jQuery(el).hasClass('wysiwyg')) top.insertBefore(el.bottomRight, where);
 		this.topRight.appendChild(this.topLeft);
 		this.right.appendChild(this.left);
 		this.right.appendChild(this);

@@ -96,3 +96,7 @@ form.niceform .visible .NFSelectTarget {margin-top:0px; position:static;}
 .NFhidden {opacity:0; z-index:-1; position:relative;}
 /*Safari*/
 select, input, textarea, button {outline:none; resize:none;}
+
+.niceform .media {overflow:hidden;}
+.niceform .media .select { height: 15px;line-height: 18px;float: left;margin-left: 5px !important;}
+

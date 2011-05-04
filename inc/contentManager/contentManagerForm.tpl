@@ -1,18 +1,24 @@
 <!-- Auto form -->
 {strip}
 {if $formCompteur == 1}
+<link rel="stylesheet" href="{ $ENGINE_RESSOURCE}themes/admin/niceforms/niceforms-default.css" type="text/css" media="screen">
+<script type="text/javascript">var ENGINE_RESSOURCE = "{$ENGINE_RESSOURCE}";</script>
 <script type="text/javascript" src="{$ENGINE_RESSOURCE}/js/admin/datepicker/datepicker.packed.js"></script>
+
+<script type="text/javascript" src="{$ENGINE_RESSOURCE}js/admin/jquery.nyroModal.custom.min.js"></script>
+<script type="text/javascript" src="{$ENGINE_RESSOURCE}js/admin/jquery.nyroModal.ie6.min.js"></script>
+<link rel="stylesheet" href="{$ENGINE_RESSOURCE}themes/admin/nyroModal/nyroModal.css" type="text/css" media="screen" />
 {/if}
 
 <form method="post" class="validity niceform" id="form_{$formUID}">
     <fieldset>
         <legend>
             {if $id==''}
-                Nouveau contenu
+                Nouveau contenu { $structure->name }
             {else}
-                Edition de contenu
+                Edition de contenu { $structure->name }
             {/if}
-            { $structure->name }
+
         </legend>
 
         {assign var="strucId" value=$structure.id}
@@ -96,7 +102,7 @@
 
                         {* textarea wysiwyg *}
                         {if $refT == '21'}
-                            <textarea {if $hidden}style="display:none;"{/if} rows="5" cols="60" class="{if $element->requis}require{/if}" id="{$uid}" name="{$uid}" id="{$uid}" class="wysiwyg">{$data->$uid}{if $valueDefaut != false}{$valueDefaut}{/if}</textarea>
+                            <textarea {if $hidden}style="display:none;"{/if} rows="5" cols="60" class="{if $element->requis}require{/if} wysiwyg" id="{$uid}" name="{$uid}" id="{$uid}" >{$data->$uid}{if $valueDefaut != false}{$valueDefaut}{/if}</textarea>
                         {/if }
 
                         {* date *}
@@ -121,7 +127,10 @@
 
                         {* media *}
                         {if $refT == '40'}
-                            // media :: not implemante
+                            <div {if $hidden}style="display:none;"{/if} class="media">
+                                <input class="{if $element->requis}require{/if}" type="text" name="{$uid}" value="{$data->$uid}{if $valueDefaut != false}{$valueDefaut}{/if}"/>
+                                <a href="/" class="select">Select</a>
+                            </div>
                         {/if }
 
                         {* select *}
@@ -177,8 +186,8 @@
 
 
 {if $formCompteur == 1}
-    <script type="text/javascript" src="{$BASE_URL}js/engine/jquery.validity.pack.js"></script>
-    <script type="text/javascript" src="{$BASE_URL}js/engine/niceforms.js"></script>
+    <script type="text/javascript" src="{$ENGINE_RESSOURCE}js/engine/jquery.validity.pack.js"></script>
+    <script type="text/javascript" src="{$ENGINE_RESSOURCE}js/engine/niceforms.js"></script>
 {/if}
 
 {literal}
@@ -191,6 +200,12 @@
                 jQuery("form#form_{/literal}{$formUID}{literal} .number").match("number");
             });
 
+            jQuery('.media .select').click(function(){
+               jQuery(this)
+                       .attr('href','/')
+                       .nyroModal();
+                return false;
+            });
         });
     </script>
 {/literal}
