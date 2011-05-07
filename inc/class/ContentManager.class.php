@@ -77,7 +77,8 @@ class ContentManager {
     }
 
     public function save($data, $id = false){
-        // Pas de sauvegarde d'objet compil� avec findOneWithChild()
+        unset($data['submit']);
+        // Pas de sauvegarde d'objet compilé avec findOneWithChild()
         if(isset($data[COMPILED_DATA]) && $data[COMPILED_DATA]){
             Base::Load(CLASS_CORE_MESSAGE)->Critic('MESS_ERR_SAVE_COMPILED_OBJ');
         }else {
@@ -117,18 +118,35 @@ class ContentManager {
     private function update($data, $id){
         $data['date_update'] = time();
         $data['date_create'] = (int)$data['date_create'];
-        $theObjId = new MongoId($id);
         unset($data['id']);
+
+        if(CLASS_BDD == 'BddMongoDB'){
+            $theObjId = new MongoId($id);
+            $update = $this->_collection->update(array(ATTRIBUTE_ID=>$theObjId), $data);
+        }
+        else {
+            $update = $this->_collection->update($id, $data);
+        }
+
+
         // $this->_collection->update(array("_id"=>$theObjId), array('$set' => $data));
-        if($this->_collection->update(array(ATTRIBUTE_ID=>$theObjId), $data))
+        if($update)
             return true;
         else
             return false;
     }
 
     public function remove($id){
-        $theObjId = new MongoId($id);
-        if($this->_collection->remove(array(ATTRIBUTE_ID=>$theObjId), true))
+
+        if(CLASS_BDD == 'BddMongoDB'){
+            $theObjId = new MongoId($id);
+            $update = $this->_collection->remove(array(ATTRIBUTE_ID=>$theObjId), true);
+        }
+        else {
+            $update = $this->_collection->remove($id, true);
+        }
+
+        if($update)
             return true;
         else
             return false;
@@ -140,8 +158,14 @@ class ContentManager {
      */
     public function findOne($id){
         $ContentManager = $this->_BBD->selectCollection(CONTENT_MANAGER_COLLECTION);
-        $theObjId = new MongoId($id);
-        $search = $ContentManager->findOne(array(ATTRIBUTE_ID=>$theObjId));
+
+        if(CLASS_BDD == 'BddMongoDB'){
+            $theObjId = new MongoId($id);
+            $search = $ContentManager->findOne(array(ATTRIBUTE_ID=>$theObjId));
+        }
+        else {
+            $search = $ContentManager->findOne($id);
+        }
 
         if(is_array($search)){
             foreach($search as $i => $d)
@@ -176,7 +200,6 @@ class ContentManager {
      */
     public function find($param = false){
         $ContentManager = $this->_BBD->selectCollection(CONTENT_MANAGER_COLLECTION);
-
         if($param){
             $tmp = $ContentManager->find($param);
             foreach($tmp as $i=> $u){
@@ -189,6 +212,7 @@ class ContentManager {
         }
         else
             $dataCM = $ContentManager->find();
+
         return $dataCM;
     }
 

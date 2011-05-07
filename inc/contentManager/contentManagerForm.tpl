@@ -18,7 +18,6 @@
             {else}
                 Edition de contenu { $structure->name }
             {/if}
-
         </legend>
 
         {assign var="strucId" value=$structure.id}
@@ -64,6 +63,7 @@
                         <dt>
                             <label for="{$uid}">
                                 {$element->name}
+                                {if $element->requis}*{/if}
                                 {if $element->limit != '' }(limit :: {$element->limit} char){/if}
                             </label>
                         </dt>
