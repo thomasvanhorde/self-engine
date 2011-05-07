@@ -192,6 +192,7 @@
 
 {literal}
     <script>
+        var mediaSelect = null;
         var niceFormID = 'form_{/literal}{$formUID}{literal}';
         jQuery(function() {
             jQuery("form#form_{/literal}{$formUID}{literal}.validity").validity(function() {
@@ -202,7 +203,10 @@
 
 
            jQuery('.media .select')
-                   .nyroModal();
+                   .nyroModal()
+                   .click(function(){
+                        mediaSelect = jQuery(this).parents('.media').find('input');
+                   });
 
         });
     </script>
