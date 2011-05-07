@@ -5,6 +5,7 @@ class content_controller extends Component{
     public  function __construct(){
         $this->_contentManager = Base::Load(CLASS_CONTENT_MANAGER);
         $this->_simpleCM = Base::Load(CLASS_SIMPLE_CM);
+        $this->_media = Base::Load(CLASS_MEDIA);
     }
 
     public  function defaut(){
@@ -55,7 +56,7 @@ class content_controller extends Component{
         exit();
     }
 
-    public  function edit($id){
+    public function edit($id){
         $content = $this->_contentManager->findOne($id);
         $this->_simpleCM->setCollection($content['collection']);
         $this->_simpleCM->editForm('content', $id, 'contentEdit');
@@ -65,6 +66,12 @@ class content_controller extends Component{
     public function add($type){
         $this->_simpleCM->setCollection($type);
         $this->_simpleCM->addForm('content', 'contentEdit');
+    }
+
+    public function getMedia(){
+        $mediaData = $this->_media->load(true);
+        $this->_view->assign('mediaData',$mediaData);
+        $this->_view->addBlock('data', 'admin_ContentManager_contentMedia.tpl');
     }
 
 

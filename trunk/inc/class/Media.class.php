@@ -18,8 +18,11 @@ class Media extends Model{
         $this->_data = file_get_contents(INFOS_JSON_MEDIA);
     }
 
-    public function load(){
-        return $this->_data;
+    public function load($returnArray = false){
+        if($returnArray)
+            return json_decode($this->_data);
+        else
+            return $this->_data;
     }
 
     public function assignIdParent($obj){

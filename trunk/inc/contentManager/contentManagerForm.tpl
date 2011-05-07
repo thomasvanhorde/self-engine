@@ -129,7 +129,7 @@
                         {if $refT == '40'}
                             <div {if $hidden}style="display:none;"{/if} class="media">
                                 <input class="{if $element->requis}require{/if}" type="text" name="{$uid}" value="{$data->$uid}{if $valueDefaut != false}{$valueDefaut}{/if}"/>
-                                <a href="/" class="select">Select</a>
+                                <a href="{$SYS_FOLDER}admin/content-manager/contenus/get-media" class="select">Select</a>
                             </div>
                         {/if }
 
@@ -200,12 +200,10 @@
                 jQuery("form#form_{/literal}{$formUID}{literal} .number").match("number");
             });
 
-            jQuery('.media .select').click(function(){
-               jQuery(this)
-                       .attr('href','/')
-                       .nyroModal();
-                return false;
-            });
+
+           jQuery('.media .select')
+                   .nyroModal();
+
         });
     </script>
 {/literal}
