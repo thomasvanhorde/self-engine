@@ -110,6 +110,12 @@
                 </blocks>
             </structures>
             <contenus>
+                <get-media>
+                    <title>Liste des medias</title>
+                    <controller>admin/content</controller>
+                    <method>getMedia</method>
+                    <layout>vide.tpl</layout>
+                </get-media>
                 <title>Gestion de contenu</title>
                 <controller>admin/content</controller>
                 <layout>admin.tpl</layout>
