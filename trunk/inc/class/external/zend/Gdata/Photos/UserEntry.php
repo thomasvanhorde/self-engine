@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,56 +13,56 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Photos
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: UserEntry.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Entry
+ * @see zend_Gdata_Entry
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Entry.php';
 
 /**
- * @see Zend_Gdata_Gapps
+ * @see zend_Gdata_Gapps
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Gapps.php';
 
 /**
- * @see Zend_Gdata_Photos_Extension_Nickname
+ * @see zend_Gdata_Photos_Extension_Nickname
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Photos/Extension/Nickname.php';
 
 /**
- * @see Zend_Gdata_Photos_Extension_Thumbnail
+ * @see zend_Gdata_Photos_Extension_Thumbnail
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Photos/Extension/Thumbnail.php';
 
 /**
- * @see Zend_Gdata_Photos_Extension_QuotaCurrent
+ * @see zend_Gdata_Photos_Extension_QuotaCurrent
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Photos/Extension/QuotaCurrent.php';
 
 /**
- * @see Zend_Gdata_Photos_Extension_QuotaLimit
+ * @see zend_Gdata_Photos_Extension_QuotaLimit
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Photos/Extension/QuotaLimit.php';
 
 /**
- * @see Zend_Gdata_Photos_Extension_MaxPhotosPerAlbum
+ * @see zend_Gdata_Photos_Extension_MaxPhotosPerAlbum
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Photos/Extension/MaxPhotosPerAlbum.php';
 
 /**
- * @see Zend_Gdata_Photos_Extension_User
+ * @see zend_Gdata_Photos_Extension_User
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Photos/Extension/User.php';
 
 /**
- * @see Zend_Gdata_App_Extension_Category
+ * @see zend_Gdata_App_Extension_Category
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Extension/Category.php';
 
@@ -71,60 +71,60 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Extension/Category.php
  *
  * To transfer user entries to and from the servers, including
  * creating new entries, refer to the service class,
- * Zend_Gdata_Photos.
+ * zend_Gdata_Photos.
  *
  * This class represents <atom:entry> in the Google Data protocol.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Photos
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Photos_UserEntry extends Zend_Gdata_Entry
+class zend_Gdata_Photos_UserEntry extends zend_Gdata_Entry
 {
 
-    protected $_entryClassName = 'Zend_Gdata_Photos_UserEntry';
+    protected $_entryClassName = 'zend_Gdata_Photos_UserEntry';
 
     /**
      * gphoto:nickname element
      *
-     * @var Zend_Gdata_Photos_Extension_Nickname
+     * @var zend_Gdata_Photos_Extension_Nickname
      */
     protected $_gphotoNickname = null;
 
     /**
      * gphoto:user element
      *
-     * @var Zend_Gdata_Photos_Extension_User
+     * @var zend_Gdata_Photos_Extension_User
      */
     protected $_gphotoUser = null;
 
     /**
      * gphoto:thumbnail element
      *
-     * @var Zend_Gdata_Photos_Extension_Thumbnail
+     * @var zend_Gdata_Photos_Extension_Thumbnail
      */
     protected $_gphotoThumbnail = null;
 
     /**
      * gphoto:quotalimit element
      *
-     * @var Zend_Gdata_Photos_Extension_QuotaLimit
+     * @var zend_Gdata_Photos_Extension_QuotaLimit
      */
     protected $_gphotoQuotaLimit = null;
 
     /**
      * gphoto:quotacurrent element
      *
-     * @var Zend_Gdata_Photos_Extension_QuotaCurrent
+     * @var zend_Gdata_Photos_Extension_QuotaCurrent
      */
     protected $_gphotoQuotaCurrent = null;
 
     /**
      * gphoto:maxPhotosPerAlbum element
      *
-     * @var Zend_Gdata_Photos_Extension_MaxPhotosPerAlbum
+     * @var zend_Gdata_Photos_Extension_MaxPhotosPerAlbum
      */
     protected $_gphotoMaxPhotosPerAlbum = null;
 
@@ -136,10 +136,10 @@ class Zend_Gdata_Photos_UserEntry extends Zend_Gdata_Entry
      */
     public function __construct($element = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_Photos::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_Photos::$namespaces);
         parent::__construct($element);
 
-        $category = new Zend_Gdata_App_Extension_Category(
+        $category = new zend_Gdata_App_Extension_Category(
             'http://schemas.google.com/photos/2007#user',
             'http://schemas.google.com/g/2005#kind');
         $this->setCategory(array($category));
@@ -190,32 +190,32 @@ class Zend_Gdata_Photos_UserEntry extends Zend_Gdata_Entry
 
         switch ($absoluteNodeName) {
             case $this->lookupNamespace('gphoto') . ':' . 'nickname';
-                $nickname = new Zend_Gdata_Photos_Extension_Nickname();
+                $nickname = new zend_Gdata_Photos_Extension_Nickname();
                 $nickname->transferFromDOM($child);
                 $this->_gphotoNickname = $nickname;
                 break;
             case $this->lookupNamespace('gphoto') . ':' . 'thumbnail';
-                $thumbnail = new Zend_Gdata_Photos_Extension_Thumbnail();
+                $thumbnail = new zend_Gdata_Photos_Extension_Thumbnail();
                 $thumbnail->transferFromDOM($child);
                 $this->_gphotoThumbnail = $thumbnail;
                 break;
             case $this->lookupNamespace('gphoto') . ':' . 'user';
-                $user = new Zend_Gdata_Photos_Extension_User();
+                $user = new zend_Gdata_Photos_Extension_User();
                 $user->transferFromDOM($child);
                 $this->_gphotoUser = $user;
                 break;
             case $this->lookupNamespace('gphoto') . ':' . 'quotacurrent';
-                $quotaCurrent = new Zend_Gdata_Photos_Extension_QuotaCurrent();
+                $quotaCurrent = new zend_Gdata_Photos_Extension_QuotaCurrent();
                 $quotaCurrent->transferFromDOM($child);
                 $this->_gphotoQuotaCurrent = $quotaCurrent;
                 break;
             case $this->lookupNamespace('gphoto') . ':' . 'quotalimit';
-                $quotaLimit = new Zend_Gdata_Photos_Extension_QuotaLimit();
+                $quotaLimit = new zend_Gdata_Photos_Extension_QuotaLimit();
                 $quotaLimit->transferFromDOM($child);
                 $this->_gphotoQuotaLimit = $quotaLimit;
                 break;
             case $this->lookupNamespace('gphoto') . ':' . 'maxPhotosPerAlbum';
-                $maxPhotosPerAlbum = new Zend_Gdata_Photos_Extension_MaxPhotosPerAlbum();
+                $maxPhotosPerAlbum = new zend_Gdata_Photos_Extension_MaxPhotosPerAlbum();
                 $maxPhotosPerAlbum->transferFromDOM($child);
                 $this->_gphotoMaxPhotosPerAlbum = $maxPhotosPerAlbum;
                 break;
@@ -240,7 +240,7 @@ class Zend_Gdata_Photos_UserEntry extends Zend_Gdata_Entry
      * Set the value for this element's gphoto:nickname attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Photos_Extension_Nickname The element being modified.
+     * @return zend_Gdata_Photos_Extension_Nickname The element being modified.
      */
     public function setGphotoNickname($value)
     {
@@ -263,7 +263,7 @@ class Zend_Gdata_Photos_UserEntry extends Zend_Gdata_Entry
      * Set the value for this element's gphoto:thumbnail attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Photos_Extension_Thumbnail The element being modified.
+     * @return zend_Gdata_Photos_Extension_Thumbnail The element being modified.
      */
     public function setGphotoThumbnail($value)
     {
@@ -286,7 +286,7 @@ class Zend_Gdata_Photos_UserEntry extends Zend_Gdata_Entry
      * Set the value for this element's gphoto:quotacurrent attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Photos_Extension_QuotaCurrent The element being modified.
+     * @return zend_Gdata_Photos_Extension_QuotaCurrent The element being modified.
      */
     public function setGphotoQuotaCurrent($value)
     {
@@ -309,7 +309,7 @@ class Zend_Gdata_Photos_UserEntry extends Zend_Gdata_Entry
      * Set the value for this element's gphoto:quotalimit attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Photos_Extension_QuotaLimit The element being modified.
+     * @return zend_Gdata_Photos_Extension_QuotaLimit The element being modified.
      */
     public function setGphotoQuotaLimit($value)
     {
@@ -332,7 +332,7 @@ class Zend_Gdata_Photos_UserEntry extends Zend_Gdata_Entry
      * Set the value for this element's gphoto:maxPhotosPerAlbum attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Photos_Extension_MaxPhotosPerAlbum The element being modified.
+     * @return zend_Gdata_Photos_Extension_MaxPhotosPerAlbum The element being modified.
      */
     public function setGphotoMaxPhotosPerAlbum($value)
     {
@@ -355,7 +355,7 @@ class Zend_Gdata_Photos_UserEntry extends Zend_Gdata_Entry
      * Set the value for this element's gphoto:user attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Photos_Extension_User The element being modified.
+     * @return zend_Gdata_Photos_Extension_User The element being modified.
      */
     public function setGphotoUser($value)
     {

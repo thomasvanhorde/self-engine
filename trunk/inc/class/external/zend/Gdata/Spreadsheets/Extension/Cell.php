@@ -1,6 +1,6 @@
 <?php
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -12,21 +12,21 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Spreadsheets
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Cell.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Entry
+ * @see zend_Gdata_Entry
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Entry.php';
 
 /**
- * @see Zend_Gdata_Extension
+ * @see zend_Gdata_Extension
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension.php';
 
@@ -34,13 +34,13 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension.php';
 /**
  * Concrete class for working with cell elements.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Spreadsheets
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Spreadsheets_Extension_Cell extends Zend_Gdata_Extension
+class zend_Gdata_Spreadsheets_Extension_Cell extends zend_Gdata_Extension
 {
     protected $_rootElement = 'cell';
     protected $_rootNamespace = 'gs';
@@ -74,7 +74,7 @@ class Zend_Gdata_Spreadsheets_Extension_Cell extends Zend_Gdata_Extension
     protected $_numericValue = null;
 
     /**
-     * Constructs a new Zend_Gdata_Spreadsheets_Extension_Cell element.
+     * Constructs a new zend_Gdata_Spreadsheets_Extension_Cell element.
      *
      * @param string $text (optional) Text contents of the element.
      * @param string $row (optional) Row attribute of the element.
@@ -84,7 +84,7 @@ class Zend_Gdata_Spreadsheets_Extension_Cell extends Zend_Gdata_Extension
      */
     public function __construct($text = null, $row = null, $col = null, $inputValue = null, $numericValue = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_Spreadsheets::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_Spreadsheets::$namespaces);
         parent::__construct();
         $this->_text = $text;
         $this->_row = $row;

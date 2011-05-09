@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,36 +13,36 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gapps
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Nickname.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Extension
+ * @see zend_Gdata_Extension
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension.php';
 
 /**
- * @see Zend_Gdata_Gapps
+ * @see zend_Gdata_Gapps
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Gapps.php';
 
 /**
  * Represents the apps:nickname element used by the Apps data API. This
  * is used to describe a nickname's properties, and is usually contained
- * within instances of Zend_Gdata_Gapps_NicknameEntry.
+ * within instances of zend_Gdata_Gapps_NicknameEntry.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gapps
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Gapps_Extension_Nickname extends Zend_Gdata_Extension
+class zend_Gdata_Gapps_Extension_Nickname extends zend_Gdata_Extension
 {
 
     protected $_rootNamespace = 'apps';
@@ -57,12 +57,12 @@ class Zend_Gdata_Gapps_Extension_Nickname extends Zend_Gdata_Extension
     protected $_name = null;
 
     /**
-     * Constructs a new Zend_Gdata_Gapps_Extension_Nickname object.
+     * Constructs a new zend_Gdata_Gapps_Extension_Nickname object.
      * @param string $name (optional) The nickname being represented.
      */
     public function __construct($name = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_Gapps::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_Gapps::$namespaces);
         parent::__construct();
         $this->_name = $name;
     }
@@ -121,7 +121,7 @@ class Zend_Gdata_Gapps_Extension_Nickname extends Zend_Gdata_Extension
      * name will be delivered to the user who owns this nickname.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Gapps_Extension_Nickname Provides a fluent
+     * @return zend_Gdata_Gapps_Extension_Nickname Provides a fluent
      *          interface.
      */
     public function setName($value)

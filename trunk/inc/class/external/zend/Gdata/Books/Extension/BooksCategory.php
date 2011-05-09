@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,34 +13,34 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Books
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: BooksCategory.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_App_Extension_Category
+ * @see zend_Gdata_App_Extension_Category
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Extension/Category.php';
 
 /**
  * Describes a books category
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Books
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Books_Extension_BooksCategory extends
-    Zend_Gdata_App_Extension_Category
+class zend_Gdata_Books_Extension_BooksCategory extends
+    zend_Gdata_App_Extension_Category
 {
 
     /**
-     * Constructor for Zend_Gdata_Books_Extension_BooksCategory which
+     * Constructor for zend_Gdata_Books_Extension_BooksCategory which
      * Describes a books category
      *
      * @param string|null $term An identifier representing the category within
@@ -52,7 +52,7 @@ class Zend_Gdata_Books_Extension_BooksCategory extends
      */
     public function __construct($term = null, $scheme = null, $label = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_Books::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_Books::$namespaces);
         parent::__construct($term, $scheme, $label);
     }
 

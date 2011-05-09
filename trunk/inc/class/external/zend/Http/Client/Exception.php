@@ -1,6 +1,6 @@
 <?php
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -12,25 +12,25 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Http
+ * @category   zend
+ * @package    zend_Http
  * @subpackage Client_Exception
  * @version    $Id: Exception.php 23775 2011-03-01 17:25:24Z ralph $
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
 /**
- * @see Zend_Http_Exception
+ * @see zend_Http_Exception
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Exception.php';
 
 /**
- * @category   Zend
- * @package    Zend_Http
+ * @category   zend
+ * @package    zend_Http
  * @subpackage Client
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Http_Client_Exception extends Zend_Http_Exception
+class zend_Http_Client_Exception extends zend_Http_Exception
 {}

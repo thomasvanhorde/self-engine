@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,21 +13,21 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Spreadsheets
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: ListQuery.php 23805 2011-03-16 00:55:40Z tjohns $
  */
 
 /**
- * Zend_Gdata_App_util
+ * zend_Gdata_App_util
  */
 require_once('zend/Gdata/App/Util.php');
 
 /**
- * Zend_Gdata_Query
+ * zend_Gdata_Query
  */
 require_once('zend/Gdata/Query.php');
 
@@ -36,13 +36,13 @@ require_once('zend/Gdata/Query.php');
  *
  * @link http://code.google.com/apis/gdata/calendar/
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Spreadsheets
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Spreadsheets_ListQuery extends Zend_Gdata_Query
+class zend_Gdata_Spreadsheets_ListQuery extends zend_Gdata_Query
 {
 
     const SPREADSHEETS_LIST_FEED_URI = 'https://spreadsheets.google.com/feeds/list';
@@ -55,7 +55,7 @@ class Zend_Gdata_Spreadsheets_ListQuery extends Zend_Gdata_Query
     protected $_rowId = null;
 
     /**
-     * Constructs a new Zend_Gdata_Spreadsheets_ListQuery object.
+     * Constructs a new zend_Gdata_Spreadsheets_ListQuery object.
      */
     public function __construct()
     {
@@ -65,7 +65,7 @@ class Zend_Gdata_Spreadsheets_ListQuery extends Zend_Gdata_Query
     /**
      * Sets the spreadsheet key for the query.
      * @param string $value
-     * @return Zend_Gdata_Spreadsheets_CellQuery Provides a fluent interface
+     * @return zend_Gdata_Spreadsheets_CellQuery Provides a fluent interface
      */
     public function setSpreadsheetKey($value)
     {
@@ -85,7 +85,7 @@ class Zend_Gdata_Spreadsheets_ListQuery extends Zend_Gdata_Query
     /**
      * Sets the worksheet id for the query.
      * @param string $value
-     * @return Zend_Gdata_Spreadsheets_CellQuery Provides a fluent interface
+     * @return zend_Gdata_Spreadsheets_CellQuery Provides a fluent interface
      */
     public function setWorksheetId($value)
     {
@@ -105,7 +105,7 @@ class Zend_Gdata_Spreadsheets_ListQuery extends Zend_Gdata_Query
     /**
      * Sets the row id for the query.
      * @param string $value row id
-     * @return Zend_Gdata_Spreadsheets_CellQuery Provides a fluent interface
+     * @return zend_Gdata_Spreadsheets_CellQuery Provides a fluent interface
      */
     public function setRowId($value)
     {
@@ -125,7 +125,7 @@ class Zend_Gdata_Spreadsheets_ListQuery extends Zend_Gdata_Query
     /**
      * Sets the projection for the query.
      * @param string $value Projection
-     * @return Zend_Gdata_Spreadsheets_ListQuery Provides a fluent interface
+     * @return zend_Gdata_Spreadsheets_ListQuery Provides a fluent interface
      */
     public function setProjection($value)
     {
@@ -136,7 +136,7 @@ class Zend_Gdata_Spreadsheets_ListQuery extends Zend_Gdata_Query
     /**
      * Sets the visibility for this query.
      * @param string $value visibility
-     * @return Zend_Gdata_Spreadsheets_ListQuery Provides a fluent interface
+     * @return zend_Gdata_Spreadsheets_ListQuery Provides a fluent interface
      */
     public function setVisibility($value)
     {
@@ -165,7 +165,7 @@ class Zend_Gdata_Spreadsheets_ListQuery extends Zend_Gdata_Query
     /**
      * Sets the spreadsheet key for this query.
      * @param string $value
-     * @return Zend_Gdata_Spreadsheets_DocumentQuery Provides a fluent interface
+     * @return zend_Gdata_Spreadsheets_DocumentQuery Provides a fluent interface
      */
     public function setSpreadsheetQuery($value)
     {
@@ -193,7 +193,7 @@ class Zend_Gdata_Spreadsheets_ListQuery extends Zend_Gdata_Query
     /**
      * Sets the orderby attribute for this query.
      * @param string $value
-     * @return Zend_Gdata_Spreadsheets_DocumentQuery Provides a fluent interface
+     * @return zend_Gdata_Spreadsheets_DocumentQuery Provides a fluent interface
      */
     public function setOrderBy($value)
     {
@@ -221,7 +221,7 @@ class Zend_Gdata_Spreadsheets_ListQuery extends Zend_Gdata_Query
     /**
      * Sets the reverse attribute for this query.
      * @param string $value
-     * @return Zend_Gdata_Spreadsheets_DocumentQuery Provides a fluent interface
+     * @return zend_Gdata_Spreadsheets_DocumentQuery Provides a fluent interface
      */
     public function setReverse($value)
     {
@@ -261,28 +261,28 @@ class Zend_Gdata_Spreadsheets_ListQuery extends Zend_Gdata_Query
             $uri .= '/'.$this->_spreadsheetKey;
         } else {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Exception.php';
-            throw new Zend_Gdata_App_Exception('A spreadsheet key must be provided for list queries.');
+            throw new zend_Gdata_App_Exception('A spreadsheet key must be provided for list queries.');
         }
 
         if ($this->_worksheetId != null) {
             $uri .= '/'.$this->_worksheetId;
         } else {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Exception.php';
-            throw new Zend_Gdata_App_Exception('A worksheet id must be provided for list queries.');
+            throw new zend_Gdata_App_Exception('A worksheet id must be provided for list queries.');
         }
 
         if ($this->_visibility != null) {
             $uri .= '/'.$this->_visibility;
         } else {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Exception.php';
-            throw new Zend_Gdata_App_Exception('A visibility must be provided for list queries.');
+            throw new zend_Gdata_App_Exception('A visibility must be provided for list queries.');
         }
 
         if ($this->_projection != null) {
             $uri .= '/'.$this->_projection;
         } else {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Exception.php';
-            throw new Zend_Gdata_App_Exception('A projection must be provided for list queries.');
+            throw new zend_Gdata_App_Exception('A projection must be provided for list queries.');
         }
 
         if ($this->_rowId != null) {

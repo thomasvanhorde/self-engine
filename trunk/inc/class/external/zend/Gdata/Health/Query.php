@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,16 +13,16 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Health
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Query.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Query
+ * @see zend_Gdata_Query
  */
 require_once('zend/Gdata/Query.php');
 
@@ -31,13 +31,13 @@ require_once('zend/Gdata/Query.php');
  *
  * @link http://code.google.com/apis/health
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Health
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Health_Query extends Zend_Gdata_Query
+class zend_Gdata_Health_Query extends zend_Gdata_Query
 {
     /**
      * URI of a user's profile feed.
@@ -67,7 +67,7 @@ class Zend_Gdata_Health_Query extends Zend_Gdata_Query
      * Sets the digest parameter's value.
      *
      * @param string $value
-     * @return Zend_Gdata_Health_Query Provides a fluent interface
+     * @return zend_Gdata_Health_Query Provides a fluent interface
      */
     public function setDigest($value)
     {
@@ -97,7 +97,7 @@ class Zend_Gdata_Health_Query extends Zend_Gdata_Query
      * @param string $item A category to query.
      * @param string $name (optional) A specific item to search a category for.
      *     An example would be 'Lipitor' if $item is set to 'medication'.
-     * @return Zend_Gdata_Health_Query Provides a fluent interface
+     * @return zend_Gdata_Health_Query Provides a fluent interface
      */
     public function setCategory($item, $name = null)
     {
@@ -120,7 +120,7 @@ class Zend_Gdata_Health_Query extends Zend_Gdata_Query
      * Setter for the grouped parameter.
      *
      * @param string $value setting a count of results per group.
-     * @return Zend_Gdata_Health_Query Provides a fluent interface
+     * @return zend_Gdata_Health_Query Provides a fluent interface
      */
     public function setGrouped($value)
     {
@@ -150,14 +150,14 @@ class Zend_Gdata_Health_Query extends Zend_Gdata_Query
      * @param int $value Specifies the maximum number of groups to be
      *     retrieved. Must be an integer value greater than zero. This parameter
      *     is only valid if grouped=true.
-     * @return Zend_Gdata_Health_Query Provides a fluent interface
+     * @return zend_Gdata_Health_Query Provides a fluent interface
      */
     public function setMaxResultsGroup($value)
     {
         if ($value !== null) {
             if ($value <= 0 || $this->getGrouped() !== 'true') {
                 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/InvalidArgumentException.php';
-                throw new Zend_Gdata_App_InvalidArgumentException(
+                throw new zend_Gdata_App_InvalidArgumentException(
                     'The max-results-group parameter must be set to a value
                     greater than 0 and can only be used if grouped=true');
             } else {
@@ -188,13 +188,13 @@ class Zend_Gdata_Health_Query extends Zend_Gdata_Query
      *     retrieved from each group.  The limits that you specify with this
      *     parameter apply to all groups. Must be an integer value greater than
      *     zero. This parameter is only valid if grouped=true.
-     * @return Zend_Gdata_Health_Query Provides a fluent interface
+     * @return zend_Gdata_Health_Query Provides a fluent interface
      */
     public function setMaxResultsInGroup($value)
     {
         if ($value !== null) {
             if ($value <= 0 || $this->getGrouped() !== 'true') {
-              throw new Zend_Gdata_App_InvalidArgumentException(
+              throw new zend_Gdata_App_InvalidArgumentException(
                   'The max-results-in-group parameter must be set to a value
                   greater than 0 and can only be used if grouped=true');
             } else {
@@ -225,12 +225,12 @@ class Zend_Gdata_Health_Query extends Zend_Gdata_Query
      *     least start-index-group. This should be set to a 1-based index of the
      *     first group to be retrieved. The range is applied per category.
      *     This parameter is only valid if grouped=true.
-     * @return Zend_Gdata_Health_Query Provides a fluent interface
+     * @return zend_Gdata_Health_Query Provides a fluent interface
      */
     public function setStartIndexGroup($value)
     {
         if ($value !== null && $this->getGrouped() !== 'true') {
-            throw new Zend_Gdata_App_InvalidArgumentException(
+            throw new zend_Gdata_App_InvalidArgumentException(
                 'The start-index-group can only be used if grouped=true');
         } else {
           $this->_params['start-index-group'] = $value;
@@ -257,12 +257,12 @@ class Zend_Gdata_Health_Query extends Zend_Gdata_Query
      *
      * @param int $value  A 1-based index of the records to be retrieved from
      *     each group. This parameter is only valid if grouped=true.
-     * @return Zend_Gdata_Health_Query Provides a fluent interface
+     * @return zend_Gdata_Health_Query Provides a fluent interface
      */
     public function setStartIndexInGroup($value)
     {
         if ($value !== null && $this->getGrouped() !== 'true') {
-            throw new Zend_Gdata_App_InvalidArgumentException('start-index-in-group');
+            throw new zend_Gdata_App_InvalidArgumentException('start-index-in-group');
         } else {
           $this->_params['start-index-in-group'] = $value;
         }

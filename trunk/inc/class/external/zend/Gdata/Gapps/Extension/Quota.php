@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,21 +13,21 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gapps
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Quota.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Extension
+ * @see zend_Gdata_Extension
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension.php';
 
 /**
- * @see Zend_Gdata_Gapps
+ * @see zend_Gdata_Gapps
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Gapps.php';
 
@@ -35,15 +35,15 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Gapps.php';
  * Represents the apps:quota element used by the Apps data API. This is
  * used to indicate the amount of storage space available to a user. Quotas
  * may not be able to be set, depending on the domain used. This class
- * is usually contained within an instance of Zend_Gdata_Gapps_UserEntry.
+ * is usually contained within an instance of zend_Gdata_Gapps_UserEntry.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gapps
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Gapps_Extension_Quota extends Zend_Gdata_Extension
+class zend_Gdata_Gapps_Extension_Quota extends zend_Gdata_Extension
 {
 
     protected $_rootNamespace = 'apps';
@@ -57,13 +57,13 @@ class Zend_Gdata_Gapps_Extension_Quota extends Zend_Gdata_Extension
     protected $_limit = null;
 
     /**
-     * Constructs a new Zend_Gdata_Gapps_Extension_Quota object.
+     * Constructs a new zend_Gdata_Gapps_Extension_Quota object.
      *
      * @param string $limit (optional) The limit, in bytes, for this quota.
      */
     public function __construct($limit = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_Gapps::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_Gapps::$namespaces);
         parent::__construct();
         $this->_limit = $limit;
     }
@@ -122,7 +122,7 @@ class Zend_Gdata_Gapps_Extension_Quota extends Zend_Gdata_Extension
      * the associated user.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Gapps_Extension_Quota Provides a fluent interface.
+     * @return zend_Gdata_Gapps_Extension_Quota Provides a fluent interface.
      */
     public function setLimit($value)
     {

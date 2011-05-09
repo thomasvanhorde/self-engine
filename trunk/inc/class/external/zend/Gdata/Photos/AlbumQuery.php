@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,16 +13,16 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Photos
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: AlbumQuery.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Photos_UserQuery
+ * @see zend_Gdata_Photos_UserQuery
  */
 require_once('zend/Gdata/Photos/UserQuery.php');
 
@@ -32,15 +32,15 @@ require_once('zend/Gdata/Photos/UserQuery.php');
  * required.
  *
  * For information on submitting queries to a server, see the service
- * class, Zend_Gdata_Photos.
+ * class, zend_Gdata_Photos.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Photos
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Photos_AlbumQuery extends Zend_Gdata_Photos_UserQuery
+class zend_Gdata_Photos_AlbumQuery extends zend_Gdata_Photos_UserQuery
 {
 
     /**
@@ -67,7 +67,7 @@ class Zend_Gdata_Photos_AlbumQuery extends Zend_Gdata_Photos_UserQuery
      *
      * @param string $value The name of the album to retrieve, or null to
      *          clear.
-     * @return Zend_Gdata_Photos_AlbumQuery The query object.
+     * @return zend_Gdata_Photos_AlbumQuery The query object.
      */
      public function setAlbumName($value)
      {
@@ -98,7 +98,7 @@ class Zend_Gdata_Photos_AlbumQuery extends Zend_Gdata_Photos_UserQuery
      *
      * @param string $value The ID of the album to retrieve, or null to
      *          clear.
-     * @return Zend_Gdata_Photos_AlbumQuery The query object.
+     * @return zend_Gdata_Photos_AlbumQuery The query object.
      */
      public function setAlbumId($value)
      {
@@ -124,7 +124,7 @@ class Zend_Gdata_Photos_AlbumQuery extends Zend_Gdata_Photos_UserQuery
      * parameters.
      *
      * @return string A URL generated based on the state of this query.
-     * @throws Zend_Gdata_App_InvalidArgumentException
+     * @throws zend_Gdata_App_InvalidArgumentException
      */
     public function getQueryUrl($incomingUri = '')
     {
@@ -135,11 +135,11 @@ class Zend_Gdata_Photos_AlbumQuery extends Zend_Gdata_Photos_UserQuery
             $uri .= '/albumid/' . $this->getAlbumId();
         } elseif ($this->getAlbumName() !== null && $this->getAlbumId() !== null) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/InvalidArgumentException.php';
-            throw new Zend_Gdata_App_InvalidArgumentException(
+            throw new zend_Gdata_App_InvalidArgumentException(
                     'AlbumName and AlbumId cannot both be non-null');
         } else {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/InvalidArgumentException.php';
-            throw new Zend_Gdata_App_InvalidArgumentException(
+            throw new zend_Gdata_App_InvalidArgumentException(
                     'AlbumName and AlbumId cannot both be null');
         }
         $uri .= $incomingUri;

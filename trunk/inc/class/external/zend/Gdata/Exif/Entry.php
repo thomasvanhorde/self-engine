@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,46 +13,46 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Exif
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Entry.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Entry
+ * @see zend_Gdata_Entry
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Entry.php';
 
 /**
- * @see Zend_Gdata_Exif
+ * @see zend_Gdata_Exif
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Exif.php';
 
 /**
- * @see Zend_Gdata_Exif_Extension_Tags
+ * @see zend_Gdata_Exif_Extension_Tags
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Exif/Extension/Tags.php';
 
 /**
  * An Atom entry containing EXIF metadata.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Exif
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Exif_Entry extends Zend_Gdata_Entry
+class zend_Gdata_Exif_Entry extends zend_Gdata_Entry
 {
     /**
      * The classname for individual feed elements.
      *
      * @var string
      */
-    protected $_entryClassName = 'Zend_Gdata_Exif_Entry';
+    protected $_entryClassName = 'zend_Gdata_Exif_Entry';
 
     /**
      * The tags that belong to the Exif group.
@@ -69,7 +69,7 @@ class Zend_Gdata_Exif_Entry extends Zend_Gdata_Entry
      */
     public function __construct($element = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_Exif::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_Exif::$namespaces);
         parent::__construct($element);
     }
 
@@ -103,7 +103,7 @@ class Zend_Gdata_Exif_Entry extends Zend_Gdata_Entry
         $absoluteNodeName = $child->namespaceURI . ':' . $child->localName;
         switch ($absoluteNodeName) {
         case $this->lookupNamespace('exif') . ':' . 'tags':
-            $tags = new Zend_Gdata_Exif_Extension_Tags();
+            $tags = new zend_Gdata_Exif_Extension_Tags();
             $tags->transferFromDOM($child);
             $this->_tags = $tags;
             break;
@@ -117,7 +117,7 @@ class Zend_Gdata_Exif_Entry extends Zend_Gdata_Entry
      * Retrieve the tags for this entry.
      *
      * @see setTags
-     * @return Zend_Gdata_Exif_Extension_Tags The requested object
+     * @return zend_Gdata_Exif_Extension_Tags The requested object
      *              or null if not set.
      */
     public function getTags()
@@ -132,9 +132,9 @@ class Zend_Gdata_Exif_Entry extends Zend_Gdata_Entry
      * This corresponds to the <exif:tags> property in the Google Data
      * protocol.
      *
-     * @param Zend_Gdata_Exif_Extension_Tags $value The desired value
+     * @param zend_Gdata_Exif_Extension_Tags $value The desired value
      *              this element, or null to unset.
-     * @return Zend_Gdata_Exif_Entry Provides a fluent interface
+     * @return zend_Gdata_Exif_Entry Provides a fluent interface
      */
     public function setTags($value)
     {

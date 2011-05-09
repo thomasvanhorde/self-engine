@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,21 +13,21 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage YouTube
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: VideoQuery.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * Zend_Gdata_YouTube
+ * zend_Gdata_YouTube
  */
 require_once('zend/Gdata/YouTube.php');
 
 /**
- * Zend_Gdata_Query
+ * zend_Gdata_Query
  */
 require_once('zend/Gdata/Query.php');
 
@@ -36,13 +36,13 @@ require_once('zend/Gdata/Query.php');
  *
  * @link http://code.google.com/apis/youtube/
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage YouTube
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_YouTube_VideoQuery extends Zend_Gdata_Query
+class zend_Gdata_YouTube_VideoQuery extends zend_Gdata_Query
 {
 
     /**
@@ -64,44 +64,44 @@ class Zend_Gdata_YouTube_VideoQuery extends Zend_Gdata_Query
     {
         switch ($feedType) {
         case 'top rated':
-            $this->_url = Zend_Gdata_YouTube::STANDARD_TOP_RATED_URI;
+            $this->_url = zend_Gdata_YouTube::STANDARD_TOP_RATED_URI;
             break;
         case 'most viewed':
-            $this->_url = Zend_Gdata_YouTube::STANDARD_MOST_VIEWED_URI;
+            $this->_url = zend_Gdata_YouTube::STANDARD_MOST_VIEWED_URI;
             break;
         case 'recently featured':
-            $this->_url = Zend_Gdata_YouTube::STANDARD_RECENTLY_FEATURED_URI;
+            $this->_url = zend_Gdata_YouTube::STANDARD_RECENTLY_FEATURED_URI;
             break;
         case 'mobile':
-            $this->_url = Zend_Gdata_YouTube::STANDARD_WATCH_ON_MOBILE_URI;
+            $this->_url = zend_Gdata_YouTube::STANDARD_WATCH_ON_MOBILE_URI;
             break;
         case 'related':
             if ($videoId === null) {
                 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/InvalidArgumentException.php';
-                throw new Zend_Gdata_App_InvalidArgumentException(
+                throw new zend_Gdata_App_InvalidArgumentException(
                     'Video ID must be set for feed of type: ' . $feedType);
             } else {
-                $this->_url = Zend_Gdata_YouTube::VIDEO_URI . '/' . $videoId .
+                $this->_url = zend_Gdata_YouTube::VIDEO_URI . '/' . $videoId .
                     '/related';
             }
             break;
         case 'responses':
             if ($videoId === null) {
                 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/InvalidArgumentException.php';
-                throw new Zend_Gdata_App_Exception(
+                throw new zend_Gdata_App_Exception(
                     'Video ID must be set for feed of type: ' . $feedType);
             } else {
-                $this->_url = Zend_Gdata_YouTube::VIDEO_URI . '/' . $videoId .
+                $this->_url = zend_Gdata_YouTube::VIDEO_URI . '/' . $videoId .
                     'responses';
             }
             break;
         case 'comments':
             if ($videoId === null) {
                 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/InvalidArgumentException.php';
-                throw new Zend_Gdata_App_Exception(
+                throw new zend_Gdata_App_Exception(
                     'Video ID must be set for feed of type: ' . $feedType);
             } else {
-                $this->_url = Zend_Gdata_YouTube::VIDEO_URI . '/' .
+                $this->_url = zend_Gdata_YouTube::VIDEO_URI . '/' .
                     $videoId . 'comments';
                 if ($entry !== null) {
                     $this->_url .= '/' . $entry;
@@ -110,7 +110,7 @@ class Zend_Gdata_YouTube_VideoQuery extends Zend_Gdata_Query
             break;
         default:
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Exception.php';
-            throw new Zend_Gdata_App_Exception('Unknown feed type');
+            throw new zend_Gdata_App_Exception('Unknown feed type');
             break;
         }
     }
@@ -119,8 +119,8 @@ class Zend_Gdata_YouTube_VideoQuery extends Zend_Gdata_Query
      * Sets the location parameter for the query
      *
      * @param string $value
-     * @throws Zend_Gdata_App_InvalidArgumentException
-     * @return Zend_Gdata_YouTube_VideoQuery Provides a fluent interface
+     * @throws zend_Gdata_App_InvalidArgumentException
+     * @return zend_Gdata_YouTube_VideoQuery Provides a fluent interface
      */
     public function setLocation($value)
     {
@@ -131,7 +131,7 @@ class Zend_Gdata_YouTube_VideoQuery extends Zend_Gdata_Query
                 $parameters = explode(',', $value);
                 if (count($parameters) != 2) {
                     require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/InvalidArgumentException.php';
-                    throw new Zend_Gdata_App_InvalidArgumentException(
+                    throw new zend_Gdata_App_InvalidArgumentException(
                         'You must provide 2 coordinates to the location ' .
                         'URL parameter');
                 }
@@ -144,7 +144,7 @@ class Zend_Gdata_YouTube_VideoQuery extends Zend_Gdata_Query
                     }
                     if (!is_numeric($temp)) {
                         require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/InvalidArgumentException.php';
-                        throw new Zend_Gdata_App_InvalidArgumentException(
+                        throw new zend_Gdata_App_InvalidArgumentException(
                             'Value provided to location parameter must' .
                             ' be in the form of two coordinates');
                     }
@@ -172,7 +172,7 @@ class Zend_Gdata_YouTube_VideoQuery extends Zend_Gdata_Query
      * Sets the location-radius parameter for the query
      *
      * @param string $value
-     * @return Zend_Gdata_YouTube_VideoQuery Provides a fluent interface
+     * @return zend_Gdata_YouTube_VideoQuery Provides a fluent interface
      */
     public function setLocationRadius($value)
     {
@@ -203,8 +203,8 @@ class Zend_Gdata_YouTube_VideoQuery extends Zend_Gdata_Query
      * Sets the time period over which this query should apply
      *
      * @param string $value
-     * @throws Zend_Gdata_App_InvalidArgumentException
-     * @return Zend_Gdata_YouTube_VideoQuery Provides a fluent interface
+     * @throws zend_Gdata_App_InvalidArgumentException
+     * @return zend_Gdata_YouTube_VideoQuery Provides a fluent interface
      */
     public function setTime($value = null)
     {
@@ -225,7 +225,7 @@ class Zend_Gdata_YouTube_VideoQuery extends Zend_Gdata_Query
                 unset($this->_params['time']);
             default:
                 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/InvalidArgumentException.php';
-                throw new Zend_Gdata_App_InvalidArgumentException(
+                throw new zend_Gdata_App_InvalidArgumentException(
                     'Unknown time value');
                 break;
         }
@@ -237,8 +237,8 @@ class Zend_Gdata_YouTube_VideoQuery extends Zend_Gdata_Query
      *
      * @param string $value The value of the uploader parameter. Currently this
      *        can only be set to the value of 'partner'.
-     * @throws Zend_Gdata_App_InvalidArgumentException
-     * @return Zend_Gdata_YouTube_VideoQuery Provides a fluent interface
+     * @throws zend_Gdata_App_InvalidArgumentException
+     * @return zend_Gdata_YouTube_VideoQuery Provides a fluent interface
      */
     public function setUploader($value = null)
     {
@@ -251,7 +251,7 @@ class Zend_Gdata_YouTube_VideoQuery extends Zend_Gdata_Query
                 break;
             default:
                 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/InvalidArgumentException.php';
-                throw new Zend_Gdata_App_InvalidArgumentException(
+                throw new zend_Gdata_App_InvalidArgumentException(
                     'Unknown value for uploader');
         }
         return $this;
@@ -261,7 +261,7 @@ class Zend_Gdata_YouTube_VideoQuery extends Zend_Gdata_Query
      * Sets the formatted video query (vq) URL param value
      *
      * @param string $value
-     * @return Zend_Gdata_YouTube_VideoQuery Provides a fluent interface
+     * @return zend_Gdata_YouTube_VideoQuery Provides a fluent interface
      */
     public function setVideoQuery($value = null)
     {
@@ -277,7 +277,7 @@ class Zend_Gdata_YouTube_VideoQuery extends Zend_Gdata_Query
      * Sets the param to return videos of a specific format
      *
      * @param string $value
-     * @return Zend_Gdata_YouTube_VideoQuery Provides a fluent interface
+     * @return zend_Gdata_YouTube_VideoQuery Provides a fluent interface
      */
     public function setFormat($value = null)
     {
@@ -293,7 +293,7 @@ class Zend_Gdata_YouTube_VideoQuery extends Zend_Gdata_Query
      * Sets whether or not to include racy videos in the search results
      *
      * @param string $value
-     * @return Zend_Gdata_YouTube_VideoQuery Provides a fluent interface
+     * @return zend_Gdata_YouTube_VideoQuery Provides a fluent interface
      */
     public function setRacy($value = null)
     {
@@ -330,8 +330,8 @@ class Zend_Gdata_YouTube_VideoQuery extends Zend_Gdata_Query
      *
      * @param string $value The value of the parameter, currently only 'none',
      *        'moderate' or 'strict' are allowed values.
-     * @throws Zend_Gdata_App_InvalidArgumentException
-     * @return Zend_Gdata_YouTube_VideoQuery Provides a fluent interface
+     * @throws zend_Gdata_App_InvalidArgumentException
+     * @return zend_Gdata_YouTube_VideoQuery Provides a fluent interface
      */
     public function setSafeSearch($value)
     {
@@ -349,7 +349,7 @@ class Zend_Gdata_YouTube_VideoQuery extends Zend_Gdata_Query
                 unset($this->_params['safeSearch']);
             default:
                 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/InvalidArgumentException.php';
-                throw new Zend_Gdata_App_InvalidArgumentException(
+                throw new zend_Gdata_App_InvalidArgumentException(
                     'The safeSearch parameter only supports the values '.
                     '\'none\', \'moderate\' or \'strict\'.');
         }
@@ -373,7 +373,7 @@ class Zend_Gdata_YouTube_VideoQuery extends Zend_Gdata_Query
      * Set the value of the orderby parameter
      *
      * @param string $value
-     * @return Zend_Gdata_YouTube_Query Provides a fluent interface
+     * @return zend_Gdata_YouTube_Query Provides a fluent interface
      */
     public function setOrderBy($value)
     {
@@ -448,7 +448,7 @@ class Zend_Gdata_YouTube_VideoQuery extends Zend_Gdata_Query
      *
      * @param integer $majorProtocolVersion The major protocol version
      * @param integer $minorProtocolVersion The minor protocol version
-     * @throws Zend_Gdata_App_VersionException
+     * @throws zend_Gdata_App_VersionException
      * @return string querystring
      */
     public function getQueryString($majorProtocolVersion = null,
@@ -465,7 +465,7 @@ class Zend_Gdata_YouTube_VideoQuery extends Zend_Gdata_Query
                 case 'location-radius':
                     if ($majorProtocolVersion == 1) {
                         require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/VersionException.php';
-                        throw new Zend_Gdata_App_VersionException("The $name " .
+                        throw new zend_Gdata_App_VersionException("The $name " .
                             "parameter is only supported in version 2.");
                     }
                     break;
@@ -473,7 +473,7 @@ class Zend_Gdata_YouTube_VideoQuery extends Zend_Gdata_Query
                 case 'racy':
                     if ($majorProtocolVersion == 2) {
                         require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/VersionException.php';
-                        throw new Zend_Gdata_App_VersionException("The $name " .
+                        throw new zend_Gdata_App_VersionException("The $name " .
                             "parameter is not supported in version 2. " .
                             "Please use 'safeSearch'.");
                     }
@@ -482,7 +482,7 @@ class Zend_Gdata_YouTube_VideoQuery extends Zend_Gdata_Query
                 case 'safeSearch':
                     if ($majorProtocolVersion == 1) {
                         require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/VersionException.php';
-                        throw new Zend_Gdata_App_VersionException("The $name " .
+                        throw new zend_Gdata_App_VersionException("The $name " .
                             "parameter is only supported in version 2. " .
                             "Please use 'racy'.");
                     }
@@ -491,7 +491,7 @@ class Zend_Gdata_YouTube_VideoQuery extends Zend_Gdata_Query
                 case 'uploader':
                     if ($majorProtocolVersion == 1) {
                         require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/VersionException.php';
-                        throw new Zend_Gdata_App_VersionException("The $name " .
+                        throw new zend_Gdata_App_VersionException("The $name " .
                             "parameter is only supported in version 2.");
                     }
                     break;
@@ -527,7 +527,7 @@ class Zend_Gdata_YouTube_VideoQuery extends Zend_Gdata_Query
         if (isset($this->_url)) {
             $url = $this->_url;
         } else {
-            $url = Zend_Gdata_YouTube::VIDEO_URI;
+            $url = zend_Gdata_YouTube::VIDEO_URI;
         }
         if ($this->getCategory() !== null) {
             $url .= '/-/' . $this->getCategory();

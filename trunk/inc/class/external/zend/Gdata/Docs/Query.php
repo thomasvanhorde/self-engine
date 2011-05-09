@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,16 +13,16 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Docs
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Query.php 23805 2011-03-16 00:55:40Z tjohns $
  */
 
 /**
- * Zend_Gdata_Query
+ * zend_Gdata_Query
  */
 require_once('zend/Gdata/Query.php');
 
@@ -31,13 +31,13 @@ require_once('zend/Gdata/Query.php');
  *
  * @link http://code.google.com/apis/gdata/spreadsheets/
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Docs
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Docs_Query extends Zend_Gdata_Query
+class zend_Gdata_Docs_Query extends zend_Gdata_Query
 {
 
     /**
@@ -73,7 +73,7 @@ class Zend_Gdata_Docs_Query extends Zend_Gdata_Query
     protected $_projection = 'full';
 
     /**
-     * Constructs a new instance of a Zend_Gdata_Docs_Query object.
+     * Constructs a new instance of a zend_Gdata_Docs_Query object.
      */
     public function __construct()
     {
@@ -85,7 +85,7 @@ class Zend_Gdata_Docs_Query extends Zend_Gdata_Query
      * include 'full'.
      *
      * @param string $value
-     * @return Zend_Gdata_Docs_Query Provides a fluent interface
+     * @return zend_Gdata_Docs_Query Provides a fluent interface
      */
     public function setProjection($value)
     {
@@ -97,7 +97,7 @@ class Zend_Gdata_Docs_Query extends Zend_Gdata_Query
      * Sets the visibility for this query. Common values for visibility
      * include 'private'.
      *
-     * @return Zend_Gdata_Docs_Query Provides a fluent interface
+     * @return zend_Gdata_Docs_Query Provides a fluent interface
      */
     public function setVisibility($value)
     {
@@ -131,7 +131,7 @@ class Zend_Gdata_Docs_Query extends Zend_Gdata_Query
      * completely match the title.
      *
      * @param string $value
-     * @return Zend_Gdata_Docs_Query Provides a fluent interface
+     * @return zend_Gdata_Docs_Query Provides a fluent interface
      */
     public function setTitle($value)
     {
@@ -164,7 +164,7 @@ class Zend_Gdata_Docs_Query extends Zend_Gdata_Query
      * title parameter will be returned.
      *
      * @param boolean $value Use either true or false
-     * @return Zend_Gdata_Docs_Query Provides a fluent interface
+     * @return zend_Gdata_Docs_Query Provides a fluent interface
      */
     public function setTitleExact($value)
     {
@@ -203,7 +203,7 @@ class Zend_Gdata_Docs_Query extends Zend_Gdata_Query
             $uri .= '/' . $this->_visibility;
         } else {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Exception.php';
-            throw new Zend_Gdata_App_Exception(
+            throw new zend_Gdata_App_Exception(
                 'A visibility must be provided for cell queries.');
         }
 
@@ -211,7 +211,7 @@ class Zend_Gdata_Docs_Query extends Zend_Gdata_Query
             $uri .= '/' . $this->_projection;
         } else {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Exception.php';
-            throw new Zend_Gdata_App_Exception(
+            throw new zend_Gdata_App_Exception(
                 'A projection must be provided for cell queries.');
         }
 

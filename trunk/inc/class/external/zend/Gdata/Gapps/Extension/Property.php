@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,34 +13,34 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gapps
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: EmailList.php 20096 2010-01-06 02:05:09Z bkarwin $
  */
 
 /**
- * @see Zend_Gdata_Extension
+ * @see zend_Gdata_Extension
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension.php';
 
 /**
- * @see Zend_Gdata_Gapps
+ * @see zend_Gdata_Gapps
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Gapps.php';
 
 /**
  * Represents the apps:Property element used by the Apps data API.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gapps
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Gapps_Extension_Property extends Zend_Gdata_Extension
+class zend_Gdata_Gapps_Extension_Property extends zend_Gdata_Extension
 {
 
     protected $_rootNamespace = 'apps';
@@ -60,14 +60,14 @@ class Zend_Gdata_Gapps_Extension_Property extends Zend_Gdata_Extension
     protected $_value = null;
 
     /**
-     * Constructs a new Zend_Gdata_Gapps_Extension_Property object.
+     * Constructs a new zend_Gdata_Gapps_Extension_Property object.
      *
      * @param string $name The name of the property
      * @param string $value The value of the property
      */
     public function __construct($name = null, $value = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_Gapps::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_Gapps::$namespaces);
         parent::__construct();
         $this->_name = $name;
         $this->_value = $value;
@@ -134,7 +134,7 @@ class Zend_Gdata_Gapps_Extension_Property extends Zend_Gdata_Extension
     /**
      * Set the value for this element's name attribute.
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Gapps_Extension_Property The element being modified.
+     * @return zend_Gdata_Gapps_Extension_Property The element being modified.
      */
     public function setName($value)
     {
@@ -157,7 +157,7 @@ class Zend_Gdata_Gapps_Extension_Property extends Zend_Gdata_Extension
      * Set the value for this element's value attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Gapps_Extension_Property The element being modified.
+     * @return zend_Gdata_Gapps_Extension_Property The element being modified.
      */
     public function setValue($value)
     {

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,26 +13,26 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Geo
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: GeoRssWhere.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Extension
+ * @see zend_Gdata_Extension
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension.php';
 
 /**
- * @see Zend_Gdata_Geo
+ * @see zend_Gdata_Geo
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Geo.php';
 
 /**
- * @see Zend_Gdata_Geo_Extension_GmlPoint
+ * @see zend_Gdata_Geo_Extension_GmlPoint
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Geo/Extension/GmlPoint.php';
 
@@ -40,13 +40,13 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Geo/Extension/GmlPoint.php
 /**
  * Represents the georss:where element used by the Gdata Geo extensions.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Geo
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Geo_Extension_GeoRssWhere extends Zend_Gdata_Extension
+class zend_Gdata_Geo_Extension_GeoRssWhere extends zend_Gdata_Extension
 {
 
     protected $_rootNamespace = 'georss';
@@ -55,19 +55,19 @@ class Zend_Gdata_Geo_Extension_GeoRssWhere extends Zend_Gdata_Extension
     /**
      * The point location for this geo element
      *
-     * @var Zend_Gdata_Geo_Extension_GmlPoint
+     * @var zend_Gdata_Geo_Extension_GmlPoint
      */
     protected $_point = null;
 
     /**
      * Create a new instance.
      *
-     * @param Zend_Gdata_Geo_Extension_GmlPoint $point (optional) Point to which
+     * @param zend_Gdata_Geo_Extension_GmlPoint $point (optional) Point to which
      *          object should be initialized.
      */
     public function __construct($point = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_Geo::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_Geo::$namespaces);
         parent::__construct();
         $this->setPoint($point);
     }
@@ -102,7 +102,7 @@ class Zend_Gdata_Geo_Extension_GeoRssWhere extends Zend_Gdata_Extension
 
         switch ($absoluteNodeName) {
             case $this->lookupNamespace('gml') . ':' . 'Point';
-                $point = new Zend_Gdata_Geo_Extension_GmlPoint();
+                $point = new zend_Gdata_Geo_Extension_GmlPoint();
                 $point->transferFromDOM($child);
                 $this->_point = $point;
                 break;
@@ -113,7 +113,7 @@ class Zend_Gdata_Geo_Extension_GeoRssWhere extends Zend_Gdata_Extension
      * Get the value for this element's point attribute.
      *
      * @see setPoint
-     * @return Zend_Gdata_Geo_Extension_GmlPoint The requested attribute.
+     * @return zend_Gdata_Geo_Extension_GmlPoint The requested attribute.
      */
     public function getPoint()
     {
@@ -123,8 +123,8 @@ class Zend_Gdata_Geo_Extension_GeoRssWhere extends Zend_Gdata_Extension
     /**
      * Set the value for this element's point attribute.
      *
-     * @param Zend_Gdata_Geo_Extension_GmlPoint $value The desired value for this attribute.
-     * @return Zend_Gdata_Geo_Extension_GeoRssWhere Provides a fluent interface
+     * @param zend_Gdata_Geo_Extension_GmlPoint $value The desired value for this attribute.
+     * @return zend_Gdata_Geo_Extension_GeoRssWhere Provides a fluent interface
      */
     public function setPoint($value)
     {

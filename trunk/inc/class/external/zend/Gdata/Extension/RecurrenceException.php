@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,39 +13,39 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gdata
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: RecurrenceException.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Extension
+ * @see zend_Gdata_Extension
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension.php';
 
 /**
- * @see Zend_Gdata_Extension_EntryLink
+ * @see zend_Gdata_Extension_EntryLink
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension/EntryLink.php';
 
 /**
- * @see Zend_Gdata_Extension_OriginalEvent
+ * @see zend_Gdata_Extension_OriginalEvent
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension/OriginalEvent.php';
 
 /**
  * Data model class to represent an entry's recurrenceException
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gdata
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Extension_RecurrenceException extends Zend_Gdata_Extension
+class zend_Gdata_Extension_RecurrenceException extends zend_Gdata_Extension
 {
 
     protected $_rootElement = 'recurrenceException';
@@ -54,10 +54,10 @@ class Zend_Gdata_Extension_RecurrenceException extends Zend_Gdata_Extension
     protected $_originalEvent = null;
 
     /**
-     * Constructs a new Zend_Gdata_Extension_RecurrenceException object.
+     * Constructs a new zend_Gdata_Extension_RecurrenceException object.
      * @param bool $specialized (optional) Whether this is a specialized exception or not.
-     * @param Zend_Gdata_EntryLink (optional) An Event entry with details about the exception.
-     * @param Zend_Gdata_OriginalEvent (optional) The origianl recurrent event this is an exeption to.
+     * @param zend_Gdata_EntryLink (optional) An Event entry with details about the exception.
+     * @param zend_Gdata_OriginalEvent (optional) The origianl recurrent event this is an exeption to.
      */
     public function __construct($specialized = null, $entryLink = null,
             $originalEvent = null)
@@ -111,7 +111,7 @@ class Zend_Gdata_Extension_RecurrenceException extends Zend_Gdata_Extension
                 $this->_specialized = false;
             }
             else {
-                throw new Zend_Gdata_App_InvalidArgumentException("Expected 'true' or 'false' for gCal:selected#value.");
+                throw new zend_Gdata_App_InvalidArgumentException("Expected 'true' or 'false' for gCal:selected#value.");
             }
             break;
         default:
@@ -130,12 +130,12 @@ class Zend_Gdata_Extension_RecurrenceException extends Zend_Gdata_Extension
         $absoluteNodeName = $child->namespaceURI . ':' . $child->localName;
         switch ($absoluteNodeName) {
         case $this->lookupNamespace('gd') . ':' . 'entryLink':
-            $entryLink = new Zend_Gdata_Extension_EntryLink();
+            $entryLink = new zend_Gdata_Extension_EntryLink();
             $entryLink->transferFromDOM($child);
             $this->_entryLink = $entryLink;
             break;
         case $this->lookupNamespace('gd') . ':' . 'originalEvent':
-            $originalEvent = new Zend_Gdata_Extension_OriginalEvent();
+            $originalEvent = new zend_Gdata_Extension_OriginalEvent();
             $originalEvent->transferFromDOM($child);
             $this->_originalEvent = $originalEvent;
             break;
@@ -159,7 +159,7 @@ class Zend_Gdata_Extension_RecurrenceException extends Zend_Gdata_Extension
      * Set the value for this element's Specialized attribute.
      *
      * @param bool $value The desired value for this attribute.
-     * @return Zend_Gdata_Extension_RecurrenceException The element being modified.
+     * @return zend_Gdata_Extension_RecurrenceException The element being modified.
      */
     public function setSpecialized($value)
     {
@@ -170,7 +170,7 @@ class Zend_Gdata_Extension_RecurrenceException extends Zend_Gdata_Extension
     /**
      * Get the value for this element's EntryLink attribute.
      *
-     * @return Zend_Gdata_Extension_EntryLink The requested attribute.
+     * @return zend_Gdata_Extension_EntryLink The requested attribute.
      */
     public function getEntryLink()
     {
@@ -180,8 +180,8 @@ class Zend_Gdata_Extension_RecurrenceException extends Zend_Gdata_Extension
     /**
      * Set the value for this element's EntryLink attribute.
      *
-     * @param Zend_Gdata_Extension_EntryLink $value The desired value for this attribute.
-     * @return Zend_Gdata_Extension_RecurrenceException The element being modified.
+     * @param zend_Gdata_Extension_EntryLink $value The desired value for this attribute.
+     * @return zend_Gdata_Extension_RecurrenceException The element being modified.
      */
     public function setEntryLink($value)
     {
@@ -192,7 +192,7 @@ class Zend_Gdata_Extension_RecurrenceException extends Zend_Gdata_Extension
     /**
      * Get the value for this element's Specialized attribute.
      *
-     * @return Zend_Gdata_Extension_OriginalEvent The requested attribute.
+     * @return zend_Gdata_Extension_OriginalEvent The requested attribute.
      */
     public function getOriginalEvent()
     {
@@ -202,8 +202,8 @@ class Zend_Gdata_Extension_RecurrenceException extends Zend_Gdata_Extension
     /**
      * Set the value for this element's Specialized attribute.
      *
-     * @param Zend_Gdata_Extension_OriginalEvent $value The desired value for this attribute.
-     * @return Zend_Gdata_Extension_RecurrenceException The element being modified.
+     * @param zend_Gdata_Extension_OriginalEvent $value The desired value for this attribute.
+     * @return zend_Gdata_Extension_RecurrenceException The element being modified.
      */
     public function setOriginalEvent($value)
     {

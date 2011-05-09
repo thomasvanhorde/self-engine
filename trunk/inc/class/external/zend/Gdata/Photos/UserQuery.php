@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,16 +13,16 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Photos
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: UserQuery.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Gapps_Query
+ * @see zend_Gdata_Gapps_Query
  */
 require_once('zend/Gdata/Gapps/Query.php');
 
@@ -32,15 +32,15 @@ require_once('zend/Gdata/Gapps/Query.php');
  * required.
  *
  * For information on submitting queries to a server, see the
- * service class, Zend_Gdata_Photos.
+ * service class, zend_Gdata_Photos.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Photos
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Photos_UserQuery extends Zend_Gdata_Query
+class zend_Gdata_Photos_UserQuery extends zend_Gdata_Query
 {
 
     /**
@@ -66,7 +66,7 @@ class Zend_Gdata_Photos_UserQuery extends Zend_Gdata_Query
      *
      * @var string
      */
-    protected $_user = Zend_Gdata_Photos::DEFAULT_USER;
+    protected $_user = zend_Gdata_Photos::DEFAULT_USER;
 
     /**
      * Create a new Query object with default values.
@@ -81,7 +81,7 @@ class Zend_Gdata_Photos_UserQuery extends Zend_Gdata_Query
      * 'api' or 'base'. Normally, 'api' will be desired. Default is 'api'.
      *
      * @param string $value
-     * @return Zend_Gdata_Photos_UserQuery Provides a fluent interface
+     * @return zend_Gdata_Photos_UserQuery Provides a fluent interface
      */
     public function setProjection($value)
     {
@@ -105,7 +105,7 @@ class Zend_Gdata_Photos_UserQuery extends Zend_Gdata_Query
      * 'feed' or 'entry'. Normally, 'feed' will be desired. Default is 'feed'.
      *
      * @param string $value
-     * @return Zend_Gdata_Photos_UserQuery Provides a fluent interface
+     * @return zend_Gdata_Photos_UserQuery Provides a fluent interface
      */
     public function setType($value)
     {
@@ -137,7 +137,7 @@ class Zend_Gdata_Photos_UserQuery extends Zend_Gdata_Query
          if ($value !== null) {
              $this->_user = $value;
          } else {
-             $this->_user = Zend_Gdata_Photos::DEFAULT_USER;
+             $this->_user = zend_Gdata_Photos::DEFAULT_USER;
          }
      }
 
@@ -316,17 +316,17 @@ class Zend_Gdata_Photos_UserQuery extends Zend_Gdata_Query
      * parameters.
      *
      * @return string A URL generated based on the state of this query.
-     * @throws Zend_Gdata_App_InvalidArgumentException
+     * @throws zend_Gdata_App_InvalidArgumentException
      */
     public function getQueryUrl($incomingUri = null)
     {
-        $uri = Zend_Gdata_Photos::PICASA_BASE_URI;
+        $uri = zend_Gdata_Photos::PICASA_BASE_URI;
 
         if ($this->getType() !== null) {
             $uri .= '/' . $this->getType();
         } else {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/InvalidArgumentException.php';
-            throw new Zend_Gdata_App_InvalidArgumentException(
+            throw new zend_Gdata_App_InvalidArgumentException(
                     'Type must be feed or entry, not null');
         }
 
@@ -334,7 +334,7 @@ class Zend_Gdata_Photos_UserQuery extends Zend_Gdata_Query
             $uri .= '/' . $this->getProjection();
         } else {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/InvalidArgumentException.php';
-            throw new Zend_Gdata_App_InvalidArgumentException(
+            throw new zend_Gdata_App_InvalidArgumentException(
                     'Projection must not be null');
         }
 
@@ -343,7 +343,7 @@ class Zend_Gdata_Photos_UserQuery extends Zend_Gdata_Query
         } else {
             // Should never occur due to setter behavior
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/InvalidArgumentException.php';
-            throw new Zend_Gdata_App_InvalidArgumentException(
+            throw new zend_Gdata_App_InvalidArgumentException(
                     'User must not be null');
         }
 

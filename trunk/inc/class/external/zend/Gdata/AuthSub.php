@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,37 +13,37 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gdata
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: AuthSub.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * Zend_Gdata_HttpClient
+ * zend_Gdata_HttpClient
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/HttpClient.php';
 
 /**
- * Zend_Version
+ * zend_Version
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Version.php';
 
 /**
- * Wrapper around Zend_Http_Client to facilitate Google's "Account Authentication
+ * Wrapper around zend_Http_Client to facilitate Google's "Account Authentication
  * Proxy for Web-Based Applications".
  *
  * @see http://code.google.com/apis/accounts/AuthForWebApps.html
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gdata
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_AuthSub
+class zend_Gdata_AuthSub
 {
 
     const AUTHSUB_REQUEST_URI      = 'https://www.google.com/accounts/AuthSubRequest';
@@ -91,13 +91,13 @@ class Zend_Gdata_AuthSub
      * Upgrades a single use token to a session token
      *
      * @param string $token The single use token which is to be upgraded
-     * @param Zend_Http_Client $client (optional) HTTP client to use to
+     * @param zend_Http_Client $client (optional) HTTP client to use to
      *                                 make the request
      * @param string $request_uri (optional) URI to which to direct
      *                            the session token upgrade
      * @return string The upgraded token value
-     * @throws Zend_Gdata_App_AuthException
-     * @throws Zend_Gdata_App_HttpException
+     * @throws zend_Gdata_App_AuthException
+     * @throws zend_Gdata_App_HttpException
      */
     public static function getAuthSubSessionToken(
             $token, $client = null,
@@ -105,7 +105,7 @@ class Zend_Gdata_AuthSub
     {
         $client = self::getHttpClient($token, $client);
 
-        if ($client instanceof Zend_Gdata_HttpClient) {
+        if ($client instanceof zend_Gdata_HttpClient) {
             $filterResult = $client->filterHttpRequest('GET', $request_uri);
             $url = $filterResult['url'];
             $headers = $filterResult['headers'];
@@ -117,9 +117,9 @@ class Zend_Gdata_AuthSub
 
         try {
             $response = $client->request('GET');
-        } catch (Zend_Http_Client_Exception $e) {
+        } catch (zend_Http_Client_Exception $e) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/HttpException.php';
-            throw new Zend_Gdata_App_HttpException($e->getMessage(), $e);
+            throw new zend_Gdata_App_HttpException($e->getMessage(), $e);
         }
 
         // Parse Google's response
@@ -135,7 +135,7 @@ class Zend_Gdata_AuthSub
             return $goog_resp['Token'];
         } else {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/AuthException.php';
-            throw new Zend_Gdata_App_AuthException(
+            throw new zend_Gdata_App_AuthException(
                     'Token upgrade failed. Reason: ' . $response->getBody());
         }
     }
@@ -144,17 +144,17 @@ class Zend_Gdata_AuthSub
      * Revoke a token
      *
      * @param string $token The token to revoke
-     * @param Zend_Http_Client $client (optional) HTTP client to use to make the request
+     * @param zend_Http_Client $client (optional) HTTP client to use to make the request
      * @param string $request_uri (optional) URI to which to direct the revokation request
      * @return boolean Whether the revokation was successful
-     * @throws Zend_Gdata_App_HttpException
+     * @throws zend_Gdata_App_HttpException
      */
     public static function AuthSubRevokeToken($token, $client = null,
                                               $request_uri = self::AUTHSUB_REVOKE_TOKEN_URI)
     {
         $client = self::getHttpClient($token, $client);
 
-        if ($client instanceof Zend_Gdata_HttpClient) {
+        if ($client instanceof zend_Gdata_HttpClient) {
             $filterResult = $client->filterHttpRequest('GET', $request_uri);
             $url = $filterResult['url'];
             $headers = $filterResult['headers'];
@@ -168,9 +168,9 @@ class Zend_Gdata_AuthSub
         ob_start();
         try {
             $response = $client->request('GET');
-        } catch (Zend_Http_Client_Exception $e) {
+        } catch (zend_Http_Client_Exception $e) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/HttpException.php';
-            throw new Zend_Gdata_App_HttpException($e->getMessage(), $e);
+            throw new zend_Gdata_App_HttpException($e->getMessage(), $e);
         }
         ob_end_clean();
         // Parse Google's response
@@ -186,7 +186,7 @@ class Zend_Gdata_AuthSub
      * get token information
      *
      * @param string $token The token to retrieve information about
-     * @param Zend_Http_Client $client (optional) HTTP client to use to
+     * @param zend_Http_Client $client (optional) HTTP client to use to
      *                                 make the request
      * @param string $request_uri (optional) URI to which to direct
      *                            the information request
@@ -196,7 +196,7 @@ class Zend_Gdata_AuthSub
     {
         $client = self::getHttpClient($token, $client);
 
-        if ($client instanceof Zend_Gdata_HttpClient) {
+        if ($client instanceof zend_Gdata_HttpClient) {
             $filterResult = $client->filterHttpRequest('GET', $request_uri);
             $url = $filterResult['url'];
             $headers = $filterResult['headers'];
@@ -209,9 +209,9 @@ class Zend_Gdata_AuthSub
         ob_start();
         try {
             $response = $client->request('GET');
-        } catch (Zend_Http_Client_Exception $e) {
+        } catch (zend_Http_Client_Exception $e) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/HttpException.php';
-            throw new Zend_Gdata_App_HttpException($e->getMessage(), $e);
+            throw new zend_Gdata_App_HttpException($e->getMessage(), $e);
         }
         ob_end_clean();
         return $response->getBody();
@@ -222,18 +222,18 @@ class Zend_Gdata_AuthSub
      * as the Authorization header
      *
      * @param string $token The token to retrieve information about
-     * @param Zend_Gdata_HttpClient $client (optional) HTTP client to use to make the request
+     * @param zend_Gdata_HttpClient $client (optional) HTTP client to use to make the request
      */
     public static function getHttpClient($token, $client = null)
     {
         if ($client == null) {
-            $client = new Zend_Gdata_HttpClient();
+            $client = new zend_Gdata_HttpClient();
         }
-        if (!$client instanceof Zend_Http_Client) {
+        if (!$client instanceof zend_Http_Client) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/HttpException.php';
-            throw new Zend_Gdata_App_HttpException('Client is not an instance of Zend_Http_Client.');
+            throw new zend_Gdata_App_HttpException('Client is not an instance of zend_Http_Client.');
         }
-        $useragent = 'Zend_Framework_Gdata/' . Zend_Version::VERSION;
+        $useragent = 'zend_Framework_Gdata/' . zend_Version::VERSION;
         $client->setConfig(array(
                 'strictredirects' => true,
                 'useragent' => $useragent

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,26 +13,26 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Photos
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: TagEntry.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Entry
+ * @see zend_Gdata_Entry
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Entry.php';
 
 /**
- * @see Zend_Gdata_Photos_Extension_Weight
+ * @see zend_Gdata_Photos_Extension_Weight
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Photos/Extension/Weight.php';
 
 /**
- * @see Zend_Gdata_App_Extension_Category
+ * @see zend_Gdata_App_Extension_Category
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Extension/Category.php';
 
@@ -41,20 +41,20 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Extension/Category.php
  *
  * To transfer user entries to and from the servers, including
  * creating new entries, refer to the service class,
- * Zend_Gdata_Photos.
+ * zend_Gdata_Photos.
  *
  * This class represents <atom:entry> in the Google Data protocol.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Photos
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Photos_TagEntry extends Zend_Gdata_Entry
+class zend_Gdata_Photos_TagEntry extends zend_Gdata_Entry
 {
 
-    protected $_entryClassName = 'Zend_Gdata_Photos_TagEntry';
+    protected $_entryClassName = 'zend_Gdata_Photos_TagEntry';
 
     protected $_gphotoWeight = null;
 
@@ -66,10 +66,10 @@ class Zend_Gdata_Photos_TagEntry extends Zend_Gdata_Entry
      */
     public function __construct($element = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_Photos::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_Photos::$namespaces);
         parent::__construct($element);
 
-        $category = new Zend_Gdata_App_Extension_Category(
+        $category = new zend_Gdata_App_Extension_Category(
             'http://schemas.google.com/photos/2007#tag',
             'http://schemas.google.com/g/2005#kind');
         $this->setCategory(array($category));
@@ -105,7 +105,7 @@ class Zend_Gdata_Photos_TagEntry extends Zend_Gdata_Entry
 
         switch ($absoluteNodeName) {
             case $this->lookupNamespace('gphoto') . ':' . 'weight';
-                $weight = new Zend_Gdata_Photos_Extension_Weight();
+                $weight = new zend_Gdata_Photos_Extension_Weight();
                 $weight->transferFromDOM($child);
                 $this->_gphotoWeight = $weight;
                 break;
@@ -130,7 +130,7 @@ class Zend_Gdata_Photos_TagEntry extends Zend_Gdata_Entry
      * Set the value for this element's gphoto:weight attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Photos_Extension_Weight The element being modified.
+     * @return zend_Gdata_Photos_Extension_Weight The element being modified.
      */
     public function setGphotoWeight($value)
     {

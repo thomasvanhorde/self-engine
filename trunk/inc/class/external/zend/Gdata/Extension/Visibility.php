@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,36 +13,36 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gdata
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Visibility.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Extension
+ * @see zend_Gdata_Extension
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension.php';
 
 /**
  * Data model class to represent an entry's visibility
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gdata
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Extension_Visibility extends Zend_Gdata_Extension
+class zend_Gdata_Extension_Visibility extends zend_Gdata_Extension
 {
 
     protected $_rootElement = 'visibility';
     protected $_value = null;
 
     /**
-     * Constructs a new Zend_Gdata_Extension_Visibility object.
+     * Constructs a new zend_Gdata_Extension_Visibility object.
      * @param bool $value (optional) Visibility value as URI.
      */
     public function __construct($value = null)
@@ -102,7 +102,7 @@ class Zend_Gdata_Extension_Visibility extends Zend_Gdata_Extension
      * Set the value for this element's Value attribute.
      *
      * @param bool $value The desired value for this attribute.
-     * @return Zend_Gdata_Extension_Visibility The element being modified.
+     * @return zend_Gdata_Extension_Visibility The element being modified.
      */
     public function setValue($value)
     {

@@ -1,6 +1,6 @@
 <?php
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -12,25 +12,25 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Validate
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @category   zend
+ * @package    zend_Validate
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Abstract.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Validate_Interface
+ * @see zend_Validate_Interface
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Validate/Interface.php';
 
 /**
- * @category   Zend
- * @package    Zend_Validate
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @category   zend
+ * @package    zend_Validate
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
+abstract class zend_Validate_Abstract implements zend_Validate_Interface
 {
     /**
      * The value to be validated
@@ -77,13 +77,13 @@ abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
 
     /**
      * Translation object
-     * @var Zend_Translate
+     * @var zend_Translate
      */
     protected $_translator;
 
     /**
      * Default translation object for all validate objects
-     * @var Zend_Translate
+     * @var zend_Translate
      */
     protected static $_defaultTranslator;
 
@@ -135,8 +135,8 @@ abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
      *
      * @param  string $messageString
      * @param  string $messageKey     OPTIONAL
-     * @return Zend_Validate_Abstract Provides a fluent interface
-     * @throws Zend_Validate_Exception
+     * @return zend_Validate_Abstract Provides a fluent interface
+     * @throws zend_Validate_Exception
      */
     public function setMessage($messageString, $messageKey = null)
     {
@@ -150,7 +150,7 @@ abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
 
         if (!isset($this->_messageTemplates[$messageKey])) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Validate/Exception.php';
-            throw new Zend_Validate_Exception("No message template exists for key '$messageKey'");
+            throw new zend_Validate_Exception("No message template exists for key '$messageKey'");
         }
 
         $this->_messageTemplates[$messageKey] = $messageString;
@@ -162,7 +162,7 @@ abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
      * and the array values are the message template strings.
      *
      * @param  array $messages
-     * @return Zend_Validate_Abstract
+     * @return zend_Validate_Abstract
      */
     public function setMessages(array $messages)
     {
@@ -178,7 +178,7 @@ abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
      *
      * @param  string $property
      * @return mixed
-     * @throws Zend_Validate_Exception
+     * @throws zend_Validate_Exception
      */
     public function __get($property)
     {
@@ -189,10 +189,10 @@ abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
             return $this->{$this->_messageVariables[$property]};
         }
         /**
-         * @see Zend_Validate_Exception
+         * @see zend_Validate_Exception
          */
         require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Validate/Exception.php';
-        throw new Zend_Validate_Exception("No property exists by the name '$property'");
+        throw new zend_Validate_Exception("No property exists by the name '$property'");
     }
 
     /**
@@ -296,7 +296,7 @@ abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
      * Set flag indicating whether or not value should be obfuscated in messages
      *
      * @param  bool $flag
-     * @return Zend_Validate_Abstract
+     * @return zend_Validate_Abstract
      */
     public function setObscureValue($flag)
     {
@@ -318,18 +318,18 @@ abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
     /**
      * Set translation object
      *
-     * @param  Zend_Translate|Zend_Translate_Adapter|null $translator
-     * @return Zend_Validate_Abstract
+     * @param  zend_Translate|zend_Translate_Adapter|null $translator
+     * @return zend_Validate_Abstract
      */
     public function setTranslator($translator = null)
     {
-        if ((null === $translator) || ($translator instanceof Zend_Translate_Adapter)) {
+        if ((null === $translator) || ($translator instanceof zend_Translate_Adapter)) {
             $this->_translator = $translator;
-        } elseif ($translator instanceof Zend_Translate) {
+        } elseif ($translator instanceof zend_Translate) {
             $this->_translator = $translator->getAdapter();
         } else {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Validate/Exception.php';
-            throw new Zend_Validate_Exception('Invalid translator specified');
+            throw new zend_Validate_Exception('Invalid translator specified');
         }
         return $this;
     }
@@ -337,7 +337,7 @@ abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
     /**
      * Return translation object
      *
-     * @return Zend_Translate_Adapter|null
+     * @return zend_Translate_Adapter|null
      */
     public function getTranslator()
     {
@@ -365,35 +365,35 @@ abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
     /**
      * Set default translation object for all validate objects
      *
-     * @param  Zend_Translate|Zend_Translate_Adapter|null $translator
+     * @param  zend_Translate|zend_Translate_Adapter|null $translator
      * @return void
      */
     public static function setDefaultTranslator($translator = null)
     {
-        if ((null === $translator) || ($translator instanceof Zend_Translate_Adapter)) {
+        if ((null === $translator) || ($translator instanceof zend_Translate_Adapter)) {
             self::$_defaultTranslator = $translator;
-        } elseif ($translator instanceof Zend_Translate) {
+        } elseif ($translator instanceof zend_Translate) {
             self::$_defaultTranslator = $translator->getAdapter();
         } else {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Validate/Exception.php';
-            throw new Zend_Validate_Exception('Invalid translator specified');
+            throw new zend_Validate_Exception('Invalid translator specified');
         }
     }
 
     /**
      * Get default translation object for all validate objects
      *
-     * @return Zend_Translate_Adapter|null
+     * @return zend_Translate_Adapter|null
      */
     public static function getDefaultTranslator()
     {
         if (null === self::$_defaultTranslator) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Registry.php';
-            if (Zend_Registry::isRegistered('Zend_Translate')) {
-                $translator = Zend_Registry::get('Zend_Translate');
-                if ($translator instanceof Zend_Translate_Adapter) {
+            if (zend_Registry::isRegistered('zend_Translate')) {
+                $translator = zend_Registry::get('zend_Translate');
+                if ($translator instanceof zend_Translate_Adapter) {
                     return $translator;
-                } elseif ($translator instanceof Zend_Translate) {
+                } elseif ($translator instanceof zend_Translate) {
                     return $translator->getAdapter();
                 }
             }
@@ -416,7 +416,7 @@ abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
      * Indicate whether or not translation should be disabled
      *
      * @param  bool $flag
-     * @return Zend_Validate_Abstract
+     * @return zend_Validate_Abstract
      */
     public function setDisableTranslator($flag)
     {

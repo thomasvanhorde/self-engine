@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,21 +13,21 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Spreadsheets
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: CellQuery.php 23805 2011-03-16 00:55:40Z tjohns $
  */
 
 /**
- * Zend_Gdata_App_util
+ * zend_Gdata_App_util
  */
 require_once('zend/Gdata/App/Util.php');
 
 /**
- * Zend_Gdata_Query
+ * zend_Gdata_Query
  */
 require_once('zend/Gdata/Query.php');
 
@@ -36,13 +36,13 @@ require_once('zend/Gdata/Query.php');
  *
  * @link http://code.google.com/apis/gdata/spreadsheets/
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage   Spreadsheets
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Spreadsheets_CellQuery extends Zend_Gdata_Query
+class zend_Gdata_Spreadsheets_CellQuery extends zend_Gdata_Query
 {
 
     const SPREADSHEETS_CELL_FEED_URI = 'https://spreadsheets.google.com/feeds/cells';
@@ -55,7 +55,7 @@ class Zend_Gdata_Spreadsheets_CellQuery extends Zend_Gdata_Query
     protected $_cellId = null;
 
     /**
-     * Constructs a new Zend_Gdata_Spreadsheets_CellQuery object.
+     * Constructs a new zend_Gdata_Spreadsheets_CellQuery object.
      *
      * @param string $url Base URL to use for queries
      */
@@ -68,7 +68,7 @@ class Zend_Gdata_Spreadsheets_CellQuery extends Zend_Gdata_Query
      * Sets the spreadsheet key for this query.
      *
      * @param string $value
-     * @return Zend_Gdata_Spreadsheets_CellQuery Provides a fluent interface
+     * @return zend_Gdata_Spreadsheets_CellQuery Provides a fluent interface
      */
     public function setSpreadsheetKey($value)
     {
@@ -90,7 +90,7 @@ class Zend_Gdata_Spreadsheets_CellQuery extends Zend_Gdata_Query
      * Sets the worksheet id for this query.
      *
      * @param string $value
-     * @return Zend_Gdata_Spreadsheets_CellQuery Provides a fluent interface
+     * @return zend_Gdata_Spreadsheets_CellQuery Provides a fluent interface
      */
     public function setWorksheetId($value)
     {
@@ -112,7 +112,7 @@ class Zend_Gdata_Spreadsheets_CellQuery extends Zend_Gdata_Query
      * Sets the cell id for this query.
      *
      * @param string $value
-     * @return Zend_Gdata_Spreadsheets_CellQuery Provides a fluent interface
+     * @return zend_Gdata_Spreadsheets_CellQuery Provides a fluent interface
      */
     public function setCellId($value)
     {
@@ -134,7 +134,7 @@ class Zend_Gdata_Spreadsheets_CellQuery extends Zend_Gdata_Query
      * Sets the projection for this query.
      *
      * @param string $value
-     * @return Zend_Gdata_Spreadsheets_CellQuery Provides a fluent interface
+     * @return zend_Gdata_Spreadsheets_CellQuery Provides a fluent interface
      */
     public function setProjection($value)
     {
@@ -145,7 +145,7 @@ class Zend_Gdata_Spreadsheets_CellQuery extends Zend_Gdata_Query
     /**
      * Sets the visibility for this query.
      *
-     * @return Zend_Gdata_Spreadsheets_CellQuery Provides a fluent interface
+     * @return zend_Gdata_Spreadsheets_CellQuery Provides a fluent interface
      */
     public function setVisibility($value)
     {
@@ -177,7 +177,7 @@ class Zend_Gdata_Spreadsheets_CellQuery extends Zend_Gdata_Query
      * Sets the min-row attribute for this query.
      *
      * @param string $value
-     * @return Zend_Gdata_Spreadsheets_CellQuery Provides a fluent interface
+     * @return zend_Gdata_Spreadsheets_CellQuery Provides a fluent interface
      */
     public function setMinRow($value)
     {
@@ -207,7 +207,7 @@ class Zend_Gdata_Spreadsheets_CellQuery extends Zend_Gdata_Query
      * Sets the max-row attribute for this query.
      *
      * @param string $value
-     * @return Zend_Gdata_Spreadsheets_CellQuery Provides a fluent interface
+     * @return zend_Gdata_Spreadsheets_CellQuery Provides a fluent interface
      */
     public function setMaxRow($value)
     {
@@ -237,7 +237,7 @@ class Zend_Gdata_Spreadsheets_CellQuery extends Zend_Gdata_Query
      * Sets the min-col attribute for this query.
      *
      * @param string $value
-     * @return Zend_Gdata_Spreadsheets_CellQuery Provides a fluent interface
+     * @return zend_Gdata_Spreadsheets_CellQuery Provides a fluent interface
      */
     public function setMinCol($value)
     {
@@ -267,7 +267,7 @@ class Zend_Gdata_Spreadsheets_CellQuery extends Zend_Gdata_Query
      * Sets the max-col attribute for this query.
      *
      * @param string $value
-     * @return Zend_Gdata_Spreadsheets_CellQuery Provides a fluent interface
+     * @return zend_Gdata_Spreadsheets_CellQuery Provides a fluent interface
      */
     public function setMaxCol($value)
     {
@@ -297,7 +297,7 @@ class Zend_Gdata_Spreadsheets_CellQuery extends Zend_Gdata_Query
      * Sets the range attribute for this query.
      *
      * @param string $value
-     * @return Zend_Gdata_Spreadsheets_CellQuery Provides a fluent interface
+     * @return zend_Gdata_Spreadsheets_CellQuery Provides a fluent interface
      */
     public function setRange($value)
     {
@@ -327,7 +327,7 @@ class Zend_Gdata_Spreadsheets_CellQuery extends Zend_Gdata_Query
      * Sets the return-empty attribute for this query.
      *
      * @param mixed $value String or bool value for whether to return empty cells
-     * @return Zend_Gdata_Spreadsheets_CellQuery Provides a fluent interface
+     * @return zend_Gdata_Spreadsheets_CellQuery Provides a fluent interface
      */
     public function setReturnEmpty($value)
     {
@@ -369,28 +369,28 @@ class Zend_Gdata_Spreadsheets_CellQuery extends Zend_Gdata_Query
                 $uri .= '/'.$this->_spreadsheetKey;
             } else {
                 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Exception.php';
-                throw new Zend_Gdata_App_Exception('A spreadsheet key must be provided for cell queries.');
+                throw new zend_Gdata_App_Exception('A spreadsheet key must be provided for cell queries.');
             }
 
             if ($this->_worksheetId != null) {
                 $uri .= '/'.$this->_worksheetId;
             } else {
                 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Exception.php';
-                throw new Zend_Gdata_App_Exception('A worksheet id must be provided for cell queries.');
+                throw new zend_Gdata_App_Exception('A worksheet id must be provided for cell queries.');
             }
 
             if ($this->_visibility != null) {
                 $uri .= '/'.$this->_visibility;
             } else {
                 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Exception.php';
-                throw new Zend_Gdata_App_Exception('A visibility must be provided for cell queries.');
+                throw new zend_Gdata_App_Exception('A visibility must be provided for cell queries.');
             }
 
             if ($this->_projection != null) {
                 $uri .= '/'.$this->_projection;
             } else {
                 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Exception.php';
-                throw new Zend_Gdata_App_Exception('A projection must be provided for cell queries.');
+                throw new zend_Gdata_App_Exception('A projection must be provided for cell queries.');
             }
 
             if ($this->_cellId != null) {

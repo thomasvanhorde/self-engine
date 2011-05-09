@@ -1,6 +1,6 @@
 <?php
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -12,43 +12,43 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Health
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Ccr.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_App_Extension_Element
+ * @see zend_Gdata_App_Extension_Element
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Extension/Element.php';
 
 /**
  * Concrete class for working with CCR elements.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Health
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Health_Extension_Ccr extends Zend_Gdata_App_Extension_Element
+class zend_Gdata_Health_Extension_Ccr extends zend_Gdata_App_Extension_Element
 {
     protected $_rootNamespace = 'ccr';
     protected $_rootElement = 'ContinuityOfCareRecord';
     protected $_ccrDom = null;
 
     /**
-     * Creates a Zend_Gdata_Health_Extension_Ccr entry, representing CCR data
+     * Creates a zend_Gdata_Health_Extension_Ccr entry, representing CCR data
      *
      * @param DOMElement $element (optional) DOMElement from which this
      *          object should be constructed.
      */
     public function __construct($element = null)
     {
-        foreach (Zend_Gdata_Health::$namespaces as $nsPrefix => $nsUri) {
+        foreach (zend_Gdata_Health::$namespaces as $nsPrefix => $nsUri) {
             $this->registerNamespace($nsPrefix, $nsUri);
         }
     }

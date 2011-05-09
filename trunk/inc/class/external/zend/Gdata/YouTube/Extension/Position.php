@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,42 +13,42 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage YouTube
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Position.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Extension
+ * @see zend_Gdata_Extension
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension.php';
 
 /**
  * Data model class to represent a playlist item's position in the list (yt:position)
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage YouTube
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_YouTube_Extension_Position extends Zend_Gdata_Extension
+class zend_Gdata_YouTube_Extension_Position extends zend_Gdata_Extension
 {
 
     protected $_rootElement = 'position';
     protected $_rootNamespace = 'yt';
 
     /**
-     * Constructs a new Zend_Gdata_YouTube_Extension_Position object.
+     * Constructs a new zend_Gdata_YouTube_Extension_Position object.
      *
      * @param string $value (optional) The 1-based position in the playlist
      */
     public function __construct($value = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_YouTube::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_YouTube::$namespaces);
         parent::__construct();
         $this->_text = $value;
     }
@@ -67,7 +67,7 @@ class Zend_Gdata_YouTube_Extension_Position extends Zend_Gdata_Extension
      * Set the value for the position in the playlist
      *
      * @param int $value The 1-based position in the playlist
-     * @return Zend_Gdata_Extension_Visibility The element being modified
+     * @return zend_Gdata_Extension_Visibility The element being modified
      */
     public function setValue($value)
     {

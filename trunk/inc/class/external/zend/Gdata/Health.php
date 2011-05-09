@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,36 +13,36 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Health
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Health.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata
+ * @see zend_Gdata
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata.php';
 
 /**
- * @see Zend_Gdata_Health_ProfileFeed
+ * @see zend_Gdata_Health_ProfileFeed
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Health/ProfileFeed.php';
 
 /**
- * @see Zend_Gdata_Health_ProfileListFeed
+ * @see zend_Gdata_Health_ProfileListFeed
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Health/ProfileListFeed.php';
 
 /**
- * @see Zend_Gdata_Health_ProfileListEntry
+ * @see zend_Gdata_Health_ProfileListEntry
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Health/ProfileListEntry.php';
 
 /**
- * @see Zend_Gdata_Health_ProfileEntry
+ * @see zend_Gdata_Health_ProfileEntry
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Health/ProfileEntry.php';
 
@@ -51,13 +51,13 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Health/ProfileEntry.php';
  *
  * @link http://code.google.com/apis/health
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Health
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Health extends Zend_Gdata
+class zend_Gdata_Health extends zend_Gdata
 {
     /**
      * URIs of the AuthSub/OAuth feeds.
@@ -107,9 +107,9 @@ class Zend_Gdata_Health extends Zend_Gdata
               'gd' => 'http://schemas.google.com/g/2005');
 
     /**
-     * Create Zend_Gdata_Health object
+     * Create zend_Gdata_Health object
      *
-     * @param Zend_Http_Client $client (optional) The HTTP client to use when
+     * @param zend_Http_Client $client (optional) The HTTP client to use when
      *     when communicating with the Google Health servers.
      * @param string $applicationId The identity of the application in the form
      *     of Company-AppName-Version
@@ -118,8 +118,8 @@ class Zend_Gdata_Health extends Zend_Gdata
      */
     public function __construct($client = null, $applicationId = 'MyCompany-MyApp-1.0', $useH9Sandbox = false)
     {
-        $this->registerPackage('Zend_Gdata_Health');
-        $this->registerPackage('Zend_Gdata_Health_Extension_Ccr');
+        $this->registerPackage('zend_Gdata_Health');
+        $this->registerPackage('zend_Gdata_Health_Extension_Ccr');
         parent::__construct($client, $applicationId);
         $this->_useH9Sandbox = $useH9Sandbox;
     }
@@ -138,7 +138,7 @@ class Zend_Gdata_Health extends Zend_Gdata
      * Sets which of the user's profiles will be used
      *
      * @param string $id The profile ID
-     * @return Zend_Gdata_Health Provides a fluent interface
+     * @return zend_Gdata_Health Provides a fluent interface
      */
     public function setProfileID($id) {
         $this->_profileID = $id;
@@ -150,19 +150,19 @@ class Zend_Gdata_Health extends Zend_Gdata
      * credentials.
      *
      * @param string $query The query of the feed as a URL or Query object
-     * @return Zend_Gdata_Feed
+     * @return zend_Gdata_Feed
      */
     public function getHealthProfileListFeed($query = null)
     {
         if ($this->_httpClient->getClientLoginToken() === null) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/AuthException.php';
-            throw new Zend_Gdata_App_AuthException(
+            throw new zend_Gdata_App_AuthException(
                 'Profiles list feed is only available when using ClientLogin');
         }
 
         if($query === null)  {
             $uri = self::CLIENTLOGIN_PROFILELIST_FEED_URI;
-        } else if ($query instanceof Zend_Gdata_Query) {
+        } else if ($query instanceof zend_Gdata_Query) {
             $uri = $query->getQueryUrl();
         } else {
             $uri = $query;
@@ -173,7 +173,7 @@ class Zend_Gdata_Health extends Zend_Gdata
             $uri = preg_replace('/\/health\//', '/h9/', $uri);
         }
 
-        return parent::getFeed($uri, 'Zend_Gdata_Health_ProfileListFeed');
+        return parent::getFeed($uri, 'zend_Gdata_Health_ProfileListFeed');
     }
 
     /**
@@ -182,18 +182,18 @@ class Zend_Gdata_Health extends Zend_Gdata
      * the profile associated with the AuthSub token is read.
      *
      * @param mixed $query The query for the feed, as a URL or Query
-     * @return Zend_Gdata_Health_ProfileFeed
+     * @return zend_Gdata_Health_ProfileFeed
      */
     public function getHealthProfileFeed($query = null)
     {
         if ($this->_httpClient->getClientLoginToken() !== null &&
             $this->getProfileID() == null) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/AuthException.php';
-            throw new Zend_Gdata_App_AuthException(
+            throw new zend_Gdata_App_AuthException(
                 'Profile ID must not be null. Did you call setProfileID()?');
         }
 
-        if ($query instanceof Zend_Gdata_Query) {
+        if ($query instanceof zend_Gdata_Query) {
             $uri = $query->getQueryUrl();
         } else if ($this->_httpClient->getClientLoginToken() !== null &&
                    $query == null) {
@@ -209,27 +209,27 @@ class Zend_Gdata_Health extends Zend_Gdata
             $uri = preg_replace('/\/health\//', '/h9/', $uri);
         }
 
-        return parent::getFeed($uri, 'Zend_Gdata_Health_ProfileFeed');
+        return parent::getFeed($uri, 'zend_Gdata_Health_ProfileFeed');
     }
 
     /**
      * Retrieve a profile entry object
      *
      * @param mixed $query The query for the feed, as a URL or Query
-     * @return Zend_Gdata_Health_ProfileEntry
+     * @return zend_Gdata_Health_ProfileEntry
      */
     public function getHealthProfileEntry($query = null)
     {
         if ($query === null) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/InvalidArgumentException.php';
-            throw new Zend_Gdata_App_InvalidArgumentException(
+            throw new zend_Gdata_App_InvalidArgumentException(
                 'Query must not be null');
-        } else if ($query instanceof Zend_Gdata_Query) {
+        } else if ($query instanceof zend_Gdata_Query) {
             $uri = $query->getQueryUrl();
         } else {
             $uri = $query;
         }
-        return parent::getEntry($uri, 'Zend_Gdata_Health_ProfileEntry');
+        return parent::getEntry($uri, 'zend_Gdata_Health_ProfileEntry');
     }
 
     /**
@@ -241,7 +241,7 @@ class Zend_Gdata_Health extends Zend_Gdata
      * @param string $bodyType The (optional) type of message body
      *     (text, xhtml, html, etc.)
      * @param string $ccrXML The (optional) CCR to add to the user's profile
-     * @return Zend_Gdata_Health_ProfileEntry
+     * @return zend_Gdata_Health_ProfileEntry
      */
     public function sendHealthNotice($subject, $body, $bodyType = null, $ccrXML = null)
     {
@@ -251,14 +251,14 @@ class Zend_Gdata_Health extends Zend_Gdata
                 $uri = self::CLIENTLOGIN_REGISTER_FEED_URI . '/' . $profileID;
             } else {
                 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/AuthException.php';
-                throw new Zend_Gdata_App_AuthException(
+                throw new zend_Gdata_App_AuthException(
                     'Profile ID must not be null. Did you call setProfileID()?');
             }
         } else {
             $uri = self::AUTHSUB_REGISTER_FEED_URI;
         }
 
-        $entry = new Zend_Gdata_Health_ProfileEntry();
+        $entry = new zend_Gdata_Health_ProfileEntry();
         $entry->title = $this->newTitle($subject);
         $entry->content = $this->newContent($body);
         $entry->content->type = $bodyType ? $bodyType : 'text';
@@ -269,6 +269,6 @@ class Zend_Gdata_Health extends Zend_Gdata
             $uri = preg_replace('/\/health\//', '/h9/', $uri);
         }
 
-        return $this->insertEntry($entry, $uri, 'Zend_Gdata_Health_ProfileEntry');
+        return $this->insertEntry($entry, $uri, 'zend_Gdata_Health_ProfileEntry');
     }
 }

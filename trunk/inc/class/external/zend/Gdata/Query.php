@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,16 +13,16 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gdata
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Query.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * Zend_Gdata_App_Util
+ * zend_Gdata_App_Util
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Util.php';
 
@@ -31,13 +31,13 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Util.php';
  * Queries are not defined for APP, but are provided by Gdata services
  * as an extension.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gdata
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Query
+class zend_Gdata_Query
 {
 
     /**
@@ -124,7 +124,7 @@ class Zend_Gdata_Query
     /**
      * @param string $name
      * @param string $value
-     * @return Zend_Gdata_Query Provides a fluent interface
+     * @return zend_Gdata_Query Provides a fluent interface
      */
     public function setParam($name, $value)
     {
@@ -142,7 +142,7 @@ class Zend_Gdata_Query
 
     /**
      * @param string $value
-     * @return Zend_Gdata_Query Provides a fluent interface
+     * @return zend_Gdata_Query Provides a fluent interface
      */
     public function setAlt($value)
     {
@@ -156,7 +156,7 @@ class Zend_Gdata_Query
 
     /**
      * @param int $value
-     * @return Zend_Gdata_Query Provides a fluent interface
+     * @return zend_Gdata_Query Provides a fluent interface
      */
     public function setMaxResults($value)
     {
@@ -170,7 +170,7 @@ class Zend_Gdata_Query
 
     /**
      * @param string $value
-     * @return Zend_Gdata_Query Provides a fluent interface
+     * @return zend_Gdata_Query Provides a fluent interface
      */
     public function setQuery($value)
     {
@@ -184,7 +184,7 @@ class Zend_Gdata_Query
 
     /**
      * @param int $value
-     * @return Zend_Gdata_Query Provides a fluent interface
+     * @return zend_Gdata_Query Provides a fluent interface
      */
     public function setStartIndex($value)
     {
@@ -198,12 +198,12 @@ class Zend_Gdata_Query
 
     /**
      * @param string $value
-     * @return Zend_Gdata_Query Provides a fluent interface
+     * @return zend_Gdata_Query Provides a fluent interface
      */
     public function setUpdatedMax($value)
     {
         if ($value != null) {
-            $this->_params['updated-max'] = Zend_Gdata_App_Util::formatTimestamp($value);
+            $this->_params['updated-max'] = zend_Gdata_App_Util::formatTimestamp($value);
         } else {
             unset($this->_params['updated-max']);
         }
@@ -212,12 +212,12 @@ class Zend_Gdata_Query
 
     /**
      * @param string $value
-     * @return Zend_Gdata_Query Provides a fluent interface
+     * @return zend_Gdata_Query Provides a fluent interface
      */
     public function setUpdatedMin($value)
     {
         if ($value != null) {
-            $this->_params['updated-min'] = Zend_Gdata_App_Util::formatTimestamp($value);
+            $this->_params['updated-min'] = zend_Gdata_App_Util::formatTimestamp($value);
         } else {
             unset($this->_params['updated-min']);
         }
@@ -226,12 +226,12 @@ class Zend_Gdata_Query
 
     /**
      * @param string $value
-     * @return Zend_Gdata_Query Provides a fluent interface
+     * @return zend_Gdata_Query Provides a fluent interface
      */
     public function setPublishedMax($value)
     {
         if ($value !== null) {
-            $this->_params['published-max'] = Zend_Gdata_App_Util::formatTimestamp($value);
+            $this->_params['published-max'] = zend_Gdata_App_Util::formatTimestamp($value);
         } else {
             unset($this->_params['published-max']);
         }
@@ -240,12 +240,12 @@ class Zend_Gdata_Query
 
     /**
      * @param string $value
-     * @return Zend_Gdata_Query Provides a fluent interface
+     * @return zend_Gdata_Query Provides a fluent interface
      */
     public function setPublishedMin($value)
     {
         if ($value != null) {
-            $this->_params['published-min'] = Zend_Gdata_App_Util::formatTimestamp($value);
+            $this->_params['published-min'] = zend_Gdata_App_Util::formatTimestamp($value);
         } else {
             unset($this->_params['published-min']);
         }
@@ -254,7 +254,7 @@ class Zend_Gdata_Query
 
     /**
      * @param string $value
-     * @return Zend_Gdata_Query Provides a fluent interface
+     * @return zend_Gdata_Query Provides a fluent interface
      */
     public function setAuthor($value)
     {
@@ -376,7 +376,7 @@ class Zend_Gdata_Query
 
     /**
      * @param string $value
-     * @return Zend_Gdata_Query Provides a fluent interface
+     * @return zend_Gdata_Query Provides a fluent interface
      */
     public function setCategory($value)
     {
@@ -400,7 +400,7 @@ class Zend_Gdata_Query
             return call_user_func(array(&$this, $method));
         } else {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Exception.php';
-            throw new Zend_Gdata_App_Exception('Property ' . $name . '  does not exist');
+            throw new zend_Gdata_App_Exception('Property ' . $name . '  does not exist');
         }
     }
 
@@ -411,7 +411,7 @@ class Zend_Gdata_Query
             return call_user_func(array(&$this, $method), $val);
         } else {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Exception.php';
-            throw new Zend_Gdata_App_Exception('Property ' . $name . '  does not exist');
+            throw new zend_Gdata_App_Exception('Property ' . $name . '  does not exist');
         }
     }
 

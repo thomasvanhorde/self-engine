@@ -1,6 +1,6 @@
 <?php
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -12,76 +12,76 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gdata
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: EventEntry.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Entry
+ * @see zend_Gdata_Entry
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Entry.php';
 
 /**
- * @see Zend_Gdata_App_Extension
+ * @see zend_Gdata_App_Extension
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Extension.php';
 
 /**
- * @see Zend_Gdata_Extension_Where
+ * @see zend_Gdata_Extension_Where
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension/Where.php';
 
 /**
- * @see Zend_Gdata_Extension_When
+ * @see zend_Gdata_Extension_When
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension/When.php';
 
 /**
- * @see Zend_Gdata_Extension_Who
+ * @see zend_Gdata_Extension_Who
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension/Who.php';
 
 /**
- * @see Zend_Gdata_Extension_Recurrence
+ * @see zend_Gdata_Extension_Recurrence
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension/Recurrence.php';
 
 /**
- * @see Zend_Gdata_Extension_EventStatus
+ * @see zend_Gdata_Extension_EventStatus
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension/EventStatus.php';
 
 /**
- * @see Zend_Gdata_Extension_Comments
+ * @see zend_Gdata_Extension_Comments
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension/Comments.php';
 
 /**
- * @see Zend_Gdata_Extension_Transparency
+ * @see zend_Gdata_Extension_Transparency
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension/Transparency.php';
 
 /**
- * @see Zend_Gdata_Extension_Visibility
+ * @see zend_Gdata_Extension_Visibility
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension/Visibility.php';
 
 /**
- * @see Zend_Gdata_Extension_ExtendedProperty
+ * @see zend_Gdata_Extension_ExtendedProperty
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension/ExtendedProperty.php';
 
 /**
- * @see Zend_Gdata_Extension_OriginalEvent
+ * @see zend_Gdata_Extension_OriginalEvent
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension/OriginalEvent.php';
 
 /**
- * @see Zend_Gdata_Extension_EntryLink
+ * @see zend_Gdata_Extension_EntryLink
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension/EntryLink.php';
 
@@ -89,13 +89,13 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension/EntryLink.php';
  * Data model for the Gdata Event "Kind".  Google Calendar has a separate
  * EventEntry class which extends this.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gdata
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Kind_EventEntry extends Zend_Gdata_Entry
+class zend_Gdata_Kind_EventEntry extends zend_Gdata_Entry
 {
     protected $_who = array();
     protected $_when = array();
@@ -170,63 +170,63 @@ class Zend_Gdata_Kind_EventEntry extends Zend_Gdata_Entry
         $absoluteNodeName = $child->namespaceURI . ':' . $child->localName;
         switch ($absoluteNodeName) {
         case $this->lookupNamespace('gd') . ':' . 'where';
-            $where = new Zend_Gdata_Extension_Where();
+            $where = new zend_Gdata_Extension_Where();
             $where->transferFromDOM($child);
             $this->_where[] = $where;
             break;
         case $this->lookupNamespace('gd') . ':' . 'when';
-            $when = new Zend_Gdata_Extension_When();
+            $when = new zend_Gdata_Extension_When();
             $when->transferFromDOM($child);
             $this->_when[] = $when;
             break;
         case $this->lookupNamespace('gd') . ':' . 'who';
-            $who = new Zend_Gdata_Extension_Who();
+            $who = new zend_Gdata_Extension_Who();
             $who ->transferFromDOM($child);
             $this->_who[] = $who;
             break;
         case $this->lookupNamespace('gd') . ':' . 'recurrence';
-            $recurrence = new Zend_Gdata_Extension_Recurrence();
+            $recurrence = new zend_Gdata_Extension_Recurrence();
             $recurrence->transferFromDOM($child);
             $this->_recurrence = $recurrence;
             break;
         case $this->lookupNamespace('gd') . ':' . 'eventStatus';
-            $eventStatus = new Zend_Gdata_Extension_EventStatus();
+            $eventStatus = new zend_Gdata_Extension_EventStatus();
             $eventStatus->transferFromDOM($child);
             $this->_eventStatus = $eventStatus;
             break;
         case $this->lookupNamespace('gd') . ':' . 'comments';
-            $comments = new Zend_Gdata_Extension_Comments();
+            $comments = new zend_Gdata_Extension_Comments();
             $comments->transferFromDOM($child);
             $this->_comments = $comments;
             break;
         case $this->lookupNamespace('gd') . ':' . 'transparency';
-            $transparency = new Zend_Gdata_Extension_Transparency();
+            $transparency = new zend_Gdata_Extension_Transparency();
             $transparency ->transferFromDOM($child);
             $this->_transparency = $transparency;
             break;
         case $this->lookupNamespace('gd') . ':' . 'visibility';
-            $visiblity = new Zend_Gdata_Extension_Visibility();
+            $visiblity = new zend_Gdata_Extension_Visibility();
             $visiblity ->transferFromDOM($child);
             $this->_visibility = $visiblity;
             break;
         case $this->lookupNamespace('gd') . ':' . 'recurrenceException';
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension/RecurrenceException.php';
-            $recurrenceException = new Zend_Gdata_Extension_RecurrenceException();
+            $recurrenceException = new zend_Gdata_Extension_RecurrenceException();
             $recurrenceException ->transferFromDOM($child);
             $this->_recurrenceException[] = $recurrenceException;
             break;
         case $this->lookupNamespace('gd') . ':' . 'originalEvent';
-            $originalEvent = new Zend_Gdata_Extension_OriginalEvent();
+            $originalEvent = new zend_Gdata_Extension_OriginalEvent();
             $originalEvent ->transferFromDOM($child);
             $this->_originalEvent = $originalEvent;
             break;
         case $this->lookupNamespace('gd') . ':' . 'extendedProperty';
-            $extProp = new Zend_Gdata_Extension_ExtendedProperty();
+            $extProp = new zend_Gdata_Extension_ExtendedProperty();
             $extProp->transferFromDOM($child);
             $this->_extendedProperty[] = $extProp;
             break;
         case $this->lookupNamespace('gd') . ':' . 'entryLink':
-            $entryLink = new Zend_Gdata_Extension_EntryLink();
+            $entryLink = new zend_Gdata_Extension_EntryLink();
             $entryLink->transferFromDOM($child);
             $this->_entryLink = $entryLink;
             break;
@@ -244,7 +244,7 @@ class Zend_Gdata_Kind_EventEntry extends Zend_Gdata_Entry
 
     /**
      * @param array $value
-     * @return Zend_Gdata_Kind_EventEntry Provides a fluent interface
+     * @return zend_Gdata_Kind_EventEntry Provides a fluent interface
      */
     public function setWhen($value)
     {
@@ -259,7 +259,7 @@ class Zend_Gdata_Kind_EventEntry extends Zend_Gdata_Entry
 
     /**
      * @param array $value
-     * @return Zend_Gdata_Kind_EventEntry Provides a fluent interface
+     * @return zend_Gdata_Kind_EventEntry Provides a fluent interface
      */
     public function setWhere($value)
     {
@@ -274,7 +274,7 @@ class Zend_Gdata_Kind_EventEntry extends Zend_Gdata_Entry
 
     /**
      * @param array $value
-     * @return Zend_Gdata_Kind_EventEntry Provides a fluent interface
+     * @return zend_Gdata_Kind_EventEntry Provides a fluent interface
      */
     public function setWho($value)
     {
@@ -289,7 +289,7 @@ class Zend_Gdata_Kind_EventEntry extends Zend_Gdata_Entry
 
     /**
      * @param array $value
-     * @return Zend_Gdata_Kind_EventEntry Provides a fluent interface
+     * @return zend_Gdata_Kind_EventEntry Provides a fluent interface
      */
     public function setRecurrence($value)
     {
@@ -304,7 +304,7 @@ class Zend_Gdata_Kind_EventEntry extends Zend_Gdata_Entry
 
     /**
      * @param array $value
-     * @return Zend_Gdata_Kind_EventEntry Provides a fluent interface
+     * @return zend_Gdata_Kind_EventEntry Provides a fluent interface
      */
     public function setEventStatus($value)
     {
@@ -319,7 +319,7 @@ class Zend_Gdata_Kind_EventEntry extends Zend_Gdata_Entry
 
     /**
      * @param array $value
-     * @return Zend_Gdata_Kind_EventEntry Provides a fluent interface
+     * @return zend_Gdata_Kind_EventEntry Provides a fluent interface
      */
     public function setComments($value)
     {
@@ -333,8 +333,8 @@ class Zend_Gdata_Kind_EventEntry extends Zend_Gdata_Entry
     }
 
     /**
-     * @param Zend_Gdata_Transparency $value
-     * @return Zend_Gdata_Kind_EventEntry Provides a fluent interface
+     * @param zend_Gdata_Transparency $value
+     * @return zend_Gdata_Kind_EventEntry Provides a fluent interface
      */
     public function setTransparency($value)
     {
@@ -348,8 +348,8 @@ class Zend_Gdata_Kind_EventEntry extends Zend_Gdata_Entry
     }
 
     /**
-     * @param Zend_Gdata_Visibility $value
-     * @return Zend_Gdata_Kind_EventEntry Provides a fluent interface
+     * @param zend_Gdata_Visibility $value
+     * @return zend_Gdata_Kind_EventEntry Provides a fluent interface
      */
     public function setVisibility($value)
     {
@@ -364,7 +364,7 @@ class Zend_Gdata_Kind_EventEntry extends Zend_Gdata_Entry
 
     /**
      * @param array $value
-     * @return Zend_Gdata_Kind_EventEntry Provides a fluent interface
+     * @return zend_Gdata_Kind_EventEntry Provides a fluent interface
      */
     public function setRecurrenceException($value)
     {
@@ -379,7 +379,7 @@ class Zend_Gdata_Kind_EventEntry extends Zend_Gdata_Entry
 
     /**
      * @param array $value
-     * @return Zend_Gdata_Kind_EventEntry Provides a fluent interface
+     * @return zend_Gdata_Kind_EventEntry Provides a fluent interface
      */
     public function setExtendedProperty($value)
     {
@@ -393,8 +393,8 @@ class Zend_Gdata_Kind_EventEntry extends Zend_Gdata_Entry
     }
 
     /**
-     * @param Zend_Gdata_Extension_OriginalEvent $value
-     * @return Zend_Gdata_Kind_EventEntry Provides a fluent interface
+     * @param zend_Gdata_Extension_OriginalEvent $value
+     * @return zend_Gdata_Kind_EventEntry Provides a fluent interface
      */
     public function setOriginalEvent($value)
     {
@@ -405,7 +405,7 @@ class Zend_Gdata_Kind_EventEntry extends Zend_Gdata_Entry
     /**
      * Get this entry's EntryLink element.
      *
-     * @return Zend_Gdata_Extension_EntryLink The requested entry.
+     * @return zend_Gdata_Extension_EntryLink The requested entry.
      */
     public function getEntryLink()
     {
@@ -415,8 +415,8 @@ class Zend_Gdata_Kind_EventEntry extends Zend_Gdata_Entry
     /**
      * Set the child's EntryLink element.
      *
-     * @param Zend_Gdata_Extension_EntryLink $value The desired value for this attribute.
-     * @return Zend_Gdata_Extension_Who The element being modified.
+     * @param zend_Gdata_Extension_EntryLink $value The desired value for this attribute.
+     * @return zend_Gdata_Extension_Who The element being modified.
      */
     public function setEntryLink($value)
     {

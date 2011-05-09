@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,22 +13,22 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gapps
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: ServiceException.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 
 /**
- * Zend_Exception
+ * zend_Exception
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Exception.php';
 
 /**
- * Zend_Gdata_Gapps_Error
+ * zend_Gdata_Gapps_Error
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Gapps/Error.php';
 
@@ -40,19 +40,19 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Gapps/Error.php';
  * Several different errors may be represented by this exception. For a list
  * of error codes available, see getErrorCode.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gapps
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Gapps_ServiceException extends Zend_Exception
+class zend_Gdata_Gapps_ServiceException extends zend_Exception
 {
 
     protected $_rootElement = "AppsForYourDomainErrors";
 
     /**
-     * Array of Zend_Gdata_Error objects indexed by error code.
+     * Array of zend_Gdata_Error objects indexed by error code.
      *
      * @var array
      */
@@ -62,7 +62,7 @@ class Zend_Gdata_Gapps_ServiceException extends Zend_Exception
      * Create a new ServiceException.
      *
      * @return array An array containing a collection of
-     *          Zend_Gdata_Gapps_Error objects.
+     *          zend_Gdata_Gapps_Error objects.
      */
     public function __construct($errors = null) {
         parent::__construct("Server errors encountered");
@@ -75,16 +75,16 @@ class Zend_Gdata_Gapps_ServiceException extends Zend_Exception
      * Add a single Error object to the list of errors received by the
      * server.
      *
-     * @param Zend_Gdata_Gapps_Error $error An instance of an error returned
+     * @param zend_Gdata_Gapps_Error $error An instance of an error returned
      *          by the server. The error's errorCode must be set.
-     * @throws Zend_Gdata_App_Exception
+     * @throws zend_Gdata_App_Exception
      */
     public function addError($error) {
         // Make sure that we don't try to index an error that doesn't
         // contain an index value.
         if ($error->getErrorCode() == null) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Exception.php';
-            throw new Zend_Gdata_App_Exception("Error encountered without corresponding error code.");
+            throw new zend_Gdata_App_Exception("Error encountered without corresponding error code.");
         }
 
         $this->_errors[$error->getErrorCode()] = $error;
@@ -95,9 +95,9 @@ class Zend_Gdata_Gapps_ServiceException extends Zend_Exception
      * AppsForYourDomainErrors tag.
      *
      * @param array $array An associative array containing a collection of
-     *          Zend_Gdata_Gapps_Error objects. All errors must have their
+     *          zend_Gdata_Gapps_Error objects. All errors must have their
      *          errorCode value set.
-     * @throws Zend_Gdata_App_Exception
+     * @throws zend_Gdata_App_Exception
      */
     public function setErrors($array) {
         $this->_errors = array();
@@ -111,7 +111,7 @@ class Zend_Gdata_Gapps_ServiceException extends Zend_Exception
      * AppsForYourDomainErrors tag.
      *
      * @return array An associative array containing a collection of
-     *          Zend_Gdata_Gapps_Error objects, indexed by error code.
+     *          zend_Gdata_Gapps_Error objects, indexed by error code.
      */
     public function getErrors() {
         return $this->_errors;
@@ -120,7 +120,7 @@ class Zend_Gdata_Gapps_ServiceException extends Zend_Exception
     /**
      * Return the Error object associated with a specific error code.
      *
-     * @return Zend_Gdata_Gapps_Error The Error object requested, or null
+     * @return zend_Gdata_Gapps_Error The Error object requested, or null
      *              if not found.
      */
     public function getError($errorCode) {
@@ -148,8 +148,8 @@ class Zend_Gdata_Gapps_ServiceException extends Zend_Exception
      * Import an AppsForYourDomain error from XML.
      *
      * @param string $string The XML data to be imported
-     * @return Zend_Gdata_Gapps_ServiceException Provides a fluent interface.
-     * @throws Zend_Gdata_App_Exception
+     * @return zend_Gdata_Gapps_ServiceException Provides a fluent interface.
+     * @throws zend_Gdata_App_Exception
      */
     public function importFromString($string) {
         if ($string) {
@@ -167,7 +167,7 @@ class Zend_Gdata_Gapps_ServiceException extends Zend_Exception
                 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Exception.php';
                 // $php_errormsg is automatically generated by PHP if
                 // an error occurs while calling loadXML(), above.
-                throw new Zend_Gdata_App_Exception("DOMDocument cannot parse XML: $php_errormsg");
+                throw new zend_Gdata_App_Exception("DOMDocument cannot parse XML: $php_errormsg");
             }
 
             // Ensure that the outermost node is an AppsForYourDomain error.
@@ -175,12 +175,12 @@ class Zend_Gdata_Gapps_ServiceException extends Zend_Exception
             $rootElement = $doc->getElementsByTagName($this->_rootElement)->item(0);
             if (!$rootElement) {
                 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Exception.php';
-                throw new Zend_Gdata_App_Exception('No root <' . $this->_rootElement . '> element found, cannot parse feed.');
+                throw new zend_Gdata_App_Exception('No root <' . $this->_rootElement . '> element found, cannot parse feed.');
             }
 
             foreach ($rootElement->childNodes as $errorNode) {
                 if (!($errorNode instanceof DOMText)) {
-                    $error = new Zend_Gdata_Gapps_Error();
+                    $error = new zend_Gdata_Gapps_Error();
                     $error->transferFromDom($errorNode);
                     $this->addError($error);
                 }
@@ -188,7 +188,7 @@ class Zend_Gdata_Gapps_ServiceException extends Zend_Exception
             return $this;
         } else {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Exception.php';
-            throw new Zend_Gdata_App_Exception('XML passed to transferFromXML cannot be null');
+            throw new zend_Gdata_App_Exception('XML passed to transferFromXML cannot be null');
         }
 
     }

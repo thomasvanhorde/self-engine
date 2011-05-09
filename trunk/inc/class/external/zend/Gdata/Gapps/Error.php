@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,17 +13,17 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gapps
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Error.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 
 /**
- * Zend_Gdata_App_Base
+ * zend_Gdata_App_Base
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Base.php';
 
@@ -36,13 +36,13 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Base.php';
  * the error code returned by the server. For a list of error codes
  * available at the time of this writing, see getErrorCode.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gapps
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Gapps_Error extends Zend_Gdata_App_Base
+class zend_Gdata_Gapps_Error extends zend_Gdata_App_Base
 {
 
     // Error codes as defined at

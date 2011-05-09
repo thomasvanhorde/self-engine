@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,33 +13,33 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Books
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: VolumeFeed.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Feed
+ * @see zend_Gdata_Feed
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Feed.php';
 
 /**
  * Describes a Book Search volume feed
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Books
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Books_VolumeFeed extends Zend_Gdata_Feed
+class zend_Gdata_Books_VolumeFeed extends zend_Gdata_Feed
 {
 
     /**
-     * Constructor for Zend_Gdata_Books_VolumeFeed which
+     * Constructor for zend_Gdata_Books_VolumeFeed which
      * Describes a Book Search volume feed
      *
      * @param DOMElement $element (optional) DOMElement from which this
@@ -47,7 +47,7 @@ class Zend_Gdata_Books_VolumeFeed extends Zend_Gdata_Feed
      */
     public function __construct($element = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_Books::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_Books::$namespaces);
         parent::__construct($element);
     }
 
@@ -56,7 +56,7 @@ class Zend_Gdata_Books_VolumeFeed extends Zend_Gdata_Feed
       *
       * @var string
       */
-     protected $_entryClassName = 'Zend_Gdata_Books_VolumeEntry';
+     protected $_entryClassName = 'zend_Gdata_Books_VolumeEntry';
 
 }
 

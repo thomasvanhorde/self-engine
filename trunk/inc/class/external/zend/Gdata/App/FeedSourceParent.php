@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,54 +13,54 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage App
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: FeedSourceParent.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_App_Entry
+ * @see zend_Gdata_App_Entry
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Entry.php';
 
 /**
- * @see Zend_Gdata_App_FeedSourceParent
+ * @see zend_Gdata_App_FeedSourceParent
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/FeedEntryParent.php';
 
 /**
- * @see Zend_Gdata_App_Extension_Generator
+ * @see zend_Gdata_App_Extension_Generator
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Extension/Generator.php';
 
 /**
- * @see Zend_Gdata_App_Extension_Icon
+ * @see zend_Gdata_App_Extension_Icon
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Extension/Icon.php';
 
 /**
- * @see Zend_Gdata_App_Extension_Logo
+ * @see zend_Gdata_App_Extension_Logo
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Extension/Logo.php';
 
 /**
- * @see Zend_Gdata_App_Extension_Subtitle
+ * @see zend_Gdata_App_Extension_Subtitle
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Extension/Subtitle.php';
 
 /**
  * Atom feed class
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage App
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-abstract class Zend_Gdata_App_FeedSourceParent extends Zend_Gdata_App_FeedEntryParent
+abstract class zend_Gdata_App_FeedSourceParent extends zend_Gdata_App_FeedEntryParent
 {
 
     /**
@@ -68,7 +68,7 @@ abstract class Zend_Gdata_App_FeedSourceParent extends Zend_Gdata_App_FeedEntryP
      *
      * @var string
      */
-    protected $_entryClassName = 'Zend_Gdata_App_Entry';
+    protected $_entryClassName = 'zend_Gdata_App_Entry';
 
     /**
      * Root XML element for Atom entries.
@@ -87,12 +87,12 @@ abstract class Zend_Gdata_App_FeedSourceParent extends Zend_Gdata_App_FeedEntryP
      *
      * Sets the HTTP client object to use for retrieving the feed.
      *
-     * @deprecated Deprecated as of Zend Framework 1.7. Use
+     * @deprecated Deprecated as of zend Framework 1.7. Use
      *             setService() instead.
-     * @param  Zend_Http_Client $httpClient
-     * @return Zend_Gdata_App_FeedSourceParent Provides a fluent interface
+     * @param  zend_Http_Client $httpClient
+     * @return zend_Gdata_App_FeedSourceParent Provides a fluent interface
      */
-    public function setHttpClient(Zend_Http_Client $httpClient)
+    public function setHttpClient(zend_Http_Client $httpClient)
     {
         parent::setHttpClient($httpClient);
         foreach ($this->_entry as $entry) {
@@ -106,8 +106,8 @@ abstract class Zend_Gdata_App_FeedSourceParent extends Zend_Gdata_App_FeedEntryP
      * This will be used to perform network requests, such as when calling
      * save() and delete().
      *
-     * @param Zend_Gdata_App $instance The new service instance.
-     * @return Zend_Gdata_App_FeedEntryParent Provides a fluent interface.
+     * @param zend_Gdata_App $instance The new service instance.
+     * @return zend_Gdata_App_FeedEntryParent Provides a fluent interface.
      */
     public function setService($instance)
     {
@@ -167,22 +167,22 @@ abstract class Zend_Gdata_App_FeedSourceParent extends Zend_Gdata_App_FeedEntryP
         $absoluteNodeName = $child->namespaceURI . ':' . $child->localName;
         switch ($absoluteNodeName) {
         case $this->lookupNamespace('atom') . ':' . 'generator':
-            $generator = new Zend_Gdata_App_Extension_Generator();
+            $generator = new zend_Gdata_App_Extension_Generator();
             $generator->transferFromDOM($child);
             $this->_generator = $generator;
             break;
         case $this->lookupNamespace('atom') . ':' . 'icon':
-            $icon = new Zend_Gdata_App_Extension_Icon();
+            $icon = new zend_Gdata_App_Extension_Icon();
             $icon->transferFromDOM($child);
             $this->_icon = $icon;
             break;
         case $this->lookupNamespace('atom') . ':' . 'logo':
-            $logo = new Zend_Gdata_App_Extension_Logo();
+            $logo = new zend_Gdata_App_Extension_Logo();
             $logo->transferFromDOM($child);
             $this->_logo = $logo;
             break;
         case $this->lookupNamespace('atom') . ':' . 'subtitle':
-            $subtitle = new Zend_Gdata_App_Extension_Subtitle();
+            $subtitle = new zend_Gdata_App_Extension_Subtitle();
             $subtitle->transferFromDOM($child);
             $this->_subtitle = $subtitle;
             break;
@@ -193,7 +193,7 @@ abstract class Zend_Gdata_App_FeedSourceParent extends Zend_Gdata_App_FeedEntryP
     }
 
     /**
-     * @return Zend_Gdata_AppExtension_Generator
+     * @return zend_Gdata_AppExtension_Generator
      */
     public function getGenerator()
     {
@@ -201,8 +201,8 @@ abstract class Zend_Gdata_App_FeedSourceParent extends Zend_Gdata_App_FeedEntryP
     }
 
     /**
-     * @param Zend_Gdata_App_Extension_Generator $value
-     * @return Zend_Gdata_App_FeedSourceParent Provides a fluent interface
+     * @param zend_Gdata_App_Extension_Generator $value
+     * @return zend_Gdata_App_FeedSourceParent Provides a fluent interface
      */
     public function setGenerator($value)
     {
@@ -211,7 +211,7 @@ abstract class Zend_Gdata_App_FeedSourceParent extends Zend_Gdata_App_FeedEntryP
     }
 
     /**
-     * @return Zend_Gdata_AppExtension_Icon
+     * @return zend_Gdata_AppExtension_Icon
      */
     public function getIcon()
     {
@@ -219,8 +219,8 @@ abstract class Zend_Gdata_App_FeedSourceParent extends Zend_Gdata_App_FeedEntryP
     }
 
     /**
-     * @param Zend_Gdata_App_Extension_Icon $value
-     * @return Zend_Gdata_App_FeedSourceParent Provides a fluent interface
+     * @param zend_Gdata_App_Extension_Icon $value
+     * @return zend_Gdata_App_FeedSourceParent Provides a fluent interface
      */
     public function setIcon($value)
     {
@@ -229,7 +229,7 @@ abstract class Zend_Gdata_App_FeedSourceParent extends Zend_Gdata_App_FeedEntryP
     }
 
     /**
-     * @return Zend_Gdata_AppExtension_logo
+     * @return zend_Gdata_AppExtension_logo
      */
     public function getlogo()
     {
@@ -237,8 +237,8 @@ abstract class Zend_Gdata_App_FeedSourceParent extends Zend_Gdata_App_FeedEntryP
     }
 
     /**
-     * @param Zend_Gdata_App_Extension_logo $value
-     * @return Zend_Gdata_App_FeedSourceParent Provides a fluent interface
+     * @param zend_Gdata_App_Extension_logo $value
+     * @return zend_Gdata_App_FeedSourceParent Provides a fluent interface
      */
     public function setlogo($value)
     {
@@ -247,7 +247,7 @@ abstract class Zend_Gdata_App_FeedSourceParent extends Zend_Gdata_App_FeedEntryP
     }
 
     /**
-     * @return Zend_Gdata_AppExtension_Subtitle
+     * @return zend_Gdata_AppExtension_Subtitle
      */
     public function getSubtitle()
     {
@@ -255,8 +255,8 @@ abstract class Zend_Gdata_App_FeedSourceParent extends Zend_Gdata_App_FeedEntryP
     }
 
     /**
-     * @param Zend_Gdata_App_Extension_Subtitle $value
-     * @return Zend_Gdata_App_FeedSourceParent Provides a fluent interface
+     * @param zend_Gdata_App_Extension_Subtitle $value
+     * @return zend_Gdata_App_FeedSourceParent Provides a fluent interface
      */
     public function setSubtitle($value)
     {

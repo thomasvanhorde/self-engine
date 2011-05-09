@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,29 +13,29 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage YouTube
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: State.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Extension
+ * @see zend_Gdata_Extension
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension.php';
 
 /**
  * Represents the yt:state element used by the YouTube data API
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage YouTube
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_YouTube_Extension_State extends Zend_Gdata_Extension
+class zend_Gdata_YouTube_Extension_State extends zend_Gdata_Extension
 {
 
     protected $_rootNamespace = 'yt';
@@ -45,7 +45,7 @@ class Zend_Gdata_YouTube_Extension_State extends Zend_Gdata_Extension
     protected $_helpUrl = null;
 
     /**
-     * Constructs a new Zend_Gdata_YouTube_Extension_State object.
+     * Constructs a new zend_Gdata_YouTube_Extension_State object.
      *
      * @param string $explanation(optional) The explanation of this state
      * @param string $name(optional) The name value
@@ -55,7 +55,7 @@ class Zend_Gdata_YouTube_Extension_State extends Zend_Gdata_Extension
     public function __construct($explanation = null, $name = null,
                                 $reasonCode = null, $helpUrl = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_YouTube::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_YouTube::$namespaces);
         parent::__construct();
         $this->_text = $explanation;
         $this->_name = $name;
@@ -127,7 +127,7 @@ class Zend_Gdata_YouTube_Extension_State extends Zend_Gdata_Extension
      * Set the value for this element's name attribute.
      *
      * @param int $value The desired value for this attribute.
-     * @return Zend_Gdata_YouTube_Extension_State The element being modified.
+     * @return zend_Gdata_YouTube_Extension_State The element being modified.
      */
     public function setName($value)
     {
@@ -149,7 +149,7 @@ class Zend_Gdata_YouTube_Extension_State extends Zend_Gdata_Extension
      * Set the value for this element's reasonCode attribute.
      *
      * @param int $value The desired value for this attribute.
-     * @return Zend_Gdata_YouTube_Extension_State The element being modified.
+     * @return zend_Gdata_YouTube_Extension_State The element being modified.
      */
     public function setReasonCode($value)
     {
@@ -171,7 +171,7 @@ class Zend_Gdata_YouTube_Extension_State extends Zend_Gdata_Extension
      * Set the value for this element's helpUrl attribute.
      *
      * @param int $value The desired value for this attribute.
-     * @return Zend_Gdata_YouTube_Extension_State The element being modified.
+     * @return zend_Gdata_YouTube_Extension_State The element being modified.
      */
     public function setHelpUrl($value)
     {

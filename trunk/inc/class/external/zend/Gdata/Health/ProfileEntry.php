@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,21 +13,21 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Health
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: ProfileEntry.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Entry
+ * @see zend_Gdata_Entry
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Entry.php';
 
 /**
- * @see Zend_Gdata_Health_Extension_Ccr
+ * @see zend_Gdata_Health_Extension_Ccr
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Health/Extension/Ccr.php';
 
@@ -36,35 +36,35 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Health/Extension/Ccr.php';
  *
  * @link http://code.google.com/apis/health/
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Health
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Health_ProfileEntry extends Zend_Gdata_Entry
+class zend_Gdata_Health_ProfileEntry extends zend_Gdata_Entry
 {
     /**
      * The classname for individual profile entry elements.
      *
      * @var string
      */
-    protected $_entryClassName = 'Zend_Gdata_Health_ProfileEntry';
+    protected $_entryClassName = 'zend_Gdata_Health_ProfileEntry';
 
     /**
      * Google Health CCR data
      *
-     * @var Zend_Gdata_Health_Extension_Ccr
+     * @var zend_Gdata_Health_Extension_Ccr
      */
     protected $_ccrData = null;
 
     /**
-     * Constructs a new Zend_Gdata_Health_ProfileEntry object.
+     * Constructs a new zend_Gdata_Health_ProfileEntry object.
      * @param DOMElement $element (optional) The DOMElement on which to base this object.
      */
     public function __construct($element = null)
     {
-        foreach (Zend_Gdata_Health::$namespaces as $nsPrefix => $nsUri) {
+        foreach (zend_Gdata_Health::$namespaces as $nsPrefix => $nsUri) {
             $this->registerNamespace($nsPrefix, $nsUri);
         }
         parent::__construct($element);
@@ -100,7 +100,7 @@ class Zend_Gdata_Health_ProfileEntry extends Zend_Gdata_Entry
         $absoluteNodeName = $child->namespaceURI . ':' . $child->localName;
 
         if (strstr($absoluteNodeName, $this->lookupNamespace('ccr') . ':')) {
-            $ccrElement = new Zend_Gdata_Health_Extension_Ccr();
+            $ccrElement = new zend_Gdata_Health_Extension_Ccr();
             $ccrElement->transferFromDOM($child);
             $this->_ccrData = $ccrElement;
         } else {
@@ -112,12 +112,12 @@ class Zend_Gdata_Health_ProfileEntry extends Zend_Gdata_Entry
     /**
      * Sets the profile entry's CCR data
      * @param string $ccrXMLStr The CCR as an xml string
-     * @return Zend_Gdata_Health_Extension_Ccr
+     * @return zend_Gdata_Health_Extension_Ccr
      */
     public function setCcr($ccrXMLStr) {
         $ccrElement = null;
         if ($ccrXMLStr != null) {
-          $ccrElement = new Zend_Gdata_Health_Extension_Ccr();
+          $ccrElement = new zend_Gdata_Health_Extension_Ccr();
           $ccrElement->transferFromXML($ccrXMLStr);
           $this->_ccrData = $ccrElement;
         }
@@ -127,7 +127,7 @@ class Zend_Gdata_Health_ProfileEntry extends Zend_Gdata_Entry
 
     /**
      * Returns all the CCR data in a profile entry
-     * @return Zend_Gdata_Health_Extension_Ccr
+     * @return zend_Gdata_Health_Extension_Ccr
      */
     public function getCcr() {
         return $this->_ccrData;

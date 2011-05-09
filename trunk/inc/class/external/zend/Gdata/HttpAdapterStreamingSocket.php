@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,16 +13,16 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gdata
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: HttpAdapterStreamingSocket.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Http_Client_Adapter_Socket
+ * @see zend_Http_Client_Adapter_Socket
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Client/Adapter/Socket.php';
 
@@ -30,13 +30,13 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Client/Adapter/Socket.php';
  * Extends the default HTTP adapter to handle streams instead of discrete body
  * strings.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gdata
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_HttpAdapterStreamingSocket extends Zend_Http_Client_Adapter_Socket
+class zend_Gdata_HttpAdapterStreamingSocket extends zend_Http_Client_Adapter_Socket
 {
 
     /**
@@ -50,7 +50,7 @@ class Zend_Gdata_HttpAdapterStreamingSocket extends Zend_Http_Client_Adapter_Soc
      * Send request to the remote server with streaming support.
      *
      * @param string        $method
-     * @param Zend_Uri_Http $uri
+     * @param zend_Uri_Http $uri
      * @param string        $http_ver
      * @param array         $headers
      * @param string        $body
@@ -62,7 +62,7 @@ class Zend_Gdata_HttpAdapterStreamingSocket extends Zend_Http_Client_Adapter_Soc
         // Make sure we're properly connected
         if (! $this->socket) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Client/Adapter/Exception.php';
-            throw new Zend_Http_Client_Adapter_Exception(
+            throw new zend_Http_Client_Adapter_Exception(
                 'Trying to write but we are not connected');
         }
 
@@ -70,7 +70,7 @@ class Zend_Gdata_HttpAdapterStreamingSocket extends Zend_Http_Client_Adapter_Soc
         $host = (strtolower($uri->getScheme()) == 'https' ? $this->config['ssltransport'] : 'tcp') . '://' . $host;
         if ($this->connected_to[0] != $host || $this->connected_to[1] != $uri->getPort()) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Client/Adapter/Exception.php';
-            throw new Zend_Http_Client_Adapter_Exception(
+            throw new zend_Http_Client_Adapter_Exception(
                 'Trying to write but we are connected to the wrong host');
         }
 
@@ -90,7 +90,7 @@ class Zend_Gdata_HttpAdapterStreamingSocket extends Zend_Http_Client_Adapter_Soc
         $request .= "\r\n";
         if (! @fwrite($this->socket, $request)) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Client/Adapter/Exception.php';
-            throw new Zend_Http_Client_Adapter_Exception(
+            throw new zend_Http_Client_Adapter_Exception(
                 'Error writing request to server');
         }
 
@@ -100,7 +100,7 @@ class Zend_Gdata_HttpAdapterStreamingSocket extends Zend_Http_Client_Adapter_Soc
         while ($chunk !== FALSE) {
             if (! @fwrite($this->socket, $chunk)) {
                 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Client/Adapter/Exception.php';
-                throw new Zend_Http_Client_Adapter_Exception(
+                throw new zend_Http_Client_Adapter_Exception(
                     'Error writing request to server');
             }
             $chunk = $body->read(self::CHUNK_SIZE);

@@ -1,6 +1,6 @@
 <?php
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -12,42 +12,42 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Http
+ * @category   zend
+ * @package    zend_Http
  * @subpackage Client_Adapter
  * @version    $Id: Test.php 23775 2011-03-01 17:25:24Z ralph $
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
 /**
- * @see Zend_Uri_Http
+ * @see zend_Uri_Http
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Uri/Http.php';
 /**
- * @see Zend_Http_Response
+ * @see zend_Http_Response
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Response.php';
 /**
- * @see Zend_Http_Client_Adapter_Interface
+ * @see zend_Http_Client_Adapter_Interface
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Client/Adapter/Interface.php';
 
 /**
  * A testing-purposes adapter.
  *
- * Should be used to test all components that rely on Zend_Http_Client,
+ * Should be used to test all components that rely on zend_Http_Client,
  * without actually performing an HTTP request. You should instantiate this
  * object manually, and then set it as the client's adapter. Then, you can
  * set the expected response using the setResponse() method.
  *
- * @category   Zend
- * @package    Zend_Http
+ * @category   zend
+ * @package    zend_Http
  * @subpackage Client_Adapter
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Http_Client_Adapter_Test implements Zend_Http_Client_Adapter_Interface
+class zend_Http_Client_Adapter_Test implements zend_Http_Client_Adapter_Interface
 {
     /**
      * Parameters array
@@ -89,7 +89,7 @@ class Zend_Http_Client_Adapter_Test implements Zend_Http_Client_Adapter_Interfac
      * Set the nextRequestWillFail flag
      *
      * @param boolean $flag
-     * @return Zend_Http_Client_Adapter_Test
+     * @return zend_Http_Client_Adapter_Test
      */
     public function setNextRequestWillFail($flag)
     {
@@ -101,17 +101,17 @@ class Zend_Http_Client_Adapter_Test implements Zend_Http_Client_Adapter_Interfac
     /**
      * Set the configuration array for the adapter
      *
-     * @param Zend_Config | array $config
+     * @param zend_Config | array $config
      */
     public function setConfig($config = array())
     {
-        if ($config instanceof Zend_Config) {
+        if ($config instanceof zend_Config) {
             $config = $config->toArray();
 
         } elseif (! is_array($config)) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Client/Adapter/Exception.php';
-            throw new Zend_Http_Client_Adapter_Exception(
-                'Array or Zend_Config object expected, got ' . gettype($config)
+            throw new zend_Http_Client_Adapter_Exception(
+                'Array or zend_Config object expected, got ' . gettype($config)
             );
         }
 
@@ -128,14 +128,14 @@ class Zend_Http_Client_Adapter_Test implements Zend_Http_Client_Adapter_Interfac
      * @param int     $port
      * @param boolean $secure
      * @param int     $timeout
-     * @throws Zend_Http_Client_Adapter_Exception
+     * @throws zend_Http_Client_Adapter_Exception
      */
     public function connect($host, $port = 80, $secure = false)
     {
         if ($this->_nextRequestWillFail) {
             $this->_nextRequestWillFail = false;
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Client/Adapter/Exception.php';
-            throw new Zend_Http_Client_Adapter_Exception('Request failed');
+            throw new zend_Http_Client_Adapter_Exception('Request failed');
         }
     }
 
@@ -143,7 +143,7 @@ class Zend_Http_Client_Adapter_Test implements Zend_Http_Client_Adapter_Interfac
      * Send request to the remote server
      *
      * @param string        $method
-     * @param Zend_Uri_Http $uri
+     * @param zend_Uri_Http $uri
      * @param string        $http_ver
      * @param array         $headers
      * @param string        $body
@@ -194,11 +194,11 @@ class Zend_Http_Client_Adapter_Test implements Zend_Http_Client_Adapter_Interfac
     /**
      * Set the HTTP response(s) to be returned by this adapter
      *
-     * @param Zend_Http_Response|array|string $response
+     * @param zend_Http_Response|array|string $response
      */
     public function setResponse($response)
     {
-        if ($response instanceof Zend_Http_Response) {
+        if ($response instanceof zend_Http_Response) {
             $response = $response->asString("\r\n");
         }
 
@@ -209,11 +209,11 @@ class Zend_Http_Client_Adapter_Test implements Zend_Http_Client_Adapter_Interfac
     /**
      * Add another response to the response buffer.
      *
-     * @param string Zend_Http_Response|$response
+     * @param string zend_Http_Response|$response
      */
     public function addResponse($response)
     {
-         if ($response instanceof Zend_Http_Response) {
+         if ($response instanceof zend_Http_Response) {
             $response = $response->asString("\r\n");
         }
 
@@ -230,7 +230,7 @@ class Zend_Http_Client_Adapter_Test implements Zend_Http_Client_Adapter_Interfac
     {
         if ($index < 0 || $index >= count($this->responses)) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Client/Adapter/Exception.php';
-            throw new Zend_Http_Client_Adapter_Exception(
+            throw new zend_Http_Client_Adapter_Exception(
                 'Index out of range of response buffer size');
         }
         $this->responseIndex = $index;

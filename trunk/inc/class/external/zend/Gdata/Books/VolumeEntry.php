@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,99 +13,99 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Books
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: VolumeEntry.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Entry
+ * @see zend_Gdata_Entry
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Entry.php';
 
 /**
- * @see Zend_Gdata_Extension_Comments
+ * @see zend_Gdata_Extension_Comments
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension/Comments.php';
 
 /**
- * @see Zend_Gdata_DublinCore_Extension_Creator
+ * @see zend_Gdata_DublinCore_Extension_Creator
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/DublinCore/Extension/Creator.php';
 
 /**
- * @see Zend_Gdata_DublinCore_Extension_Date
+ * @see zend_Gdata_DublinCore_Extension_Date
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/DublinCore/Extension/Date.php';
 
 /**
- * @see Zend_Gdata_DublinCore_Extension_Description
+ * @see zend_Gdata_DublinCore_Extension_Description
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/DublinCore/Extension/Description.php';
 
 /**
- * @see Zend_Gdata_Books_Extension_Embeddability
+ * @see zend_Gdata_Books_Extension_Embeddability
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Books/Extension/Embeddability.php';
 
 /**
- * @see Zend_Gdata_DublinCore_Extension_Format
+ * @see zend_Gdata_DublinCore_Extension_Format
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/DublinCore/Extension/Format.php';
 
 /**
- * @see Zend_Gdata_DublinCore_Extension_Identifier
+ * @see zend_Gdata_DublinCore_Extension_Identifier
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/DublinCore/Extension/Identifier.php';
 
 /**
- * @see Zend_Gdata_DublinCore_Extension_Language
+ * @see zend_Gdata_DublinCore_Extension_Language
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/DublinCore/Extension/Language.php';
 
 /**
- * @see Zend_Gdata_DublinCore_Extension_Publisher
+ * @see zend_Gdata_DublinCore_Extension_Publisher
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/DublinCore/Extension/Publisher.php';
 
 /**
- * @see Zend_Gdata_Extension_Rating
+ * @see zend_Gdata_Extension_Rating
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension/Rating.php';
 
 /**
- * @see Zend_Gdata_Books_Extension_Review
+ * @see zend_Gdata_Books_Extension_Review
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Books/Extension/Review.php';
 
 /**
- * @see Zend_Gdata_DublinCore_Extension_Subject
+ * @see zend_Gdata_DublinCore_Extension_Subject
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/DublinCore/Extension/Subject.php';
 
 /**
- * @see Zend_Gdata_DublinCore_Extension_Title
+ * @see zend_Gdata_DublinCore_Extension_Title
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/DublinCore/Extension/Title.php';
 
 /**
- * @see Zend_Gdata_Books_Extension_Viewability
+ * @see zend_Gdata_Books_Extension_Viewability
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Books/Extension/Viewability.php';
 
 /**
  * Describes an entry in a feed of Book Search volumes
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Books
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Books_VolumeEntry extends Zend_Gdata_Entry
+class zend_Gdata_Books_VolumeEntry extends zend_Gdata_Entry
 {
 
     const THUMBNAIL_LINK_REL = 'http://schemas.google.com/books/2008/thumbnail';
@@ -129,7 +129,7 @@ class Zend_Gdata_Books_VolumeEntry extends Zend_Gdata_Entry
     protected $_viewability = null;
 
     /**
-     * Constructor for Zend_Gdata_Books_VolumeEntry which
+     * Constructor for zend_Gdata_Books_VolumeEntry which
      * Describes an entry in a feed of Book Search volumes
      *
      * @param DOMElement $element (optional) DOMElement from which this
@@ -137,7 +137,7 @@ class Zend_Gdata_Books_VolumeEntry extends Zend_Gdata_Entry
      */
     public function __construct($element = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_Books::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_Books::$namespaces);
         parent::__construct($element);
     }
 
@@ -240,72 +240,72 @@ class Zend_Gdata_Books_VolumeEntry extends Zend_Gdata_Entry
         $absoluteNodeName = $child->namespaceURI . ':' . $child->localName;
         switch ($absoluteNodeName) {
         case $this->lookupNamespace('dc') . ':' . 'creator':
-            $creators = new Zend_Gdata_DublinCore_Extension_Creator();
+            $creators = new zend_Gdata_DublinCore_Extension_Creator();
             $creators->transferFromDOM($child);
             $this->_creators[] = $creators;
             break;
         case $this->lookupNamespace('dc') . ':' . 'date':
-            $dates = new Zend_Gdata_DublinCore_Extension_Date();
+            $dates = new zend_Gdata_DublinCore_Extension_Date();
             $dates->transferFromDOM($child);
             $this->_dates[] = $dates;
             break;
         case $this->lookupNamespace('dc') . ':' . 'description':
-            $descriptions = new Zend_Gdata_DublinCore_Extension_Description();
+            $descriptions = new zend_Gdata_DublinCore_Extension_Description();
             $descriptions->transferFromDOM($child);
             $this->_descriptions[] = $descriptions;
             break;
         case $this->lookupNamespace('dc') . ':' . 'format':
-            $formats = new Zend_Gdata_DublinCore_Extension_Format();
+            $formats = new zend_Gdata_DublinCore_Extension_Format();
             $formats->transferFromDOM($child);
             $this->_formats[] = $formats;
             break;
         case $this->lookupNamespace('dc') . ':' . 'identifier':
-            $identifiers = new Zend_Gdata_DublinCore_Extension_Identifier();
+            $identifiers = new zend_Gdata_DublinCore_Extension_Identifier();
             $identifiers->transferFromDOM($child);
             $this->_identifiers[] = $identifiers;
             break;
         case $this->lookupNamespace('dc') . ':' . 'language':
-            $languages = new Zend_Gdata_DublinCore_Extension_Language();
+            $languages = new zend_Gdata_DublinCore_Extension_Language();
             $languages->transferFromDOM($child);
             $this->_languages[] = $languages;
             break;
         case $this->lookupNamespace('dc') . ':' . 'publisher':
-            $publishers = new Zend_Gdata_DublinCore_Extension_Publisher();
+            $publishers = new zend_Gdata_DublinCore_Extension_Publisher();
             $publishers->transferFromDOM($child);
             $this->_publishers[] = $publishers;
             break;
         case $this->lookupNamespace('dc') . ':' . 'subject':
-            $subjects = new Zend_Gdata_DublinCore_Extension_Subject();
+            $subjects = new zend_Gdata_DublinCore_Extension_Subject();
             $subjects->transferFromDOM($child);
             $this->_subjects[] = $subjects;
             break;
         case $this->lookupNamespace('dc') . ':' . 'title':
-            $titles = new Zend_Gdata_DublinCore_Extension_Title();
+            $titles = new zend_Gdata_DublinCore_Extension_Title();
             $titles->transferFromDOM($child);
             $this->_titles[] = $titles;
             break;
         case $this->lookupNamespace('gd') . ':' . 'comments':
-            $comments = new Zend_Gdata_Extension_Comments();
+            $comments = new zend_Gdata_Extension_Comments();
             $comments->transferFromDOM($child);
             $this->_comments = $comments;
             break;
         case $this->lookupNamespace('gbs') . ':' . 'embeddability':
-            $embeddability = new Zend_Gdata_Books_Extension_Embeddability();
+            $embeddability = new zend_Gdata_Books_Extension_Embeddability();
             $embeddability->transferFromDOM($child);
             $this->_embeddability = $embeddability;
             break;
         case $this->lookupNamespace('gd') . ':' . 'rating':
-            $rating = new Zend_Gdata_Extension_Rating();
+            $rating = new zend_Gdata_Extension_Rating();
             $rating->transferFromDOM($child);
             $this->_rating = $rating;
             break;
         case $this->lookupNamespace('gbs') . ':' . 'review':
-            $review = new Zend_Gdata_Books_Extension_Review();
+            $review = new zend_Gdata_Books_Extension_Review();
             $review->transferFromDOM($child);
             $this->_review = $review;
             break;
         case $this->lookupNamespace('gbs') . ':' . 'viewability':
-            $viewability = new Zend_Gdata_Books_Extension_Viewability();
+            $viewability = new zend_Gdata_Books_Extension_Viewability();
             $viewability->transferFromDOM($child);
             $this->_viewability = $viewability;
             break;
@@ -318,7 +318,7 @@ class Zend_Gdata_Books_VolumeEntry extends Zend_Gdata_Entry
     /**
      * Returns the Comments class
      *
-     * @return Zend_Gdata_Extension_Comments|null The comments
+     * @return zend_Gdata_Extension_Comments|null The comments
      */
     public function getComments()
     {
@@ -358,7 +358,7 @@ class Zend_Gdata_Books_VolumeEntry extends Zend_Gdata_Entry
     /**
      * Returns the embeddability
      *
-     * @return Zend_Gdata_Books_Extension_Embeddability|null The embeddability
+     * @return zend_Gdata_Books_Extension_Embeddability|null The embeddability
      */
     public function getEmbeddability()
     {
@@ -408,7 +408,7 @@ class Zend_Gdata_Books_VolumeEntry extends Zend_Gdata_Entry
     /**
      * Returns the rating
      *
-     * @return Zend_Gdata_Extension_Rating|null The rating
+     * @return zend_Gdata_Extension_Rating|null The rating
      */
     public function getRating()
     {
@@ -418,7 +418,7 @@ class Zend_Gdata_Books_VolumeEntry extends Zend_Gdata_Entry
     /**
      * Returns the review
      *
-     * @return Zend_Gdata_Books_Extension_Review|null The review
+     * @return zend_Gdata_Books_Extension_Review|null The review
      */
     public function getReview()
     {
@@ -448,7 +448,7 @@ class Zend_Gdata_Books_VolumeEntry extends Zend_Gdata_Entry
     /**
      * Returns the viewability
      *
-     * @return Zend_Gdata_Books_Extension_Viewability|null The viewability
+     * @return zend_Gdata_Books_Extension_Viewability|null The viewability
      */
     public function getViewability()
     {
@@ -458,8 +458,8 @@ class Zend_Gdata_Books_VolumeEntry extends Zend_Gdata_Entry
     /**
      * Sets the Comments class
      *
-     * @param Zend_Gdata_Extension_Comments|null $comments Comments class
-     * @return Zend_Gdata_Books_VolumeEntry Provides a fluent interface
+     * @param zend_Gdata_Extension_Comments|null $comments Comments class
+     * @return zend_Gdata_Books_VolumeEntry Provides a fluent interface
      */
     public function setComments($comments)
     {
@@ -471,7 +471,7 @@ class Zend_Gdata_Books_VolumeEntry extends Zend_Gdata_Entry
      * Sets the creators
      *
      * @param array $creators Creators|null
-     * @return Zend_Gdata_Books_VolumeEntry Provides a fluent interface
+     * @return zend_Gdata_Books_VolumeEntry Provides a fluent interface
      */
     public function setCreators($creators)
     {
@@ -483,7 +483,7 @@ class Zend_Gdata_Books_VolumeEntry extends Zend_Gdata_Entry
      * Sets the dates
      *
      * @param array $dates dates
-     * @return Zend_Gdata_Books_VolumeEntry Provides a fluent interface
+     * @return zend_Gdata_Books_VolumeEntry Provides a fluent interface
      */
     public function setDates($dates)
     {
@@ -495,7 +495,7 @@ class Zend_Gdata_Books_VolumeEntry extends Zend_Gdata_Entry
      * Sets the descriptions
      *
      * @param array $descriptions descriptions
-     * @return Zend_Gdata_Books_VolumeEntry Provides a fluent interface
+     * @return zend_Gdata_Books_VolumeEntry Provides a fluent interface
      */
     public function setDescriptions($descriptions)
     {
@@ -506,9 +506,9 @@ class Zend_Gdata_Books_VolumeEntry extends Zend_Gdata_Entry
     /**
      * Sets the embeddability
      *
-     * @param Zend_Gdata_Books_Extension_Embeddability|null $embeddability
+     * @param zend_Gdata_Books_Extension_Embeddability|null $embeddability
      *        embeddability
-     * @return Zend_Gdata_Books_VolumeEntry Provides a fluent interface
+     * @return zend_Gdata_Books_VolumeEntry Provides a fluent interface
      */
     public function setEmbeddability($embeddability)
     {
@@ -520,7 +520,7 @@ class Zend_Gdata_Books_VolumeEntry extends Zend_Gdata_Entry
      * Sets the formats
      *
      * @param array $formats formats
-     * @return Zend_Gdata_Books_VolumeEntry Provides a fluent interface
+     * @return zend_Gdata_Books_VolumeEntry Provides a fluent interface
      */
     public function setFormats($formats)
     {
@@ -532,7 +532,7 @@ class Zend_Gdata_Books_VolumeEntry extends Zend_Gdata_Entry
      * Sets the identifiers
      *
      * @param array $identifiers identifiers
-     * @return Zend_Gdata_Books_VolumeEntry Provides a fluent interface
+     * @return zend_Gdata_Books_VolumeEntry Provides a fluent interface
      */
     public function setIdentifiers($identifiers)
     {
@@ -544,7 +544,7 @@ class Zend_Gdata_Books_VolumeEntry extends Zend_Gdata_Entry
      * Sets the languages
      *
      * @param array $languages languages
-     * @return Zend_Gdata_Books_VolumeEntry Provides a fluent interface
+     * @return zend_Gdata_Books_VolumeEntry Provides a fluent interface
      */
     public function setLanguages($languages)
     {
@@ -556,7 +556,7 @@ class Zend_Gdata_Books_VolumeEntry extends Zend_Gdata_Entry
      * Sets the publishers
      *
      * @param array $publishers publishers
-     * @return Zend_Gdata_Books_VolumeEntry Provides a fluent interface
+     * @return zend_Gdata_Books_VolumeEntry Provides a fluent interface
      */
     public function setPublishers($publishers)
     {
@@ -567,8 +567,8 @@ class Zend_Gdata_Books_VolumeEntry extends Zend_Gdata_Entry
     /**
      * Sets the rating
      *
-     * @param Zend_Gdata_Extension_Rating|null $rating rating
-     * @return Zend_Gdata_Books_VolumeEntry Provides a fluent interface
+     * @param zend_Gdata_Extension_Rating|null $rating rating
+     * @return zend_Gdata_Books_VolumeEntry Provides a fluent interface
      */
     public function setRating($rating)
     {
@@ -579,8 +579,8 @@ class Zend_Gdata_Books_VolumeEntry extends Zend_Gdata_Entry
     /**
      * Sets the review
      *
-     * @param Zend_Gdata_Books_Extension_Review|null $review review
-     * @return Zend_Gdata_Books_VolumeEntry Provides a fluent interface
+     * @param zend_Gdata_Books_Extension_Review|null $review review
+     * @return zend_Gdata_Books_VolumeEntry Provides a fluent interface
      */
     public function setReview($review)
     {
@@ -592,7 +592,7 @@ class Zend_Gdata_Books_VolumeEntry extends Zend_Gdata_Entry
      * Sets the subjects
      *
      * @param array $subjects subjects
-     * @return Zend_Gdata_Books_VolumeEntry Provides a fluent interface
+     * @return zend_Gdata_Books_VolumeEntry Provides a fluent interface
      */
     public function setSubjects($subjects)
     {
@@ -604,7 +604,7 @@ class Zend_Gdata_Books_VolumeEntry extends Zend_Gdata_Entry
      * Sets the titles
      *
      * @param array $titles titles
-     * @return Zend_Gdata_Books_VolumeEntry Provides a fluent interface
+     * @return zend_Gdata_Books_VolumeEntry Provides a fluent interface
      */
     public function setTitles($titles)
     {
@@ -615,9 +615,9 @@ class Zend_Gdata_Books_VolumeEntry extends Zend_Gdata_Entry
     /**
      * Sets the viewability
      *
-     * @param Zend_Gdata_Books_Extension_Viewability|null $viewability
+     * @param zend_Gdata_Books_Extension_Viewability|null $viewability
      *        viewability
-     * @return Zend_Gdata_Books_VolumeEntry Provides a fluent interface
+     * @return zend_Gdata_Books_VolumeEntry Provides a fluent interface
      */
     public function setViewability($viewability)
     {
@@ -630,7 +630,7 @@ class Zend_Gdata_Books_VolumeEntry extends Zend_Gdata_Entry
      * Gets the volume ID based upon the atom:id value
      *
      * @return string The volume ID
-     * @throws Zend_Gdata_App_Exception
+     * @throws zend_Gdata_App_Exception
      */
     public function getVolumeId()
     {
@@ -638,7 +638,7 @@ class Zend_Gdata_Books_VolumeEntry extends Zend_Gdata_Entry
         $position = strrpos($fullId, '/');
         if ($position === false) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Exception.php';
-            throw new Zend_Gdata_App_Exception('Slash not found in atom:id');
+            throw new zend_Gdata_App_Exception('Slash not found in atom:id');
         } else {
             return substr($fullId, strrpos($fullId,'/') + 1);
         }
@@ -647,7 +647,7 @@ class Zend_Gdata_Books_VolumeEntry extends Zend_Gdata_Entry
     /**
      * Gets the thumbnail link
      *
-     * @return Zend_Gdata_App_Extension_link|null The thumbnail link
+     * @return zend_Gdata_App_Extension_link|null The thumbnail link
      */
     public function getThumbnailLink()
     {
@@ -657,7 +657,7 @@ class Zend_Gdata_Books_VolumeEntry extends Zend_Gdata_Entry
     /**
      * Gets the preview link
      *
-     * @return Zend_Gdata_App_Extension_Link|null The preview link
+     * @return zend_Gdata_App_Extension_Link|null The preview link
      */
     public function getPreviewLink()
     {
@@ -667,7 +667,7 @@ class Zend_Gdata_Books_VolumeEntry extends Zend_Gdata_Entry
     /**
      * Gets the info link
      *
-     * @return Zend_Gdata_App_Extension_Link|null The info link
+     * @return zend_Gdata_App_Extension_Link|null The info link
      */
     public function getInfoLink()
     {
@@ -677,7 +677,7 @@ class Zend_Gdata_Books_VolumeEntry extends Zend_Gdata_Entry
     /**
      * Gets the annotations link
      *
-     * @return Zend_Gdata_App_Extension_Link|null The annotations link
+     * @return zend_Gdata_App_Extension_Link|null The annotations link
      */
     public function getAnnotationLink()
     {

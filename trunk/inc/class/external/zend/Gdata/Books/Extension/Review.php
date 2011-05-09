@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,29 +13,29 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Books
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Review.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Extension
+ * @see zend_Gdata_Extension
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension.php';
 
 /**
  * User-provided review
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Books
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Books_Extension_Review extends Zend_Gdata_Extension
+class zend_Gdata_Books_Extension_Review extends zend_Gdata_Extension
 {
 
     protected $_rootNamespace = 'gbs';
@@ -44,7 +44,7 @@ class Zend_Gdata_Books_Extension_Review extends Zend_Gdata_Extension
     protected $_type = null;
 
     /**
-     * Constructor for Zend_Gdata_Books_Extension_Review which
+     * Constructor for zend_Gdata_Books_Extension_Review which
      * User-provided review
      *
      * @param string|null $lang Review language.
@@ -54,7 +54,7 @@ class Zend_Gdata_Books_Extension_Review extends Zend_Gdata_Extension
      */
     public function __construct($lang = null, $type = null, $value = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_Books::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_Books::$namespaces);
         parent::__construct();
         $this->_lang = $lang;
         $this->_type = $type;
@@ -127,7 +127,7 @@ class Zend_Gdata_Books_Extension_Review extends Zend_Gdata_Extension
      * Sets the language of link title
      *
      * @param string $lang language of link title
-     * @return Zend_Gdata_Books_Extension_Review Provides a fluent interface
+     * @return zend_Gdata_Books_Extension_Review Provides a fluent interface
      */
     public function setLang($lang)
     {
@@ -139,7 +139,7 @@ class Zend_Gdata_Books_Extension_Review extends Zend_Gdata_Extension
      * Sets the type of text construct (typically 'text', 'html' or 'xhtml')
      *
      * @param string $type type of text construct (typically 'text', 'html' or 'xhtml')
-     * @return Zend_Gdata_Books_Extension_Review Provides a fluent interface
+     * @return zend_Gdata_Books_Extension_Review Provides a fluent interface
      */
     public function setType($type)
     {

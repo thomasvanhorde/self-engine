@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,26 +13,26 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Photos
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: AlbumFeed.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Photos
+ * @see zend_Gdata_Photos
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Photos.php';
 
 /**
- * @see Zend_Gdata_Feed
+ * @see zend_Gdata_Feed
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Feed.php';
 
 /**
- * @see Zend_Gdata_Photos_AlbumEntry
+ * @see zend_Gdata_Photos_AlbumEntry
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Photos/AlbumEntry.php';
 
@@ -41,98 +41,98 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Photos/AlbumEntry.php';
  * provided by the servers.
  *
  * For information on requesting this feed from a server, see the
- * service class, Zend_Gdata_Photos.
+ * service class, zend_Gdata_Photos.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Photos
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Photos_AlbumFeed extends Zend_Gdata_Feed
+class zend_Gdata_Photos_AlbumFeed extends zend_Gdata_Feed
 {
-    protected $_entryClassName = 'Zend_Gdata_Photos_AlbumEntry';
-    protected $_feedClassName = 'Zend_Gdata_Photos_AlbumFeed';
+    protected $_entryClassName = 'zend_Gdata_Photos_AlbumEntry';
+    protected $_feedClassName = 'zend_Gdata_Photos_AlbumFeed';
 
     /**
      * gphoto:id element
      *
-     * @var Zend_Gdata_Photos_Extension_Id
+     * @var zend_Gdata_Photos_Extension_Id
      */
     protected $_gphotoId = null;
 
     /**
      * gphoto:user element
      *
-     * @var Zend_Gdata_Photos_Extension_User
+     * @var zend_Gdata_Photos_Extension_User
      */
     protected $_gphotoUser = null;
 
     /**
      * gphoto:access element
      *
-     * @var Zend_Gdata_Photos_Extension_Access
+     * @var zend_Gdata_Photos_Extension_Access
      */
     protected $_gphotoAccess = null;
 
     /**
      * gphoto:location element
      *
-     * @var Zend_Gdata_Photos_Extension_Location
+     * @var zend_Gdata_Photos_Extension_Location
      */
     protected $_gphotoLocation = null;
 
     /**
      * gphoto:nickname element
      *
-     * @var Zend_Gdata_Photos_Extension_Nickname
+     * @var zend_Gdata_Photos_Extension_Nickname
      */
     protected $_gphotoNickname = null;
 
     /**
      * gphoto:timestamp element
      *
-     * @var Zend_Gdata_Photos_Extension_Timestamp
+     * @var zend_Gdata_Photos_Extension_Timestamp
      */
     protected $_gphotoTimestamp = null;
 
     /**
      * gphoto:name element
      *
-     * @var Zend_Gdata_Photos_Extension_Name
+     * @var zend_Gdata_Photos_Extension_Name
      */
     protected $_gphotoName = null;
 
     /**
      * gphoto:numphotos element
      *
-     * @var Zend_Gdata_Photos_Extension_NumPhotos
+     * @var zend_Gdata_Photos_Extension_NumPhotos
      */
     protected $_gphotoNumPhotos = null;
 
     /**
      * gphoto:commentCount element
      *
-     * @var Zend_Gdata_Photos_Extension_CommentCount
+     * @var zend_Gdata_Photos_Extension_CommentCount
      */
     protected $_gphotoCommentCount = null;
 
     /**
      * gphoto:commentingEnabled element
      *
-     * @var Zend_Gdata_Photos_Extension_CommentingEnabled
+     * @var zend_Gdata_Photos_Extension_CommentingEnabled
      */
     protected $_gphotoCommentingEnabled = null;
 
     protected $_entryKindClassMapping = array(
-        'http://schemas.google.com/photos/2007#photo' => 'Zend_Gdata_Photos_PhotoEntry',
-        'http://schemas.google.com/photos/2007#comment' => 'Zend_Gdata_Photos_CommentEntry',
-        'http://schemas.google.com/photos/2007#tag' => 'Zend_Gdata_Photos_TagEntry'
+        'http://schemas.google.com/photos/2007#photo' => 'zend_Gdata_Photos_PhotoEntry',
+        'http://schemas.google.com/photos/2007#comment' => 'zend_Gdata_Photos_CommentEntry',
+        'http://schemas.google.com/photos/2007#tag' => 'zend_Gdata_Photos_TagEntry'
     );
 
     public function __construct($element = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_Photos::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_Photos::$namespaces);
         parent::__construct($element);
     }
 
@@ -179,67 +179,67 @@ class Zend_Gdata_Photos_AlbumFeed extends Zend_Gdata_Feed
 
         switch ($absoluteNodeName) {
             case $this->lookupNamespace('gphoto') . ':' . 'id';
-                $id = new Zend_Gdata_Photos_Extension_Id();
+                $id = new zend_Gdata_Photos_Extension_Id();
                 $id->transferFromDOM($child);
                 $this->_gphotoId = $id;
                 break;
             case $this->lookupNamespace('gphoto') . ':' . 'user';
-                $user = new Zend_Gdata_Photos_Extension_User();
+                $user = new zend_Gdata_Photos_Extension_User();
                 $user->transferFromDOM($child);
                 $this->_gphotoUser = $user;
                 break;
             case $this->lookupNamespace('gphoto') . ':' . 'nickname';
-                $nickname = new Zend_Gdata_Photos_Extension_Nickname();
+                $nickname = new zend_Gdata_Photos_Extension_Nickname();
                 $nickname->transferFromDOM($child);
                 $this->_gphotoNickname = $nickname;
                 break;
             case $this->lookupNamespace('gphoto') . ':' . 'name';
-                $name = new Zend_Gdata_Photos_Extension_Name();
+                $name = new zend_Gdata_Photos_Extension_Name();
                 $name->transferFromDOM($child);
                 $this->_gphotoName = $name;
                 break;
             case $this->lookupNamespace('gphoto') . ':' . 'location';
-                $location = new Zend_Gdata_Photos_Extension_Location();
+                $location = new zend_Gdata_Photos_Extension_Location();
                 $location->transferFromDOM($child);
                 $this->_gphotoLocation = $location;
                 break;
             case $this->lookupNamespace('gphoto') . ':' . 'access';
-                $access = new Zend_Gdata_Photos_Extension_Access();
+                $access = new zend_Gdata_Photos_Extension_Access();
                 $access->transferFromDOM($child);
                 $this->_gphotoAccess = $access;
                 break;
             case $this->lookupNamespace('gphoto') . ':' . 'timestamp';
-                $timestamp = new Zend_Gdata_Photos_Extension_Timestamp();
+                $timestamp = new zend_Gdata_Photos_Extension_Timestamp();
                 $timestamp->transferFromDOM($child);
                 $this->_gphotoTimestamp = $timestamp;
                 break;
             case $this->lookupNamespace('gphoto') . ':' . 'numphotos';
-                $numphotos = new Zend_Gdata_Photos_Extension_NumPhotos();
+                $numphotos = new zend_Gdata_Photos_Extension_NumPhotos();
                 $numphotos->transferFromDOM($child);
                 $this->_gphotoNumPhotos = $numphotos;
                 break;
             case $this->lookupNamespace('gphoto') . ':' . 'commentingEnabled';
-                $commentingEnabled = new Zend_Gdata_Photos_Extension_CommentingEnabled();
+                $commentingEnabled = new zend_Gdata_Photos_Extension_CommentingEnabled();
                 $commentingEnabled->transferFromDOM($child);
                 $this->_gphotoCommentingEnabled = $commentingEnabled;
                 break;
             case $this->lookupNamespace('gphoto') . ':' . 'commentCount';
-                $commentCount = new Zend_Gdata_Photos_Extension_CommentCount();
+                $commentCount = new zend_Gdata_Photos_Extension_CommentCount();
                 $commentCount->transferFromDOM($child);
                 $this->_gphotoCommentCount = $commentCount;
                 break;
             case $this->lookupNamespace('atom') . ':' . 'entry':
                 $entryClassName = $this->_entryClassName;
-                $tmpEntry = new Zend_Gdata_App_Entry($child);
+                $tmpEntry = new zend_Gdata_App_Entry($child);
                 $categories = $tmpEntry->getCategory();
                 foreach ($categories as $category) {
-                    if ($category->scheme == Zend_Gdata_Photos::KIND_PATH &&
+                    if ($category->scheme == zend_Gdata_Photos::KIND_PATH &&
                         $this->_entryKindClassMapping[$category->term] != "") {
                             $entryClassName = $this->_entryKindClassMapping[$category->term];
                             break;
                     } else {
                         require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Exception.php';
-                        throw new Zend_Gdata_App_Exception('Entry is missing kind declaration.');
+                        throw new zend_Gdata_App_Exception('Entry is missing kind declaration.');
                     }
                 }
 
@@ -268,7 +268,7 @@ class Zend_Gdata_Photos_AlbumFeed extends Zend_Gdata_Feed
      * Set the value for this element's gphoto:user attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Photos_Extension_User The element being modified.
+     * @return zend_Gdata_Photos_Extension_User The element being modified.
      */
     public function setGphotoUser($value)
     {
@@ -291,7 +291,7 @@ class Zend_Gdata_Photos_AlbumFeed extends Zend_Gdata_Feed
      * Set the value for this element's gphoto:access attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Photos_Extension_Access The element being modified.
+     * @return zend_Gdata_Photos_Extension_Access The element being modified.
      */
     public function setGphotoAccess($value)
     {
@@ -314,7 +314,7 @@ class Zend_Gdata_Photos_AlbumFeed extends Zend_Gdata_Feed
      * Set the value for this element's gphoto:location attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Photos_Extension_Location The element being modified.
+     * @return zend_Gdata_Photos_Extension_Location The element being modified.
      */
     public function setGphotoLocation($value)
     {
@@ -337,7 +337,7 @@ class Zend_Gdata_Photos_AlbumFeed extends Zend_Gdata_Feed
      * Set the value for this element's gphoto:name attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Photos_Extension_Name The element being modified.
+     * @return zend_Gdata_Photos_Extension_Name The element being modified.
      */
     public function setGphotoName($value)
     {
@@ -360,7 +360,7 @@ class Zend_Gdata_Photos_AlbumFeed extends Zend_Gdata_Feed
      * Set the value for this element's gphoto:numphotos attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Photos_Extension_NumPhotos The element being modified.
+     * @return zend_Gdata_Photos_Extension_NumPhotos The element being modified.
      */
     public function setGphotoNumPhotos($value)
     {
@@ -383,7 +383,7 @@ class Zend_Gdata_Photos_AlbumFeed extends Zend_Gdata_Feed
      * Set the value for this element's gphoto:commentCount attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Photos_Extension_CommentCount The element being modified.
+     * @return zend_Gdata_Photos_Extension_CommentCount The element being modified.
      */
     public function setGphotoCommentCount($value)
     {
@@ -406,7 +406,7 @@ class Zend_Gdata_Photos_AlbumFeed extends Zend_Gdata_Feed
      * Set the value for this element's gphoto:commentingEnabled attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Photos_Extension_CommentingEnabled The element being modified.
+     * @return zend_Gdata_Photos_Extension_CommentingEnabled The element being modified.
      */
     public function setGphotoCommentingEnabled($value)
     {
@@ -429,7 +429,7 @@ class Zend_Gdata_Photos_AlbumFeed extends Zend_Gdata_Feed
      * Set the value for this element's gphoto:id attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Photos_Extension_Id The element being modified.
+     * @return zend_Gdata_Photos_Extension_Id The element being modified.
      */
     public function setGphotoId($value)
     {
@@ -452,7 +452,7 @@ class Zend_Gdata_Photos_AlbumFeed extends Zend_Gdata_Feed
      * Set the value for this element's georss:where attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Geo_Extension_GeoRssWhere The element being modified.
+     * @return zend_Gdata_Geo_Extension_GeoRssWhere The element being modified.
      */
     public function setGeoRssWhere($value)
     {
@@ -475,7 +475,7 @@ class Zend_Gdata_Photos_AlbumFeed extends Zend_Gdata_Feed
      * Set the value for this element's gphoto:nickname attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Photos_Extension_Nickname The element being modified.
+     * @return zend_Gdata_Photos_Extension_Nickname The element being modified.
      */
     public function setGphotoNickname($value)
     {
@@ -498,7 +498,7 @@ class Zend_Gdata_Photos_AlbumFeed extends Zend_Gdata_Feed
      * Set the value for this element's gphoto:timestamp attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Photos_Extension_Timestamp The element being modified.
+     * @return zend_Gdata_Photos_Extension_Timestamp The element being modified.
      */
     public function setGphotoTimestamp($value)
     {

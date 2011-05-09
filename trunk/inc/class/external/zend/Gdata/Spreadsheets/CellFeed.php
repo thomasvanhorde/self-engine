@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,38 +13,38 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Spreadsheets
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: CellFeed.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Feed
+ * @see zend_Gdata_Feed
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Feed.php';
 
 /**
- * @see Zend_Gdata_Spreadsheets_Extension_RowCount
+ * @see zend_Gdata_Spreadsheets_Extension_RowCount
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Spreadsheets/Extension/RowCount.php';
 
 /**
- * @see Zend_Gdata_Spreadsheets_Extension_ColCount
+ * @see zend_Gdata_Spreadsheets_Extension_ColCount
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Spreadsheets/Extension/ColCount.php';
 
 /**
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage   Spreadsheets
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Spreadsheets_CellFeed extends Zend_Gdata_Feed
+class zend_Gdata_Spreadsheets_CellFeed extends zend_Gdata_Feed
 {
 
     /**
@@ -52,36 +52,36 @@ class Zend_Gdata_Spreadsheets_CellFeed extends Zend_Gdata_Feed
     *
     * @var string
     */
-    protected $_entryClassName = 'Zend_Gdata_Spreadsheets_CellEntry';
+    protected $_entryClassName = 'zend_Gdata_Spreadsheets_CellEntry';
 
     /**
     * The classname for the feed.
     *
     * @var string
     */
-    protected $_feedClassName = 'Zend_Gdata_Spreadsheets_CellFeed';
+    protected $_feedClassName = 'zend_Gdata_Spreadsheets_CellFeed';
 
     /**
     * The row count for the feed.
     *
-    * @var Zend_Gdata_Spreadsheets_Extension_RowCount
+    * @var zend_Gdata_Spreadsheets_Extension_RowCount
     */
     protected $_rowCount = null;
 
     /**
     * The column count for the feed.
     *
-    * @var Zend_Gdata_Spreadsheets_Extension_ColCount
+    * @var zend_Gdata_Spreadsheets_Extension_ColCount
     */
     protected $_colCount = null;
 
     /**
-     * Constructs a new Zend_Gdata_Spreadsheets_CellFeed object.
+     * Constructs a new zend_Gdata_Spreadsheets_CellFeed object.
      * @param DOMElement $element (optional) The XML Element on which to base this object.
      */
     public function __construct($element = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_Spreadsheets::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_Spreadsheets::$namespaces);
         parent::__construct($element);
     }
 
@@ -102,12 +102,12 @@ class Zend_Gdata_Spreadsheets_CellFeed extends Zend_Gdata_Feed
         $absoluteNodeName = $child->namespaceURI . ':' . $child->localName;
         switch ($absoluteNodeName) {
             case $this->lookupNamespace('gs') . ':' . 'rowCount';
-                $rowCount = new Zend_Gdata_Spreadsheets_Extension_RowCount();
+                $rowCount = new zend_Gdata_Spreadsheets_Extension_RowCount();
                 $rowCount->transferFromDOM($child);
                 $this->_rowCount = $rowCount;
                 break;
             case $this->lookupNamespace('gs') . ':' . 'colCount';
-                $colCount = new Zend_Gdata_Spreadsheets_Extension_ColCount();
+                $colCount = new zend_Gdata_Spreadsheets_Extension_ColCount();
                 $colCount->transferFromDOM($child);
                 $this->_colCount = $colCount;
                 break;

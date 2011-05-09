@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,26 +13,26 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gapps
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: NicknameEntry.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Entry
+ * @see zend_Gdata_Entry
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Entry.php';
 
 /**
- * @see Zend_Gdata_Gapps_Extension_Login
+ * @see zend_Gdata_Gapps_Extension_Login
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Gapps/Extension/Login.php';
 
 /**
- * @see Zend_Gdata_Gapps_Extension_Nickname
+ * @see zend_Gdata_Gapps_Extension_Nickname
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Gapps/Extension/Nickname.php';
 
@@ -42,37 +42,37 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Gapps/Extension/Nickname.p
  * Each nickname entry describes a single nickname within a Google Apps
  * hosted domain. Each user may own several nicknames, but each nickname may
  * only belong to one user. Multiple entries are contained within instances
- * of Zend_Gdata_Gapps_NicknameFeed.
+ * of zend_Gdata_Gapps_NicknameFeed.
  *
  * To transfer nickname entries to and from the Google Apps servers,
  * including creating new entries, refer to the Google Apps service class,
- * Zend_Gdata_Gapps.
+ * zend_Gdata_Gapps.
  *
  * This class represents <atom:entry> in the Google Data protocol.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gapps
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Gapps_NicknameEntry extends Zend_Gdata_Entry
+class zend_Gdata_Gapps_NicknameEntry extends zend_Gdata_Entry
 {
 
-    protected $_entryClassName = 'Zend_Gdata_Gapps_NicknameEntry';
+    protected $_entryClassName = 'zend_Gdata_Gapps_NicknameEntry';
 
     /**
      * <apps:login> element used to hold information about the owner
      * of this nickname, including their username.
      *
-     * @var Zend_Gdata_Gapps_Extension_Login
+     * @var zend_Gdata_Gapps_Extension_Login
      */
     protected $_login = null;
 
     /**
      * <apps:nickname> element used to hold the name of this nickname.
      *
-     * @var Zend_Gdata_Gapps_Extension_Nickname
+     * @var zend_Gdata_Gapps_Extension_Nickname
      */
     protected $_nickname = null;
 
@@ -84,7 +84,7 @@ class Zend_Gdata_Gapps_NicknameEntry extends Zend_Gdata_Entry
      */
     public function __construct($element = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_Gapps::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_Gapps::$namespaces);
         parent::__construct($element);
     }
 
@@ -121,12 +121,12 @@ class Zend_Gdata_Gapps_NicknameEntry extends Zend_Gdata_Entry
 
         switch ($absoluteNodeName) {
             case $this->lookupNamespace('apps') . ':' . 'login';
-                $login = new Zend_Gdata_Gapps_Extension_Login();
+                $login = new zend_Gdata_Gapps_Extension_Login();
                 $login->transferFromDOM($child);
                 $this->_login = $login;
                 break;
             case $this->lookupNamespace('apps') . ':' . 'nickname';
-                $nickname = new Zend_Gdata_Gapps_Extension_Nickname();
+                $nickname = new zend_Gdata_Gapps_Extension_Nickname();
                 $nickname->transferFromDOM($child);
                 $this->_nickname = $nickname;
                 break;
@@ -140,7 +140,7 @@ class Zend_Gdata_Gapps_NicknameEntry extends Zend_Gdata_Entry
      * Get the value of the login property for this object.
      *
      * @see setLogin
-     * @return Zend_Gdata_Gapps_Extension_Login The requested object.
+     * @return zend_Gdata_Gapps_Extension_Login The requested object.
      */
     public function getLogin()
     {
@@ -151,9 +151,9 @@ class Zend_Gdata_Gapps_NicknameEntry extends Zend_Gdata_Entry
      * Set the value of the login property for this object. This property
      * is used to store the username address of the current user.
      *
-     * @param Zend_Gdata_Gapps_Extension_Login $value The desired value for
+     * @param zend_Gdata_Gapps_Extension_Login $value The desired value for
      *          this instance's login property.
-     * @return Zend_Gdata_Gapps_NicknameEntry Provides a fluent interface.
+     * @return zend_Gdata_Gapps_NicknameEntry Provides a fluent interface.
      */
     public function setLogin($value)
     {
@@ -165,7 +165,7 @@ class Zend_Gdata_Gapps_NicknameEntry extends Zend_Gdata_Entry
      * Get the value of the nickname property for this object.
      *
      * @see setNickname
-     * @return Zend_Gdata_Gapps_Extension_Nickname The requested object.
+     * @return zend_Gdata_Gapps_Extension_Nickname The requested object.
      */
     public function getNickname()
     {
@@ -176,9 +176,9 @@ class Zend_Gdata_Gapps_NicknameEntry extends Zend_Gdata_Entry
      * Set the value of the nickname property for this object. This property
      * is used to store the the name of the current nickname.
      *
-     * @param Zend_Gdata_Gapps_Extension_Nickname $value The desired value for
+     * @param zend_Gdata_Gapps_Extension_Nickname $value The desired value for
      *          this instance's nickname property.
-     * @return Zend_Gdata_Gapps_NicknameEntry Provides a fluent interface.
+     * @return zend_Gdata_Gapps_NicknameEntry Provides a fluent interface.
      */
     public function setNickname($value)
     {

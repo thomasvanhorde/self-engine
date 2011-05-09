@@ -1,6 +1,6 @@
 <?php
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -12,25 +12,25 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Validate
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @category   zend
+ * @package    zend_Validate
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Ip.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Validate_Abstract
+ * @see zend_Validate_Abstract
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Validate/Abstract.php';
 
 /**
- * @category   Zend
- * @package    Zend_Validate
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @category   zend
+ * @package    zend_Validate
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Validate_Ip extends Zend_Validate_Abstract
+class zend_Validate_Ip extends zend_Validate_Abstract
 {
     const INVALID        = 'ipInvalid';
     const NOT_IP_ADDRESS = 'notIpAddress';
@@ -61,7 +61,7 @@ class Zend_Validate_Ip extends Zend_Validate_Abstract
      */
     public function __construct($options = array())
     {
-        if ($options instanceof Zend_Config) {
+        if ($options instanceof zend_Config) {
             $options = $options->toArray();
         } else if (!is_array($options)) {
             $options = func_get_args();
@@ -91,7 +91,7 @@ class Zend_Validate_Ip extends Zend_Validate_Abstract
      * Sets the options for this validator
      *
      * @param array $options
-     * @return Zend_Validate_Ip
+     * @return zend_Validate_Ip
      */
     public function setOptions($options)
     {
@@ -105,14 +105,14 @@ class Zend_Validate_Ip extends Zend_Validate_Abstract
 
         if (!$this->_options['allowipv4'] && !$this->_options['allowipv6']) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Validate/Exception.php';
-            throw new Zend_Validate_Exception('Nothing to validate. Check your options');
+            throw new zend_Validate_Exception('Nothing to validate. Check your options');
         }
 
         return $this;
     }
 
     /**
-     * Defined by Zend_Validate_Interface
+     * Defined by zend_Validate_Interface
      *
      * Returns true if and only if $value is a valid IP address
      *

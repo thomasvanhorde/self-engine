@@ -1,6 +1,6 @@
 <?php
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -12,29 +12,29 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gbase
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: BaseAttribute.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_App_Extension_Element
+ * @see zend_Gdata_App_Extension_Element
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Extension/Element.php';
 
 /**
  * Concrete class for working with ItemType elements.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gbase
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Gbase_Extension_BaseAttribute extends Zend_Gdata_App_Extension_Element
+class zend_Gdata_Gbase_Extension_BaseAttribute extends zend_Gdata_App_Extension_Element
 {
 
     /**
@@ -53,7 +53,7 @@ class Zend_Gdata_Gbase_Extension_BaseAttribute extends Zend_Gdata_App_Extension_
      */
     public function __construct($name = null, $text = null, $type = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_Gbase::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_Gbase::$namespaces);
         if ($type !== null) {
           $attr = array('name' => 'type', 'value' => $type);
           $typeAttr = array('type' => $attr);
@@ -88,9 +88,9 @@ class Zend_Gdata_Gbase_Extension_BaseAttribute extends Zend_Gdata_App_Extension_
      * Set the 'name' of the Base attribute object:
      *     &lt;g:[$name] type='[$type]'&gt;[$value]&lt;/g:[$name]&gt;
      *
-     * @param Zend_Gdata_App_Extension_Element $attribute The attribute object
+     * @param zend_Gdata_App_Extension_Element $attribute The attribute object
      * @param string $name The name of the Base attribute
-     * @return Zend_Gdata_Extension_ItemEntry Provides a fluent interface
+     * @return zend_Gdata_Extension_ItemEntry Provides a fluent interface
      */
     public function setName($name) {
       $this->_rootElement = $name;
@@ -101,9 +101,9 @@ class Zend_Gdata_Gbase_Extension_BaseAttribute extends Zend_Gdata_App_Extension_
      * Set the 'type' of the Base attribute object:
      *     &lt;g:[$name] type='[$type]'&gt;[$value]&lt;/g:[$name]&gt;
      *
-     * @param Zend_Gdata_App_Extension_Element $attribute The attribute object
+     * @param zend_Gdata_App_Extension_Element $attribute The attribute object
      * @param string $type The type of the Base attribute
-     * @return Zend_Gdata_Extension_ItemEntry Provides a fluent interface
+     * @return zend_Gdata_Extension_ItemEntry Provides a fluent interface
      */
     public function setType($type) {
       $attr = array('name' => 'type', 'value' => $type);

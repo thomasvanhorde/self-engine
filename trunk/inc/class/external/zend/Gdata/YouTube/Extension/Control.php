@@ -1,6 +1,6 @@
 <?php
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -12,21 +12,21 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage YouTube
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Control.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_App_Extension_Control
+ * @see zend_Gdata_App_Extension_Control
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Extension/Control.php';
 
 /**
- * @see Zend_Gdata_YouTube_Extension_State
+ * @see zend_Gdata_YouTube_Extension_State
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/YouTube/Extension/State.php';
 
@@ -34,26 +34,26 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/YouTube/Extension/State.ph
 /**
  * Specialized Control class for use with YouTube. Enables use of yt extension elements.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage YouTube
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_YouTube_Extension_Control extends Zend_Gdata_App_Extension_Control
+class zend_Gdata_YouTube_Extension_Control extends zend_Gdata_App_Extension_Control
 {
 
     protected $_state = null;
 
     /**
-     * Constructs a new Zend_Gdata_Calendar_Extension_Control object.
-     * @see Zend_Gdata_App_Extension_Control#__construct
-     * @param Zend_Gdata_App_Extension_Draft $draft
-     * @param Zend_Gdata_YouTube_Extension_State $state
+     * Constructs a new zend_Gdata_Calendar_Extension_Control object.
+     * @see zend_Gdata_App_Extension_Control#__construct
+     * @param zend_Gdata_App_Extension_Draft $draft
+     * @param zend_Gdata_YouTube_Extension_State $state
      */
     public function __construct($draft = null, $state = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_YouTube::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_YouTube::$namespaces);
         parent::__construct($draft);
         $this->_state = $state;
     }
@@ -88,7 +88,7 @@ class Zend_Gdata_YouTube_Extension_Control extends Zend_Gdata_App_Extension_Cont
         $absoluteNodeName = $child->namespaceURI . ':' . $child->localName;
         switch ($absoluteNodeName) {
         case $this->lookupNamespace('yt') . ':' . 'state':
-            $state = new Zend_Gdata_YouTube_Extension_State();
+            $state = new zend_Gdata_YouTube_Extension_State();
             $state->transferFromDOM($child);
             $this->_state = $state;
             break;
@@ -101,7 +101,7 @@ class Zend_Gdata_YouTube_Extension_Control extends Zend_Gdata_App_Extension_Cont
     /**
      * Get the value for this element's state attribute.
      *
-     * @return Zend_Gdata_YouTube_Extension_State The state element.
+     * @return zend_Gdata_YouTube_Extension_State The state element.
      */
     public function getState()
     {
@@ -111,8 +111,8 @@ class Zend_Gdata_YouTube_Extension_Control extends Zend_Gdata_App_Extension_Cont
     /**
      * Set the value for this element's state attribute.
      *
-     * @param Zend_Gdata_YouTube_Extension_State $value The desired value for this attribute.
-     * @return Zend_YouTube_Extension_Control The element being modified.
+     * @param zend_Gdata_YouTube_Extension_State $value The desired value for this attribute.
+     * @return zend_YouTube_Extension_Control The element being modified.
      */
     public function setState($value)
     {

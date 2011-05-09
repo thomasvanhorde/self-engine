@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,21 +13,21 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage App
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: HttpException.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * Zend_Gdata_App_Exception
+ * zend_Gdata_App_Exception
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Exception.php';
 
 /**
- * Zend_Http_Client_Exception
+ * zend_Http_Client_Exception
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Client/Exception.php';
 
@@ -36,24 +36,24 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Client/Exception.php';
  *
  * Class to represent exceptions that occur during Gdata operations.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage App
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_App_HttpException extends Zend_Gdata_App_Exception
+class zend_Gdata_App_HttpException extends zend_Gdata_App_Exception
 {
 
     protected $_httpClientException = null;
     protected $_response = null;
 
     /**
-     * Create a new Zend_Gdata_App_HttpException
+     * Create a new zend_Gdata_App_HttpException
      *
      * @param  string $message Optionally set a message
-     * @param Zend_Http_Client_Exception Optionally pass in a Zend_Http_Client_Exception
-     * @param Zend_Http_Response Optionally pass in a Zend_Http_Response
+     * @param zend_Http_Client_Exception Optionally pass in a zend_Http_Client_Exception
+     * @param zend_Http_Response Optionally pass in a zend_Http_Response
      */
     public function __construct($message = null, $e = null, $response = null)
     {
@@ -63,9 +63,9 @@ class Zend_Gdata_App_HttpException extends Zend_Gdata_App_Exception
     }
 
     /**
-     * Get the Zend_Http_Client_Exception.
+     * Get the zend_Http_Client_Exception.
      *
-     * @return Zend_Http_Client_Exception
+     * @return zend_Http_Client_Exception
      */
     public function getHttpClientException()
     {
@@ -73,9 +73,9 @@ class Zend_Gdata_App_HttpException extends Zend_Gdata_App_Exception
     }
 
     /**
-     * Set the Zend_Http_Client_Exception.
+     * Set the zend_Http_Client_Exception.
      *
-     * @param Zend_Http_Client_Exception $value
+     * @param zend_Http_Client_Exception $value
      */
     public function setHttpClientException($value)
     {
@@ -84,9 +84,9 @@ class Zend_Gdata_App_HttpException extends Zend_Gdata_App_Exception
     }
 
     /**
-     * Set the Zend_Http_Response.
+     * Set the zend_Http_Response.
      *
-     * @param Zend_Http_Response $response
+     * @param zend_Http_Response $response
      */
     public function setResponse($response)
     {
@@ -95,9 +95,9 @@ class Zend_Gdata_App_HttpException extends Zend_Gdata_App_Exception
     }
 
     /**
-     * Get the Zend_Http_Response.
+     * Get the zend_Http_Response.
      *
-     * @return Zend_Http_Response
+     * @return zend_Http_Response
      */
     public function getResponse()
     {
@@ -105,7 +105,7 @@ class Zend_Gdata_App_HttpException extends Zend_Gdata_App_Exception
     }
 
     /**
-     * Get the body of the Zend_Http_Response
+     * Get the body of the zend_Http_Response
      *
      * @return string
      */
