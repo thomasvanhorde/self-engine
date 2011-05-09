@@ -23,9 +23,9 @@ class Youtube {
 
     function __construct(){
 
-        Zend_Loader::loadClass('Zend_Gdata_YouTube');
-        Zend_Loader::loadClass('Zend_Gdata_AuthSub');
-        Zend_Loader::loadClass('Zend_Gdata_ClientLogin');
+        Zend_Loader::loadClass('zend_Gdata_YouTube');
+        Zend_Loader::loadClass('zend_Gdata_AuthSub');
+        Zend_Loader::loadClass('zend_Gdata_ClientLogin');
 
         $httpClient = $this->clientLogin();
 
