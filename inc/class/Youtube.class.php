@@ -6,10 +6,10 @@
  */
 
 
-if(file_exists(FOLDER_CLASS_EXT.'Zend/Loader.php'))
-	require_once FOLDER_CLASS_EXT.'Zend/Loader.php';
-elseif(file_exists(ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Loader.php'))
-	require_once ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Loader.php';
+if(file_exists(FOLDER_CLASS_EXT.'zend/Loader.php'))
+	require_once FOLDER_CLASS_EXT.'zend/Loader.php';
+elseif(file_exists(ENGINE_URL.FOLDER_CLASS_EXT.'zend/Loader.php'))
+	require_once ENGINE_URL.FOLDER_CLASS_EXT.'zend/Loader.php';
 else
     Base::Load(CLASS_CORE_MESSAGE)->Warning('ERR_LOAD_CLASS_GDATA');
 
