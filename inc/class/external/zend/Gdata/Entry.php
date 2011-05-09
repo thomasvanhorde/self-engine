@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,41 +13,41 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gdata
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Entry.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata
+ * @see zend_Gdata
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata.php';
 
 /**
- * @see Zend_Gdata_App_MediaEntry
+ * @see zend_Gdata_App_MediaEntry
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/MediaEntry.php';
 
 /**
  * Represents the Gdata flavor of an Atom entry
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gdata
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Entry extends Zend_Gdata_App_MediaEntry
+class zend_Gdata_Entry extends zend_Gdata_App_MediaEntry
 {
 
-    protected $_entryClassName = 'Zend_Gdata_Entry';
+    protected $_entryClassName = 'zend_Gdata_Entry';
 
     public function __construct($element = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata::$namespaces);
         parent::__construct($element);
     }
 
@@ -71,27 +71,27 @@ class Zend_Gdata_Entry extends Zend_Gdata_App_MediaEntry
         $absoluteNodeName = $child->namespaceURI . ':' . $child->localName;
         switch ($absoluteNodeName) {
         case $this->lookupNamespace('atom') . ':' . 'content':
-            $content = new Zend_Gdata_App_Extension_Content();
+            $content = new zend_Gdata_App_Extension_Content();
             $content->transferFromDOM($child);
             $this->_content = $content;
             break;
         case $this->lookupNamespace('atom') . ':' . 'published':
-            $published = new Zend_Gdata_App_Extension_Published();
+            $published = new zend_Gdata_App_Extension_Published();
             $published->transferFromDOM($child);
             $this->_published = $published;
             break;
         case $this->lookupNamespace('atom') . ':' . 'source':
-            $source = new Zend_Gdata_App_Extension_Source();
+            $source = new zend_Gdata_App_Extension_Source();
             $source->transferFromDOM($child);
             $this->_source = $source;
             break;
         case $this->lookupNamespace('atom') . ':' . 'summary':
-            $summary = new Zend_Gdata_App_Extension_Summary();
+            $summary = new zend_Gdata_App_Extension_Summary();
             $summary->transferFromDOM($child);
             $this->_summary = $summary;
             break;
         case $this->lookupNamespace('app') . ':' . 'control':
-            $control = new Zend_Gdata_App_Extension_Control();
+            $control = new zend_Gdata_App_Extension_Control();
             $control->transferFromDOM($child);
             $this->_control = $control;
             break;
@@ -120,7 +120,7 @@ class Zend_Gdata_Entry extends Zend_Gdata_App_MediaEntry
             }
             elseif ($this->_etag != $etag) {
                 require_once('zend/Gdata/App/IOException.php');
-                throw new Zend_Gdata_App_IOException("ETag mismatch");
+                throw new zend_Gdata_App_IOException("ETag mismatch");
             }
             break;
         default:

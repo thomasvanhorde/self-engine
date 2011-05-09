@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,29 +13,29 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage YouTube
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Duration.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Extension
+ * @see zend_Gdata_Extension
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension.php';
 
 /**
  * Represents the yt:duration element used by the YouTube data API
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage YouTube
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_YouTube_Extension_Duration extends Zend_Gdata_Extension
+class zend_Gdata_YouTube_Extension_Duration extends zend_Gdata_Extension
 {
 
     protected $_rootNamespace = 'yt';
@@ -43,12 +43,12 @@ class Zend_Gdata_YouTube_Extension_Duration extends Zend_Gdata_Extension
     protected $_seconds = null;
 
     /**
-     * Constructs a new Zend_Gdata_YouTube_Extension_Duration object.
+     * Constructs a new zend_Gdata_YouTube_Extension_Duration object.
      * @param bool $seconds(optional) The seconds value of the element.
      */
     public function __construct($seconds = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_YouTube::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_YouTube::$namespaces);
         parent::__construct();
         $this->_seconds = $seconds;
     }
@@ -104,7 +104,7 @@ class Zend_Gdata_YouTube_Extension_Duration extends Zend_Gdata_Extension
      * Set the value for this element's seconds attribute.
      *
      * @param int $value The desired value for this attribute.
-     * @return Zend_Gdata_YouTube_Extension_Duration The element being modified.
+     * @return zend_Gdata_YouTube_Extension_Duration The element being modified.
      */
     public function setSeconds($value)
     {

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,59 +13,59 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category     Zend
- * @package      Zend_Gdata
+ * @category     zend
+ * @package      zend_Gdata
  * @subpackage   Spreadsheets
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: ListEntry.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Entry
+ * @see zend_Gdata_Entry
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Entry.php';
 
 /**
- * @see Zend_Gdata_Spreadsheets_Extension_Custom
+ * @see zend_Gdata_Spreadsheets_Extension_Custom
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Spreadsheets/Extension/Custom.php';
 
 /**
  * Concrete class for working with List entries.
  *
- * @category     Zend
- * @package      Zend_Gdata
+ * @category     zend
+ * @package      zend_Gdata
  * @subpackage   Spreadsheets
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Spreadsheets_ListEntry extends Zend_Gdata_Entry
+class zend_Gdata_Spreadsheets_ListEntry extends zend_Gdata_Entry
 {
 
-    protected $_entryClassName = 'Zend_Gdata_Spreadsheets_ListEntry';
+    protected $_entryClassName = 'zend_Gdata_Spreadsheets_ListEntry';
 
     /**
-     * List of custom row elements (Zend_Gdata_Spreadsheets_Extension_Custom),
+     * List of custom row elements (zend_Gdata_Spreadsheets_Extension_Custom),
      * indexed by order added to this entry.
      * @var array
      */
     protected $_custom = array();
 
     /**
-     * List of custom row elements (Zend_Gdata_Spreadsheets_Extension_Custom),
+     * List of custom row elements (zend_Gdata_Spreadsheets_Extension_Custom),
      * indexed by element name.
      * @var array
      */
     protected $_customByName = array();
 
     /**
-     * Constructs a new Zend_Gdata_Spreadsheets_ListEntry object.
+     * Constructs a new zend_Gdata_Spreadsheets_ListEntry object.
      * @param DOMElement $element An existing XML element on which to base this new object.
      */
     public function __construct($element = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_Spreadsheets::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_Spreadsheets::$namespaces);
         parent::__construct($element);
     }
 
@@ -84,7 +84,7 @@ class Zend_Gdata_Spreadsheets_ListEntry extends Zend_Gdata_Entry
     {
         switch ($child->namespaceURI) {
         case $this->lookupNamespace('gsx');
-            $custom = new Zend_Gdata_Spreadsheets_Extension_Custom($child->localName);
+            $custom = new zend_Gdata_Spreadsheets_Extension_Custom($child->localName);
             $custom->transferFromDOM($child);
             $this->addCustom($custom);
             break;
@@ -109,9 +109,9 @@ class Zend_Gdata_Spreadsheets_ListEntry extends Zend_Gdata_Entry
      *          or not defined, an array containing all custom elements
      *          indexed by name will be returned.
      * @return mixed If a name is specified, the
-     *          Zend_Gdata_Spreadsheets_Extension_Custom element requested,
+     *          zend_Gdata_Spreadsheets_Extension_Custom element requested,
      *          is returned or null if not found. Otherwise, an array of all
-     *          Zend_Gdata_Spreadsheets_Extension_Custom elements is returned
+     *          zend_Gdata_Spreadsheets_Extension_Custom elements is returned
      *          indexed by name.
      */
     public function getCustomByName($name = null)
@@ -132,7 +132,7 @@ class Zend_Gdata_Spreadsheets_ListEntry extends Zend_Gdata_Entry
      * custom row elements were previously stored, they will be overwritten.
      * @param array $custom The custom row elements to be contained in this
      *          list entry.
-     * @return Zend_Gdata_Spreadsheets_ListEntry Provides a fluent interface.
+     * @return zend_Gdata_Spreadsheets_ListEntry Provides a fluent interface.
      */
     public function setCustom($custom)
     {
@@ -145,9 +145,9 @@ class Zend_Gdata_Spreadsheets_ListEntry extends Zend_Gdata_Entry
 
     /**
      * Add an individual custom row element to this list entry.
-     * @param Zend_Gdata_Spreadsheets_Extension_Custom $custom The custom
+     * @param zend_Gdata_Spreadsheets_Extension_Custom $custom The custom
      *             element to be added.
-     * @return Zend_Gdata_Spreadsheets_ListEntry Provides a fluent interface.
+     * @return zend_Gdata_Spreadsheets_ListEntry Provides a fluent interface.
      */
     public function addCustom($custom)
     {
@@ -160,8 +160,8 @@ class Zend_Gdata_Spreadsheets_ListEntry extends Zend_Gdata_Entry
      * Remove an individual row element from this list entry by index. This
      * will cause the array to be re-indexed.
      * @param int $index The index of the custom element to be deleted.
-     * @return Zend_Gdata_Spreadsheets_ListEntry Provides a fluent interface.
-     * @throws Zend_Gdata_App_InvalidArgumentException
+     * @return zend_Gdata_Spreadsheets_ListEntry Provides a fluent interface.
+     * @throws zend_Gdata_App_InvalidArgumentException
      */
     public function removeCustom($index)
     {
@@ -176,7 +176,7 @@ class Zend_Gdata_Spreadsheets_ListEntry extends Zend_Gdata_Entry
             unset($this->_customByName[$key]);
         } else {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/InvalidArgumentException.php';
-            throw new Zend_Gdata_App_InvalidArgumentException(
+            throw new zend_Gdata_App_InvalidArgumentException(
                 'Element does not exist.');
         }
         return $this;
@@ -185,8 +185,8 @@ class Zend_Gdata_Spreadsheets_ListEntry extends Zend_Gdata_Entry
     /**
      * Remove an individual row element from this list entry by name.
      * @param string $name The name of the custom element to be deleted.
-     * @return Zend_Gdata_Spreadsheets_ListEntry Provides a fluent interface.
-     * @throws Zend_Gdata_App_InvalidArgumentException
+     * @return zend_Gdata_Spreadsheets_ListEntry Provides a fluent interface.
+     * @throws zend_Gdata_App_InvalidArgumentException
      */
     public function removeCustomByName($name)
     {
@@ -199,7 +199,7 @@ class Zend_Gdata_Spreadsheets_ListEntry extends Zend_Gdata_Entry
             unset($this->_custom[$key]);
         } else {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/InvalidArgumentException.php';
-            throw new Zend_Gdata_App_InvalidArgumentException(
+            throw new zend_Gdata_App_InvalidArgumentException(
                 'Element does not exist.');
         }
         return $this;

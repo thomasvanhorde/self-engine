@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,33 +13,33 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Books
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: BooksLink.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_App_Extension_Link
+ * @see zend_Gdata_App_Extension_Link
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Extension/Link.php';
 
 /**
  * Extends the base Link class with Books extensions
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Books
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Books_Extension_BooksLink extends Zend_Gdata_App_Extension_Link
+class zend_Gdata_Books_Extension_BooksLink extends zend_Gdata_App_Extension_Link
 {
 
     /**
-     * Constructor for Zend_Gdata_Books_Extension_BooksLink which
+     * Constructor for zend_Gdata_Books_Extension_BooksLink which
      * Extends the base Link class with Books extensions
      *
      * @param string|null $href Linked resource URI
@@ -52,7 +52,7 @@ class Zend_Gdata_Books_Extension_BooksLink extends Zend_Gdata_App_Extension_Link
     public function __construct($href = null, $rel = null, $type = null,
             $hrefLang = null, $title = null, $length = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_Books::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_Books::$namespaces);
         parent::__construct($href, $rel, $type, $hrefLang, $title, $length);
     }
 

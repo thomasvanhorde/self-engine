@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,36 +13,36 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Docs
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Docs.php 23805 2011-03-16 00:55:40Z tjohns $
  */
 
 /**
- * @see Zend_Gdata
+ * @see zend_Gdata
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata.php';
 
 /**
- * @see Zend_Gdata_Docs_DocumentListFeed
+ * @see zend_Gdata_Docs_DocumentListFeed
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Docs/DocumentListFeed.php';
 
 /**
- * @see Zend_Gdata_Docs_DocumentListEntry
+ * @see zend_Gdata_Docs_DocumentListEntry
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Docs/DocumentListEntry.php';
 
 /**
- * @see Zend_Gdata_App_Extension_Category
+ * @see zend_Gdata_App_Extension_Category
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Extension/Category.php';
 
 /**
- * @see Zend_Gdata_App_Extension_Title
+ * @see zend_Gdata_App_Extension_Title
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Extension/Title.php';
 
@@ -50,13 +50,13 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Extension/Title.php';
  * Service class for interacting with the Google Document List data API
  * @link http://code.google.com/apis/documents/
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Docs
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Docs extends Zend_Gdata
+class zend_Gdata_Docs extends zend_Gdata
 {
 
     const DOCUMENTS_LIST_FEED_URI = 'https://docs.google.com/feeds/documents/private/full';
@@ -87,13 +87,13 @@ class Zend_Gdata_Docs extends Zend_Gdata
     /**
      * Create Gdata_Docs object
      *
-     * @param Zend_Http_Client $client (optional) The HTTP client to use when
+     * @param zend_Http_Client $client (optional) The HTTP client to use when
      *          when communicating with the Google servers.
      * @param string $applicationId The identity of the app in the form of Company-AppName-Version
      */
     public function __construct($client = null, $applicationId = 'MyCompany-MyApp-1.0')
     {
-        $this->registerPackage('Zend_Gdata_Docs');
+        $this->registerPackage('zend_Gdata_Docs');
         parent::__construct($client, $applicationId);
         $this->_httpClient->setParameterPost('service', self::AUTH_SERVICE_NAME);
     }
@@ -116,38 +116,38 @@ class Zend_Gdata_Docs extends Zend_Gdata
      * Retreive feed object containing entries for the user's documents.
      *
      * @param mixed $location The location for the feed, as a URL or Query
-     * @return Zend_Gdata_Docs_DocumentListFeed
+     * @return zend_Gdata_Docs_DocumentListFeed
      */
     public function getDocumentListFeed($location = null)
     {
         if ($location === null) {
             $uri = self::DOCUMENTS_LIST_FEED_URI;
-        } else if ($location instanceof Zend_Gdata_Query) {
+        } else if ($location instanceof zend_Gdata_Query) {
             $uri = $location->getQueryUrl();
         } else {
             $uri = $location;
         }
-        return parent::getFeed($uri, 'Zend_Gdata_Docs_DocumentListFeed');
+        return parent::getFeed($uri, 'zend_Gdata_Docs_DocumentListFeed');
     }
 
     /**
      * Retreive entry object representing a single document.
      *
      * @param mixed $location The location for the entry, as a URL or Query
-     * @return Zend_Gdata_Docs_DocumentListEntry
+     * @return zend_Gdata_Docs_DocumentListEntry
      */
     public function getDocumentListEntry($location = null)
     {
         if ($location === null) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/InvalidArgumentException.php';
-            throw new Zend_Gdata_App_InvalidArgumentException(
+            throw new zend_Gdata_App_InvalidArgumentException(
                     'Location must not be null');
-        } else if ($location instanceof Zend_Gdata_Query) {
+        } else if ($location instanceof zend_Gdata_Query) {
             $uri = $location->getQueryUrl();
         } else {
             $uri = $location;
         }
-        return parent::getEntry($uri, 'Zend_Gdata_Docs_DocumentListEntry');
+        return parent::getEntry($uri, 'zend_Gdata_Docs_DocumentListEntry');
     }
 
     /**
@@ -159,7 +159,7 @@ class Zend_Gdata_Docs extends Zend_Gdata
      *     dcmg89gw_62hfjj8m, pKq0CzjiF3YmGd0AIlHKqeg
      * @param string $docType The type of the document as used in the Google
      *     Document List URLs. Examples: document, spreadsheet, presentation
-     * @return Zend_Gdata_Docs_DocumentListEntry
+     * @return zend_Gdata_Docs_DocumentListEntry
      */
     public function getDoc($docId, $docType) {
         $location = 'https://docs.google.com/feeds/documents/private/full/' .
@@ -216,7 +216,7 @@ class Zend_Gdata_Docs extends Zend_Gdata
      * @param string $uri (optional) The URL to which the upload should be
      *         made.
      *         Example: 'https://docs.google.com/feeds/documents/private/full'.
-     * @return Zend_Gdata_Docs_DocumentListEntry The entry for the newly
+     * @return zend_Gdata_Docs_DocumentListEntry The entry for the newly
      *         created Google Document.
      */
     public function uploadFile($fileLocation, $title=null, $mimeType=null,
@@ -260,15 +260,15 @@ class Zend_Gdata_Docs extends Zend_Gdata
      * @param string $folderName The folder name to create
      * @param string|null $folderResourceId The parent folder to create it in
      *        ("folder%3Amy_parent_folder")
-     * @return Zend_Gdata_Entry The folder entry created.
-     * @todo ZF-8732: This should return a *subclass* of Zend_Gdata_Entry, but
+     * @return zend_Gdata_Entry The folder entry created.
+     * @todo ZF-8732: This should return a *subclass* of zend_Gdata_Entry, but
      *       the appropriate type doesn't exist yet.
      */
     public function createFolder($folderName, $folderResourceId=null) {
-        $category = new Zend_Gdata_App_Extension_Category(self::DOCUMENTS_CATEGORY_TERM,
+        $category = new zend_Gdata_App_Extension_Category(self::DOCUMENTS_CATEGORY_TERM,
                                                           self::DOCUMENTS_CATEGORY_SCHEMA);
-        $title = new Zend_Gdata_App_Extension_Title($folderName);
-        $entry = new Zend_Gdata_Entry();
+        $title = new zend_Gdata_App_Extension_Title($folderName);
+        $entry = new zend_Gdata_Entry();
 
         $entry->setCategory(array($category));
         $entry->setTitle($title);
@@ -284,18 +284,18 @@ class Zend_Gdata_Docs extends Zend_Gdata
     /**
      * Inserts an entry to a given URI and returns the response as an Entry.
      *
-     * @param mixed  $data The Zend_Gdata_Docs_DocumentListEntry or media
+     * @param mixed  $data The zend_Gdata_Docs_DocumentListEntry or media
      *         source to post. If it is a DocumentListEntry, the mediaSource
      *         should already have been set. If $data is a mediaSource, it
      *         should have the correct slug header and mime type.
      * @param string $uri POST URI
      * @param string $className (optional) The class of entry to be returned.
-     *         The default is a 'Zend_Gdata_Docs_DocumentListEntry'.
-     * @return Zend_Gdata_Docs_DocumentListEntry The entry returned by the
+     *         The default is a 'zend_Gdata_Docs_DocumentListEntry'.
+     * @return zend_Gdata_Docs_DocumentListEntry The entry returned by the
      *     service after insertion.
      */
     public function insertDocument($data, $uri,
-        $className='Zend_Gdata_Docs_DocumentListEntry')
+        $className='zend_Gdata_Docs_DocumentListEntry')
     {
         return $this->insertEntry($data, $uri, $className);
     }

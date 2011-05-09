@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,64 +13,64 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Calendar
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: EventEntry.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Entry
+ * @see zend_Gdata_Entry
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Entry.php';
 
 /**
- * @see Zend_Gdata_Kind_EventEntry
+ * @see zend_Gdata_Kind_EventEntry
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Kind/EventEntry.php';
 
 /**
- * @see Zend_Gdata_Calendar_Extension_SendEventNotifications
+ * @see zend_Gdata_Calendar_Extension_SendEventNotifications
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Calendar/Extension/SendEventNotifications.php';
 
 /**
- * @see Zend_Gdata_Calendar_Extension_Timezone
+ * @see zend_Gdata_Calendar_Extension_Timezone
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Calendar/Extension/Timezone.php';
 
 /**
- * @see Zend_Gdata_Calendar_Extension_Link
+ * @see zend_Gdata_Calendar_Extension_Link
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Calendar/Extension/Link.php';
 
 /**
- * @see Zend_Gdata_Calendar_Extension_QuickAdd
+ * @see zend_Gdata_Calendar_Extension_QuickAdd
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Calendar/Extension/QuickAdd.php';
 
 /**
  * Data model class for a Google Calendar Event Entry
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Calendar
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Calendar_EventEntry extends Zend_Gdata_Kind_EventEntry
+class zend_Gdata_Calendar_EventEntry extends zend_Gdata_Kind_EventEntry
 {
 
-    protected $_entryClassName = 'Zend_Gdata_Calendar_EventEntry';
+    protected $_entryClassName = 'zend_Gdata_Calendar_EventEntry';
     protected $_sendEventNotifications = null;
     protected $_timezone = null;
     protected $_quickadd = null;
 
     public function __construct($element = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_Calendar::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_Calendar::$namespaces);
         parent::__construct($element);
     }
 
@@ -95,22 +95,22 @@ class Zend_Gdata_Calendar_EventEntry extends Zend_Gdata_Kind_EventEntry
 
         switch ($absoluteNodeName) {
             case $this->lookupNamespace('gCal') . ':' . 'sendEventNotifications';
-                $sendEventNotifications = new Zend_Gdata_Calendar_Extension_SendEventNotifications();
+                $sendEventNotifications = new zend_Gdata_Calendar_Extension_SendEventNotifications();
                 $sendEventNotifications->transferFromDOM($child);
                 $this->_sendEventNotifications = $sendEventNotifications;
                 break;
             case $this->lookupNamespace('gCal') . ':' . 'timezone';
-                $timezone = new Zend_Gdata_Calendar_Extension_Timezone();
+                $timezone = new zend_Gdata_Calendar_Extension_Timezone();
                 $timezone->transferFromDOM($child);
                 $this->_timezone = $timezone;
                 break;
             case $this->lookupNamespace('atom') . ':' . 'link';
-                $link = new Zend_Gdata_Calendar_Extension_Link();
+                $link = new zend_Gdata_Calendar_Extension_Link();
                 $link->transferFromDOM($child);
                 $this->_link[] = $link;
                 break;
             case $this->lookupNamespace('gCal') . ':' . 'quickadd';
-                $quickadd = new Zend_Gdata_Calendar_Extension_QuickAdd();
+                $quickadd = new zend_Gdata_Calendar_Extension_QuickAdd();
                 $quickadd->transferFromDOM($child);
                 $this->_quickadd = $quickadd;
                 break;
@@ -137,8 +137,8 @@ class Zend_Gdata_Calendar_EventEntry extends Zend_Gdata_Kind_EventEntry
     }
 
     /**
-     * @param Zend_Gdata_Calendar_Extension_Timezone $value
-     * @return Zend_Gdata_Extension_EventEntry Provides a fluent interface
+     * @param zend_Gdata_Calendar_Extension_Timezone $value
+     * @return zend_Gdata_Extension_EventEntry Provides a fluent interface
      */
     public function setTimezone($value)
     {
@@ -152,8 +152,8 @@ class Zend_Gdata_Calendar_EventEntry extends Zend_Gdata_Kind_EventEntry
     }
 
     /**
-     * @param Zend_Gdata_Calendar_Extension_QuickAdd $value
-     * @return Zend_Gdata_Extension_ListEntry Provides a fluent interface
+     * @param zend_Gdata_Calendar_Extension_QuickAdd $value
+     * @return zend_Gdata_Extension_ListEntry Provides a fluent interface
      */
     public function setQuickAdd($value)
     {

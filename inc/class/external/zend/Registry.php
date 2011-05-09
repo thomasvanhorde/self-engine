@@ -1,6 +1,6 @@
 <?php
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -12,9 +12,9 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Registry
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @category   zend
+ * @package    zend_Registry
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Registry.php 23775 2011-03-01 17:25:24Z ralph $
  */
@@ -22,29 +22,29 @@
 /**
  * Generic storage class helps to manage global data.
  *
- * @category   Zend
- * @package    Zend_Registry
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @category   zend
+ * @package    zend_Registry
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Registry extends ArrayObject
+class zend_Registry extends ArrayObject
 {
     /**
      * Class name of the singleton registry object.
      * @var string
      */
-    private static $_registryClassName = 'Zend_Registry';
+    private static $_registryClassName = 'zend_Registry';
 
     /**
      * Registry object provides storage for shared objects.
-     * @var Zend_Registry
+     * @var zend_Registry
      */
     private static $_registry = null;
 
     /**
      * Retrieves the default registry instance.
      *
-     * @return Zend_Registry
+     * @return zend_Registry
      */
     public static function getInstance()
     {
@@ -58,16 +58,16 @@ class Zend_Registry extends ArrayObject
     /**
      * Set the default registry instance to a specified instance.
      *
-     * @param Zend_Registry $registry An object instance of type Zend_Registry,
+     * @param zend_Registry $registry An object instance of type zend_Registry,
      *   or a subclass.
      * @return void
-     * @throws Zend_Exception if registry is already initialized.
+     * @throws zend_Exception if registry is already initialized.
      */
-    public static function setInstance(Zend_Registry $registry)
+    public static function setInstance(zend_Registry $registry)
     {
         if (self::$_registry !== null) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Exception.php';
-            throw new Zend_Exception('Registry is already initialized');
+            throw new zend_Exception('Registry is already initialized');
         }
 
         self::setClassName(get_class($registry));
@@ -91,27 +91,27 @@ class Zend_Registry extends ArrayObject
      *
      * @param string $registryClassName
      * @return void
-     * @throws Zend_Exception if the registry is initialized or if the
+     * @throws zend_Exception if the registry is initialized or if the
      *   class name is not valid.
      */
-    public static function setClassName($registryClassName = 'Zend_Registry')
+    public static function setClassName($registryClassName = 'zend_Registry')
     {
         if (self::$_registry !== null) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Exception.php';
-            throw new Zend_Exception('Registry is already initialized');
+            throw new zend_Exception('Registry is already initialized');
         }
 
         if (!is_string($registryClassName)) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Exception.php';
-            throw new Zend_Exception("Argument is not a class name");
+            throw new zend_Exception("Argument is not a class name");
         }
 
         /**
-         * @see Zend_Loader
+         * @see zend_Loader
          */
         if (!class_exists($registryClassName)) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Loader.php';
-            Zend_Loader::loadClass($registryClassName);
+            zend_Loader::loadClass($registryClassName);
         }
 
         self::$_registryClassName = $registryClassName;
@@ -130,13 +130,13 @@ class Zend_Registry extends ArrayObject
     /**
      * getter method, basically same as offsetGet().
      *
-     * This method can be called from an object of type Zend_Registry, or it
+     * This method can be called from an object of type zend_Registry, or it
      * can be called statically.  In the latter case, it uses the default
      * static instance stored in the class.
      *
      * @param string $index - get the value associated with $index
      * @return mixed
-     * @throws Zend_Exception if no entry is registerd for $index.
+     * @throws zend_Exception if no entry is registerd for $index.
      */
     public static function get($index)
     {
@@ -144,7 +144,7 @@ class Zend_Registry extends ArrayObject
 
         if (!$instance->offsetExists($index)) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Exception.php';
-            throw new Zend_Exception("No entry is registered for key '$index'");
+            throw new zend_Exception("No entry is registered for key '$index'");
         }
 
         return $instance->offsetGet($index);
@@ -153,7 +153,7 @@ class Zend_Registry extends ArrayObject
     /**
      * setter method, basically same as offsetSet().
      *
-     * This method can be called from an object of type Zend_Registry, or it
+     * This method can be called from an object of type zend_Registry, or it
      * can be called statically.  In the latter case, it uses the default
      * static instance stored in the class.
      *

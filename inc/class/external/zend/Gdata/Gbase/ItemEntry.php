@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,16 +13,16 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gbase
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: ItemEntry.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Gbase_Entry
+ * @see zend_Gdata_Gbase_Entry
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Gbase/Entry.php';
 
@@ -31,26 +31,26 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Gbase/Entry.php';
  *
  * @link http://code.google.com/apis/base/
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gbase
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Gbase_ItemEntry extends Zend_Gdata_Gbase_Entry
+class zend_Gdata_Gbase_ItemEntry extends zend_Gdata_Gbase_Entry
 {
     /**
      * The classname for individual item entry elements.
      *
      * @var string
      */
-    protected $_entryClassName = 'Zend_Gdata_Gbase_ItemEntry';
+    protected $_entryClassName = 'zend_Gdata_Gbase_ItemEntry';
 
     /**
      * Set the value of the itme_type
      *
-     * @param Zend_Gdata_Gbase_Extension_ItemType $value The desired value for the item_type
-     * @return Zend_Gdata_Gbase_ItemEntry Provides a fluent interface
+     * @param zend_Gdata_Gbase_Extension_ItemType $value The desired value for the item_type
+     * @return zend_Gdata_Gbase_ItemEntry Provides a fluent interface
      */
     public function setItemType($value)
     {
@@ -66,10 +66,10 @@ class Zend_Gdata_Gbase_ItemEntry extends Zend_Gdata_Gbase_Entry
      * @param string $value The text value of the attribute
      * @param string $type (optional) The type of the attribute.
      *          e.g.: 'text', 'number', 'floatUnit'
-     * @return Zend_Gdata_Gbase_ItemEntry Provides a fluent interface
+     * @return zend_Gdata_Gbase_ItemEntry Provides a fluent interface
      */
     public function addGbaseAttribute($name, $text, $type = null) {
-        $newBaseAttribute =  new Zend_Gdata_Gbase_Extension_BaseAttribute($name, $text, $type);
+        $newBaseAttribute =  new zend_Gdata_Gbase_Extension_BaseAttribute($name, $text, $type);
         $this->_baseAttributes[] = $newBaseAttribute;
         return $this;
     }
@@ -77,8 +77,8 @@ class Zend_Gdata_Gbase_ItemEntry extends Zend_Gdata_Gbase_Entry
     /**
      * Removes a Base attribute from the current list of Base attributes
      *
-     * @param Zend_Gdata_Gbase_Extension_BaseAttribute $baseAttribute The attribute to be removed
-     * @return Zend_Gdata_Gbase_ItemEntry Provides a fluent interface
+     * @param zend_Gdata_Gbase_Extension_BaseAttribute $baseAttribute The attribute to be removed
+     * @return zend_Gdata_Gbase_ItemEntry Provides a fluent interface
      */
     public function removeGbaseAttribute($baseAttribute) {
         $baseAttributes = $this->_baseAttributes;
@@ -93,18 +93,18 @@ class Zend_Gdata_Gbase_ItemEntry extends Zend_Gdata_Gbase_Entry
     }
 
     /**
-     * Uploads changes in this entry to the server using Zend_Gdata_App
+     * Uploads changes in this entry to the server using zend_Gdata_App
      *
      * @param boolean $dryRun Whether the transaction is dry run or not.
      * @param string|null $uri The URI to send requests to, or null if $data
      *        contains the URI.
      * @param string|null $className The name of the class that should we
      *        deserializing the server response. If null, then
-     *        'Zend_Gdata_App_Entry' will be used.
+     *        'zend_Gdata_App_Entry' will be used.
      * @param array $extraHeaders Extra headers to add to the request, as an
      *        array of string-based key/value pairs.
-     * @return Zend_Gdata_App_Entry The updated entry
-     * @throws Zend_Gdata_App_Exception
+     * @return zend_Gdata_App_Entry The updated entry
+     * @throws zend_Gdata_App_Exception
      */
     public function save($dryRun = false,
                          $uri = null,
@@ -118,9 +118,9 @@ class Zend_Gdata_Gbase_ItemEntry extends Zend_Gdata_Gbase_Entry
             }
             if ($uri === null) {
                 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/InvalidArgumentException.php';
-                throw new Zend_Gdata_App_InvalidArgumentException('You must specify an URI which needs deleted.');
+                throw new zend_Gdata_App_InvalidArgumentException('You must specify an URI which needs deleted.');
             }
-            $service = new Zend_Gdata_App($this->getHttpClient());
+            $service = new zend_Gdata_App($this->getHttpClient());
             return $service->updateEntry($this,
                                          $uri,
                                          $className,
@@ -132,12 +132,12 @@ class Zend_Gdata_Gbase_ItemEntry extends Zend_Gdata_Gbase_Entry
 
     /**
      * Deletes this entry to the server using the referenced
-     * Zend_Http_Client to do a HTTP DELETE to the edit link stored in this
+     * zend_Http_Client to do a HTTP DELETE to the edit link stored in this
      * entry's link collection.
      *
      * @param boolean $dyrRun Whether the transaction is dry run or not
      * @return void
-     * @throws Zend_Gdata_App_Exception
+     * @throws zend_Gdata_App_Exception
      */
     public function delete($dryRun = false)
     {
@@ -150,7 +150,7 @@ class Zend_Gdata_Gbase_ItemEntry extends Zend_Gdata_Gbase_Entry
             }
             if ($uri === null) {
                 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/InvalidArgumentException.php';
-                throw new Zend_Gdata_App_InvalidArgumentException('You must specify an URI which needs deleted.');
+                throw new zend_Gdata_App_InvalidArgumentException('You must specify an URI which needs deleted.');
             }
             parent::delete($uri);
         } else {

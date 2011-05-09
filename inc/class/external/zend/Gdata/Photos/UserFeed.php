@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,46 +13,46 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Photos
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: UserFeed.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Photos
+ * @see zend_Gdata_Photos
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Photos.php';
 
 /**
- * @see Zend_Gdata_Feed
+ * @see zend_Gdata_Feed
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Feed.php';
 
 /**
- * @see Zend_Gdata_Photos_UserEntry
+ * @see zend_Gdata_Photos_UserEntry
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Photos/UserEntry.php';
 
 /**
- * @see Zend_Gdata_Photos_AlbumEntry
+ * @see zend_Gdata_Photos_AlbumEntry
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Photos/AlbumEntry.php';
 
 /**
- * @see Zend_Gdata_Photos_PhotoEntry
+ * @see zend_Gdata_Photos_PhotoEntry
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Photos/PhotoEntry.php';
 
 /**
- * @see Zend_Gdata_Photos_TagEntry
+ * @see zend_Gdata_Photos_TagEntry
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Photos/TagEntry.php';
 
 /**
- * @see Zend_Gdata_Photos_CommentEntry
+ * @see zend_Gdata_Photos_CommentEntry
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Photos/CommentEntry.php';
 
@@ -61,51 +61,51 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Photos/CommentEntry.php';
  * provided by the servers.
  *
  * For information on requesting this feed from a server, see the
- * service class, Zend_Gdata_Photos.
+ * service class, zend_Gdata_Photos.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Photos
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Photos_UserFeed extends Zend_Gdata_Feed
+class zend_Gdata_Photos_UserFeed extends zend_Gdata_Feed
 {
 
     /**
      * gphoto:user element
      *
-     * @var Zend_Gdata_Photos_Extension_User
+     * @var zend_Gdata_Photos_Extension_User
      */
     protected $_gphotoUser = null;
 
     /**
      * gphoto:thumbnail element
      *
-     * @var Zend_Gdata_Photos_Extension_Thumbnail
+     * @var zend_Gdata_Photos_Extension_Thumbnail
      */
     protected $_gphotoThumbnail = null;
 
     /**
      * gphoto:nickname element
      *
-     * @var Zend_Gdata_Photos_Extension_Nickname
+     * @var zend_Gdata_Photos_Extension_Nickname
      */
     protected $_gphotoNickname = null;
 
-    protected $_entryClassName = 'Zend_Gdata_Photos_UserEntry';
-    protected $_feedClassName = 'Zend_Gdata_Photos_UserFeed';
+    protected $_entryClassName = 'zend_Gdata_Photos_UserEntry';
+    protected $_feedClassName = 'zend_Gdata_Photos_UserFeed';
 
     protected $_entryKindClassMapping = array(
-        'http://schemas.google.com/photos/2007#album' => 'Zend_Gdata_Photos_AlbumEntry',
-        'http://schemas.google.com/photos/2007#photo' => 'Zend_Gdata_Photos_PhotoEntry',
-        'http://schemas.google.com/photos/2007#comment' => 'Zend_Gdata_Photos_CommentEntry',
-        'http://schemas.google.com/photos/2007#tag' => 'Zend_Gdata_Photos_TagEntry'
+        'http://schemas.google.com/photos/2007#album' => 'zend_Gdata_Photos_AlbumEntry',
+        'http://schemas.google.com/photos/2007#photo' => 'zend_Gdata_Photos_PhotoEntry',
+        'http://schemas.google.com/photos/2007#comment' => 'zend_Gdata_Photos_CommentEntry',
+        'http://schemas.google.com/photos/2007#tag' => 'zend_Gdata_Photos_TagEntry'
     );
 
     public function __construct($element = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_Photos::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_Photos::$namespaces);
         parent::__construct($element);
     }
 
@@ -120,32 +120,32 @@ class Zend_Gdata_Photos_UserFeed extends Zend_Gdata_Feed
         $absoluteNodeName = $child->namespaceURI . ':' . $child->localName;
         switch ($absoluteNodeName) {
             case $this->lookupNamespace('gphoto') . ':' . 'user';
-                $user = new Zend_Gdata_Photos_Extension_User();
+                $user = new zend_Gdata_Photos_Extension_User();
                 $user->transferFromDOM($child);
                 $this->_gphotoUser = $user;
                 break;
             case $this->lookupNamespace('gphoto') . ':' . 'nickname';
-                $nickname = new Zend_Gdata_Photos_Extension_Nickname();
+                $nickname = new zend_Gdata_Photos_Extension_Nickname();
                 $nickname->transferFromDOM($child);
                 $this->_gphotoNickname = $nickname;
                 break;
             case $this->lookupNamespace('gphoto') . ':' . 'thumbnail';
-                $thumbnail = new Zend_Gdata_Photos_Extension_Thumbnail();
+                $thumbnail = new zend_Gdata_Photos_Extension_Thumbnail();
                 $thumbnail->transferFromDOM($child);
                 $this->_gphotoThumbnail = $thumbnail;
                 break;
             case $this->lookupNamespace('atom') . ':' . 'entry':
                 $entryClassName = $this->_entryClassName;
-                $tmpEntry = new Zend_Gdata_App_Entry($child);
+                $tmpEntry = new zend_Gdata_App_Entry($child);
                 $categories = $tmpEntry->getCategory();
                 foreach ($categories as $category) {
-                    if ($category->scheme == Zend_Gdata_Photos::KIND_PATH &&
+                    if ($category->scheme == zend_Gdata_Photos::KIND_PATH &&
                         $this->_entryKindClassMapping[$category->term] != "") {
                             $entryClassName = $this->_entryKindClassMapping[$category->term];
                             break;
                     } else {
                         require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Exception.php';
-                        throw new Zend_Gdata_App_Exception('Entry is missing kind declaration.');
+                        throw new zend_Gdata_App_Exception('Entry is missing kind declaration.');
                     }
                 }
 
@@ -190,7 +190,7 @@ class Zend_Gdata_Photos_UserFeed extends Zend_Gdata_Feed
      * Set the value for this element's gphoto:user attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Photos_Extension_User The element being modified.
+     * @return zend_Gdata_Photos_Extension_User The element being modified.
      */
     public function setGphotoUser($value)
     {
@@ -213,7 +213,7 @@ class Zend_Gdata_Photos_UserFeed extends Zend_Gdata_Feed
      * Set the value for this element's gphoto:nickname attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Photos_Extension_Nickname The element being modified.
+     * @return zend_Gdata_Photos_Extension_Nickname The element being modified.
      */
     public function setGphotoNickname($value)
     {
@@ -236,7 +236,7 @@ class Zend_Gdata_Photos_UserFeed extends Zend_Gdata_Feed
      * Set the value for this element's gphoto:thumbnail attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Photos_Extension_Thumbnail The element being modified.
+     * @return zend_Gdata_Photos_Extension_Thumbnail The element being modified.
      */
     public function setGphotoThumbnail($value)
     {

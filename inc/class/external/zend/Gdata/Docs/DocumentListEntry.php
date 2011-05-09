@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,16 +13,16 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Docs
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: DocumentListEntry.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_EntryAtom
+ * @see zend_Gdata_EntryAtom
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Entry.php';
 
@@ -30,13 +30,13 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Entry.php';
  * Represents a Documents List entry in the Documents List data API meta feed
  * of a user's documents.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Docs
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Docs_DocumentListEntry extends Zend_Gdata_Entry
+class zend_Gdata_Docs_DocumentListEntry extends zend_Gdata_Entry
 {
 
     /**
@@ -47,7 +47,7 @@ class Zend_Gdata_Docs_DocumentListEntry extends Zend_Gdata_Entry
      */
     public function __construct($element = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_Docs::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_Docs::$namespaces);
         parent::__construct($element);
     }
 

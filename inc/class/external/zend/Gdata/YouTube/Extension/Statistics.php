@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,29 +13,29 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage YouTube
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Statistics.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Extension
+ * @see zend_Gdata_Extension
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension.php';
 
 /**
  * Represents the yt:statistics element used by the YouTube data API
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage YouTube
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_YouTube_Extension_Statistics extends Zend_Gdata_Extension
+class zend_Gdata_YouTube_Extension_Statistics extends zend_Gdata_Extension
 {
 
     protected $_rootNamespace = 'yt';
@@ -91,7 +91,7 @@ class Zend_Gdata_YouTube_Extension_Statistics extends Zend_Gdata_Extension
     protected $_favoriteCount = null;
 
     /**
-     * Constructs a new Zend_Gdata_YouTube_Extension_Statistics object.
+     * Constructs a new zend_Gdata_YouTube_Extension_Statistics object.
      * @param string $viewCount(optional) The viewCount value
      * @param string $videoWatchCount(optional) The videoWatchCount value
      * @param string $subscriberCount(optional) The subscriberCount value
@@ -102,7 +102,7 @@ class Zend_Gdata_YouTube_Extension_Statistics extends Zend_Gdata_Extension
         $subscriberCount = null, $lastWebAccess = null,
         $favoriteCount = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_YouTube::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_YouTube::$namespaces);
         parent::__construct();
         $this->_viewCount = $viewCount;
         $this->_videoWatchCount = $videoWatchCount;
@@ -190,7 +190,7 @@ class Zend_Gdata_YouTube_Extension_Statistics extends Zend_Gdata_Extension
      * Set the value for this element's viewCount attribute.
      *
      * @param int $value The desired value for this attribute.
-     * @return Zend_Gdata_YouTube_Extension_Statistics The element being
+     * @return zend_Gdata_YouTube_Extension_Statistics The element being
      * modified.
      */
     public function setViewCount($value)
@@ -213,7 +213,7 @@ class Zend_Gdata_YouTube_Extension_Statistics extends Zend_Gdata_Extension
      * Set the value for this element's videoWatchCount attribute.
      *
      * @param int $value The desired value for this attribute.
-     * @return Zend_Gdata_YouTube_Extension_Statistics The element being
+     * @return zend_Gdata_YouTube_Extension_Statistics The element being
      * modified.
      */
     public function setVideoWatchCount($value)
@@ -236,7 +236,7 @@ class Zend_Gdata_YouTube_Extension_Statistics extends Zend_Gdata_Extension
      * Set the value for this element's subscriberCount attribute.
      *
      * @param int $value The desired value for this attribute.
-     * @return Zend_Gdata_YouTube_Extension_Statistics The element being
+     * @return zend_Gdata_YouTube_Extension_Statistics The element being
      * modified.
      */
     public function setSubscriberCount($value)
@@ -259,7 +259,7 @@ class Zend_Gdata_YouTube_Extension_Statistics extends Zend_Gdata_Extension
      * Set the value for this element's lastWebAccess attribute.
      *
      * @param int $value The desired value for this attribute.
-     * @return Zend_Gdata_YouTube_Extension_Statistics The element being
+     * @return zend_Gdata_YouTube_Extension_Statistics The element being
      * modified.
      */
     public function setLastWebAccess($value)
@@ -282,7 +282,7 @@ class Zend_Gdata_YouTube_Extension_Statistics extends Zend_Gdata_Extension
      * Set the value for this element's favoriteCount attribute.
      *
      * @param int $value The desired value for this attribute.
-     * @return Zend_Gdata_YouTube_Extension_Statistics The element being
+     * @return zend_Gdata_YouTube_Extension_Statistics The element being
      * modified.
      */
     public function setFavoriteCount($value)

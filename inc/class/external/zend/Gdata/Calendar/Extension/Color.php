@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,16 +13,16 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Calendar
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Color.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Extension
+ * @see zend_Gdata_Extension
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension.php';
 
@@ -30,13 +30,13 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension.php';
  * Represents the gCal:color element used by the Calendar data API
  * to define the color of a calendar in the UI.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Calendar
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Calendar_Extension_Color extends Zend_Gdata_Extension
+class zend_Gdata_Calendar_Extension_Color extends zend_Gdata_Extension
 {
 
     protected $_rootNamespace = 'gCal';
@@ -44,12 +44,12 @@ class Zend_Gdata_Calendar_Extension_Color extends Zend_Gdata_Extension
     protected $_value = null;
 
     /**
-     * Constructs a new Zend_Gdata_Calendar_Extension_Color object.
+     * Constructs a new zend_Gdata_Calendar_Extension_Color object.
      * @param string $value (optional) The text content of the element.
      */
     public function __construct($value = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_Calendar::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_Calendar::$namespaces);
         parent::__construct();
         $this->_value = $value;
     }
@@ -105,7 +105,7 @@ class Zend_Gdata_Calendar_Extension_Color extends Zend_Gdata_Extension
      * Set the value for this element's value attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Calendar_Extension_Color The element being modified.
+     * @return zend_Gdata_Calendar_Extension_Color The element being modified.
      */
     public function setValue($value)
     {

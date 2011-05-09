@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,29 +13,29 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Calendar
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: WebContent.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Extension
+ * @see zend_Gdata_Extension
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension.php';
 
 /**
  * Represents the gCal:webContent element used by the Calendar data API
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Calendar
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Calendar_Extension_WebContent extends Zend_Gdata_App_Extension
+class zend_Gdata_Calendar_Extension_WebContent extends zend_Gdata_App_Extension
 {
 
     protected $_rootNamespace = 'gCal';
@@ -45,14 +45,14 @@ class Zend_Gdata_Calendar_Extension_WebContent extends Zend_Gdata_App_Extension
     protected $_width = null;
 
     /**
-     * Constructs a new Zend_Gdata_Calendar_Extension_WebContent object.
+     * Constructs a new zend_Gdata_Calendar_Extension_WebContent object.
      * @param string $url (optional) The value for this element's URL attribute.
      * @param string $height (optional) The value for this element's height attribute.
      * @param string $width (optional) The value for this element's width attribute.
      */
     public function __construct($url = null, $height = null, $width = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_Calendar::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_Calendar::$namespaces);
         parent::__construct();
         $this->_url = $url;
         $this->_height = $height;
@@ -122,7 +122,7 @@ class Zend_Gdata_Calendar_Extension_WebContent extends Zend_Gdata_App_Extension
      * Set the value for this element's URL attribute.
      *
      * @param bool $value The desired value for this attribute.
-     * @return Zend_Gdata_Calendar_Extension_WebContent The element being modified.
+     * @return zend_Gdata_Calendar_Extension_WebContent The element being modified.
      */
     public function setURL($value)
     {
@@ -144,7 +144,7 @@ class Zend_Gdata_Calendar_Extension_WebContent extends Zend_Gdata_App_Extension
      * Set the value for this element's height attribute.
      *
      * @param int $value The desired value for this attribute.
-     * @return Zend_Gdata_Calendar_Extension_WebContent The element being modified.
+     * @return zend_Gdata_Calendar_Extension_WebContent The element being modified.
      */
     public function setHeight($value)
     {
@@ -166,7 +166,7 @@ class Zend_Gdata_Calendar_Extension_WebContent extends Zend_Gdata_App_Extension
      * Set the value for this element's height attribute.
      *
      * @param int $value The desired value for this attribute.
-     * @return Zend_Gdata_Calendar_Extension_WebContent The element being modified.
+     * @return zend_Gdata_Calendar_Extension_WebContent The element being modified.
      */
     public function setWidth($value)
     {

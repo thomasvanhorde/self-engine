@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,21 +13,21 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gbase
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Entry.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Entry
+ * @see zend_Gdata_Entry
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Entry.php';
 
 /**
- * @see Zend_Gdata_Gbase_Extension_BaseAttribute
+ * @see zend_Gdata_Gbase_Extension_BaseAttribute
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Gbase/Extension/BaseAttribute.php';
 
@@ -36,13 +36,13 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Gbase/Extension/BaseAttrib
  *
  * @link http://code.google.com/apis/base/
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gbase
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Gbase_Entry extends Zend_Gdata_Entry
+class zend_Gdata_Gbase_Entry extends zend_Gdata_Entry
 {
 
     /**
@@ -50,7 +50,7 @@ class Zend_Gdata_Gbase_Entry extends Zend_Gdata_Entry
      *
      * var @string
      */
-    protected $_entryClassName = 'Zend_Gdata_Gbase_Entry';
+    protected $_entryClassName = 'zend_Gdata_Gbase_Entry';
 
     /**
      * Google Base attribute elements in the 'g' namespace
@@ -60,12 +60,12 @@ class Zend_Gdata_Gbase_Entry extends Zend_Gdata_Entry
     protected $_baseAttributes = array();
 
     /**
-     * Constructs a new Zend_Gdata_Gbase_ItemEntry object.
+     * Constructs a new zend_Gdata_Gbase_ItemEntry object.
      * @param DOMElement $element (optional) The DOMElement on which to base this object.
      */
     public function __construct($element = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_Gbase::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_Gbase::$namespaces);
         parent::__construct($element);
     }
 
@@ -98,7 +98,7 @@ class Zend_Gdata_Gbase_Entry extends Zend_Gdata_Entry
         $absoluteNodeName = $child->namespaceURI . ':' . $child->localName;
 
         if (strstr($absoluteNodeName, $this->lookupNamespace('g') . ':')) {
-            $baseAttribute = new Zend_Gdata_Gbase_Extension_BaseAttribute();
+            $baseAttribute = new zend_Gdata_Gbase_Extension_BaseAttribute();
             $baseAttribute->transferFromDOM($child);
             $this->_baseAttributes[] = $baseAttribute;
         } else {
@@ -109,7 +109,7 @@ class Zend_Gdata_Gbase_Entry extends Zend_Gdata_Entry
     /**
      * Get the value of the itme_type
      *
-     * @return Zend_Gdata_Gbase_Extension_ItemType The requested object.
+     * @return zend_Gdata_Gbase_Extension_ItemType The requested object.
      */
     public function getItemType()
     {
@@ -123,7 +123,7 @@ class Zend_Gdata_Gbase_Entry extends Zend_Gdata_Entry
 
     /**
      * Return all the Base attributes
-     * @return Zend_Gdata_Gbase_Extension_BaseAttribute
+     * @return zend_Gdata_Gbase_Extension_BaseAttribute
      */
     public function getGbaseAttributes() {
         return $this->_baseAttributes;

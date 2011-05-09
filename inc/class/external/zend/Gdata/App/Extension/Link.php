@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,29 +13,29 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage App
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Link.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Extension
+ * @see zend_Gdata_Extension
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension.php';
 
 /**
  * Data model for representing an atom:link element
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage App
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_App_Extension_Link extends Zend_Gdata_App_Extension
+class zend_Gdata_App_Extension_Link extends zend_Gdata_App_Extension
 {
 
     protected $_rootElement = 'link';
@@ -118,7 +118,7 @@ class Zend_Gdata_App_Extension_Link extends Zend_Gdata_App_Extension
 
     /**
      * @param string|null $value
-     * @return Zend_Gdata_App_Entry Provides a fluent interface
+     * @return zend_Gdata_App_Entry Provides a fluent interface
      */
     public function setHref($value)
     {
@@ -136,7 +136,7 @@ class Zend_Gdata_App_Extension_Link extends Zend_Gdata_App_Extension
 
     /**
      * @param string|null $value
-     * @return Zend_Gdata_App_Entry Provides a fluent interface
+     * @return zend_Gdata_App_Entry Provides a fluent interface
      */
     public function setRel($value)
     {
@@ -154,7 +154,7 @@ class Zend_Gdata_App_Extension_Link extends Zend_Gdata_App_Extension
 
     /**
      * @param string|null $value
-     * @return Zend_Gdata_App_Entry Provides a fluent interface
+     * @return zend_Gdata_App_Entry Provides a fluent interface
      */
     public function setType($value)
     {
@@ -172,7 +172,7 @@ class Zend_Gdata_App_Extension_Link extends Zend_Gdata_App_Extension
 
     /**
      * @param string|null $value
-     * @return Zend_Gdata_App_Entry Provides a fluent interface
+     * @return zend_Gdata_App_Entry Provides a fluent interface
      */
     public function setHrefLang($value)
     {
@@ -190,7 +190,7 @@ class Zend_Gdata_App_Extension_Link extends Zend_Gdata_App_Extension
 
     /**
      * @param string|null $value
-     * @return Zend_Gdata_App_Entry Provides a fluent interface
+     * @return zend_Gdata_App_Entry Provides a fluent interface
      */
     public function setTitle($value)
     {
@@ -208,7 +208,7 @@ class Zend_Gdata_App_Extension_Link extends Zend_Gdata_App_Extension
 
     /**
      * @param string|null $value
-     * @return Zend_Gdata_App_Entry Provides a fluent interface
+     * @return zend_Gdata_App_Entry Provides a fluent interface
      */
     public function setLength($value)
     {

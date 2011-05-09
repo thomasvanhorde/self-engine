@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,39 +13,39 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Geo
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Feed.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_eed
+ * @see zend_Gdata_eed
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Feed.php';
 
 /**
- * @see Zend_Gdata_Geo
+ * @see zend_Gdata_Geo
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Geo.php';
 
 /**
- * @see Zend_Gdata_Geo_Entry
+ * @see zend_Gdata_Geo_Entry
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Geo/Entry.php';
 
 /**
  * Feed for Gdata Geographic data entries.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Geo
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Geo_Feed extends Zend_Gdata_Feed
+class zend_Gdata_Geo_Feed extends zend_Gdata_Feed
 {
 
     /**
@@ -53,11 +53,11 @@ class Zend_Gdata_Geo_Feed extends Zend_Gdata_Feed
      *
      * @var string
      */
-    protected $_entryClassName = 'Zend_Gdata_Geo_Entry';
+    protected $_entryClassName = 'zend_Gdata_Geo_Entry';
 
     public function __construct($element = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_Geo::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_Geo::$namespaces);
         parent::__construct($element);
     }
 

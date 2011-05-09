@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,16 +13,16 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gdata
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Gdata.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * Zend_Gdata_App
+ * zend_Gdata_App
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App.php';
 
@@ -31,17 +31,17 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App.php';
  * Subclasses exist to implement service-specific features
  *
  * As the Google data API protocol is based upon the Atom Publishing Protocol
- * (APP), Gdata functionality extends the appropriate Zend_Gdata_App classes
+ * (APP), Gdata functionality extends the appropriate zend_Gdata_App classes
  *
  * @link http://code.google.com/apis/gdata/overview.html
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gdata
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata extends Zend_Gdata_App
+class zend_Gdata extends zend_Gdata_App
 {
 
     /**
@@ -64,11 +64,11 @@ class Zend_Gdata extends Zend_Gdata_App
      * @var array
      */
     protected $_registeredPackages = array(
-            'Zend_Gdata_Kind',
-            'Zend_Gdata_Extension',
-            'Zend_Gdata',
-            'Zend_Gdata_App_Extension',
-            'Zend_Gdata_App');
+            'zend_Gdata_Kind',
+            'zend_Gdata_Extension',
+            'zend_Gdata',
+            'zend_Gdata_App_Extension',
+            'zend_Gdata_App');
 
     /**
      * Namespaces used for Gdata data
@@ -85,21 +85,21 @@ class Zend_Gdata extends Zend_Gdata_App
     /**
      * Client object used to communicate
      *
-     * @var Zend_Gdata_HttpClient
+     * @var zend_Gdata_HttpClient
      */
     protected $_httpClient;
 
     /**
      * Client object used to communicate in static context
      *
-     * @var Zend_Gdata_HttpClient
+     * @var zend_Gdata_HttpClient
      */
     protected static $_staticHttpClient = null;
 
     /**
      * Create Gdata object
      *
-     * @param Zend_Http_Client $client
+     * @param zend_Http_Client $client
      * @param string $applicationId The identity of the app in the form of
      *          Company-AppName-Version
      */
@@ -112,18 +112,18 @@ class Zend_Gdata extends Zend_Gdata_App
      * Imports a feed located at $uri.
      *
      * @param  string $uri
-     * @param  Zend_Http_Client $client The client used for communication
+     * @param  zend_Http_Client $client The client used for communication
      * @param  string $className The class which is used as the return type
-     * @throws Zend_Gdata_App_Exception
-     * @return string|Zend_Gdata_App_Feed Returns string only if the object
+     * @throws zend_Gdata_App_Exception
+     * @return string|zend_Gdata_App_Feed Returns string only if the object
      *                                    mapping has been disabled explicitly
      *                                    by passing false to the
      *                                    useObjectMapping() function.
      */
     public static function import($uri, $client = null,
-        $className='Zend_Gdata_Feed')
+        $className='zend_Gdata_Feed')
     {
-        $app = new Zend_Gdata($client);
+        $app = new zend_Gdata($client);
         $requestData = $app->decodeRequest('GET', $uri);
         $response = $app->performHttpRequest($requestData['method'], $requestData['url']);
 
@@ -139,25 +139,25 @@ class Zend_Gdata extends Zend_Gdata_App
     /**
      * Retrieve feed as string or object
      *
-     * @param mixed $location The location as string or Zend_Gdata_Query
+     * @param mixed $location The location as string or zend_Gdata_Query
      * @param string $className The class type to use for returning the feed
-     * @throws Zend_Gdata_App_InvalidArgumentException
-     * @return string|Zend_Gdata_App_Feed Returns string only if the object
+     * @throws zend_Gdata_App_InvalidArgumentException
+     * @return string|zend_Gdata_App_Feed Returns string only if the object
      *                                    mapping has been disabled explicitly
      *                                    by passing false to the
      *                                    useObjectMapping() function.
      */
-    public function getFeed($location, $className='Zend_Gdata_Feed')
+    public function getFeed($location, $className='zend_Gdata_Feed')
     {
         if (is_string($location)) {
             $uri = $location;
-        } elseif ($location instanceof Zend_Gdata_Query) {
+        } elseif ($location instanceof zend_Gdata_Query) {
             $uri = $location->getQueryUrl();
         } else {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/InvalidArgumentException.php';
-            throw new Zend_Gdata_App_InvalidArgumentException(
+            throw new zend_Gdata_App_InvalidArgumentException(
                     'You must specify the location as either a string URI ' .
-                    'or a child of Zend_Gdata_Query');
+                    'or a child of zend_Gdata_Query');
         }
         return parent::getFeed($uri, $className);
     }
@@ -165,24 +165,24 @@ class Zend_Gdata extends Zend_Gdata_App
     /**
      * Retrieve entry as string or object
      *
-     * @param mixed $location The location as string or Zend_Gdata_Query
-     * @throws Zend_Gdata_App_InvalidArgumentException
-     * @return string|Zend_Gdata_App_Entry Returns string only if the object
+     * @param mixed $location The location as string or zend_Gdata_Query
+     * @throws zend_Gdata_App_InvalidArgumentException
+     * @return string|zend_Gdata_App_Entry Returns string only if the object
      *                                     mapping has been disabled explicitly
      *                                     by passing false to the
      *                                     useObjectMapping() function.
      */
-    public function getEntry($location, $className='Zend_Gdata_Entry')
+    public function getEntry($location, $className='zend_Gdata_Entry')
     {
         if (is_string($location)) {
             $uri = $location;
-        } elseif ($location instanceof Zend_Gdata_Query) {
+        } elseif ($location instanceof zend_Gdata_Query) {
             $uri = $location->getQueryUrl();
         } else {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/InvalidArgumentException.php';
-            throw new Zend_Gdata_App_InvalidArgumentException(
+            throw new zend_Gdata_App_InvalidArgumentException(
                     'You must specify the location as either a string URI ' .
-                    'or a child of Zend_Gdata_Query');
+                    'or a child of zend_Gdata_Query');
         }
         return parent::getEntry($uri, $className);
     }
@@ -190,8 +190,8 @@ class Zend_Gdata extends Zend_Gdata_App
     /**
      * Performs a HTTP request using the specified method.
      *
-     * Overrides the definition in the parent (Zend_Gdata_App)
-     * and uses the Zend_Gdata_HttpClient functionality
+     * Overrides the definition in the parent (zend_Gdata_App)
+     * and uses the zend_Gdata_HttpClient functionality
      * to filter the HTTP requests and responses.
      *
      * @param string $method The HTTP method for the request -
@@ -205,11 +205,11 @@ class Zend_Gdata extends Zend_Gdata_App
      *                            request body
      * @param int $remainingRedirects Number of redirects to follow
      *                                if requests results in one
-     * @return Zend_Http_Response The response object
+     * @return zend_Http_Response The response object
      */
     public function performHttpRequest($method, $url, $headers = array(), $body = null, $contentType = null, $remainingRedirects = null)
     {
-        if ($this->_httpClient instanceof Zend_Gdata_HttpClient) {
+        if ($this->_httpClient instanceof zend_Gdata_HttpClient) {
             $filterResult = $this->_httpClient->filterHttpRequest($method, $url, $headers, $body, $contentType);
             $method = $filterResult['method'];
             $url = $filterResult['url'];

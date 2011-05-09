@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,21 +13,21 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gapps
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Query.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * Zend_Gdata_Query
+ * zend_Gdata_Query
  */
 require_once('zend/Gdata/Query.php');
 
 /**
- * Zend_Gdata_Gapps
+ * zend_Gdata_Gapps
  */
 require_once('zend/Gdata/Gapps.php');
 
@@ -38,13 +38,13 @@ require_once('zend/Gdata/Gapps.php');
  * This class should never be instantiated directly. Instead, instantiate a
  * class which inherits from this class.
   *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gapps
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-abstract class Zend_Gdata_Gapps_Query extends Zend_Gdata_Query
+abstract class zend_Gdata_Gapps_Query extends zend_Gdata_Query
 {
 
     /**
@@ -108,14 +108,14 @@ abstract class Zend_Gdata_Gapps_Query extends Zend_Gdata_Query
      public function getBaseUrl($domain = null)
      {
          if ($domain !== null) {
-             return Zend_Gdata_Gapps::APPS_BASE_FEED_URI . '/' . $domain;
+             return zend_Gdata_Gapps::APPS_BASE_FEED_URI . '/' . $domain;
          }
          else if ($this->_domain !== null) {
-             return Zend_Gdata_Gapps::APPS_BASE_FEED_URI . '/' . $this->_domain;
+             return zend_Gdata_Gapps::APPS_BASE_FEED_URI . '/' . $this->_domain;
          }
          else {
              require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/InvalidArgumentException.php';
-             throw new Zend_Gdata_App_InvalidArgumentException(
+             throw new zend_Gdata_App_InvalidArgumentException(
                  'Domain must be specified.');
          }
      }

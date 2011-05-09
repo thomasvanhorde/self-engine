@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,31 +13,31 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Health
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: ActivityEntry.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Entry
+ * @see zend_Gdata_Entry
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Entry.php';
 
 /**
- * @see Zend_Gdata_YouTube_Extension_VideoId
+ * @see zend_Gdata_YouTube_Extension_VideoId
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/YouTube/Extension/VideoId.php';
 
 /**
- * @see Zend_Gdata_YouTube_Extension_Username
+ * @see zend_Gdata_YouTube_Extension_Username
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/YouTube/Extension/Username.php';
 
 /**
- * @see Zend_Gdata_YouTube_Extension_Rating
+ * @see zend_Gdata_YouTube_Extension_Rating
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension/Rating.php';
 
@@ -46,13 +46,13 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension/Rating.php';
  *
  * @link http://code.google.com/apis/youtube/
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage YouTube
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_YouTube_ActivityEntry extends Zend_Gdata_Entry
+class zend_Gdata_YouTube_ActivityEntry extends zend_Gdata_Entry
 {
     const ACTIVITY_CATEGORY_SCHEME =
         'http://gdata.youtube.com/schemas/2007/userevents.cat';
@@ -62,37 +62,37 @@ class Zend_Gdata_YouTube_ActivityEntry extends Zend_Gdata_Entry
      *
      * @var string
      */
-    protected $_entryClassName = 'Zend_Gdata_YouTube_ActivityEntry';
+    protected $_entryClassName = 'zend_Gdata_YouTube_ActivityEntry';
 
     /**
      * The ID of the video that was part of the activity
      *
-     * @var Zend_Gdata_YouTube_VideoId
+     * @var zend_Gdata_YouTube_VideoId
      */
     protected $_videoId = null;
 
     /**
      * The username for the user that was part of the activity
      *
-     * @var Zend_Gdata_YouTube_Username
+     * @var zend_Gdata_YouTube_Username
      */
     protected $_username = null;
 
     /**
      * The rating element that was part of the activity
      *
-     * @var Zend_Gdata_Extension_Rating
+     * @var zend_Gdata_Extension_Rating
      */
     protected $_rating = null;
 
     /**
-     * Constructs a new Zend_Gdata_YouTube_ActivityEntry object.
+     * Constructs a new zend_Gdata_YouTube_ActivityEntry object.
      * @param DOMElement $element (optional) The DOMElement on which to
      * base this object.
      */
     public function __construct($element = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_YouTube::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_YouTube::$namespaces);
         parent::__construct($element);
     }
 
@@ -134,17 +134,17 @@ class Zend_Gdata_YouTube_ActivityEntry extends Zend_Gdata_Entry
         $absoluteNodeName = $child->namespaceURI . ':' . $child->localName;
         switch ($absoluteNodeName) {
             case $this->lookupNamespace('yt') . ':' . 'videoid':
-                $videoId = new Zend_Gdata_YouTube_Extension_VideoId();
+                $videoId = new zend_Gdata_YouTube_Extension_VideoId();
                 $videoId->transferFromDOM($child);
                 $this->_videoId = $videoId;
                 break;
             case $this->lookupNamespace('yt') . ':' . 'username':
-                $username = new Zend_Gdata_YouTube_Extension_Username();
+                $username = new zend_Gdata_YouTube_Extension_Username();
                 $username->transferFromDOM($child);
                 $this->_username = $username;
                 break;
             case $this->lookupNamespace('gd') . ':' . 'rating':
-                $rating = new Zend_Gdata_Extension_Rating();
+                $rating = new zend_Gdata_Extension_Rating();
                 $rating->transferFromDOM($child);
                 $this->_rating = $rating;
                 break;
@@ -157,7 +157,7 @@ class Zend_Gdata_YouTube_ActivityEntry extends Zend_Gdata_Entry
     /**
      * Returns the video ID for this activity entry.
      *
-     * @return null|Zend_Gdata_YouTube_Extension_VideoId
+     * @return null|zend_Gdata_YouTube_Extension_VideoId
      */
     public function getVideoId()
     {
@@ -167,7 +167,7 @@ class Zend_Gdata_YouTube_ActivityEntry extends Zend_Gdata_Entry
     /**
      * Returns the username for this activity entry.
      *
-     * @return null|Zend_Gdata_YouTube_Extension_Username
+     * @return null|zend_Gdata_YouTube_Extension_Username
      */
     public function getUsername()
     {
@@ -177,7 +177,7 @@ class Zend_Gdata_YouTube_ActivityEntry extends Zend_Gdata_Entry
     /**
      * Returns the rating for this activity entry.
      *
-     * @return null|Zend_Gdata_YouTube_Extension_Rating
+     * @return null|zend_Gdata_YouTube_Extension_Rating
      */
     public function getRating()
     {

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,38 +13,38 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Http
+ * @category   zend
+ * @package    zend_Http
  * @subpackage Client_Adapter
  * @version    $Id: Socket.php 23775 2011-03-01 17:25:24Z ralph $
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
 /**
- * @see Zend_Uri_Http
+ * @see zend_Uri_Http
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Uri/Http.php';
 /**
- * @see Zend_Http_Client_Adapter_Interface
+ * @see zend_Http_Client_Adapter_Interface
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Client/Adapter/Interface.php';
 /**
- * @see Zend_Http_Client_Adapter_Stream
+ * @see zend_Http_Client_Adapter_Stream
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Client/Adapter/Stream.php';
 
 /**
- * A sockets based (stream_socket_client) adapter class for Zend_Http_Client. Can be used
+ * A sockets based (stream_socket_client) adapter class for zend_Http_Client. Can be used
  * on almost every PHP environment, and does not require any special extensions.
  *
- * @category   Zend
- * @package    Zend_Http
+ * @category   zend
+ * @package    zend_Http
  * @subpackage Client_Adapter
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Http_Client_Adapter_Socket implements Zend_Http_Client_Adapter_Interface, Zend_Http_Client_Adapter_Stream
+class zend_Http_Client_Adapter_Socket implements zend_Http_Client_Adapter_Interface, zend_Http_Client_Adapter_Stream
 {
     /**
      * The socket for server connection
@@ -105,17 +105,17 @@ class Zend_Http_Client_Adapter_Socket implements Zend_Http_Client_Adapter_Interf
     /**
      * Set the configuration array for the adapter
      *
-     * @param Zend_Config | array $config
+     * @param zend_Config | array $config
      */
     public function setConfig($config = array())
     {
-        if ($config instanceof Zend_Config) {
+        if ($config instanceof zend_Config) {
             $config = $config->toArray();
 
         } elseif (! is_array($config)) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Client/Adapter/Exception.php';
-            throw new Zend_Http_Client_Adapter_Exception(
-                'Array or Zend_Config object expected, got ' . gettype($config)
+            throw new zend_Http_Client_Adapter_Exception(
+                'Array or zend_Config object expected, got ' . gettype($config)
             );
         }
 
@@ -142,10 +142,10 @@ class Zend_Http_Client_Adapter_Socket implements Zend_Http_Client_Adapter_Interf
      * stream_context_create() PHP function. In such case a new stream context
      * will be created using the passed options.
      *
-     * @since  Zend Framework 1.9
+     * @since  zend Framework 1.9
      *
      * @param  mixed $context Stream context or array of context options
-     * @return Zend_Http_Client_Adapter_Socket
+     * @return zend_Http_Client_Adapter_Socket
      */
     public function setStreamContext($context)
     {
@@ -158,7 +158,7 @@ class Zend_Http_Client_Adapter_Socket implements Zend_Http_Client_Adapter_Interf
         } else {
             // Invalid parameter
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Client/Adapter/Exception.php';
-            throw new Zend_Http_Client_Adapter_Exception(
+            throw new zend_Http_Client_Adapter_Exception(
                 "Expecting either a stream context resource or array, got " . gettype($context)
             );
         }
@@ -207,14 +207,14 @@ class Zend_Http_Client_Adapter_Socket implements Zend_Http_Client_Adapter_Interf
                     if (! stream_context_set_option($context, 'ssl', 'local_cert',
                                                     $this->config['sslcert'])) {
                         require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Client/Adapter/Exception.php';
-                        throw new Zend_Http_Client_Adapter_Exception('Unable to set sslcert option');
+                        throw new zend_Http_Client_Adapter_Exception('Unable to set sslcert option');
                     }
                 }
                 if ($this->config['sslpassphrase'] !== null) {
                     if (! stream_context_set_option($context, 'ssl', 'passphrase',
                                                     $this->config['sslpassphrase'])) {
                         require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Client/Adapter/Exception.php';
-                        throw new Zend_Http_Client_Adapter_Exception('Unable to set sslpassphrase option');
+                        throw new zend_Http_Client_Adapter_Exception('Unable to set sslpassphrase option');
                     }
                 }
             }
@@ -232,14 +232,14 @@ class Zend_Http_Client_Adapter_Socket implements Zend_Http_Client_Adapter_Interf
             if (! $this->socket) {
                 $this->close();
                 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Client/Adapter/Exception.php';
-                throw new Zend_Http_Client_Adapter_Exception(
+                throw new zend_Http_Client_Adapter_Exception(
                     'Unable to Connect to ' . $host . ':' . $port . '. Error #' . $errno . ': ' . $errstr);
             }
 
             // Set the stream timeout
             if (! stream_set_timeout($this->socket, (int) $this->config['timeout'])) {
                 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Client/Adapter/Exception.php';
-                throw new Zend_Http_Client_Adapter_Exception('Unable to set the connection timeout');
+                throw new zend_Http_Client_Adapter_Exception('Unable to set the connection timeout');
             }
 
             // Update connected_to
@@ -251,7 +251,7 @@ class Zend_Http_Client_Adapter_Socket implements Zend_Http_Client_Adapter_Interf
      * Send request to the remote server
      *
      * @param string        $method
-     * @param Zend_Uri_Http $uri
+     * @param zend_Uri_Http $uri
      * @param string        $http_ver
      * @param array         $headers
      * @param string        $body
@@ -262,14 +262,14 @@ class Zend_Http_Client_Adapter_Socket implements Zend_Http_Client_Adapter_Interf
         // Make sure we're properly connected
         if (! $this->socket) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Client/Adapter/Exception.php';
-            throw new Zend_Http_Client_Adapter_Exception('Trying to write but we are not connected');
+            throw new zend_Http_Client_Adapter_Exception('Trying to write but we are not connected');
         }
 
         $host = $uri->getHost();
         $host = (strtolower($uri->getScheme()) == 'https' ? $this->config['ssltransport'] : 'tcp') . '://' . $host;
         if ($this->connected_to[0] != $host || $this->connected_to[1] != $uri->getPort()) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Client/Adapter/Exception.php';
-            throw new Zend_Http_Client_Adapter_Exception('Trying to write but we are connected to the wrong host');
+            throw new zend_Http_Client_Adapter_Exception('Trying to write but we are connected to the wrong host');
         }
 
         // Save request method for later
@@ -294,13 +294,13 @@ class Zend_Http_Client_Adapter_Socket implements Zend_Http_Client_Adapter_Interf
         // Send the request
         if (! @fwrite($this->socket, $request)) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Client/Adapter/Exception.php';
-            throw new Zend_Http_Client_Adapter_Exception('Error writing request to server');
+            throw new zend_Http_Client_Adapter_Exception('Error writing request to server');
         }
 
         if(is_resource($body)) {
             if(stream_copy_to_stream($body, $this->socket) == 0) {
                 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Client/Adapter/Exception.php';
-                throw new Zend_Http_Client_Adapter_Exception('Error writing request to server');
+                throw new zend_Http_Client_Adapter_Exception('Error writing request to server');
             }
         }
 
@@ -329,20 +329,20 @@ class Zend_Http_Client_Adapter_Socket implements Zend_Http_Client_Adapter_Interf
 
         $this->_checkSocketReadTimeout();
 
-        $statusCode = Zend_Http_Response::extractCode($response);
+        $statusCode = zend_Http_Response::extractCode($response);
 
         // Handle 100 and 101 responses internally by restarting the read again
         if ($statusCode == 100 || $statusCode == 101) return $this->read();
 
         // Check headers to see what kind of connection / transfer encoding we have
-        $headers = Zend_Http_Response::extractHeaders($response);
+        $headers = zend_Http_Response::extractHeaders($response);
 
         /**
          * Responses to HEAD requests and 204 or 304 responses are not expected
          * to have a body - stop reading here
          */
         if ($statusCode == 304 || $statusCode == 204 ||
-            $this->method == Zend_Http_Client::HEAD) {
+            $this->method == zend_Http_Client::HEAD) {
 
             // Close the connection if requested to do so by the server
             if (isset($headers['connection']) && $headers['connection'] == 'close') {
@@ -367,7 +367,7 @@ class Zend_Http_Client_Adapter_Socket implements Zend_Http_Client_Adapter_Interf
                     if (! ctype_xdigit($chunksize)) {
                         $this->close();
                         require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Client/Adapter/Exception.php';
-                        throw new Zend_Http_Client_Adapter_Exception('Invalid chunk size "' .
+                        throw new zend_Http_Client_Adapter_Exception('Invalid chunk size "' .
                             $chunksize . '" unable to read chunked body');
                     }
 
@@ -406,12 +406,12 @@ class Zend_Http_Client_Adapter_Socket implements Zend_Http_Client_Adapter_Interf
             } else {
                 $this->close();
         require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Client/Adapter/Exception.php';
-                throw new Zend_Http_Client_Adapter_Exception('Cannot handle "' .
+                throw new zend_Http_Client_Adapter_Exception('Cannot handle "' .
                     $headers['transfer-encoding'] . '" transfer encoding');
             }
 
             // We automatically decode chunked-messages when writing to a stream
-            // this means we have to disallow the Zend_Http_Response to do it again
+            // this means we have to disallow the zend_Http_Response to do it again
             if ($this->out_stream) {
                 $response = str_ireplace("Transfer-Encoding: chunked\r\n", '', $response);
             }
@@ -499,7 +499,7 @@ class Zend_Http_Client_Adapter_Socket implements Zend_Http_Client_Adapter_Interf
      * Check if the socket has timed out - if so close connection and throw
      * an exception
      *
-     * @throws Zend_Http_Client_Adapter_Exception with READ_TIMEOUT code
+     * @throws zend_Http_Client_Adapter_Exception with READ_TIMEOUT code
      */
     protected function _checkSocketReadTimeout()
     {
@@ -509,9 +509,9 @@ class Zend_Http_Client_Adapter_Socket implements Zend_Http_Client_Adapter_Interf
             if ($timedout) {
                 $this->close();
                 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Client/Adapter/Exception.php';
-                throw new Zend_Http_Client_Adapter_Exception(
+                throw new zend_Http_Client_Adapter_Exception(
                     "Read timed out after {$this->config['timeout']} seconds",
-                    Zend_Http_Client_Adapter_Exception::READ_TIMEOUT
+                    zend_Http_Client_Adapter_Exception::READ_TIMEOUT
                 );
             }
         }
@@ -521,7 +521,7 @@ class Zend_Http_Client_Adapter_Socket implements Zend_Http_Client_Adapter_Interf
      * Set output stream for the response
      *
      * @param resource $stream
-     * @return Zend_Http_Client_Adapter_Socket
+     * @return zend_Http_Client_Adapter_Socket
      */
     public function setOutputStream($stream)
     {

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,21 +13,21 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gdata
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: MediaMimeStream.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
-*  @see Zend_Gdata_MimeFile
+*  @see zend_Gdata_MimeFile
 */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/MimeFile.php';
 
 /**
-* @see Zend_Gdata_MimeBodyString
+* @see zend_Gdata_MimeBodyString
 */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/MimeBodyString.php';
 
@@ -35,13 +35,13 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/MimeBodyString.php';
 /**
  * A streaming Media MIME class that allows for buffered read operations.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gdata
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_MediaMimeStream
+class zend_Gdata_MediaMimeStream
 {
 
     /**
@@ -85,7 +85,7 @@ class Zend_Gdata_MediaMimeStream
      * @param string $filePath The path to the file that constitutes the binary
      *               part of the message.
      * @param string $fileContentType The valid internet media type of the file.
-     * @throws Zend_Gdata_App_IOException If the file cannot be read or does
+     * @throws zend_Gdata_App_IOException If the file cannot be read or does
      *         not exist. Also if mbstring.func_overload has been set > 1.
      */
     public function __construct($xmlString = null, $filePath = null,
@@ -93,15 +93,15 @@ class Zend_Gdata_MediaMimeStream
     {
         if (!file_exists($filePath) || !is_readable($filePath)) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/IOException.php';
-            throw new Zend_Gdata_App_IOException('File to be uploaded at ' .
+            throw new zend_Gdata_App_IOException('File to be uploaded at ' .
                 $filePath . ' does not exist or is not readable.');
         }
 
         $this->_fileHandle = fopen($filePath, 'rb', TRUE);
         $this->_boundaryString = '=_' . md5(microtime(1) . rand(1,20));
         $entry = $this->wrapEntry($xmlString, $fileContentType);
-        $closingBoundary = new Zend_Gdata_MimeBodyString("\r\n--{$this->_boundaryString}--\r\n");
-        $file = new Zend_Gdata_MimeFile($this->_fileHandle);
+        $closingBoundary = new zend_Gdata_MimeBodyString("\r\n--{$this->_boundaryString}--\r\n");
+        $file = new zend_Gdata_MimeFile($this->_fileHandle);
         $this->_parts = array($entry, $file, $closingBoundary);
 
         $fileSize = filesize($filePath);
@@ -122,7 +122,7 @@ class Zend_Gdata_MediaMimeStream
         $wrappedEntry .= $entry;
         $wrappedEntry .= "\r\n--{$this->_boundaryString}\r\n";
         $wrappedEntry .= "Content-Type: $fileMimeType\r\n\r\n";
-        return new Zend_Gdata_MimeBodyString($wrappedEntry);
+        return new zend_Gdata_MimeBodyString($wrappedEntry);
     }
 
     /**

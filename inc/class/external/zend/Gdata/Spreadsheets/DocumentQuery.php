@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,21 +13,21 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Spreadsheets
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: DocumentQuery.php 23805 2011-03-16 00:55:40Z tjohns $
  */
 
 /**
- * Zend_Gdata_App_util
+ * zend_Gdata_App_util
  */
 require_once('zend/Gdata/App/Util.php');
 
 /**
- * Zend_Gdata_Query
+ * zend_Gdata_Query
  */
 require_once('zend/Gdata/Query.php');
 
@@ -36,13 +36,13 @@ require_once('zend/Gdata/Query.php');
  *
  * @link http://code.google.com/apis/gdata/spreadsheets/
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage   Spreadsheets
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Spreadsheets_DocumentQuery extends Zend_Gdata_Query
+class zend_Gdata_Spreadsheets_DocumentQuery extends zend_Gdata_Query
 {
 
     const SPREADSHEETS_FEED_URI = 'https://spreadsheets.google.com/feeds';
@@ -55,7 +55,7 @@ class Zend_Gdata_Spreadsheets_DocumentQuery extends Zend_Gdata_Query
     protected $_worksheetId = null;
 
     /**
-     * Constructs a new Zend_Gdata_Spreadsheets_DocumentQuery object.
+     * Constructs a new zend_Gdata_Spreadsheets_DocumentQuery object.
      */
     public function __construct()
     {
@@ -65,7 +65,7 @@ class Zend_Gdata_Spreadsheets_DocumentQuery extends Zend_Gdata_Query
     /**
      * Sets the spreadsheet key for this query.
      * @param string $value
-     * @return Zend_Gdata_Spreadsheets_CellQuery Provides a fluent interface
+     * @return zend_Gdata_Spreadsheets_CellQuery Provides a fluent interface
      */
     public function setSpreadsheetKey($value)
     {
@@ -85,7 +85,7 @@ class Zend_Gdata_Spreadsheets_DocumentQuery extends Zend_Gdata_Query
     /**
      * Sets the worksheet id for this query.
      * @param string $value
-     * @return Zend_Gdata_Spreadsheets_CellQuery Provides a fluent interface
+     * @return zend_Gdata_Spreadsheets_CellQuery Provides a fluent interface
      */
     public function setWorksheetId($value)
     {
@@ -105,7 +105,7 @@ class Zend_Gdata_Spreadsheets_DocumentQuery extends Zend_Gdata_Query
     /**
      * Sets the document type for this query.
      * @param string $value spreadsheets or worksheets
-     * @return Zend_Gdata_Spreadsheets_DocumentQuery Provides a fluent interface
+     * @return zend_Gdata_Spreadsheets_DocumentQuery Provides a fluent interface
      */
     public function setDocumentType($value)
     {
@@ -125,7 +125,7 @@ class Zend_Gdata_Spreadsheets_DocumentQuery extends Zend_Gdata_Query
     /**
      * Sets the projection for this query.
      * @param string $value
-     * @return Zend_Gdata_Spreadsheets_DocumentQuery Provides a fluent interface
+     * @return zend_Gdata_Spreadsheets_DocumentQuery Provides a fluent interface
      */
     public function setProjection($value)
     {
@@ -135,7 +135,7 @@ class Zend_Gdata_Spreadsheets_DocumentQuery extends Zend_Gdata_Query
 
     /**
      * Sets the visibility for this query.
-     * @return Zend_Gdata_Spreadsheets_DocumentQuery Provides a fluent interface
+     * @return zend_Gdata_Spreadsheets_DocumentQuery Provides a fluent interface
      */
     public function setVisibility($value)
     {
@@ -164,7 +164,7 @@ class Zend_Gdata_Spreadsheets_DocumentQuery extends Zend_Gdata_Query
     /**
      * Sets the title attribute for this query.
      * @param string $value
-     * @return Zend_Gdata_Spreadsheets_DocumentQuery Provides a fluent interface
+     * @return zend_Gdata_Spreadsheets_DocumentQuery Provides a fluent interface
      */
     public function setTitle($value)
     {
@@ -179,7 +179,7 @@ class Zend_Gdata_Spreadsheets_DocumentQuery extends Zend_Gdata_Query
     /**
      * Sets the title-exact attribute for this query.
      * @param string $value
-     * @return Zend_Gdata_Spreadsheets_DocumentQuery Provides a fluent interface
+     * @return zend_Gdata_Spreadsheets_DocumentQuery Provides a fluent interface
      */
     public function setTitleExact($value)
     {
@@ -225,14 +225,14 @@ class Zend_Gdata_Spreadsheets_DocumentQuery extends Zend_Gdata_Query
             $uri .= '/'.$this->_visibility;
         } else {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Exception.php';
-            throw new Zend_Gdata_App_Exception('A visibility must be provided for document queries.');
+            throw new zend_Gdata_App_Exception('A visibility must be provided for document queries.');
         }
 
         if ($this->_projection != null) {
             $uri .= '/'.$this->_projection;
         } else {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Exception.php';
-            throw new Zend_Gdata_App_Exception('A projection must be provided for document queries.');
+            throw new zend_Gdata_App_Exception('A projection must be provided for document queries.');
         }
 
         return $uri;
@@ -251,7 +251,7 @@ class Zend_Gdata_Spreadsheets_DocumentQuery extends Zend_Gdata_Query
             $uri .= '/'.$this->_documentType;
         } else {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Exception.php';
-            throw new Zend_Gdata_App_Exception('A document type must be provided for document queries.');
+            throw new zend_Gdata_App_Exception('A document type must be provided for document queries.');
         }
 
         if ($this->_documentType == 'spreadsheets') {
@@ -264,7 +264,7 @@ class Zend_Gdata_Spreadsheets_DocumentQuery extends Zend_Gdata_Query
                 $uri .= '/'.$this->_spreadsheetKey;
             } else {
                 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Exception.php';
-                throw new Zend_Gdata_App_Exception('A spreadsheet key must be provided for worksheet document queries.');
+                throw new zend_Gdata_App_Exception('A spreadsheet key must be provided for worksheet document queries.');
             }
             $uri .= $this->appendVisibilityProjection();
             if ($this->_worksheetId != null) {

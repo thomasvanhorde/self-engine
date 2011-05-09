@@ -1,6 +1,6 @@
 <?php
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -12,21 +12,21 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage YouTube
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Link.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_App_Extension_Link
+ * @see zend_Gdata_App_Extension_Link
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Extension/Link.php';
 
 /**
- * @see Zend_Gdata_YouTube_Extension_Token
+ * @see zend_Gdata_YouTube_Extension_Token
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/YouTube/Extension/Token.php';
 
@@ -34,26 +34,26 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/YouTube/Extension/Token.ph
 /**
  * Specialized Link class for use with YouTube. Enables use of yt extension elements.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage YouTube
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_YouTube_Extension_Link extends Zend_Gdata_App_Extension_Link
+class zend_Gdata_YouTube_Extension_Link extends zend_Gdata_App_Extension_Link
 {
 
     protected $_token = null;
 
     /**
-     * Constructs a new Zend_Gdata_Calendar_Extension_Link object.
-     * @see Zend_Gdata_App_Extension_Link#__construct
-     * @param Zend_Gdata_YouTube_Extension_Token $token
+     * Constructs a new zend_Gdata_Calendar_Extension_Link object.
+     * @see zend_Gdata_App_Extension_Link#__construct
+     * @param zend_Gdata_YouTube_Extension_Token $token
      */
     public function __construct($href = null, $rel = null, $type = null,
             $hrefLang = null, $title = null, $length = null, $token = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_YouTube::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_YouTube::$namespaces);
         parent::__construct($href, $rel, $type, $hrefLang, $title, $length);
         $this->_token = $token;
     }
@@ -88,7 +88,7 @@ class Zend_Gdata_YouTube_Extension_Link extends Zend_Gdata_App_Extension_Link
         $absoluteNodeName = $child->namespaceURI . ':' . $child->localName;
         switch ($absoluteNodeName) {
         case $this->lookupNamespace('yt') . ':' . 'token':
-            $token = new Zend_Gdata_YouTube_Extension_Token();
+            $token = new zend_Gdata_YouTube_Extension_Token();
             $token->transferFromDOM($child);
             $this->_token = $token;
             break;
@@ -101,7 +101,7 @@ class Zend_Gdata_YouTube_Extension_Link extends Zend_Gdata_App_Extension_Link
     /**
      * Get the value for this element's token attribute.
      *
-     * @return Zend_Gdata_YouTube_Extension_Token The token element.
+     * @return zend_Gdata_YouTube_Extension_Token The token element.
      */
     public function getToken()
     {
@@ -111,8 +111,8 @@ class Zend_Gdata_YouTube_Extension_Link extends Zend_Gdata_App_Extension_Link
     /**
      * Set the value for this element's token attribute.
      *
-     * @param Zend_Gdata_YouTube_Extension_Token $value The desired value for this attribute.
-     * @return Zend_YouTube_Extension_Link The element being modified.
+     * @param zend_Gdata_YouTube_Extension_Token $value The desired value for this attribute.
+     * @return zend_YouTube_Extension_Link The element being modified.
      */
     public function setToken($value)
     {

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,16 +13,16 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage DublinCore
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: DublinCore.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata
+ * @see zend_Gdata
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata.php';
 
@@ -30,17 +30,17 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata.php';
  * Service class for interacting with the services which use the
  * DublinCore extensions.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage DublinCore
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_DublinCore extends Zend_Gdata
+class zend_Gdata_DublinCore extends zend_Gdata
 {
 
     /**
-     * Namespaces used for Zend_Gdata_DublinCore
+     * Namespaces used for zend_Gdata_DublinCore
      *
      * @var array
      */
@@ -49,16 +49,16 @@ class Zend_Gdata_DublinCore extends Zend_Gdata
     );
 
     /**
-     * Create Zend_Gdata_DublinCore object
+     * Create zend_Gdata_DublinCore object
      *
-     * @param Zend_Http_Client $client (optional) The HTTP client to use when
+     * @param zend_Http_Client $client (optional) The HTTP client to use when
      *          when communicating with the Google servers.
      * @param string $applicationId The identity of the app in the form of Company-AppName-Version
      */
     public function __construct($client = null, $applicationId = 'MyCompany-MyApp-1.0')
     {
-        $this->registerPackage('Zend_Gdata_DublinCore');
-        $this->registerPackage('Zend_Gdata_DublinCore_Extension');
+        $this->registerPackage('zend_Gdata_DublinCore');
+        $this->registerPackage('zend_Gdata_DublinCore_Extension');
         parent::__construct($client, $applicationId);
     }
 

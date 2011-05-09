@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,39 +13,39 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gdata
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: OriginalEvent.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Extension
+ * @see zend_Gdata_Extension
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension.php';
 
 /**
- * @see Zend_Gdata_Feed
+ * @see zend_Gdata_Feed
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Feed.php';
 
 /**
- * @see Zend_Gdata_When
+ * @see zend_Gdata_When
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension/When.php';
 
 /**
  * Represents the gd:originalEvent element
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gdata
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Extension_OriginalEvent extends Zend_Gdata_Extension
+class zend_Gdata_Extension_OriginalEvent extends zend_Gdata_Extension
 {
 
     protected $_rootElement = 'originalEvent';
@@ -95,7 +95,7 @@ class Zend_Gdata_Extension_OriginalEvent extends Zend_Gdata_Extension
         $absoluteNodeName = $child->namespaceURI . ':' . $child->localName;
         switch ($absoluteNodeName) {
             case $this->lookupNamespace('gd') . ':' . 'when';
-                $when = new Zend_Gdata_Extension_When();
+                $when = new zend_Gdata_Extension_When();
                 $when->transferFromDOM($child);
                 $this->_when = $when;
                 break;

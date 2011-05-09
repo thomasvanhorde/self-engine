@@ -1,6 +1,6 @@
 <?php
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -12,22 +12,22 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category  Zend
- * @package   Zend_Uri
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @category  zend
+ * @package   zend_Uri
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd     New BSD License
  * @version   $Id: Uri.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * Abstract class for all Zend_Uri handlers
+ * Abstract class for all zend_Uri handlers
  *
- * @category  Zend
- * @package   Zend_Uri
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @category  zend
+ * @package   zend_Uri
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd     New BSD License
  */
-abstract class Zend_Uri
+abstract class zend_Uri
 {
     /**
      * Scheme of this URI (http, ftp, etc.)
@@ -81,16 +81,16 @@ abstract class Zend_Uri
     }
 
     /**
-     * Create a new Zend_Uri object for a URI.  If building a new URI, then $uri should contain
+     * Create a new zend_Uri object for a URI.  If building a new URI, then $uri should contain
      * only the scheme (http, ftp, etc).  Otherwise, supply $uri with the complete URI.
      *
-     * @param  string $uri       The URI form which a Zend_Uri instance is created
+     * @param  string $uri       The URI form which a zend_Uri instance is created
      * @param  string $className The name of the class to use in order to manipulate URI
-     * @throws Zend_Uri_Exception When an empty string was supplied for the scheme
-     * @throws Zend_Uri_Exception When an illegal scheme is supplied
-     * @throws Zend_Uri_Exception When the scheme is not supported
-     * @throws Zend_Uri_Exception When $className doesn't exist or doesn't implements Zend_Uri
-     * @return Zend_Uri
+     * @throws zend_Uri_Exception When an empty string was supplied for the scheme
+     * @throws zend_Uri_Exception When an illegal scheme is supplied
+     * @throws zend_Uri_Exception When the scheme is not supported
+     * @throws zend_Uri_Exception When $className doesn't exist or doesn't implements zend_Uri
+     * @return zend_Uri
      * @link   http://www.faqs.org/rfcs/rfc2396.html
      */
     public static function factory($uri = 'http', $className = null)
@@ -102,49 +102,49 @@ abstract class Zend_Uri
 
         if (strlen($scheme) === 0) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Uri/Exception.php';
-            throw new Zend_Uri_Exception('An empty string was supplied for the scheme');
+            throw new zend_Uri_Exception('An empty string was supplied for the scheme');
         }
 
         // Security check: $scheme is used to load a class file, so only alphanumerics are allowed.
         if (ctype_alnum($scheme) === false) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Uri/Exception.php';
-            throw new Zend_Uri_Exception('Illegal scheme supplied, only alphanumeric characters are permitted');
+            throw new zend_Uri_Exception('Illegal scheme supplied, only alphanumeric characters are permitted');
         }
 
         if ($className === null) {
             /**
-             * Create a new Zend_Uri object for the $uri. If a subclass of Zend_Uri exists for the
-             * scheme, return an instance of that class. Otherwise, a Zend_Uri_Exception is thrown.
+             * Create a new zend_Uri object for the $uri. If a subclass of zend_Uri exists for the
+             * scheme, return an instance of that class. Otherwise, a zend_Uri_Exception is thrown.
              */
             switch ($scheme) {
                 case 'http':
                     // Break intentionally omitted
                 case 'https':
-                    $className = 'Zend_Uri_Http';
+                    $className = 'zend_Uri_Http';
                     break;
 
                 case 'mailto':
                     // TODO
                 default:
                     require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Uri/Exception.php';
-                    throw new Zend_Uri_Exception("Scheme \"$scheme\" is not supported");
+                    throw new zend_Uri_Exception("Scheme \"$scheme\" is not supported");
                     break;
             }
         }
 
         require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Loader.php';
         try {
-            Zend_Loader::loadClass($className);
+            zend_Loader::loadClass($className);
         } catch (Exception $e) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Uri/Exception.php';
-            throw new Zend_Uri_Exception("\"$className\" not found");
+            throw new zend_Uri_Exception("\"$className\" not found");
         }
 
         $schemeHandler = new $className($scheme, $schemeSpecific);
 
-        if (! $schemeHandler instanceof Zend_Uri) {
+        if (! $schemeHandler instanceof zend_Uri) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Uri/Exception.php';
-            throw new Zend_Uri_Exception("\"$className\" is not an instance of Zend_Uri");
+            throw new zend_Uri_Exception("\"$className\" is not an instance of zend_Uri");
         }
 
         return $schemeHandler;
@@ -167,14 +167,14 @@ abstract class Zend_Uri
     /**
      * Set global configuration options
      *
-     * @param Zend_Config|array $config
+     * @param zend_Config|array $config
      */
     static public function setConfig($config)
     {
-        if ($config instanceof Zend_Config) {
+        if ($config instanceof zend_Config) {
             $config = $config->toArray();
         } elseif (!is_array($config)) {
-            throw new Zend_Uri_Exception("Config must be an array or an instance of Zend_Config.");
+            throw new zend_Uri_Exception("Config must be an array or an instance of zend_Config.");
         }
 
         foreach ($config as $k => $v) {
@@ -183,8 +183,8 @@ abstract class Zend_Uri
     }
 
     /**
-     * Zend_Uri and its subclasses cannot be instantiated directly.
-     * Use Zend_Uri::factory() to return a new Zend_Uri object.
+     * zend_Uri and its subclasses cannot be instantiated directly.
+     * Use zend_Uri::factory() to return a new zend_Uri object.
      *
      * @param string $scheme         The scheme of the URI
      * @param string $schemeSpecific The scheme-specific part of the URI

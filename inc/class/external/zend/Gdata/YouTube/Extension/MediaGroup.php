@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,51 +13,51 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage YouTube
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: MediaGroup.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Media_Extension_MediaGroup
+ * @see zend_Gdata_Media_Extension_MediaGroup
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Media/Extension/MediaGroup.php';
 
 /**
- * @see Zend_Gdata_YouTube_Extension_MediaContent
+ * @see zend_Gdata_YouTube_Extension_MediaContent
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/YouTube/Extension/MediaContent.php';
 
 /**
- * @see Zend_Gdata_YouTube_Extension_Duration
+ * @see zend_Gdata_YouTube_Extension_Duration
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/YouTube/Extension/Duration.php';
 
 /**
- * @see Zend_Gdata_YouTube_Extension_MediaRating
+ * @see zend_Gdata_YouTube_Extension_MediaRating
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/YouTube/Extension/MediaRating.php';
 
 /**
- * @see Zend_Gdata_YouTube_Extension_MediaCredit
+ * @see zend_Gdata_YouTube_Extension_MediaCredit
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/YouTube/Extension/MediaCredit.php';
 
 /**
- * @see Zend_Gdata_YouTube_Extension_Private
+ * @see zend_Gdata_YouTube_Extension_Private
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/YouTube/Extension/Private.php';
 
 /**
- * @see Zend_Gdata_YouTube_Extension_VideoId
+ * @see zend_Gdata_YouTube_Extension_VideoId
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/YouTube/Extension/VideoId.php';
 
 /**
- * @see Zend_Gdata_YouTube_Extension_Uploaded
+ * @see zend_Gdata_YouTube_Extension_Uploaded
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/YouTube/Extension/Uploaded.php';
 
@@ -67,51 +67,51 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/YouTube/Extension/Uploaded
  * different representations of the same content.  When it exists,
  * it is a child of an Entry (Atom) or Item (RSS).
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage YouTube
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_YouTube_Extension_MediaGroup extends Zend_Gdata_Media_Extension_MediaGroup
+class zend_Gdata_YouTube_Extension_MediaGroup extends zend_Gdata_Media_Extension_MediaGroup
 {
 
     protected $_rootElement = 'group';
     protected $_rootNamespace = 'media';
 
     /**
-     * @var Zend_Gdata_YouTube_Extension_Duration
+     * @var zend_Gdata_YouTube_Extension_Duration
      */
     protected $_duration = null;
 
     /**
-     * @var Zend_Gdata_YouTube_Extension_Private
+     * @var zend_Gdata_YouTube_Extension_Private
      */
     protected $_private = null;
 
     /**
-     * @var Zend_Gdata_YouTube_Extension_VideoId
+     * @var zend_Gdata_YouTube_Extension_VideoId
      */
     protected $_videoid = null;
 
     /**
-     * @var Zend_Gdata_YouTube_Extension_MediaRating
+     * @var zend_Gdata_YouTube_Extension_MediaRating
      */
     protected $_mediarating = null;
 
     /**
-     * @var Zend_Gdata_YouTube_Extension_MediaCredit
+     * @var zend_Gdata_YouTube_Extension_MediaCredit
      */
     protected $_mediacredit = null;
 
     /**
-     * @var Zend_Gdata_YouTube_Extension_Uploaded
+     * @var zend_Gdata_YouTube_Extension_Uploaded
      */
     protected $_uploaded = null;
 
     public function __construct($element = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_YouTube::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_YouTube::$namespaces);
         parent::__construct($element);
     }
 
@@ -156,37 +156,37 @@ class Zend_Gdata_YouTube_Extension_MediaGroup extends Zend_Gdata_Media_Extension
         $absoluteNodeName = $child->namespaceURI . ':' . $child->localName;
         switch ($absoluteNodeName) {
             case $this->lookupNamespace('media') . ':' . 'content':
-                $content = new Zend_Gdata_YouTube_Extension_MediaContent();
+                $content = new zend_Gdata_YouTube_Extension_MediaContent();
                 $content->transferFromDOM($child);
                 $this->_content[] = $content;
                 break;
             case $this->lookupNamespace('media') . ':' . 'rating':
-                $mediarating = new Zend_Gdata_YouTube_Extension_MediaRating();
+                $mediarating = new zend_Gdata_YouTube_Extension_MediaRating();
                 $mediarating->transferFromDOM($child);
                 $this->_mediarating = $mediarating;
                 break;
             case $this->lookupNamespace('media') . ':' . 'credit':
-                $mediacredit = new Zend_Gdata_YouTube_Extension_MediaCredit();
+                $mediacredit = new zend_Gdata_YouTube_Extension_MediaCredit();
                 $mediacredit->transferFromDOM($child);
                 $this->_mediacredit = $mediacredit;
                 break;
             case $this->lookupNamespace('yt') . ':' . 'duration':
-                $duration = new Zend_Gdata_YouTube_Extension_Duration();
+                $duration = new zend_Gdata_YouTube_Extension_Duration();
                 $duration->transferFromDOM($child);
                 $this->_duration = $duration;
                 break;
             case $this->lookupNamespace('yt') . ':' . 'private':
-                $private = new Zend_Gdata_YouTube_Extension_Private();
+                $private = new zend_Gdata_YouTube_Extension_Private();
                 $private->transferFromDOM($child);
                 $this->_private = $private;
                 break;
             case $this->lookupNamespace('yt') . ':' . 'videoid':
-                $videoid = new Zend_Gdata_YouTube_Extension_VideoId();
+                $videoid = new zend_Gdata_YouTube_Extension_VideoId();
                 $videoid ->transferFromDOM($child);
                 $this->_videoid = $videoid;
                 break;
             case $this->lookupNamespace('yt') . ':' . 'uploaded':
-                $uploaded = new Zend_Gdata_YouTube_Extension_Uploaded();
+                $uploaded = new zend_Gdata_YouTube_Extension_Uploaded();
                 $uploaded ->transferFromDOM($child);
                 $this->_uploaded = $uploaded;
                 break;
@@ -199,7 +199,7 @@ class Zend_Gdata_YouTube_Extension_MediaGroup extends Zend_Gdata_Media_Extension
     /**
      * Returns the duration value of this element
      *
-     * @return Zend_Gdata_YouTube_Extension_Duration
+     * @return zend_Gdata_YouTube_Extension_Duration
      */
     public function getDuration()
     {
@@ -209,8 +209,8 @@ class Zend_Gdata_YouTube_Extension_MediaGroup extends Zend_Gdata_Media_Extension
     /**
      * Sets the duration value of this element
      *
-     * @param Zend_Gdata_YouTube_Extension_Duration $value The duration value
-     * @return Zend_Gdata_YouTube_Extension_MediaGroup Provides a fluent
+     * @param zend_Gdata_YouTube_Extension_Duration $value The duration value
+     * @return zend_Gdata_YouTube_Extension_MediaGroup Provides a fluent
      *         interface
      */
     public function setDuration($value)
@@ -222,7 +222,7 @@ class Zend_Gdata_YouTube_Extension_MediaGroup extends Zend_Gdata_Media_Extension
     /**
      * Returns the videoid value of this element
      *
-     * @return Zend_Gdata_YouTube_Extension_VideoId
+     * @return zend_Gdata_YouTube_Extension_VideoId
      */
     public function getVideoId()
     {
@@ -232,8 +232,8 @@ class Zend_Gdata_YouTube_Extension_MediaGroup extends Zend_Gdata_Media_Extension
     /**
      * Sets the videoid value of this element
      *
-     * @param Zend_Gdata_YouTube_Extension_VideoId $value The video id value
-     * @return Zend_Gdata_YouTube_Extension_MediaGroup Provides a fluent
+     * @param zend_Gdata_YouTube_Extension_VideoId $value The video id value
+     * @return zend_Gdata_YouTube_Extension_MediaGroup Provides a fluent
      *         interface
      */
     public function setVideoId($value)
@@ -245,7 +245,7 @@ class Zend_Gdata_YouTube_Extension_MediaGroup extends Zend_Gdata_Media_Extension
     /**
      * Returns the yt:uploaded element
      *
-     * @return Zend_Gdata_YouTube_Extension_Uploaded
+     * @return zend_Gdata_YouTube_Extension_Uploaded
      */
     public function getUploaded()
     {
@@ -255,8 +255,8 @@ class Zend_Gdata_YouTube_Extension_MediaGroup extends Zend_Gdata_Media_Extension
     /**
      * Sets the yt:uploaded element
      *
-     * @param Zend_Gdata_YouTube_Extension_Uploaded $value The uploaded value
-     * @return Zend_Gdata_YouTube_Extension_MediaGroup Provides a fluent
+     * @param zend_Gdata_YouTube_Extension_Uploaded $value The uploaded value
+     * @return zend_Gdata_YouTube_Extension_MediaGroup Provides a fluent
      *         interface
      */
     public function setUploaded($value)
@@ -268,7 +268,7 @@ class Zend_Gdata_YouTube_Extension_MediaGroup extends Zend_Gdata_Media_Extension
     /**
      * Returns the private value of this element
      *
-     * @return Zend_Gdata_YouTube_Extension_Private
+     * @return zend_Gdata_YouTube_Extension_Private
      */
     public function getPrivate()
     {
@@ -278,8 +278,8 @@ class Zend_Gdata_YouTube_Extension_MediaGroup extends Zend_Gdata_Media_Extension
     /**
      * Sets the private value of this element
      *
-     * @param Zend_Gdata_YouTube_Extension_Private $value The private value
-     * @return Zend_Gdata_YouTube_Extension_MediaGroup Provides a fluent
+     * @param zend_Gdata_YouTube_Extension_Private $value The private value
+     * @return zend_Gdata_YouTube_Extension_MediaGroup Provides a fluent
      *         interface
      */
     public function setPrivate($value)
@@ -291,7 +291,7 @@ class Zend_Gdata_YouTube_Extension_MediaGroup extends Zend_Gdata_Media_Extension
     /**
      * Returns the rating value of this element
      *
-     * @return Zend_Gdata_YouTube_Extension_MediaRating
+     * @return zend_Gdata_YouTube_Extension_MediaRating
      */
     public function getMediaRating()
     {
@@ -301,8 +301,8 @@ class Zend_Gdata_YouTube_Extension_MediaGroup extends Zend_Gdata_Media_Extension
     /**
      * Sets the media:rating value of this element
      *
-     * @param Zend_Gdata_YouTube_Extension_MediaRating $value The rating element
-     * @return Zend_Gdata_YouTube_Extension_MediaGroup Provides a fluent
+     * @param zend_Gdata_YouTube_Extension_MediaRating $value The rating element
+     * @return zend_Gdata_YouTube_Extension_MediaGroup Provides a fluent
      *         interface
      */
     public function setMediaRating($value)
@@ -314,7 +314,7 @@ class Zend_Gdata_YouTube_Extension_MediaGroup extends Zend_Gdata_Media_Extension
     /**
      * Returns the media:credit value of this element
      *
-     * @return Zend_Gdata_YouTube_Extension_MediaCredit
+     * @return zend_Gdata_YouTube_Extension_MediaCredit
      */
     public function getMediaCredit()
     {
@@ -324,8 +324,8 @@ class Zend_Gdata_YouTube_Extension_MediaGroup extends Zend_Gdata_Media_Extension
     /**
      * Sets the media:credit value of this element
      *
-     * @param Zend_Gdata_YouTube_Extension_MediaCredit $value The credit element
-     * @return Zend_Gdata_YouTube_Extension_MediaGroup Provides a fluent
+     * @param zend_Gdata_YouTube_Extension_MediaCredit $value The credit element
+     * @return zend_Gdata_YouTube_Extension_MediaGroup Provides a fluent
      *         interface
      */
     public function setMediaCredit($value)

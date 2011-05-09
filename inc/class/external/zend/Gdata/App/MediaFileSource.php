@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,29 +13,29 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage App
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: MediaFileSource.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_App_MediaData
+ * @see zend_Gdata_App_MediaData
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/BaseMediaSource.php';
 
 /**
  * Concrete class to use a file handle as an attachment within a MediaEntry.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage App
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_App_MediaFileSource extends Zend_Gdata_App_BaseMediaSource
+class zend_Gdata_App_MediaFileSource extends zend_Gdata_App_BaseMediaSource
 {
     /**
      * The filename which is represented
@@ -52,7 +52,7 @@ class Zend_Gdata_App_MediaFileSource extends Zend_Gdata_App_BaseMediaSource
     protected $_contentType = null;
 
     /**
-     * Create a new Zend_Gdata_App_MediaFileSource object.
+     * Create a new zend_Gdata_App_MediaFileSource object.
      *
      * @param string $filename The name of the file to read from.
      */
@@ -65,7 +65,7 @@ class Zend_Gdata_App_MediaFileSource extends Zend_Gdata_App_BaseMediaSource
      * Return the MIME multipart representation of this MediaEntry.
      *
      * @return string
-     * @throws Zend_Gdata_App_IOException
+     * @throws zend_Gdata_App_IOException
      */
     public function encode()
     {
@@ -77,14 +77,14 @@ class Zend_Gdata_App_MediaFileSource extends Zend_Gdata_App_BaseMediaSource
             $result = fread($fileHandle, filesize($this->getFilename()));
             if ($result === false) {
                 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/IOException.php';
-                throw new Zend_Gdata_App_IOException("Error reading file - " .
+                throw new zend_Gdata_App_IOException("Error reading file - " .
                         $this->getFilename() . '. Read failed.');
             }
             fclose($fileHandle);
             return $result;
         } else {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/IOException.php';
-            throw new Zend_Gdata_App_IOException("Error reading file - " .
+            throw new zend_Gdata_App_IOException("Error reading file - " .
                     $this->getFilename() . '. File is not readable.');
         }
     }
@@ -103,7 +103,7 @@ class Zend_Gdata_App_MediaFileSource extends Zend_Gdata_App_BaseMediaSource
      * Set the filename which is to be read.
      *
      * @param string $value The desired file handle.
-     * @return Zend_Gdata_App_MediaFileSource Provides a fluent interface.
+     * @return zend_Gdata_App_MediaFileSource Provides a fluent interface.
      */
     public function setFilename($value)
     {
@@ -125,7 +125,7 @@ class Zend_Gdata_App_MediaFileSource extends Zend_Gdata_App_BaseMediaSource
      * Set the content type for the file attached (example image/png)
      *
      * @param string $value The content type
-     * @return Zend_Gdata_App_MediaFileSource Provides a fluent interface
+     * @return zend_Gdata_App_MediaFileSource Provides a fluent interface
      */
     public function setContentType($value)
     {

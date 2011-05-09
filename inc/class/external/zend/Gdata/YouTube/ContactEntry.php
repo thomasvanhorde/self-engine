@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,21 +13,21 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage YouTube
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: ContactEntry.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_YouTube_UserProfileEntry
+ * @see zend_Gdata_YouTube_UserProfileEntry
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/YouTube/UserProfileEntry.php';
 
 /**
- * @see Zend_Gdata_YouTube_Extension_Status
+ * @see zend_Gdata_YouTube_Extension_Status
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/YouTube/Extension/Status.php';
 
@@ -35,13 +35,13 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/YouTube/Extension/Status.p
  * The YouTube contacts flavor of an Atom Entry with media support
  * Represents a an individual contact
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage YouTube
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_YouTube_ContactEntry extends Zend_Gdata_YouTube_UserProfileEntry
+class zend_Gdata_YouTube_ContactEntry extends zend_Gdata_YouTube_UserProfileEntry
 {
 
     /**
@@ -49,7 +49,7 @@ class Zend_Gdata_YouTube_ContactEntry extends Zend_Gdata_YouTube_UserProfileEntr
      *
      * @var string
      */
-    protected $_entryClassName = 'Zend_Gdata_YouTube_ContactEntry';
+    protected $_entryClassName = 'zend_Gdata_YouTube_ContactEntry';
 
     /**
      * Status of the user as a contact
@@ -67,7 +67,7 @@ class Zend_Gdata_YouTube_ContactEntry extends Zend_Gdata_YouTube_UserProfileEntr
      */
     public function __construct($element = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_YouTube::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_YouTube::$namespaces);
         parent::__construct($element);
     }
 
@@ -101,7 +101,7 @@ class Zend_Gdata_YouTube_ContactEntry extends Zend_Gdata_YouTube_UserProfileEntr
         $absoluteNodeName = $child->namespaceURI . ':' . $child->localName;
         switch ($absoluteNodeName) {
         case $this->lookupNamespace('yt') . ':' . 'status':
-            $status = new Zend_Gdata_YouTube_Extension_Status();
+            $status = new zend_Gdata_YouTube_Extension_Status();
             $status->transferFromDOM($child);
             $this->_status = $status;
             break;
@@ -114,8 +114,8 @@ class Zend_Gdata_YouTube_ContactEntry extends Zend_Gdata_YouTube_UserProfileEntr
     /**
      * Sets the status
      *
-     * @param Zend_Gdata_YouTube_Extension_Status $status The status
-     * @return Zend_Gdata_YouTube_ContactEntry Provides a fluent interface
+     * @param zend_Gdata_YouTube_Extension_Status $status The status
+     * @return zend_Gdata_YouTube_ContactEntry Provides a fluent interface
      */
     public function setStatus($status = null)
     {
@@ -126,7 +126,7 @@ class Zend_Gdata_YouTube_ContactEntry extends Zend_Gdata_YouTube_UserProfileEntr
     /**
      * Returns the status
      *
-     * @return Zend_Gdata_YouTube_Extension_Status  The status
+     * @return zend_Gdata_YouTube_Extension_Status  The status
      */
     public function getStatus()
     {

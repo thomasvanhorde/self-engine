@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,29 +13,29 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage App
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Base.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_App_Util
+ * @see zend_Gdata_App_Util
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Util.php';
 
 /**
  * Abstract class for all XML elements
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage App
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-abstract class Zend_Gdata_App_Base
+abstract class zend_Gdata_App_Base
 {
 
     /**
@@ -132,7 +132,7 @@ abstract class Zend_Gdata_App_Base
      * This represents any raw text contained within the XML element
      *
      * @param string $value Child text node
-     * @return Zend_Gdata_App_Base Returns an object of the same type as 'this' to provide a fluent interface.
+     * @return zend_Gdata_App_Base Returns an object of the same type as 'this' to provide a fluent interface.
      */
     public function setText($value)
     {
@@ -157,7 +157,7 @@ abstract class Zend_Gdata_App_Base
      * child XML elements to any data model class.
      *
      * @param array $value All extension elements
-     * @return Zend_Gdata_App_Base Returns an object of the same type as 'this' to provide a fluent interface.
+     * @return zend_Gdata_App_Base Returns an object of the same type as 'this' to provide a fluent interface.
      */
     public function setExtensionElements($value)
     {
@@ -186,7 +186,7 @@ abstract class Zend_Gdata_App_Base
      * This can be used to add arbitrary attributes to any data model element
      *
      * @param array $value All extension attributes
-     * @return Zend_Gdata_App_Base Returns an object of the same type as 'this' to provide a fluent interface.
+     * @return zend_Gdata_App_Base Returns an object of the same type as 'this' to provide a fluent interface.
      */
     public function setExtensionAttributes($value)
     {
@@ -245,7 +245,7 @@ abstract class Zend_Gdata_App_Base
         if ($child->nodeType == XML_TEXT_NODE) {
             $this->_text = $child->nodeValue;
         } else {
-            $extensionElement = new Zend_Gdata_App_Extension_Element();
+            $extensionElement = new zend_Gdata_App_Extension_Element();
             $extensionElement->transferFromDOM($child);
             $this->_extensionElements[] = $extensionElement;
         }
@@ -305,17 +305,17 @@ abstract class Zend_Gdata_App_Base
             @ini_restore('track_errors');
             if (!$success) {
                 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Exception.php';
-                throw new Zend_Gdata_App_Exception("DOMDocument cannot parse XML: $php_errormsg");
+                throw new zend_Gdata_App_Exception("DOMDocument cannot parse XML: $php_errormsg");
             }
             $element = $doc->getElementsByTagName($this->_rootElement)->item(0);
             if (!$element) {
                 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Exception.php';
-                throw new Zend_Gdata_App_Exception('No root <' . $this->_rootElement . '> element');
+                throw new zend_Gdata_App_Exception('No root <' . $this->_rootElement . '> element');
             }
             $this->transferFromDOM($element);
         } else {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Exception.php';
-            throw new Zend_Gdata_App_Exception('XML passed to transferFromXML cannot be null');
+            throw new zend_Gdata_App_Exception('XML passed to transferFromXML cannot be null');
         }
     }
 
@@ -386,11 +386,11 @@ abstract class Zend_Gdata_App_Base
         if (isset($this->_namespaces[$prefix])) {
             // Major version search
             $nsData = $this->_namespaces[$prefix];
-            $foundMajorV = Zend_Gdata_App_Util::findGreatestBoundedValue(
+            $foundMajorV = zend_Gdata_App_Util::findGreatestBoundedValue(
                     $majorVersion, $nsData);
             // Minor version search
             $nsData = $nsData[$foundMajorV];
-            $foundMinorV = Zend_Gdata_App_Util::findGreatestBoundedValue(
+            $foundMinorV = zend_Gdata_App_Util::findGreatestBoundedValue(
                     $minorVersion, $nsData);
             // Extract NS
             $result = $nsData[$foundMinorV];
@@ -481,7 +481,7 @@ abstract class Zend_Gdata_App_Base
             return $this->{'_' . $name};
         } else {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/InvalidArgumentException.php';
-            throw new Zend_Gdata_App_InvalidArgumentException(
+            throw new zend_Gdata_App_InvalidArgumentException(
                     'Property ' . $name . ' does not exist');
         }
     }
@@ -507,7 +507,7 @@ abstract class Zend_Gdata_App_Base
             $this->{'_' . $name} = $val;
         } else {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/InvalidArgumentException.php';
-            throw new Zend_Gdata_App_InvalidArgumentException(
+            throw new zend_Gdata_App_InvalidArgumentException(
                     'Property ' . $name . '  does not exist');
         }
     }
@@ -523,7 +523,7 @@ abstract class Zend_Gdata_App_Base
         $privName = '_' . $name;
         if (!($rc->hasProperty($privName))) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/InvalidArgumentException.php';
-            throw new Zend_Gdata_App_InvalidArgumentException(
+            throw new zend_Gdata_App_InvalidArgumentException(
                     'Property ' . $name . ' does not exist');
         } else {
             if (isset($this->{$privName})) {

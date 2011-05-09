@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,32 +13,32 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage App
  * @version    $Id: LoggingHttpClientAdapterSocket.php 23775 2011-03-01 17:25:24Z ralph $
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
 /**
- * @see Zend_Http_Client_Adapter_Socket
+ * @see zend_Http_Client_Adapter_Socket
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Client/Adapter/Socket.php';
 
 /**
- * Overrides the traditional socket-based adapter class for Zend_Http_Client to
+ * Overrides the traditional socket-based adapter class for zend_Http_Client to
  * enable logging of requests.  All requests are logged to a location specified
  * in the config as $config['logfile'].  Requests and responses are logged after
  * they are sent and received/processed, thus an error could prevent logging.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage App
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_App_LoggingHttpClientAdapterSocket extends Zend_Http_Client_Adapter_Socket
+class zend_Gdata_App_LoggingHttpClientAdapterSocket extends zend_Http_Client_Adapter_Socket
 {
 
     /**
@@ -81,7 +81,7 @@ class Zend_Gdata_App_LoggingHttpClientAdapterSocket extends Zend_Http_Client_Ada
      * Send request to the remote server
      *
      * @param string        $method
-     * @param Zend_Uri_Http $uri
+     * @param zend_Uri_Http $uri
      * @param string        $http_ver
      * @param array         $headers
      * @param string        $body

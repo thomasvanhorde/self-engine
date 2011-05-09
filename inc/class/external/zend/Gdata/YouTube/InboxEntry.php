@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,36 +13,36 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage YouTube
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: InboxEntry.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Media_Entry
+ * @see zend_Gdata_Media_Entry
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Media/Entry.php';
 
 /**
- * @see Zend_Gdata_Extension_Rating
+ * @see zend_Gdata_Extension_Rating
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension/Rating.php';
 
 /**
- * @see Zend_Gdata_Extension_Comments
+ * @see zend_Gdata_Extension_Comments
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension/Comments.php';
 
 /**
- * @see Zend_Gdata_YouTube_Extension_Statistics
+ * @see zend_Gdata_YouTube_Extension_Statistics
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/YouTube/Extension/Statistics.php';
 
 /**
- * @see Zend_Gdata_YouTube_Extension_Description
+ * @see zend_Gdata_YouTube_Extension_Description
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/YouTube/Extension/Description.php';
 
@@ -50,42 +50,42 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/YouTube/Extension/Descript
 /**
  * Represents the YouTube message flavor of an Atom entry
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage YouTube
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_YouTube_InboxEntry extends Zend_Gdata_Media_Entry
+class zend_Gdata_YouTube_InboxEntry extends zend_Gdata_Media_Entry
 {
 
-    protected $_entryClassName = 'Zend_Gdata_YouTube_InboxEntry';
+    protected $_entryClassName = 'zend_Gdata_YouTube_InboxEntry';
 
     /**
      * The gd:comments element of this entry.
      *
-     * @var Zend_Gdata_Extension_Comments
+     * @var zend_Gdata_Extension_Comments
      */
     protected $_comments = null;
 
     /**
      * The gd:rating element of this entry.
      *
-     * @var Zend_Gdata_Extension_Rating
+     * @var zend_Gdata_Extension_Rating
      */
     protected $_rating = null;
 
     /**
      * The yt:statistics element of this entry.
      *
-     * @var Zend_Gdata_YouTube_Extension_Statistics
+     * @var zend_Gdata_YouTube_Extension_Statistics
      */
     protected $_statistics = null;
 
     /**
      * The yt:description element of this entry.
      *
-     * @var Zend_Gdata_YouTube_Extension_Description
+     * @var zend_Gdata_YouTube_Extension_Description
      */
     protected $_description = null;
 
@@ -98,7 +98,7 @@ class Zend_Gdata_YouTube_InboxEntry extends Zend_Gdata_Media_Entry
      */
     public function __construct($element = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_YouTube::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_YouTube::$namespaces);
         parent::__construct($element);
     }
 
@@ -145,22 +145,22 @@ class Zend_Gdata_YouTube_InboxEntry extends Zend_Gdata_Media_Entry
         $absoluteNodeName = $child->namespaceURI . ':' . $child->localName;
         switch ($absoluteNodeName) {
             case $this->lookupNamespace('gd') . ':' . 'comments':
-                $comments = new Zend_Gdata_Extension_Comments();
+                $comments = new zend_Gdata_Extension_Comments();
                 $comments->transferFromDOM($child);
                 $this->_comments = $comments;
                 break;
             case $this->lookupNamespace('gd') . ':' . 'rating':
-                $rating = new Zend_Gdata_Extension_Rating();
+                $rating = new zend_Gdata_Extension_Rating();
                 $rating->transferFromDOM($child);
                 $this->_rating = $rating;
                 break;
             case $this->lookupNamespace('yt') . ':' . 'description':
-                $description = new Zend_Gdata_YouTube_Extension_Description();
+                $description = new zend_Gdata_YouTube_Extension_Description();
                 $description->transferFromDOM($child);
                 $this->_description = $description;
                 break;
             case $this->lookupNamespace('yt') . ':' . 'statistics':
-                $statistics = new Zend_Gdata_YouTube_Extension_Statistics();
+                $statistics = new zend_Gdata_YouTube_Extension_Statistics();
                 $statistics->transferFromDOM($child);
                 $this->_statistics = $statistics;
                 break;
@@ -173,14 +173,14 @@ class Zend_Gdata_YouTube_InboxEntry extends Zend_Gdata_Media_Entry
     /**
      * Get the yt:description
      *
-     * @throws Zend_Gdata_App_VersionException
-     * @return Zend_Gdata_YouTube_Extension_Description|null
+     * @throws zend_Gdata_App_VersionException
+     * @return zend_Gdata_YouTube_Extension_Description|null
      */
     public function getDescription()
     {
         if ($this->getMajorProtocolVersion() == 2) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/VersionException.php';
-            throw new Zend_Gdata_App_VersionException('The getDescription ' .
+            throw new zend_Gdata_App_VersionException('The getDescription ' .
                 ' method is only supported in version 1 of the YouTube ' .
                 'API.');
         } else {
@@ -191,16 +191,16 @@ class Zend_Gdata_YouTube_InboxEntry extends Zend_Gdata_Media_Entry
     /**
      * Sets the yt:description element for a new inbox entry.
      *
-     * @param Zend_Gdata_YouTube_Extension_Description $description The
+     * @param zend_Gdata_YouTube_Extension_Description $description The
      *        description.
-     * @throws Zend_Gdata_App_VersionException
-     * @return Zend_Gdata_YouTube_InboxEntry Provides a fluent interface
+     * @throws zend_Gdata_App_VersionException
+     * @return zend_Gdata_YouTube_InboxEntry Provides a fluent interface
      */
     public function setDescription($description = null)
     {
         if ($this->getMajorProtocolVersion() == 2) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/VersionException.php';
-            throw new Zend_Gdata_App_VersionException('The setDescription ' .
+            throw new zend_Gdata_App_VersionException('The setDescription ' .
                 ' method is only supported in version 1 of the YouTube ' .
                 'API.');
         } else {
@@ -212,7 +212,7 @@ class Zend_Gdata_YouTube_InboxEntry extends Zend_Gdata_Media_Entry
     /**
      * Get the gd:rating element for the inbox entry
      *
-     * @return Zend_Gdata_Extension_Rating|null
+     * @return zend_Gdata_Extension_Rating|null
      */
     public function getRating()
     {
@@ -222,9 +222,9 @@ class Zend_Gdata_YouTube_InboxEntry extends Zend_Gdata_Media_Entry
     /**
      * Sets the gd:rating element for the inbox entry
      *
-     * @param Zend_Gdata_Extension_Rating $rating The rating for the video in
+     * @param zend_Gdata_Extension_Rating $rating The rating for the video in
      *        the message
-     * @return Zend_Gdata_YouTube_InboxEntry Provides a fluent interface
+     * @return zend_Gdata_YouTube_InboxEntry Provides a fluent interface
      */
     public function setRating($rating = null)
     {
@@ -235,7 +235,7 @@ class Zend_Gdata_YouTube_InboxEntry extends Zend_Gdata_Media_Entry
     /**
      * Get the gd:comments element of the inbox entry.
      *
-     * @return Zend_Gdata_Extension_Comments|null
+     * @return zend_Gdata_Extension_Comments|null
      */
     public function getComments()
     {
@@ -245,8 +245,8 @@ class Zend_Gdata_YouTube_InboxEntry extends Zend_Gdata_Media_Entry
     /**
      * Sets the gd:comments element for the inbox entry
      *
-     * @param Zend_Gdata_Extension_Comments $comments The comments feed link
-     * @return Zend_Gdata_YouTube_InboxEntry Provides a fluent interface
+     * @param zend_Gdata_Extension_Comments $comments The comments feed link
+     * @return zend_Gdata_YouTube_InboxEntry Provides a fluent interface
      */
     public function setComments($comments = null)
     {
@@ -257,7 +257,7 @@ class Zend_Gdata_YouTube_InboxEntry extends Zend_Gdata_Media_Entry
     /**
      * Get the yt:statistics element for the inbox entry
      *
-     * @return Zend_Gdata_YouTube_Extension_Statistics|null
+     * @return zend_Gdata_YouTube_Extension_Statistics|null
      */
     public function getStatistics()
     {
@@ -267,9 +267,9 @@ class Zend_Gdata_YouTube_InboxEntry extends Zend_Gdata_Media_Entry
     /**
      * Sets the yt:statistics element for the inbox entry
      *
-     * @param Zend_Gdata_YouTube_Extension_Statistics $statistics The
+     * @param zend_Gdata_YouTube_Extension_Statistics $statistics The
      *        statistics element for the video in the message
-     * @return Zend_Gdata_YouTube_InboxEntry Provides a fluent interface
+     * @return zend_Gdata_YouTube_InboxEntry Provides a fluent interface
      */
     public function setStatistics($statistics = null)
     {

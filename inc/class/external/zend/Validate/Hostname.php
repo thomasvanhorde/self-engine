@@ -1,6 +1,6 @@
 <?php
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -12,20 +12,20 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Validate
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @category   zend
+ * @package    zend_Validate
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Hostname.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Validate_Abstract
+ * @see zend_Validate_Abstract
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Validate/Abstract.php';
 
 /**
- * @see Zend_Validate_Ip
+ * @see zend_Validate_Ip
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Validate/Ip.php';
 
@@ -39,12 +39,12 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Validate/Ip.php';
  * The second is tests/zend/Validate/HostnameTestForm.php which is designed to be run via HTML
  * to allow users to test entering UTF-8 characters in a form.
  *
- * @category   Zend
- * @package    Zend_Validate
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @category   zend
+ * @package    zend_Validate
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Validate_Hostname extends Zend_Validate_Abstract
+class zend_Validate_Hostname extends zend_Validate_Abstract
 {
     const CANNOT_DECODE_PUNYCODE  = 'hostnameCannotDecodePunycode';
     const INVALID                 = 'hostnameInvalid';
@@ -325,13 +325,13 @@ class Zend_Validate_Hostname extends Zend_Validate_Abstract
      * @param integer          $allow       OPTIONAL Set what types of hostname to allow (default ALLOW_DNS)
      * @param boolean          $validateIdn OPTIONAL Set whether IDN domains are validated (default true)
      * @param boolean          $validateTld OPTIONAL Set whether the TLD element of a hostname is validated (default true)
-     * @param Zend_Validate_Ip $ipValidator OPTIONAL
+     * @param zend_Validate_Ip $ipValidator OPTIONAL
      * @return void
      * @see http://www.iana.org/cctld/specifications-policies-cctlds-01apr02.htm  Technical Specifications for ccTLDs
      */
     public function __construct($options = array())
     {
-        if ($options instanceof Zend_Config) {
+        if ($options instanceof zend_Config) {
             $options = $options->toArray();
         } else if (!is_array($options)) {
             $options = func_get_args();
@@ -369,7 +369,7 @@ class Zend_Validate_Hostname extends Zend_Validate_Abstract
      * Sets the options for this validator
      *
      * @param array $options
-     * @return Zend_Validate_Hostname
+     * @return zend_Validate_Hostname
      */
     public function setOptions($options)
     {
@@ -395,7 +395,7 @@ class Zend_Validate_Hostname extends Zend_Validate_Abstract
     /**
      * Returns the set ip validator
      *
-     * @return Zend_Validate_Ip
+     * @return zend_Validate_Ip
      */
     public function getIpValidator()
     {
@@ -403,13 +403,13 @@ class Zend_Validate_Hostname extends Zend_Validate_Abstract
     }
 
     /**
-     * @param Zend_Validate_Ip $ipValidator OPTIONAL
+     * @param zend_Validate_Ip $ipValidator OPTIONAL
      * @return void;
      */
-    public function setIpValidator(Zend_Validate_Ip $ipValidator = null)
+    public function setIpValidator(zend_Validate_Ip $ipValidator = null)
     {
         if ($ipValidator === null) {
-            $ipValidator = new Zend_Validate_Ip();
+            $ipValidator = new zend_Validate_Ip();
         }
 
         $this->_options['ip'] = $ipValidator;
@@ -430,7 +430,7 @@ class Zend_Validate_Hostname extends Zend_Validate_Abstract
      * Sets the allow option
      *
      * @param  integer $allow
-     * @return Zend_Validate_Hostname Provides a fluent interface
+     * @return zend_Validate_Hostname Provides a fluent interface
      */
     public function setAllow($allow)
     {
@@ -485,12 +485,12 @@ class Zend_Validate_Hostname extends Zend_Validate_Abstract
     }
 
     /**
-     * Defined by Zend_Validate_Interface
+     * Defined by zend_Validate_Interface
      *
      * Returns true if and only if the $value is a valid hostname with respect to the current allow option
      *
      * @param  string $value
-     * @throws Zend_Validate_Exception if a fatal error occurs for validation process
+     * @throws zend_Validate_Exception if a fatal error occurs for validation process
      * @return boolean
      */
     public function isValid($value)
@@ -561,7 +561,7 @@ class Zend_Validate_Hostname extends Zend_Validate_Abstract
                     /**
                      * Match against IDN hostnames
                      * Note: Keep label regex short to avoid issues with long patterns when matching IDN hostnames
-                     * @see Zend_Validate_Hostname_Interface
+                     * @see zend_Validate_Hostname_Interface
                      */
                     $regexChars = array(0 => '/^[a-z0-9\x2d]{1,63}$/i');
                     if ($this->_options['idn'] &&  isset($this->_validIdns[strtoupper($this->_tld)])) {

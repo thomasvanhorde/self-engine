@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,21 +13,21 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage YouTube
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: ContactFeed.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Media_Feed
+ * @see zend_Gdata_Media_Feed
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Media/Feed.php';
 
 /**
- * @see Zend_Gdata_YouTube_ContactEntry
+ * @see zend_Gdata_YouTube_ContactEntry
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/YouTube/ContactEntry.php';
 
@@ -36,13 +36,13 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/YouTube/ContactEntry.php';
  * Represents a list of individual contacts, where each contained entry is
  * a contact.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage YouTube
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_YouTube_ContactFeed extends Zend_Gdata_Media_Feed
+class zend_Gdata_YouTube_ContactFeed extends zend_Gdata_Media_Feed
 {
 
     /**
@@ -50,7 +50,7 @@ class Zend_Gdata_YouTube_ContactFeed extends Zend_Gdata_Media_Feed
      *
      * @var string
      */
-    protected $_entryClassName = 'Zend_Gdata_YouTube_ContactEntry';
+    protected $_entryClassName = 'zend_Gdata_YouTube_ContactEntry';
 
     /**
      * Constructs a new YouTube Contact Feed object, to represent
@@ -61,7 +61,7 @@ class Zend_Gdata_YouTube_ContactFeed extends Zend_Gdata_Media_Feed
      */
     public function __construct($element = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_YouTube::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_YouTube::$namespaces);
         parent::__construct($element);
     }
 

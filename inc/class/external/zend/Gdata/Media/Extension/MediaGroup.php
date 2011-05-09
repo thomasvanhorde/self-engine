@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,86 +13,86 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Media
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: MediaGroup.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Extension
+ * @see zend_Gdata_Extension
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension.php';
 
 /**
- * @see Zend_Gdata_Entry
+ * @see zend_Gdata_Entry
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Entry.php';
 
 /**
- * @see Zend_Gdata_Media_Extension_MediaContent
+ * @see zend_Gdata_Media_Extension_MediaContent
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Media/Extension/MediaContent.php';
 
 /**
- * @see Zend_Gdata_Media_Extension_MediaCategory
+ * @see zend_Gdata_Media_Extension_MediaCategory
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Media/Extension/MediaCategory.php';
 
 /**
- * @see Zend_Gdata_Media_Extension_MediaCopyright
+ * @see zend_Gdata_Media_Extension_MediaCopyright
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Media/Extension/MediaCopyright.php';
 
 /**
- * @see Zend_Gdata_Media_Extension_MediaCredit
+ * @see zend_Gdata_Media_Extension_MediaCredit
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Media/Extension/MediaCredit.php';
 
 /**
- * @see Zend_Gdata_Media_Extension_MediaDescription
+ * @see zend_Gdata_Media_Extension_MediaDescription
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Media/Extension/MediaDescription.php';
 
 /**
- * @see Zend_Gdata_Media_Extension_MediaHash
+ * @see zend_Gdata_Media_Extension_MediaHash
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Media/Extension/MediaHash.php';
 
 /**
- * @see Zend_Gdata_Media_Extension_MediaKeywords
+ * @see zend_Gdata_Media_Extension_MediaKeywords
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Media/Extension/MediaKeywords.php';
 
 /**
- * @see Zend_Gdata_Media_Extension_MediaPlayer
+ * @see zend_Gdata_Media_Extension_MediaPlayer
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Media/Extension/MediaPlayer.php';
 
 /**
- * @see Zend_Gdata_Media_Extension_MediaRating
+ * @see zend_Gdata_Media_Extension_MediaRating
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Media/Extension/MediaRating.php';
 
 /**
- * @see Zend_Gdata_Media_Extension_MediaRestriction
+ * @see zend_Gdata_Media_Extension_MediaRestriction
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Media/Extension/MediaRestriction.php';
 
 /**
- * @see Zend_Gdata_Media_Extension_MediaText
+ * @see zend_Gdata_Media_Extension_MediaText
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Media/Extension/MediaText.php';
 
 /**
- * @see Zend_Gdata_Media_Extension_MediaThumbnail
+ * @see zend_Gdata_Media_Extension_MediaThumbnail
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Media/Extension/MediaThumbnail.php';
 
 /**
- * @see Zend_Gdata_Media_Extension_MediaTitle
+ * @see zend_Gdata_Media_Extension_MediaTitle
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Media/Extension/MediaTitle.php';
 
@@ -103,13 +103,13 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Media/Extension/MediaTitle
  * different representations of the same content.  When it exists,
  * it is a child of an Entry (Atom) or Item (RSS).
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Media
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Media_Extension_MediaGroup extends Zend_Gdata_Extension
+class zend_Gdata_Media_Extension_MediaGroup extends zend_Gdata_Extension
 {
 
     protected $_rootElement = 'group';
@@ -126,7 +126,7 @@ class Zend_Gdata_Media_Extension_MediaGroup extends Zend_Gdata_Extension
     protected $_category = array();
 
     /**
-     * @var Zend_Gdata_Media_Extension_MediaCopyright
+     * @var zend_Gdata_Media_Extension_MediaCopyright
      */
     protected $_copyright = null;
 
@@ -136,7 +136,7 @@ class Zend_Gdata_Media_Extension_MediaGroup extends Zend_Gdata_Extension
     protected $_credit = array();
 
     /**
-     * @var Zend_Gdata_Media_Extension_MediaDescription
+     * @var zend_Gdata_Media_Extension_MediaDescription
      */
     protected $_description = null;
 
@@ -146,7 +146,7 @@ class Zend_Gdata_Media_Extension_MediaGroup extends Zend_Gdata_Extension
     protected $_hash = array();
 
     /**
-     * @var Zend_Gdata_Media_Extension_MediaKeywords
+     * @var zend_Gdata_Media_Extension_MediaKeywords
      */
     protected $_keywords = null;
 
@@ -185,7 +185,7 @@ class Zend_Gdata_Media_Extension_MediaGroup extends Zend_Gdata_Extension
      */
     public function __construct($element = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_Media::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_Media::$namespaces);
         parent::__construct($element);
     }
 
@@ -259,67 +259,67 @@ class Zend_Gdata_Media_Extension_MediaGroup extends Zend_Gdata_Extension
         $absoluteNodeName = $child->namespaceURI . ':' . $child->localName;
         switch ($absoluteNodeName) {
             case $this->lookupNamespace('media') . ':' . 'content';
-                $content = new Zend_Gdata_Media_Extension_MediaContent();
+                $content = new zend_Gdata_Media_Extension_MediaContent();
                 $content->transferFromDOM($child);
                 $this->_content[] = $content;
                 break;
             case $this->lookupNamespace('media') . ':' . 'category';
-                $category = new Zend_Gdata_Media_Extension_MediaCategory();
+                $category = new zend_Gdata_Media_Extension_MediaCategory();
                 $category->transferFromDOM($child);
                 $this->_category[] = $category;
                 break;
             case $this->lookupNamespace('media') . ':' . 'copyright';
-                $copyright = new Zend_Gdata_Media_Extension_MediaCopyright();
+                $copyright = new zend_Gdata_Media_Extension_MediaCopyright();
                 $copyright->transferFromDOM($child);
                 $this->_copyright = $copyright;
                 break;
             case $this->lookupNamespace('media') . ':' . 'credit';
-                $credit = new Zend_Gdata_Media_Extension_MediaCredit();
+                $credit = new zend_Gdata_Media_Extension_MediaCredit();
                 $credit->transferFromDOM($child);
                 $this->_credit[] = $credit;
                 break;
             case $this->lookupNamespace('media') . ':' . 'description';
-                $description = new Zend_Gdata_Media_Extension_MediaDescription();
+                $description = new zend_Gdata_Media_Extension_MediaDescription();
                 $description->transferFromDOM($child);
                 $this->_description = $description;
                 break;
             case $this->lookupNamespace('media') . ':' . 'hash';
-                $hash = new Zend_Gdata_Media_Extension_MediaHash();
+                $hash = new zend_Gdata_Media_Extension_MediaHash();
                 $hash->transferFromDOM($child);
                 $this->_hash[] = $hash;
                 break;
             case $this->lookupNamespace('media') . ':' . 'keywords';
-                $keywords = new Zend_Gdata_Media_Extension_MediaKeywords();
+                $keywords = new zend_Gdata_Media_Extension_MediaKeywords();
                 $keywords->transferFromDOM($child);
                 $this->_keywords = $keywords;
                 break;
             case $this->lookupNamespace('media') . ':' . 'player';
-                $player = new Zend_Gdata_Media_Extension_MediaPlayer();
+                $player = new zend_Gdata_Media_Extension_MediaPlayer();
                 $player->transferFromDOM($child);
                 $this->_player[] = $player;
                 break;
             case $this->lookupNamespace('media') . ':' . 'rating';
-                $rating = new Zend_Gdata_Media_Extension_MediaRating();
+                $rating = new zend_Gdata_Media_Extension_MediaRating();
                 $rating->transferFromDOM($child);
                 $this->_rating[] = $rating;
                 break;
             case $this->lookupNamespace('media') . ':' . 'restriction';
-                $restriction = new Zend_Gdata_Media_Extension_MediaRestriction();
+                $restriction = new zend_Gdata_Media_Extension_MediaRestriction();
                 $restriction->transferFromDOM($child);
                 $this->_restriction[] = $restriction;
                 break;
             case $this->lookupNamespace('media') . ':' . 'text';
-                $text = new Zend_Gdata_Media_Extension_MediaText();
+                $text = new zend_Gdata_Media_Extension_MediaText();
                 $text->transferFromDOM($child);
                 $this->_mediaText[] = $text;
                 break;
             case $this->lookupNamespace('media') . ':' . 'thumbnail';
-                $thumbnail = new Zend_Gdata_Media_Extension_MediaThumbnail();
+                $thumbnail = new zend_Gdata_Media_Extension_MediaThumbnail();
                 $thumbnail->transferFromDOM($child);
                 $this->_thumbnail[] = $thumbnail;
                 break;
             case $this->lookupNamespace('media') . ':' . 'title';
-                $title = new Zend_Gdata_Media_Extension_MediaTitle();
+                $title = new zend_Gdata_Media_Extension_MediaTitle();
                 $title->transferFromDOM($child);
                 $this->_title = $title;
                 break;
@@ -339,7 +339,7 @@ class Zend_Gdata_Media_Extension_MediaGroup extends Zend_Gdata_Extension
 
     /**
      * @param array $value
-     * @return Zend_Gdata_Media_MediaGroup Provides a fluent interface
+     * @return zend_Gdata_Media_MediaGroup Provides a fluent interface
      */
     public function setContent($value)
     {
@@ -357,7 +357,7 @@ class Zend_Gdata_Media_Extension_MediaGroup extends Zend_Gdata_Extension
 
     /**
      * @param array $value
-     * @return Zend_Gdata_Media_Extension_MediaGroup
+     * @return zend_Gdata_Media_Extension_MediaGroup
      */
     public function setCategory($value)
     {
@@ -366,7 +366,7 @@ class Zend_Gdata_Media_Extension_MediaGroup extends Zend_Gdata_Extension
     }
 
     /**
-     * @return Zend_Gdata_Media_Extension_MediaCopyright
+     * @return zend_Gdata_Media_Extension_MediaCopyright
      */
     public function getCopyright()
     {
@@ -374,8 +374,8 @@ class Zend_Gdata_Media_Extension_MediaGroup extends Zend_Gdata_Extension
     }
 
     /**
-     * @param Zend_Gdata_Media_Extension_MediaCopyright $value
-     * @return Zend_Gdata_Media_Extension_MediaGroup
+     * @param zend_Gdata_Media_Extension_MediaCopyright $value
+     * @return zend_Gdata_Media_Extension_MediaGroup
      */
     public function setCopyright($value)
     {
@@ -393,7 +393,7 @@ class Zend_Gdata_Media_Extension_MediaGroup extends Zend_Gdata_Extension
 
     /**
      * @param array $value
-     * @return Zend_Gdata_Media_Extension_MediaGroup
+     * @return zend_Gdata_Media_Extension_MediaGroup
      */
     public function setCredit($value)
     {
@@ -402,7 +402,7 @@ class Zend_Gdata_Media_Extension_MediaGroup extends Zend_Gdata_Extension
     }
 
     /**
-     * @return Zend_Gdata_Media_Extension_MediaTitle
+     * @return zend_Gdata_Media_Extension_MediaTitle
      */
     public function getTitle()
     {
@@ -410,8 +410,8 @@ class Zend_Gdata_Media_Extension_MediaGroup extends Zend_Gdata_Extension
     }
 
     /**
-     * @param Zend_Gdata_Media_Extension_MediaTitle $value
-     * @return Zend_Gdata_Media_Extension_MediaGroup
+     * @param zend_Gdata_Media_Extension_MediaTitle $value
+     * @return zend_Gdata_Media_Extension_MediaGroup
      */
     public function setTitle($value)
     {
@@ -420,7 +420,7 @@ class Zend_Gdata_Media_Extension_MediaGroup extends Zend_Gdata_Extension
     }
 
     /**
-     * @return Zend_Gdata_Media_Extension_MediaDescription
+     * @return zend_Gdata_Media_Extension_MediaDescription
      */
     public function getDescription()
     {
@@ -428,8 +428,8 @@ class Zend_Gdata_Media_Extension_MediaGroup extends Zend_Gdata_Extension
     }
 
     /**
-     * @param Zend_Gdata_Media_Extension_MediaDescription $value
-     * @return Zend_Gdata_Media_Extension_MediaGroup
+     * @param zend_Gdata_Media_Extension_MediaDescription $value
+     * @return zend_Gdata_Media_Extension_MediaGroup
      */
     public function setDescription($value)
     {
@@ -447,7 +447,7 @@ class Zend_Gdata_Media_Extension_MediaGroup extends Zend_Gdata_Extension
 
     /**
      * @param array $value
-     * @return Zend_Gdata_Media_Extension_MediaGroup
+     * @return zend_Gdata_Media_Extension_MediaGroup
      */
     public function setHash($value)
     {
@@ -456,7 +456,7 @@ class Zend_Gdata_Media_Extension_MediaGroup extends Zend_Gdata_Extension
     }
 
     /**
-     * @return Zend_Gdata_Media_Extension_MediaKeywords
+     * @return zend_Gdata_Media_Extension_MediaKeywords
      */
     public function getKeywords()
     {
@@ -465,7 +465,7 @@ class Zend_Gdata_Media_Extension_MediaGroup extends Zend_Gdata_Extension
 
     /**
      * @param array $value
-     * @return Zend_Gdata_Media_Extension_MediaGroup Provides a fluent interface
+     * @return zend_Gdata_Media_Extension_MediaGroup Provides a fluent interface
      */
     public function setKeywords($value)
     {
@@ -483,7 +483,7 @@ class Zend_Gdata_Media_Extension_MediaGroup extends Zend_Gdata_Extension
 
     /**
      * @param array
-     * @return Zend_Gdata_Media_Extension_MediaGroup
+     * @return zend_Gdata_Media_Extension_MediaGroup
      */
     public function setPlayer($value)
     {
@@ -501,7 +501,7 @@ class Zend_Gdata_Media_Extension_MediaGroup extends Zend_Gdata_Extension
 
     /**
      * @param array
-     * @return Zend_Gdata_Media_Extension_MediaGroup
+     * @return zend_Gdata_Media_Extension_MediaGroup
      */
     public function setRating($value)
     {
@@ -519,7 +519,7 @@ class Zend_Gdata_Media_Extension_MediaGroup extends Zend_Gdata_Extension
 
     /**
      * @param array
-     * @return Zend_Gdata_Media_Extension_MediaGroup
+     * @return zend_Gdata_Media_Extension_MediaGroup
      */
     public function setRestriction($value)
     {
@@ -537,7 +537,7 @@ class Zend_Gdata_Media_Extension_MediaGroup extends Zend_Gdata_Extension
 
     /**
      * @param array
-     * @return Zend_Gdata_Media_Extension_MediaGroup
+     * @return zend_Gdata_Media_Extension_MediaGroup
      */
     public function setThumbnail($value)
     {
@@ -555,7 +555,7 @@ class Zend_Gdata_Media_Extension_MediaGroup extends Zend_Gdata_Extension
 
     /**
      * @param array
-     * @return Zend_Gdata_Media_Extension_MediaGroup
+     * @return zend_Gdata_Media_Extension_MediaGroup
      */
     public function setMediaText($value)
     {

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,16 +13,16 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gdata
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Rating.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Extension
+ * @see zend_Gdata_Extension
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension.php';
 
@@ -30,13 +30,13 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension.php';
  * Implements the gd:rating element
  *
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gdata
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Extension_Rating extends Zend_Gdata_Extension
+class zend_Gdata_Extension_Rating extends zend_Gdata_Extension
 {
 
     protected $_rootElement = 'rating';
@@ -47,7 +47,7 @@ class Zend_Gdata_Extension_Rating extends Zend_Gdata_Extension
     protected $_value = null;
 
     /**
-     * Constructs a new Zend_Gdata_Extension_Rating object.
+     * Constructs a new zend_Gdata_Extension_Rating object.
      *
      * @param integer $average (optional) Average rating.
      * @param integer $min (optional) Minimum rating.
@@ -141,7 +141,7 @@ class Zend_Gdata_Extension_Rating extends Zend_Gdata_Extension
      * Set the value for this element's min attribute.
      *
      * @param bool $value The desired value for this attribute.
-     * @return Zend_Gdata_Extension_Rating The element being modified.
+     * @return zend_Gdata_Extension_Rating The element being modified.
      */
     public function setMin($value)
     {
@@ -163,7 +163,7 @@ class Zend_Gdata_Extension_Rating extends Zend_Gdata_Extension
      * Set the value for this element's numRaters attribute.
      *
      * @param bool $value The desired value for this attribute.
-     * @return Zend_Gdata_Extension_Rating The element being modified.
+     * @return zend_Gdata_Extension_Rating The element being modified.
      */
     public function setNumRaters($value)
     {
@@ -185,7 +185,7 @@ class Zend_Gdata_Extension_Rating extends Zend_Gdata_Extension
      * Set the value for this element's average attribute.
      *
      * @param bool $value The desired value for this attribute.
-     * @return Zend_Gdata_Extension_Rating The element being modified.
+     * @return zend_Gdata_Extension_Rating The element being modified.
      */
     public function setAverage($value)
     {
@@ -207,7 +207,7 @@ class Zend_Gdata_Extension_Rating extends Zend_Gdata_Extension
      * Set the value for this element's max attribute.
      *
      * @param bool $value The desired value for this attribute.
-     * @return Zend_Gdata_Extension_Rating The element being modified.
+     * @return zend_Gdata_Extension_Rating The element being modified.
      */
     public function setMax($value)
     {
@@ -229,7 +229,7 @@ class Zend_Gdata_Extension_Rating extends Zend_Gdata_Extension
      * Set the value for this element's value attribute.
      *
      * @param bool $value The desired value for this attribute.
-     * @return Zend_Gdata_Extension_Rating The element being modified.
+     * @return zend_Gdata_Extension_Rating The element being modified.
      */
     public function setValue($value)
     {

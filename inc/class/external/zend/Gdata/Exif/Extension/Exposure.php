@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,47 +13,47 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Exif
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Exposure.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Extension
+ * @see zend_Gdata_Extension
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension.php';
 
 /**
- * @see Zend_Gdata_Exif
+ * @see zend_Gdata_Exif
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Exif.php';
 
 /**
  * Represents the exif:exposure element used by the Gdata Exif extensions.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Exif
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Exif_Extension_Exposure extends Zend_Gdata_Extension
+class zend_Gdata_Exif_Extension_Exposure extends zend_Gdata_Extension
 {
 
     protected $_rootNamespace = 'exif';
     protected $_rootElement = 'exposure';
 
     /**
-     * Constructs a new Zend_Gdata_Exif_Extension_Exposure object.
+     * Constructs a new zend_Gdata_Exif_Extension_Exposure object.
      *
      * @param string $text (optional) The value to use for this element.
      */
     public function __construct($text = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_Exif::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_Exif::$namespaces);
         parent::__construct();
         $this->setText($text);
     }

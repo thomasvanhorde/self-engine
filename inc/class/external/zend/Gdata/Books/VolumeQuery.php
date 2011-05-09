@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,34 +13,34 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Books
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: VolumeQuery.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * Zend_Gdata_Books
+ * zend_Gdata_Books
  */
 require_once('zend/Gdata/Books.php');
 
 /**
- * Zend_Gdata_Query
+ * zend_Gdata_Query
  */
 require_once('zend/Gdata/Query.php');
 
 /**
  * Assists in constructing queries for Books volumes
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Books
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Books_VolumeQuery extends Zend_Gdata_Query
+class zend_Gdata_Books_VolumeQuery extends zend_Gdata_Query
 {
 
     /**
@@ -58,7 +58,7 @@ class Zend_Gdata_Books_VolumeQuery extends Zend_Gdata_Query
      * Sets the minimum level of viewability of volumes to return in the search results
      *
      * @param string|null $value The minimum viewability - 'full' or 'partial'
-     * @return Zend_Gdata_Books_VolumeQuery Provides a fluent interface
+     * @return zend_Gdata_Books_VolumeQuery Provides a fluent interface
      */
     public function setMinViewability($value = null)
     {
@@ -100,7 +100,7 @@ class Zend_Gdata_Books_VolumeQuery extends Zend_Gdata_Query
         if (isset($this->_url)) {
             $url = $this->_url;
         } else {
-            $url = Zend_Gdata_Books::VOLUME_FEED_URI;
+            $url = zend_Gdata_Books::VOLUME_FEED_URI;
         }
         if ($this->getCategory() !== null) {
             $url .= '/-/' . $this->getCategory();

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,28 +13,28 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Spreadsheets
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: SpreadsheetFeed.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Feed
+ * @see zend_Gdata_Feed
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Feed.php';
 
 /**
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Spreadsheets
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Spreadsheets_SpreadsheetFeed extends Zend_Gdata_Feed
+class zend_Gdata_Spreadsheets_SpreadsheetFeed extends zend_Gdata_Feed
 {
 
     /**
@@ -42,22 +42,22 @@ class Zend_Gdata_Spreadsheets_SpreadsheetFeed extends Zend_Gdata_Feed
      *
      * @var string
      */
-    protected $_entryClassName = 'Zend_Gdata_Spreadsheets_SpreadsheetEntry';
+    protected $_entryClassName = 'zend_Gdata_Spreadsheets_SpreadsheetEntry';
 
     /**
      * The classname for the feed.
      *
      * @var string
      */
-    protected $_feedClassName = 'Zend_Gdata_Spreadsheets_SpreadsheetFeed';
+    protected $_feedClassName = 'zend_Gdata_Spreadsheets_SpreadsheetFeed';
 
     /**
-     * Constructs a new Zend_Gdata_Spreadsheets_SpreadsheetFeed object.
+     * Constructs a new zend_Gdata_Spreadsheets_SpreadsheetFeed object.
      * @param DOMElement $element (optional) The DOMElement on which to base this object.
      */
     public function __construct($element = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_Spreadsheets::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_Spreadsheets::$namespaces);
         parent::__construct($element);
     }
 

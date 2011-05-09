@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,10 +13,10 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage App
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: MediaSource.php 23775 2011-03-01 17:25:24Z ralph $
  */
@@ -24,13 +24,13 @@
 /**
  * Interface for defining data that can be encoded and sent over the network.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage App
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-interface Zend_Gdata_App_MediaSource
+interface zend_Gdata_App_MediaSource
 {
     /**
      * Return a byte stream representation of this object.
@@ -43,7 +43,7 @@ interface Zend_Gdata_App_MediaSource
      * Set the content type for the file attached (example image/png)
      *
      * @param string $value The content type
-     * @return Zend_Gdata_App_MediaFileSource Provides a fluent interface
+     * @return zend_Gdata_App_MediaFileSource Provides a fluent interface
      */
     public function setContentType($value);
 
@@ -59,7 +59,7 @@ interface Zend_Gdata_App_MediaSource
      * title for the uploaded file.  A null value indicates no slug header.
      *
      * @var string The slug value
-     * @return Zend_Gdata_App_MediaSource Provides a fluent interface
+     * @return zend_Gdata_App_MediaSource Provides a fluent interface
      */
     public function setSlug($value);
 

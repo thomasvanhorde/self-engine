@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,16 +13,16 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gapps
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: EmailListQuery.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Gapps_Query
+ * @see zend_Gdata_Gapps_Query
  */
 require_once('zend/Gdata/Gapps/Query.php');
 
@@ -32,15 +32,15 @@ require_once('zend/Gdata/Gapps/Query.php');
  * required.
  *
  * For information on submitting queries to a server, see the Google Apps
- * service class, Zend_Gdata_Gapps.
+ * service class, zend_Gdata_Gapps.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gapps
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Gapps_EmailListQuery extends Zend_Gdata_Gapps_Query
+class zend_Gdata_Gapps_EmailListQuery extends zend_Gdata_Gapps_Query
 {
 
     /**
@@ -170,13 +170,13 @@ class Zend_Gdata_Gapps_EmailListQuery extends Zend_Gdata_Gapps_Query
      * parameters.
      *
      * @return string A URL generated based on the state of this query.
-     * @throws Zend_Gdata_App_InvalidArgumentException
+     * @throws zend_Gdata_App_InvalidArgumentException
      */
     public function getQueryUrl()
     {
 
         $uri = $this->getBaseUrl();
-        $uri .= Zend_Gdata_Gapps::APPS_EMAIL_LIST_PATH;
+        $uri .= zend_Gdata_Gapps::APPS_EMAIL_LIST_PATH;
         if ($this->_emailListName !== null) {
             $uri .= '/' . $this->_emailListName;
         }

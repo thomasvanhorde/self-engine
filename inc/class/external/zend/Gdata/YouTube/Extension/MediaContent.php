@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,16 +13,16 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage YouTube
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: MediaContent.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Media_Extension_MediaContent
+ * @see zend_Gdata_Media_Extension_MediaContent
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Media/Extension/MediaContent.php';
 
@@ -30,15 +30,15 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Media/Extension/MediaConte
  * Represents the media:content element of Media RSS.
  * Represents media objects.  Multiple media objects representing
  * the same content can be represented using a
- * media:group (Zend_Gdata_Media_Extension_MediaGroup) element.
+ * media:group (zend_Gdata_Media_Extension_MediaGroup) element.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage YouTube
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_YouTube_Extension_MediaContent extends Zend_Gdata_Media_Extension_MediaContent
+class zend_Gdata_YouTube_Extension_MediaContent extends zend_Gdata_Media_Extension_MediaContent
 {
     protected $_rootElement = 'content';
     protected $_rootNamespace = 'media';
@@ -53,7 +53,7 @@ class Zend_Gdata_YouTube_Extension_MediaContent extends Zend_Gdata_Media_Extensi
 
 
     function __construct() {
-        $this->registerAllNamespaces(Zend_Gdata_YouTube::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_YouTube::$namespaces);
         parent::__construct();
     }
 
@@ -108,7 +108,7 @@ class Zend_Gdata_YouTube_Extension_MediaContent extends Zend_Gdata_Media_Extensi
      * Sets the format of the media
      *
      * @param int $value    Format of the media
-     * @return Zend_Gdata_YouTube_Extension_MediaContent  Provides a fluent interface
+     * @return zend_Gdata_YouTube_Extension_MediaContent  Provides a fluent interface
      *
      */
     public function setFormat($value)

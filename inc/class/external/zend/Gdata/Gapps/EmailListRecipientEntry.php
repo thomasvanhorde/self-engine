@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,21 +13,21 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gapps
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: EmailListRecipientEntry.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Entry
+ * @see zend_Gdata_Entry
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Entry.php';
 
 /**
- * @see Zend_Gdata_Extension_Who
+ * @see zend_Gdata_Extension_Who
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension/Who.php';
 
@@ -37,32 +37,32 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension/Who.php';
  * Each instance of this class represents a recipient of an email list
  * hosted on a Google Apps domain. Each email list may contain multiple
  * recipients. Email lists themselves are described by
- * Zend_Gdata_EmailListEntry. Multiple recipient entries are contained within
- * instances of Zend_Gdata_Gapps_EmailListRecipientFeed.
+ * zend_Gdata_EmailListEntry. Multiple recipient entries are contained within
+ * instances of zend_Gdata_Gapps_EmailListRecipientFeed.
  *
  * To transfer email list recipients to and from the Google Apps servers,
  * including creating new recipients, refer to the Google Apps service class,
- * Zend_Gdata_Gapps.
+ * zend_Gdata_Gapps.
  *
  * This class represents <atom:entry> in the Google Data protocol.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gapps
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Gapps_EmailListRecipientEntry extends Zend_Gdata_Entry
+class zend_Gdata_Gapps_EmailListRecipientEntry extends zend_Gdata_Entry
 {
 
-    protected $_entryClassName = 'Zend_Gdata_Gapps_EmailListRecipientEntry';
+    protected $_entryClassName = 'zend_Gdata_Gapps_EmailListRecipientEntry';
 
     /**
      * <gd:who> element used to store the email address of the current
      * recipient. Only the email property of this element should be
      * populated.
      *
-     * @var Zend_Gdata_Extension_Who
+     * @var zend_Gdata_Extension_Who
      */
     protected $_who = null;
 
@@ -74,7 +74,7 @@ class Zend_Gdata_Gapps_EmailListRecipientEntry extends Zend_Gdata_Entry
      */
     public function __construct($element = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_Gapps::$namespaces);
+        $this->registerAllNamespaces(zend_Gdata_Gapps::$namespaces);
         parent::__construct($element);
     }
 
@@ -108,7 +108,7 @@ class Zend_Gdata_Gapps_EmailListRecipientEntry extends Zend_Gdata_Entry
 
         switch ($absoluteNodeName) {
             case $this->lookupNamespace('gd') . ':' . 'who';
-                $who = new Zend_Gdata_Extension_Who();
+                $who = new zend_Gdata_Extension_Who();
                 $who->transferFromDOM($child);
                 $this->_who = $who;
                 break;
@@ -122,7 +122,7 @@ class Zend_Gdata_Gapps_EmailListRecipientEntry extends Zend_Gdata_Entry
      * Get the value of the who property for this object.
      *
      * @see setWho
-     * @return Zend_Gdata_Extension_Who The requested object.
+     * @return zend_Gdata_Extension_Who The requested object.
      */
     public function getWho()
     {
@@ -133,9 +133,9 @@ class Zend_Gdata_Gapps_EmailListRecipientEntry extends Zend_Gdata_Entry
      * Set the value of the who property for this object. This property
      * is used to store the email address of the current recipient.
      *
-     * @param Zend_Gdata_Extension_Who $value The desired value for this
+     * @param zend_Gdata_Extension_Who $value The desired value for this
      *          instance's who property.
-     * @return Zend_Gdata_Gapps_EventEntry Provides a fluent interface.
+     * @return zend_Gdata_Gapps_EventEntry Provides a fluent interface.
      */
     public function setWho($value)
     {

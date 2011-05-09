@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,24 +13,24 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage App
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Util.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * Utility class for static functions needed by Zend_Gdata_App
+ * Utility class for static functions needed by zend_Gdata_App
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage App
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_App_Util
+class zend_Gdata_App_Util
 {
 
     /**
@@ -38,7 +38,7 @@ class Zend_Gdata_App_Util
      *  2005-04-19T15:30:00
      *
      * @param int $timestamp
-     * @throws Zend_Gdata_App_InvalidArgumentException
+     * @throws zend_Gdata_App_InvalidArgumentException
      */
     public static function formatTimestamp($timestamp)
     {
@@ -54,7 +54,7 @@ class Zend_Gdata_App_Util
             $ts = strtotime($timestamp);
             if ($ts === false) {
                 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/InvalidArgumentException.php';
-                throw new Zend_Gdata_App_InvalidArgumentException("Invalid timestamp: $timestamp.");
+                throw new zend_Gdata_App_InvalidArgumentException("Invalid timestamp: $timestamp.");
             }
             return date('Y-m-d\TH:i:s', $ts);
         }
@@ -68,7 +68,7 @@ class Zend_Gdata_App_Util
       * @param array $collection An two-dimensional array of key/value pairs
       *        to search through.
       * @returns mixed The value corresponding to the located key.
-      * @throws Zend_Gdata_App_Exception Thrown if $collection is empty.
+      * @throws zend_Gdata_App_Exception Thrown if $collection is empty.
       */
     public static function findGreatestBoundedValue($maximumKey, $collection)
     {
@@ -78,7 +78,7 @@ class Zend_Gdata_App_Util
         // Sanity check: Make sure that the collection isn't empty
         if (sizeof($collection) == 0) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Exception.php';
-            throw new Zend_Gdata_App_Exception("Empty namespace collection encountered.");
+            throw new zend_Gdata_App_Exception("Empty namespace collection encountered.");
         }
 
         if ($maximumKey === null) {
@@ -103,7 +103,7 @@ class Zend_Gdata_App_Util
         // the current protcol version is lower than the maximum namespace.
         if (!$found) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Exception.php';
-            throw new Zend_Gdata_App_Exception("Namespace compatible with current protocol not found.");
+            throw new zend_Gdata_App_Exception("Namespace compatible with current protocol not found.");
         }
 
         return $foundKey;

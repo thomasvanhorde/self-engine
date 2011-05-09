@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,16 +13,16 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gdata
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: HttpAdapterStreamingProxy.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Http_Client_Adapter_Proxy
+ * @see zend_Http_Client_Adapter_Proxy
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Client/Adapter/Proxy.php';
 
@@ -30,13 +30,13 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Client/Adapter/Proxy.php';
  * Extends the proxy HTTP adapter to handle streams instead of discrete body
  * strings.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gdata
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_HttpAdapterStreamingProxy extends Zend_Http_Client_Adapter_Proxy
+class zend_Gdata_HttpAdapterStreamingProxy extends zend_Http_Client_Adapter_Proxy
 {
     /**
      * The amount read from a stream source at a time.
@@ -49,7 +49,7 @@ class Zend_Gdata_HttpAdapterStreamingProxy extends Zend_Http_Client_Adapter_Prox
      * Send request to the proxy server with streaming support
      *
      * @param string        $method
-     * @param Zend_Uri_Http $uri
+     * @param zend_Uri_Http $uri
      * @param string        $http_ver
      * @param array         $headers
      * @param string        $body
@@ -60,13 +60,13 @@ class Zend_Gdata_HttpAdapterStreamingProxy extends Zend_Http_Client_Adapter_Prox
         // If no proxy is set, throw an error
         if (! $this->config['proxy_host']) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Client/Adapter/Exception.php';
-            throw new Zend_Http_Client_Adapter_Exception('No proxy host set!');
+            throw new zend_Http_Client_Adapter_Exception('No proxy host set!');
         }
 
         // Make sure we're properly connected
         if (! $this->socket) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Client/Adapter/Exception.php';
-            throw new Zend_Http_Client_Adapter_Exception(
+            throw new zend_Http_Client_Adapter_Exception(
                 'Trying to write but we are not connected');
         }
 
@@ -75,14 +75,14 @@ class Zend_Gdata_HttpAdapterStreamingProxy extends Zend_Http_Client_Adapter_Prox
 
         if ($this->connected_to[0] != $host || $this->connected_to[1] != $port) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Client/Adapter/Exception.php';
-            throw new Zend_Http_Client_Adapter_Exception(
+            throw new zend_Http_Client_Adapter_Exception(
                 'Trying to write but we are connected to the wrong proxy ' .
                 'server');
         }
 
         // Add Proxy-Authorization header
         if ($this->config['proxy_user'] && ! isset($headers['proxy-authorization'])) {
-            $headers['proxy-authorization'] = Zend_Http_Client::encodeAuthHeader(
+            $headers['proxy-authorization'] = zend_Http_Client::encodeAuthHeader(
                 $this->config['proxy_user'], $this->config['proxy_pass'], $this->config['proxy_auth']
             );
         }
@@ -110,7 +110,7 @@ class Zend_Gdata_HttpAdapterStreamingProxy extends Zend_Http_Client_Adapter_Prox
         // Send the request headers
         if (! @fwrite($this->socket, $request)) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Client/Adapter/Exception.php';
-            throw new Zend_Http_Client_Adapter_Exception(
+            throw new zend_Http_Client_Adapter_Exception(
                 'Error writing request to proxy server');
         }
 
@@ -118,7 +118,7 @@ class Zend_Gdata_HttpAdapterStreamingProxy extends Zend_Http_Client_Adapter_Prox
         while ($body->hasData()) {
             if (! @fwrite($this->socket, $body->read(self::CHUNK_SIZE))) {
                 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Client/Adapter/Exception.php';
-                throw new Zend_Http_Client_Adapter_Exception(
+                throw new zend_Http_Client_Adapter_Exception(
                     'Error writing request to server');
             }
         }

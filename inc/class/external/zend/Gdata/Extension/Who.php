@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,44 +13,44 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gdata
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Who.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Extension
+ * @see zend_Gdata_Extension
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension.php';
 
 /**
- * @see Zend_Gdata_Extension_AttendeeStatus
+ * @see zend_Gdata_Extension_AttendeeStatus
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension/AttendeeStatus.php';
 
 /**
- * @see Zend_Gdata_Extension_AttendeeType
+ * @see zend_Gdata_Extension_AttendeeType
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension/AttendeeType.php';
 
 /**
- * @see Zend_Gdata_Extension_EntryLink
+ * @see zend_Gdata_Extension_EntryLink
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension/EntryLink.php';
 
 /**
  * Data model class to represent a participant
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gdata
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Extension_Who extends Zend_Gdata_Extension
+class zend_Gdata_Extension_Who extends zend_Gdata_Extension
 {
 
     protected $_rootElement = 'who';
@@ -62,12 +62,12 @@ class Zend_Gdata_Extension_Who extends Zend_Gdata_Extension
     protected $_entryLink = null;
 
     /**
-     * Constructs a new Zend_Gdata_Extension_Who object.
+     * Constructs a new zend_Gdata_Extension_Who object.
      * @param string $email (optional) Email address.
      * @param string $rel (optional) Relationship description.
      * @param string $valueString (optional) Simple string describing this person.
-     * @param Zend_Gdata_Extension_AttendeeStatus $attendeeStatus (optional) The status of the attendee.
-     * @param Zend_Gdata_Extension_AttendeeType $attendeeType (optional) The type of the attendee.
+     * @param zend_Gdata_Extension_AttendeeStatus $attendeeStatus (optional) The status of the attendee.
+     * @param zend_Gdata_Extension_AttendeeType $attendeeType (optional) The type of the attendee.
      * @param string $entryLink URL pointing to an associated entry (Contact kind) describing this person.
      */
     public function __construct($email = null, $rel = null, $valueString = null,
@@ -151,17 +151,17 @@ class Zend_Gdata_Extension_Who extends Zend_Gdata_Extension
         $absoluteNodeName = $child->namespaceURI . ':' . $child->localName;
         switch ($absoluteNodeName) {
         case $this->lookupNamespace('gd') . ':' . 'attendeeStatus':
-            $attendeeStatus = new Zend_Gdata_Extension_AttendeeStatus();
+            $attendeeStatus = new zend_Gdata_Extension_AttendeeStatus();
             $attendeeStatus->transferFromDOM($child);
             $this->_attendeeStatus = $attendeeStatus;
             break;
         case $this->lookupNamespace('gd') . ':' . 'attendeeType':
-            $attendeeType = new Zend_Gdata_Extension_AttendeeType();
+            $attendeeType = new zend_Gdata_Extension_AttendeeType();
             $attendeeType->transferFromDOM($child);
             $this->_attendeeType = $attendeeType;
             break;
         case $this->lookupNamespace('gd') . ':' . 'entryLink':
-            $entryLink = new Zend_Gdata_Extension_EntryLink();
+            $entryLink = new zend_Gdata_Extension_EntryLink();
             $entryLink->transferFromDOM($child);
             $this->_entryLink = $entryLink;
             break;
@@ -200,7 +200,7 @@ class Zend_Gdata_Extension_Who extends Zend_Gdata_Extension
      * Set the value for this element's ValueString attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Extension_Who The element being modified.
+     * @return zend_Gdata_Extension_Who The element being modified.
      */
     public function setValueString($value)
     {
@@ -222,7 +222,7 @@ class Zend_Gdata_Extension_Who extends Zend_Gdata_Extension
      * Set the value for this element's Email attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Extension_Who The element being modified.
+     * @return zend_Gdata_Extension_Who The element being modified.
      */
     public function setEmail($value)
     {
@@ -244,7 +244,7 @@ class Zend_Gdata_Extension_Who extends Zend_Gdata_Extension
      * Set the value for this element's Rel attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Extension_Who The element being modified.
+     * @return zend_Gdata_Extension_Who The element being modified.
      */
     public function setRel($value)
     {
@@ -255,7 +255,7 @@ class Zend_Gdata_Extension_Who extends Zend_Gdata_Extension
     /**
      * Get this entry's AttendeeStatus element.
      *
-     * @return Zend_Gdata_Extension_AttendeeStatus The requested entry.
+     * @return zend_Gdata_Extension_AttendeeStatus The requested entry.
      */
     public function getAttendeeStatus()
     {
@@ -265,8 +265,8 @@ class Zend_Gdata_Extension_Who extends Zend_Gdata_Extension
     /**
      * Set the child's AttendeeStatus element.
      *
-     * @param Zend_Gdata_Extension_AttendeeStatus $value The desired value for this attribute.
-     * @return Zend_Gdata_Extension_Who The element being modified.
+     * @param zend_Gdata_Extension_AttendeeStatus $value The desired value for this attribute.
+     * @return zend_Gdata_Extension_Who The element being modified.
      */
     public function setAttendeeStatus($value)
     {
@@ -277,7 +277,7 @@ class Zend_Gdata_Extension_Who extends Zend_Gdata_Extension
     /**
      * Get this entry's AttendeeType element.
      *
-     * @return Zend_Gdata_Extension_AttendeeType The requested entry.
+     * @return zend_Gdata_Extension_AttendeeType The requested entry.
      */
     public function getAttendeeType()
     {
@@ -287,8 +287,8 @@ class Zend_Gdata_Extension_Who extends Zend_Gdata_Extension
     /**
      * Set the child's AttendeeType element.
      *
-     * @param Zend_Gdata_Extension_AttendeeType $value The desired value for this attribute.
-     * @return Zend_Gdata_Extension_Who The element being modified.
+     * @param zend_Gdata_Extension_AttendeeType $value The desired value for this attribute.
+     * @return zend_Gdata_Extension_Who The element being modified.
      */
     public function setAttendeeType($value)
     {

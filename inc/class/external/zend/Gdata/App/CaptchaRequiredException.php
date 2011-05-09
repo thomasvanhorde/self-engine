@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,16 +13,16 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage App
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: CaptchaRequiredException.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_App_CaptchaRequiredException
+ * @see zend_Gdata_App_CaptchaRequiredException
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/AuthException.php';
 
@@ -34,13 +34,13 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/AuthException.php';
  * challenge is a visual puzzle presented to the user to prove that they are
  * not an automated system.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage App
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_App_CaptchaRequiredException extends Zend_Gdata_App_AuthException
+class zend_Gdata_App_CaptchaRequiredException extends zend_Gdata_App_AuthException
 {
     /**
      * The Google Accounts URL prefix.
@@ -69,7 +69,7 @@ class Zend_Gdata_App_CaptchaRequiredException extends Zend_Gdata_App_AuthExcepti
      */
     public function __construct($captchaToken, $captchaUrl) {
         $this->captchaToken = $captchaToken;
-        $this->captchaUrl = Zend_Gdata_App_CaptchaRequiredException::ACCOUNTS_URL . $captchaUrl;
+        $this->captchaUrl = zend_Gdata_App_CaptchaRequiredException::ACCOUNTS_URL . $captchaUrl;
         parent::__construct('CAPTCHA challenge issued by server');
     }
 

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,16 +13,16 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gbase
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Query.php 23805 2011-03-16 00:55:40Z tjohns $
  */
 
 /**
- * @see Zend_Gdata_Query
+ * @see zend_Gdata_Query
  */
 require_once('zend/Gdata/Query.php');
 
@@ -31,13 +31,13 @@ require_once('zend/Gdata/Query.php');
  *
  * @link http://code.google.com/apis/base
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gbase
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_Gbase_Query extends Zend_Gdata_Query
+class zend_Gdata_Gbase_Query extends zend_Gdata_Query
 {
 
     /**
@@ -59,7 +59,7 @@ class Zend_Gdata_Gbase_Query extends Zend_Gdata_Query
 
     /**
      * @param string $value
-     * @return Zend_Gdata_Gbase_Query Provides a fluent interface
+     * @return zend_Gdata_Gbase_Query Provides a fluent interface
      */
     public function setKey($value)
     {
@@ -73,7 +73,7 @@ class Zend_Gdata_Gbase_Query extends Zend_Gdata_Query
 
     /**
      * @param string $value
-     * @return Zend_Gdata_Gbase_ItemQuery Provides a fluent interface
+     * @return zend_Gdata_Gbase_ItemQuery Provides a fluent interface
      */
     public function setBq($value)
     {
@@ -87,7 +87,7 @@ class Zend_Gdata_Gbase_Query extends Zend_Gdata_Query
 
     /**
      * @param string $value
-     * @return Zend_Gdata_Gbase_ItemQuery Provides a fluent interface
+     * @return zend_Gdata_Gbase_ItemQuery Provides a fluent interface
      */
     public function setRefine($value)
     {
@@ -101,7 +101,7 @@ class Zend_Gdata_Gbase_Query extends Zend_Gdata_Query
 
     /**
      * @param string $value
-     * @return Zend_Gdata_Gbase_ItemQuery Provides a fluent interface
+     * @return zend_Gdata_Gbase_ItemQuery Provides a fluent interface
      */
     public function setContent($value)
     {
@@ -115,7 +115,7 @@ class Zend_Gdata_Gbase_Query extends Zend_Gdata_Query
 
     /**
      * @param string $value
-     * @return Zend_Gdata_Gbase_ItemQuery Provides a fluent interface
+     * @return zend_Gdata_Gbase_ItemQuery Provides a fluent interface
      */
     public function setOrderBy($value)
     {
@@ -129,7 +129,7 @@ class Zend_Gdata_Gbase_Query extends Zend_Gdata_Query
 
     /**
      * @param string $value
-     * @return Zend_Gdata_Gbase_ItemQuery Provides a fluent interface
+     * @return zend_Gdata_Gbase_ItemQuery Provides a fluent interface
      */
     public function setSortOrder($value)
     {
@@ -143,7 +143,7 @@ class Zend_Gdata_Gbase_Query extends Zend_Gdata_Query
 
     /**
      * @param string $value
-     * @return Zend_Gdata_Gbase_ItemQuery Provides a fluent interface
+     * @return zend_Gdata_Gbase_ItemQuery Provides a fluent interface
      */
     public function setCrowdBy($value)
     {
@@ -157,7 +157,7 @@ class Zend_Gdata_Gbase_Query extends Zend_Gdata_Query
 
     /**
      * @param string $value
-     * @return Zend_Gdata_Gbase_ItemQuery Provides a fluent interface
+     * @return zend_Gdata_Gbase_ItemQuery Provides a fluent interface
      */
     public function setAdjust($value)
     {

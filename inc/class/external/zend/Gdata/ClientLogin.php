@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,21 +13,21 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gdata
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: ClientLogin.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * Zend_Gdata_HttpClient
+ * zend_Gdata_HttpClient
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/HttpClient.php';
 
 /**
- * Zend_Version
+ * zend_Version
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Version.php';
 
@@ -36,13 +36,13 @@ require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Version.php';
  * for Installed Applications" also known as "ClientLogin".
  * @see http://code.google.com/apis/accounts/AuthForInstalledApps.html
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage Gdata
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_ClientLogin
+class zend_Gdata_ClientLogin
 {
 
     /**
@@ -55,7 +55,7 @@ class Zend_Gdata_ClientLogin
      * The default 'source' parameter to send to Google
      *
      */
-    const DEFAULT_SOURCE = 'Zend-ZendFramework';
+    const DEFAULT_SOURCE = 'zend-zendFramework';
 
     /**
      * Set Google authentication credentials.
@@ -66,17 +66,17 @@ class Zend_Gdata_ClientLogin
      * @param string $email
      * @param string $password
      * @param string $service
-     * @param Zend_Gdata_HttpClient $client
+     * @param zend_Gdata_HttpClient $client
      * @param string $source
      * @param string $loginToken The token identifier as provided by the server.
      * @param string $loginCaptcha The user's response to the CAPTCHA challenge.
      * @param string $accountType An optional string to identify whether the
      * account to be authenticated is a google or a hosted account. Defaults to
      * 'HOSTED_OR_GOOGLE'. See: http://code.google.com/apis/accounts/docs/AuthForInstalledApps.html#Request
-     * @throws Zend_Gdata_App_AuthException
-     * @throws Zend_Gdata_App_HttpException
-     * @throws Zend_Gdata_App_CaptchaRequiredException
-     * @return Zend_Gdata_HttpClient
+     * @throws zend_Gdata_App_AuthException
+     * @throws zend_Gdata_App_HttpException
+     * @throws zend_Gdata_App_CaptchaRequiredException
+     * @return zend_Gdata_HttpClient
      */
     public static function getHttpClient($email, $password, $service = 'xapi',
         $client = null,
@@ -88,23 +88,23 @@ class Zend_Gdata_ClientLogin
     {
         if (! ($email && $password)) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/AuthException.php';
-            throw new Zend_Gdata_App_AuthException(
+            throw new zend_Gdata_App_AuthException(
                    'Please set your Google credentials before trying to ' .
                    'authenticate');
         }
 
         if ($client == null) {
-            $client = new Zend_Gdata_HttpClient();
+            $client = new zend_Gdata_HttpClient();
         }
-        if (!$client instanceof Zend_Http_Client) {
+        if (!$client instanceof zend_Http_Client) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/HttpException.php';
-            throw new Zend_Gdata_App_HttpException(
-                    'Client is not an instance of Zend_Http_Client.');
+            throw new zend_Gdata_App_HttpException(
+                    'Client is not an instance of zend_Http_Client.');
         }
 
         // Build the HTTP client for authentication
         $client->setUri($loginUri);
-        $useragent = $source . ' Zend_Framework_Gdata/' . Zend_Version::VERSION;
+        $useragent = $source . ' zend_Framework_Gdata/' . zend_Version::VERSION;
         $client->setConfig(array(
                 'maxredirects'    => 0,
                 'strictredirects' => true,
@@ -124,7 +124,7 @@ class Zend_Gdata_ClientLogin
             }
             else {
                 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/AuthException.php';
-                throw new Zend_Gdata_App_AuthException(
+                throw new zend_Gdata_App_AuthException(
                     'Please provide both a token ID and a user\'s response ' .
                     'to the CAPTCHA challenge.');
             }
@@ -136,9 +136,9 @@ class Zend_Gdata_ClientLogin
         ob_start();
         try {
             $response = $client->request('POST');
-        } catch (Zend_Http_Client_Exception $e) {
+        } catch (zend_Http_Client_Exception $e) {
             require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/HttpException.php';
-            throw new Zend_Gdata_App_HttpException($e->getMessage(), $e);
+            throw new zend_Gdata_App_HttpException($e->getMessage(), $e);
         }
         ob_end_clean();
 
@@ -154,7 +154,7 @@ class Zend_Gdata_ClientLogin
 
         if ($response->getStatus() == 200) {
             $client->setClientLoginToken($goog_resp['Auth']);
-            $useragent = $source . ' Zend_Framework_Gdata/' . Zend_Version::VERSION;
+            $useragent = $source . ' zend_Framework_Gdata/' . zend_Version::VERSION;
             $client->setConfig(array(
                     'strictredirects' => true,
                     'useragent' => $useragent
@@ -167,12 +167,12 @@ class Zend_Gdata_ClientLogin
             if (array_key_exists('Error', $goog_resp) &&
                 $goog_resp['Error'] == 'CaptchaRequired') {
                 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/CaptchaRequiredException.php';
-                throw new Zend_Gdata_App_CaptchaRequiredException(
+                throw new zend_Gdata_App_CaptchaRequiredException(
                     $goog_resp['CaptchaToken'], $goog_resp['CaptchaUrl']);
             }
             else {
                 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/AuthException.php';
-                throw new Zend_Gdata_App_AuthException('Authentication with Google failed. Reason: ' .
+                throw new zend_Gdata_App_AuthException('Authentication with Google failed. Reason: ' .
                     (isset($goog_resp['Error']) ? $goog_resp['Error'] : 'Unspecified.'));
             }
         }

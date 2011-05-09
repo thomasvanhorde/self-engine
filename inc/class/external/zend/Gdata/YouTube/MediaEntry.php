@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Zend Framework
+ * zend Framework
  *
  * LICENSE
  *
@@ -13,47 +13,47 @@
  * obtain it through the world-wide-web, please send an email
  * to license@zend.com so we can send you a copy immediately.
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage YouTube
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: MediaEntry.php 23775 2011-03-01 17:25:24Z ralph $
  */
 
 /**
- * @see Zend_Gdata_Media
+ * @see zend_Gdata_Media
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Media.php';
 
 /**
- * @see Zend_Gdata_Media_Entry
+ * @see zend_Gdata_Media_Entry
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Media/Entry.php';
 
 /**
- * @see Zend_Gdata_YouTube_Extension_MediaGroup
+ * @see zend_Gdata_YouTube_Extension_MediaGroup
  */
 require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/YouTube/Extension/MediaGroup.php';
 
 /**
  * Represents the YouTube flavor of a Gdata Media Entry
  *
- * @category   Zend
- * @package    Zend_Gdata
+ * @category   zend
+ * @package    zend_Gdata
  * @subpackage YouTube
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Gdata_YouTube_MediaEntry extends Zend_Gdata_Media_Entry
+class zend_Gdata_YouTube_MediaEntry extends zend_Gdata_Media_Entry
 {
 
-    protected $_entryClassName = 'Zend_Gdata_YouTube_MediaEntry';
+    protected $_entryClassName = 'zend_Gdata_YouTube_MediaEntry';
 
     /**
      * media:group element
      *
-     * @var Zend_Gdata_YouTube_Extension_MediaGroup
+     * @var zend_Gdata_YouTube_Extension_MediaGroup
      */
     protected $_mediaGroup = null;
 
@@ -68,7 +68,7 @@ class Zend_Gdata_YouTube_MediaEntry extends Zend_Gdata_Media_Entry
         $absoluteNodeName = $child->namespaceURI . ':' . $child->localName;
         switch ($absoluteNodeName) {
         case $this->lookupNamespace('media') . ':' . 'group':
-            $mediaGroup = new Zend_Gdata_YouTube_Extension_MediaGroup();
+            $mediaGroup = new zend_Gdata_YouTube_Extension_MediaGroup();
             $mediaGroup->transferFromDOM($child);
             $this->_mediaGroup = $mediaGroup;
             break;
