@@ -24,7 +24,7 @@
 /**
  * @see Zend_Gdata_Gbase_Feed
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Gbase/Feed.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Gbase/Feed.php';
 
 /**
  * Represents the Google Base Customer Items Feed

@@ -24,12 +24,12 @@
 /**
  * @see Zend_Gdata_Entry
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Entry.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Entry.php';
 
 /**
  * @see Zend_Gdata_Gbase_Extension_BaseAttribute
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Gbase/Extension/BaseAttribute.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Gbase/Extension/BaseAttribute.php';
 
 /**
  * Base class for working with Google Base entries.

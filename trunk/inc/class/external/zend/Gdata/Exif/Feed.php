@@ -24,17 +24,17 @@
 /**
  * @see Zend_Gdata_eed
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Feed.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Feed.php';
 
 /**
  * @see Zend_Gdata_Exif
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Exif.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Exif.php';
 
 /**
  * @see Zend_Gdata_Exif_Entry
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Exif/Entry.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Exif/Entry.php';
 
 /**
  * Feed for Gdata EXIF data entries.

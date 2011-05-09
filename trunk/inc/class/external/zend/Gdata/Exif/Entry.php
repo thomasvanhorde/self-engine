@@ -24,17 +24,17 @@
 /**
  * @see Zend_Gdata_Entry
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Entry.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Entry.php';
 
 /**
  * @see Zend_Gdata_Exif
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Exif.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Exif.php';
 
 /**
  * @see Zend_Gdata_Exif_Extension_Tags
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Exif/Extension/Tags.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Exif/Extension/Tags.php';
 
 /**
  * An Atom entry containing EXIF metadata.

@@ -24,7 +24,7 @@
 /**
  * @see Zend_Gdata_Feed
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Feed.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Feed.php';
 
 /**
  * Describes a Book Search volume feed

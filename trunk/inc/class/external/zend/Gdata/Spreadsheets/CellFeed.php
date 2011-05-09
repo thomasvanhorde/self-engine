@@ -24,17 +24,17 @@
 /**
  * @see Zend_Gdata_Feed
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Feed.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Feed.php';
 
 /**
  * @see Zend_Gdata_Spreadsheets_Extension_RowCount
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Spreadsheets/Extension/RowCount.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Spreadsheets/Extension/RowCount.php';
 
 /**
  * @see Zend_Gdata_Spreadsheets_Extension_ColCount
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Spreadsheets/Extension/ColCount.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Spreadsheets/Extension/ColCount.php';
 
 /**
  *

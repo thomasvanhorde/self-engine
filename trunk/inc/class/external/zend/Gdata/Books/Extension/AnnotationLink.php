@@ -24,7 +24,7 @@
 /**
  * @see Zend_Gdata_Books_Extension_BooksLink
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Books/Extension/BooksLink.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Books/Extension/BooksLink.php';
 
 /**
  * Describes an annotation link

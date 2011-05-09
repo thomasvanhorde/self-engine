@@ -24,17 +24,17 @@
 /**
  * @see Zend_Gdata_eed
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Feed.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Feed.php';
 
 /**
  * @see Zend_Gdata_Geo
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Geo.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Geo.php';
 
 /**
  * @see Zend_Gdata_Geo_Entry
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Geo/Entry.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Geo/Entry.php';
 
 /**
  * Feed for Gdata Geographic data entries.

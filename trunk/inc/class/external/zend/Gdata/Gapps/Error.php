@@ -25,7 +25,7 @@
 /**
  * Zend_Gdata_App_Base
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/App/Base.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Base.php';
 
 /**
  * Gdata Gapps Error class. This class is used to represent errors returned

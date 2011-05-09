@@ -24,12 +24,12 @@
 /**
  * @see Zend_Gdata_Query
  */
-require_once('Zend/Gdata/Query.php');
+require_once('zend/Gdata/Query.php');
 
 /**
  * @see Zend_Gdata_Gbase_Query
  */
-require_once('Zend/Gdata/Gbase/Query.php');
+require_once('zend/Gdata/Gbase/Query.php');
 
 
 /**

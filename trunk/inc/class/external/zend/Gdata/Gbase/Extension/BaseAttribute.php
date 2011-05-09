@@ -23,7 +23,7 @@
 /**
  * @see Zend_Gdata_App_Extension_Element
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/App/Extension/Element.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Extension/Element.php';
 
 /**
  * Concrete class for working with ItemType elements.

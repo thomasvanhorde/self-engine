@@ -24,62 +24,62 @@
 /**
  * @see Zend_Gdata_Extension
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Extension.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension.php';
 
 /**
  * @see Zend_Gdata_Exif
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Exif.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Exif.php';
 
 /**
  * @see Zend_Gdata_Exif_Extension_Distance
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Exif/Extension/Distance.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Exif/Extension/Distance.php';
 
 /**
  * @see Zend_Gdata_Exif_Extension_Exposure
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Exif/Extension/Exposure.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Exif/Extension/Exposure.php';
 
 /**
  * @see Zend_Gdata_Exif_Extension_Flash
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Exif/Extension/Flash.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Exif/Extension/Flash.php';
 
 /**
  * @see Zend_Gdata_Exif_Extension_FocalLength
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Exif/Extension/FocalLength.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Exif/Extension/FocalLength.php';
 
 /**
  * @see Zend_Gdata_Exif_Extension_FStop
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Exif/Extension/FStop.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Exif/Extension/FStop.php';
 
 /**
  * @see Zend_Gdata_Exif_Extension_ImageUniqueId
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Exif/Extension/ImageUniqueId.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Exif/Extension/ImageUniqueId.php';
 
 /**
  * @see Zend_Gdata_Exif_Extension_Iso
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Exif/Extension/Iso.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Exif/Extension/Iso.php';
 
 /**
  * @see Zend_Gdata_Exif_Extension_Make
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Exif/Extension/Make.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Exif/Extension/Make.php';
 
 /**
  * @see Zend_Gdata_Exif_Extension_Model
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Exif/Extension/Model.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Exif/Extension/Model.php';
 
 /**
  * @see Zend_Gdata_Exif_Extension_Time
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Exif/Extension/Time.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Exif/Extension/Time.php';
 
 /**
  * Represents the exif:tags element used by the Gdata Exif extensions.

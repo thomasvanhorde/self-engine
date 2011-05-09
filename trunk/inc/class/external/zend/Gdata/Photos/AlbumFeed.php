@@ -24,17 +24,17 @@
 /**
  * @see Zend_Gdata_Photos
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Photos.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Photos.php';
 
 /**
  * @see Zend_Gdata_Feed
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Feed.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Feed.php';
 
 /**
  * @see Zend_Gdata_Photos_AlbumEntry
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Photos/AlbumEntry.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Photos/AlbumEntry.php';
 
 /**
  * Data model for a collection of album entries, usually
@@ -238,7 +238,7 @@ class Zend_Gdata_Photos_AlbumFeed extends Zend_Gdata_Feed
                             $entryClassName = $this->_entryKindClassMapping[$category->term];
                             break;
                     } else {
-                        require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/App/Exception.php';
+                        require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Exception.php';
                         throw new Zend_Gdata_App_Exception('Entry is missing kind declaration.');
                     }
                 }

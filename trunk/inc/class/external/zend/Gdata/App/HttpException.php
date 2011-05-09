@@ -24,12 +24,12 @@
 /**
  * Zend_Gdata_App_Exception
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/App/Exception.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Exception.php';
 
 /**
  * Zend_Http_Client_Exception
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Http/Client/Exception.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Http/Client/Exception.php';
 
 /**
  * Gdata exceptions

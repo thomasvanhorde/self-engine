@@ -24,17 +24,17 @@
 /**
  * @see Zend_Gdata_Extension
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Extension.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension.php';
 
 /**
  * @see Zend_Gdata_Extension_EntryLink
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Extension/EntryLink.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension/EntryLink.php';
 
 /**
  * @see Zend_Gdata_Extension_OriginalEvent
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Extension/OriginalEvent.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension/OriginalEvent.php';
 
 /**
  * Data model class to represent an entry's recurrenceException

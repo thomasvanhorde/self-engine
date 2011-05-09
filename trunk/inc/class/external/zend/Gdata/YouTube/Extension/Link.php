@@ -23,12 +23,12 @@
 /**
  * @see Zend_Gdata_App_Extension_Link
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/App/Extension/Link.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Extension/Link.php';
 
 /**
  * @see Zend_Gdata_YouTube_Extension_Token
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/YouTube/Extension/Token.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/YouTube/Extension/Token.php';
 
 
 /**
