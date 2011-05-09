@@ -8,7 +8,7 @@ class Media_Youtube_extension {
         if(isset($data->file->dataYoutube->id)){
             $video = BASE::Load(CLASS_YOUTUBE)->getVideoEntry($data->file->dataYoutube->id, true);
             $video->setVideoTitle($title);
-            $this->_yt->updateEntry($video);
+            BASE::Load(CLASS_YOUTUBE)->updateEntry($video);
         }
     }
 
