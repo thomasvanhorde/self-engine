@@ -24,32 +24,32 @@
 /**
  * @see Zend_Gdata_YouTube
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/YouTube.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/YouTube.php';
 
 /**
  * @see Zend_Gdata_Entry
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Entry.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Entry.php';
 
 /**
  * @see Zend_Gdata_Extension_FeedLink
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Extension/FeedLink.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension/FeedLink.php';
 
 /**
  * @see Zend_Gdata_YouTube_Extension_Description
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/YouTube/Extension/Description.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/YouTube/Extension/Description.php';
 
 /**
  * @see Zend_Gdata_YouTube_Extension_PlaylistId
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/YouTube/Extension/PlaylistId.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/YouTube/Extension/PlaylistId.php';
 
 /**
  * @see Zend_Gdata_YouTube_Extension_CountHint
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/YouTube/Extension/CountHint.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/YouTube/Extension/CountHint.php';
 
 /**
  * Represents the YouTube video playlist flavor of an Atom entry
@@ -218,7 +218,7 @@ class Zend_Gdata_YouTube_PlaylistListEntry extends Zend_Gdata_Entry
     {
         if (($this->getMajorProtocolVersion() == null) ||
             ($this->getMajorProtocolVersion() == 1)) {
-            require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/App/VersionException.php';
+            require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/VersionException.php';
             throw new Zend_Gdata_App_VersionException('The yt:countHint ' .
                 'element is not supported in versions earlier than 2.');
         } else {
@@ -236,7 +236,7 @@ class Zend_Gdata_YouTube_PlaylistListEntry extends Zend_Gdata_Entry
     {
         if (($this->getMajorProtocolVersion() == null) ||
             ($this->getMajorProtocolVersion() == 1)) {
-            require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/App/VersionException.php';
+            require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/VersionException.php';
             throw new Zend_Gdata_App_VersionException('The yt:playlistId ' .
                 'element is not supported in versions earlier than 2.');
         } else {

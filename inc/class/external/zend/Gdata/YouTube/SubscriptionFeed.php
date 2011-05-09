@@ -24,12 +24,12 @@
 /**
  * @see Zend_Gdata_Media_Feed
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Media/Feed.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Media/Feed.php';
 
 /**
  * @see Zend_Gdata_YouTube_SubscriptionEntry
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/YouTube/SubscriptionEntry.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/YouTube/SubscriptionEntry.php';
 
 /**
  * The YouTube video subscription list flavor of an Atom Feed with media support

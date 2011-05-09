@@ -24,27 +24,27 @@
 /**
  * @see Zend_Gdata_Entry
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Entry.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Entry.php';
 
 /**
  * @see Zend_Gdata_Extension_FeedLink
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Extension/FeedLink.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension/FeedLink.php';
 
 /**
  * @see Zend_Gdata_Gapps_Extension_Login
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Gapps/Extension/Login.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Gapps/Extension/Login.php';
 
 /**
  * @see Zend_Gdata_Gapps_Extension_Name
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Gapps/Extension/Name.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Gapps/Extension/Name.php';
 
 /**
  * @see Zend_Gdata_Gapps_Extension_Quota
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Gapps/Extension/Quota.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Gapps/Extension/Quota.php';
 
 /**
  * Data model class for a Google Apps User Entry.

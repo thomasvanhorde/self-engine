@@ -24,12 +24,12 @@
 /**
  * @see Zend_Gdata_Feed
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Feed.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Feed.php';
 
 /**
  * @see Zend_Gdata_Gapps_EmailListEntry
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Gapps/EmailListEntry.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Gapps/EmailListEntry.php';
 
 /**
  * Data model for a collection of Google Apps email list entries, usually

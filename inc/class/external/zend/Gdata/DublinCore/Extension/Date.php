@@ -24,7 +24,7 @@
 /**
  * @see Zend_Gdata_Extension
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Extension.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension.php';
 
 /**
  * Point or period of time associated with an event in the lifecycle of the

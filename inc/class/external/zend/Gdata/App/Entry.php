@@ -24,37 +24,37 @@
 /**
  * @see Zend_Gdata_App_FeedEntryParent
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/App/FeedEntryParent.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/FeedEntryParent.php';
 
 /**
  * @see Zend_Gdata_App_Extension_Content
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/App/Extension/Content.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Extension/Content.php';
 
 /**
  * @see Zend_Gdata_App_Extension_Edited
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/App/Extension/Edited.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Extension/Edited.php';
 
 /**
  * @see Zend_Gdata_App_Extension_Published
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/App/Extension/Published.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Extension/Published.php';
 
 /**
  * @see Zend_Gdata_App_Extension_Source
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/App/Extension/Source.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Extension/Source.php';
 
 /**
  * @see Zend_Gdata_App_Extension_Summary
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/App/Extension/Summary.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Extension/Summary.php';
 
 /**
  * @see Zend_Gdata_App_Extension_Control
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/App/Extension/Control.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Extension/Control.php';
 
 /**
  * Concrete class for working with Atom entries.

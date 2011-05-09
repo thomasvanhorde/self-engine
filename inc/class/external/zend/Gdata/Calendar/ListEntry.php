@@ -24,43 +24,43 @@
 /**
  * @see Zend_Gdata_Entry
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Entry.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Entry.php';
 
 /**
  * @see Zend_Calendar_Extension_AccessLevel
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Calendar/Extension/AccessLevel.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Calendar/Extension/AccessLevel.php';
 
 /**
  * @see Zend_Calendar_Extension_Color
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Calendar/Extension/Color.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Calendar/Extension/Color.php';
 
 /**
  * @see Zend_Calendar_Extension_Hidden
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Calendar/Extension/Hidden.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Calendar/Extension/Hidden.php';
 
 /**
  * @see Zend_Calendar_Extension_Selected
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Calendar/Extension/Selected.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Calendar/Extension/Selected.php';
 
 /**
  * @see Zend_Gdata_Extension_EventStatus
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Extension/EventStatus.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension/EventStatus.php';
 
 /**
  * @see Zend_Gdata_Extension_Visibility
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Extension/Visibility.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension/Visibility.php';
 
 
 /**
  * @see Zend_Extension_Where
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Extension/Where.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension/Where.php';
 
 /**
  * Represents a Calendar entry in the Calendar data API meta feed of a user's

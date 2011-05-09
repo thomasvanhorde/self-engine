@@ -24,22 +24,22 @@
 /**
  * @see Zend_Gdata_App_Extension
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/App/Extension.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Extension.php';
 
 /**
  * @see Zend_Gdata_App_Extension_Name
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/App/Extension/Name.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Extension/Name.php';
 
 /**
  * @see Zend_Gdata_App_Extension_Email
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/App/Extension/Email.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Extension/Email.php';
 
 /**
  * @see Zend_Gdata_App_Extension_Uri
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/App/Extension/Uri.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Extension/Uri.php';
 
 /**
  * Base class for people (currently used by atom:author, atom:contributor)

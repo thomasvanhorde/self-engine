@@ -24,12 +24,12 @@
 /**
  * @see Zend_Gdata_Feed
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Feed.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Feed.php';
 
 /**
  * @see Zend_Gdata_Extension_Timezone
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Calendar/Extension/Timezone.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Calendar/Extension/Timezone.php';
 
 /**
  * Data model for a Google Calendar feed of events

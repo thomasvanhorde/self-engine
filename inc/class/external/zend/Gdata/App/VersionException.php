@@ -24,7 +24,7 @@
 /**
  * Zend_Gdata_App_Exception
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/App/Exception.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/Exception.php';
 
 /**
  * Gdata APP exceptions

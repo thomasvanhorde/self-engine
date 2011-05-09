@@ -24,12 +24,12 @@
 /**
  * @see Zend_Gdata_feed
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Feed.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Feed.php';
 
 /**
  * @see Zend_Gdata_YouTube_CommentEntry
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/YouTube/CommentEntry.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/YouTube/CommentEntry.php';
 
 /**
  * The YouTube comments flavor of an Atom Feed

@@ -24,17 +24,17 @@
 /**
  * @see Zend_Gdata_eed
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Feed.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Feed.php';
 
 /**
  * @see Zend_Gdata_Media
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Media.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Media.php';
 
 /**
  * @see Zend_Gdata_Media_Entry
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Media/Entry.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Media/Entry.php';
 
 /**
  * The Gdata flavor of an Atom Feed with media support

@@ -23,12 +23,12 @@
 /**
  * @see Zend_Gdata_Entry
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Entry.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Entry.php';
 
 /**
  * @see Zend_Gdata_Extension
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Extension.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension.php';
 
 
 /**

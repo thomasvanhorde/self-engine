@@ -24,7 +24,7 @@
 /**
  * @see Zend_Gdata_Gbase_Entry
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Gbase/Entry.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Gbase/Entry.php';
 
 /**
  * Concrete class for working with Snippet entries.

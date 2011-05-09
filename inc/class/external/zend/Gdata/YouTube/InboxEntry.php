@@ -24,27 +24,27 @@
 /**
  * @see Zend_Gdata_Media_Entry
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Media/Entry.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Media/Entry.php';
 
 /**
  * @see Zend_Gdata_Extension_Rating
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Extension/Rating.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension/Rating.php';
 
 /**
  * @see Zend_Gdata_Extension_Comments
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/Extension/Comments.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/Extension/Comments.php';
 
 /**
  * @see Zend_Gdata_YouTube_Extension_Statistics
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/YouTube/Extension/Statistics.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/YouTube/Extension/Statistics.php';
 
 /**
  * @see Zend_Gdata_YouTube_Extension_Description
  */
-require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/YouTube/Extension/Description.php';
+require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/YouTube/Extension/Description.php';
 
 
 /**
@@ -179,7 +179,7 @@ class Zend_Gdata_YouTube_InboxEntry extends Zend_Gdata_Media_Entry
     public function getDescription()
     {
         if ($this->getMajorProtocolVersion() == 2) {
-            require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/App/VersionException.php';
+            require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/VersionException.php';
             throw new Zend_Gdata_App_VersionException('The getDescription ' .
                 ' method is only supported in version 1 of the YouTube ' .
                 'API.');
@@ -199,7 +199,7 @@ class Zend_Gdata_YouTube_InboxEntry extends Zend_Gdata_Media_Entry
     public function setDescription($description = null)
     {
         if ($this->getMajorProtocolVersion() == 2) {
-            require_once  ENGINE_URL.FOLDER_CLASS_EXT.'Zend/Gdata/App/VersionException.php';
+            require_once  ENGINE_URL.FOLDER_CLASS_EXT.'zend/Gdata/App/VersionException.php';
             throw new Zend_Gdata_App_VersionException('The setDescription ' .
                 ' method is only supported in version 1 of the YouTube ' .
                 'API.');
