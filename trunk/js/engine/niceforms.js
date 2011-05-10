@@ -326,9 +326,9 @@ function textarea(el) { //extend Textareas
 		var top = this.parentNode;
 		if(this.previousSibling) {var where = this.previousSibling;}
 		else {var where = top.childNodes[0];}
-		if(!jQuery(el).hasClass('wysiwyg')) top.insertBefore(el.topRight, where);
-		if(!jQuery(el).hasClass('wysiwyg')) top.insertBefore(el.right, where);
-		if(!jQuery(el).hasClass('wysiwyg')) top.insertBefore(el.bottomRight, where);
+		if(!jQuery(el).hasClass('noNiceForm')) top.insertBefore(el.topRight, where);
+		if(!jQuery(el).hasClass('noNiceForm')) top.insertBefore(el.right, where);
+		if(!jQuery(el).hasClass('noNiceForm')) top.insertBefore(el.bottomRight, where);
 		this.topRight.appendChild(this.topLeft);
 		this.right.appendChild(this.left);
 		this.right.appendChild(this);
