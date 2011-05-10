@@ -100,3 +100,5 @@ select, input, textarea, button {outline:none; resize:none;}
 .niceform .media {overflow:hidden;}
 .niceform .media .select { height: 15px;line-height: 18px;float: left;margin-left: 5px !important;}
 
+form.niceform .hidden {display:none;}
+form.niceform .yui-editor-container{line-height: 15px;}

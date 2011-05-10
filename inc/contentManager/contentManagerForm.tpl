@@ -7,10 +7,15 @@
 
 <script type="text/javascript" src="{$ENGINE_RESSOURCE}js/admin/jquery.nyroModal.custom.min.js"></script>
 <script type="text/javascript" src="{$ENGINE_RESSOURCE}js/admin/jquery.nyroModal.ie6.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?2.9.0/build/assets/skins/sam/skin.css"> 
+<script type="text/javascript" src="http://yui.yahooapis.com/combo?2.9.0/build/yahoo-dom-event/yahoo-dom-event.js&2.9.0/build/animation/animation-min.js&2.9.0/build/element/element-min.js&2.9.0/build/container/container-min.js&2.9.0/build/menu/menu-min.js&2.9.0/build/button/button-min.js&2.9.0/build/editor/editor-min.js"></script>
+<script type="text/javascript" src="{$ENGINE_RESSOURCE}js/engine/yui.wysiwyg.js"></script>
+
 <link rel="stylesheet" href="{$ENGINE_RESSOURCE}themes/admin/nyroModal/nyroModal.css" type="text/css" media="screen" />
 {/if}
 
-<form method="post" class="validity niceform" id="form_{$formUID}">
+<form method="post" class="validity niceform yui-skin-sam" id="form_{$formUID}">
     <fieldset>
         <legend>
             {if $id==''}
@@ -102,7 +107,8 @@
 
                         {* textarea wysiwyg *}
                         {if $refT == '21'}
-                            <textarea {if $hidden}style="display:none;"{/if} rows="5" cols="60" class="{if $element->requis}require{/if} wysiwyg" id="{$uid}" name="{$uid}" id="{$uid}" >{$data->$uid}{if $valueDefaut != false}{$valueDefaut}{/if}</textarea>
+                            <textarea {if $hidden}style="display:none;"{/if} rows="20" cols="100" class="{if $element->requis}require{/if} yui_wysiwyg noNiceForm" id="{$uid}" name="{$uid}" id="{$uid}" >{$data->$uid}{if $valueDefaut != false}{$valueDefaut}{/if}</textarea>
+                            <script type="text/javascript">var myEditor = new YAHOO.widget.Editor('{$uid}', wysiwygConfig);  myEditor.render();</script>
                         {/if }
 
                         {* date *}
@@ -128,9 +134,9 @@
                         {* media *}
                         {if $refT == '40'}
                             <div {if $hidden}style="display:none;"{/if} class="media">
-                                <input class="{if $element->requis}require{/if}" type="text" name="{$uid}" value="{$data->$uid}{if $valueDefaut != false}{$valueDefaut}{/if}"/>
-                                <a href="{$SYS_FOLDER}admin/content-manager/contenus/get-media" class="select">Select</a>
+                                <input class="hidden {if $element->requis}require{/if}" type="text" name="{$uid}" value="{$data->$uid}{if $valueDefaut != false}{$valueDefaut}{/if}"/>
                             </div>
+                            <a href="{$SYS_FOLDER}admin/content-manager/contenus/get-media" class="mediaSelect">Select</a>
                         {/if }
 
                         {* select *}
@@ -202,14 +208,23 @@
             });
 
 
-           jQuery('.media .select')
-                   .nyroModal()
-                   .click(function(){
-                        mediaSelect = jQuery(this).parents('.media').find('input');
-                   });
+        jQuery('.mediaSelect')
+                .nyroModal()
+                .click(function(){
+                     mediaSelect = jQuery(this).parent().find('input');
+                });
+
+        jQuery('.hidden').parents('.media').hide();
 
         });
     </script>
+
+<style>
+    .yui-toolbar-group-undoredo h3, .yui-toolbar-group-insertitem h3, .yui-toolbar-group-indentlist h3 {
+    width: 100px;
+}
+</style>
 {/literal}
+
 
 {/strip}
