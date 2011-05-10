@@ -138,12 +138,12 @@ $(function () {
 
     $('#mediatheque li a').live('click', function() {
         nodeREL = jQuery(this).parent().attr('rel');
-        if(nodeREL != "folder") {
+     //   if(nodeREL != "folder") {
             nodeID = jQuery(this).parent().attr('id').replace("node_","");
             jQuery('#info')
                     .attr('href','get-preview/'+nodeID+'/')
                     .nyroModal();
-        }
+     //   }
     });
 
 

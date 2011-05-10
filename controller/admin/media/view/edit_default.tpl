@@ -17,6 +17,9 @@
                 lire le pdf
             </a>
         {break}
+        {case 'folder'}
+            <h3>{$media->data}</h3>
+        {break}
     {/switch}
 
     <br /><br />
