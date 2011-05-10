@@ -107,8 +107,44 @@
 
                         {* textarea wysiwyg *}
                         {if $refT == '21'}
-                            <textarea {if $hidden}style="display:none;"{/if} rows="20" cols="100" class="{if $element->requis}require{/if} yui_wysiwyg noNiceForm" id="{$uid}" name="{$uid}" id="{$uid}" >{$data->$uid}{if $valueDefaut != false}{$valueDefaut}{/if}</textarea>
-                            <script type="text/javascript">var myEditor = new YAHOO.widget.Editor('{$uid}', wysiwygConfig);  myEditor.render();</script>
+                            <textarea {if $hidden}style="display:none;"{/if} rows="20" cols="100" class="{if $element->requis}require{/if} yui_wysiwyg noNiceForm" id="{$uid}_editor">{$data->$uid}{if $valueDefaut != false}{$valueDefaut}{/if}</textarea>
+
+                            <div style="position:absolute;top:-1000px;">
+                                <textarea {if $hidden}style="display:none;"{/if} rows="20" cols="100" class="{if $element->requis}require{/if} " id="{$uid}" name="{$uid}" >{$data->$uid}{if $valueDefaut != false}{$valueDefaut}{/if}</textarea>
+                            </div>
+                            <div class="">
+                            <script type="text/javascript">
+                                var myEditor_{$uid} = new YAHOO.widget.Editor('{$uid}_editor', wysiwygConfig);
+
+                                myEditor_{$uid}{literal}.on('toolbarLoaded', function() {
+                                    this.toolbar.on('insertimageClick', function() {
+                                        var _sel = this._getSelectedElement();
+                                        //If the selected element is an image, do the normal thing so they can manipulate the image
+                                        if (_sel && _sel.tagName && (_sel.tagName.toLowerCase() == 'img')) {
+                                        } else {
+                                            win = window.open({/literal}'{$SYS_FOLDER}admin/content-manager/contenus/get-media-rte/{$uid}_editor'{literal}, 'IMAGE_BROWSER',
+                                                'left=20,top=20,width=500,height=500,toolbar=0,resizable=0,status=0');
+                                            if (!win) {
+                                                alert('La fenêtre à été bloqué, desactivez le blocage');
+                                            }
+                                            //This is important.. Return false here to not fire the rest of the listeners
+                                            return false;
+                                        }
+                                    }, this, true);
+                                }, {/literal}myEditor_{$uid}, true);
+                                myEditor_{$uid}{literal}.on('afterOpenWindow', function() {
+                                    var url = Dom.get(myEditor.get('id') + '_insertimage_url');
+                                    if (url) {
+                                        url.disabled = true;
+                                    }
+                                }, {/literal}myEditor_{$uid}{literal}, true);
+
+                                YAHOO.util.Event.on({/literal}"form_{$formUID}", "submit", onReviewSubmit_{$uid}{literal});
+                                function {/literal}onReviewSubmit_{$uid}{literal}(p_oEvent) { jQuery('#{/literal}{$uid}{literal}').val({/literal}myEditor_{$uid}{literal}.getEditorHTML()); }
+                                {/literal}myEditor_{$uid}{literal}.render();
+                            </script>
+                            {/literal}
+                            </div>
                         {/if }
 
                         {* date *}

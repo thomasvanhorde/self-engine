@@ -116,6 +116,12 @@
                     <method>getMedia</method>
                     <layout>vide.tpl</layout>
                 </get-media>
+                <get-media-rte>
+                    <title>Liste des medias</title>
+                    <controller>admin/content</controller>
+                    <method>getMediaRTE</method>
+                    <layout>vide.tpl</layout>
+                </get-media-rte>
                 <title>Gestion de contenu</title>
                 <controller>admin/content</controller>
                 <layout>admin.tpl</layout>

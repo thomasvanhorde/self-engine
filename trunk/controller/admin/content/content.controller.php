@@ -74,6 +74,13 @@ class content_controller extends Component{
         $this->_view->addBlock('data', 'admin_ContentManager_contentMedia.tpl');
     }
 
+    public function getMediaRTE(){
+        $mediaData = $this->_media->load(true);
+        $this->_view->assign('elementID',$_GET['param'][0]);
+        $this->_view->assign('mediaData',$mediaData);
+        $this->_view->addBlock('data', 'admin_ContentManager_contentMediaRTE.tpl');
+    }
+
 
     public function POST_contentEdit($data){
         if(empty($data['id'])){ // new

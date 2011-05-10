@@ -1,6 +1,7 @@
 var wysiwygConfig = {
     toolbar: {
-        collapse: true,
+        animate: true,
+        dompath: true,
         titlebar: 'Edition de contenu',
         draggable: false,
         buttonType: 'advanced',
