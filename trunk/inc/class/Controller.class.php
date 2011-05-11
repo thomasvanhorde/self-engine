@@ -36,7 +36,10 @@ class Controller {
 
             // Call view instance
             $ControlerObj = new $ControllerName;
-            $ControlerObj->setConstruct();
+            if(method_exists($ControlerObj,'setConstruct'))
+                $ControlerObj->setConstruct();
+            else
+                Base::Load(CLASS_CORE_MESSAGE)->Critic('ERR_EXTENDS_CONTROLLER');
             
 			if(!$method)
 				$method = INFOS_METHOD_DEFAUT;
