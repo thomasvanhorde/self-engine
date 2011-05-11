@@ -9,6 +9,7 @@
     <message id="ERR_LOAD_CLASS_LOADER">Impossible d'inclure la class ClassLoader</message>
     <message id="ERR_LOAD_CLASS_SMARTY">Impossible d'inclure Smarty</message>
     <message id="ERR_LOAD_CLASS_PDF">Impossible d'inclure la class Html2PDF</message>
+    <message id="ERR_EXTENDS_CONTROLLER">Erreur, les contrôleurs doivent être étendu de Component</message>
     <message id="MESS_BASE_START">Base::start()</message>
     <message id="MESS_BASE_END">End Base::start()</message>
     <message id="MESS_BLOCK">Block</message>

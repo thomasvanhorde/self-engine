@@ -43,15 +43,18 @@ class Media extends Model{
         return (object)$data;
     }
 
-    public function get($id, $byParent = true){
+    public function get($id, $byParent = true, $json = true){
         if($byParent)
             $data = $this->assignIdParent(json_decode($this->load(), false)->media);
         else
             $data = $this->assignId(json_decode($this->load(), false)->media);
 
         if(isset($data->$id))
-            return json_encode($data->$id);
-
+            if($json)
+                return json_encode($data->$id);
+            else
+                return $data->$id;
+        
         return false;
     }
 
