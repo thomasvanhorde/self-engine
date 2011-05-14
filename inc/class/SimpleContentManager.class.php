@@ -40,9 +40,9 @@ class SimpleContentManager {
      * @param bool $withRelation
      * @return object data with object relation
      */
-    public function get($object_id, $withRelation = false){
-        if($withRelation)
-            return $this->_contentManager->findOneWithChild($object_id);
+    public function get($object_id, $withRelation = false, $forceRelation = false){
+        if($withRelation || $forceRelation)
+            return $this->_contentManager->findOneWithChild($object_id, $forceRelation);
         else
             return $this->_contentManager->findOne($object_id);
     }
