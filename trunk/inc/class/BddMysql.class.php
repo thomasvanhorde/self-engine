@@ -70,7 +70,7 @@ class BddMysqlCM {
                                         `value`
                                         )
                                         VALUES (
-                                        NULL ,  '0',  '".$ObjectId."',  '".$key."',  '".$data."'
+                                        NULL ,  '0',  '".$ObjectId."',  '".$key."',  '".addslashes($data)."'
                                         );");
                     }
                     else{

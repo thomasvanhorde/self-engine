@@ -70,6 +70,11 @@ class ContentManager {
 
         $data = array();
         foreach($dataCM as $a){
+            foreach($a as $k => $dataTest){
+                if(preg_match("/node_/i", $dataTest)){
+                    $a[$k] = Base::Load(CLASS_MEDIA)->get($dataTest, false, false);
+                }
+            }
             $data[(string)$a[ATTRIBUTE_ID]] = $a;
         }
 
@@ -181,13 +186,16 @@ class ContentManager {
      * @param  $id
      * @return null
      */
-    function findOneWithChild($id){
+    function findOneWithChild($id, $forceRelation = false){
         $data = (object)$this->findOne($id);
         foreach($data as $ref => $value){
             if(strlen($value) == strlen('4d76229711e18d9005000031') && $ref != ATTRIBUTE_ID){
                 $tryRef = $this->findOne($value);
                 if($tryRef != null)
                     $data->$ref = (object)$tryRef;
+            }
+            if($forceRelation && preg_match("/node_/i", $value)){
+                $data->$ref = Base::Load(CLASS_MEDIA)->get($value, false, false);
             }
         }
         $lock = COMPILED_DATA;
