@@ -87,9 +87,16 @@ class BddMysqlCM {
         return $this;
     }
 
-    public function find(){
+    public function find($param = false){
+        if(!$param)
         $data = $this->request('SELECT * FROM '.self::Table_object.' as CM, '.self::Table_data.' as CMD
                                 WHERE CM._id = CMD.contentmanager_id');
+        else {
+            if(isset($param['collection'])){
+                $data = $this->request('SELECT * FROM '.self::Table_object.' as CM, '.self::Table_data.' as CMD
+                                        WHERE CM._id = CMD.contentmanager_id AND CM.collection = "'.$param['collection'].'"');
+            }
+        }
         return (object)$data;
     }
 
