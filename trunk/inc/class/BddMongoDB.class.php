@@ -1,4 +1,11 @@
 <?php
+/**
+* Engine Class Bdd MongoDB
+* Init db connexion
+*
+* @author: Thomas VAN HORDE <thomas.vanhorde@gmail.com>
+* @version: 1
+*/
 
 class BddMongoDB {
 

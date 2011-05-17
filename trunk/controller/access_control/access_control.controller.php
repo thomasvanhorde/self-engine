@@ -1,11 +1,19 @@
 <?php
 
+/**
+* Fichier de contrôlle d'accès
+*
+* @author: Thomas VAN HORDE <thomas.vanhorde@gmail.com>
+* @version: 1
+*/
+
 class access_control_controller extends Component{
 
-    public function  __construct(){ }
-
-    public function defaut(){}
-
+    /**
+     * Test if login/mpd is correct and redirect
+     * @param  $data array  data post
+     * @return void
+     */
     public function POST_connect($data){
         if(isset($data['user_name']) && isset($data['user_password'])){
             // To redirect 
@@ -47,6 +55,9 @@ class access_control_controller extends Component{
         }
     }
 
+    /** Disconnect user
+     * @return void
+     */
     public  function disconnect(){
         unset($_SESSION[SESSION_ACCESS_CONTROL]);    
     }

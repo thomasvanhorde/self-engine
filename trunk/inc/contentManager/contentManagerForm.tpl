@@ -173,6 +173,7 @@
                                 <input class="hidden {if $element->requis}require{/if}" type="text" name="{$uid}" value="{$data->$uid}{if $valueDefaut != false}{$valueDefaut}{/if}"/>
                             </div>
                             <a href="{$SYS_FOLDER}admin/content-manager/contenus/get-media" class="mediaSelect">Select</a>
+                            <div id="media_apercu_{$uid}"></div>
                         {/if }
 
                         {* select *}
