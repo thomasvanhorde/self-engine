@@ -1,13 +1,29 @@
 <?php
 
+/**
+* Controlleur content manager/content
+* Edition du contenu du content Manager
+*
+* @author: Thomas VAN HORDE <thomas.vanhorde@gmail.com>
+* @version: 1
+*/
+
 class content_controller extends Component{
 
+
+    /**
+     * Init class need
+     */
     public  function __construct(){
         $this->_contentManager = Base::Load(CLASS_CONTENT_MANAGER);
         $this->_simpleCM = Base::Load(CLASS_SIMPLE_CM);
         $this->_media = Base::Load(CLASS_MEDIA);
     }
 
+    /**
+     * Routage des demandes
+     * @return void
+     */
     public  function defaut(){
         if(isset($_GET['param'][0])){
             if($_GET['param'][0] == 'ajouter')  // Ajouter
@@ -23,6 +39,10 @@ class content_controller extends Component{
 
     }
 
+    /**
+     * Listing de l'ensemble des contenus
+     * @return void
+     */
     public  function listAll(){
         $data = array();
         $struct = $this->_contentManager->getStructAll();
@@ -50,30 +70,54 @@ class content_controller extends Component{
         $this->_view->addBlock('content', 'admin_ContentManager_contentList.tpl');
     }
 
+    /**
+     * Efface un contenu en fonction de son ID
+     * @param  $id string   Id du contenu
+     * @return void
+     */
     public  function remove($id){
         if($this->_contentManager->remove($id))
             header('location: ../../');
         exit();
     }
 
+    /**
+     * Edite un contenu en fonction de son ID
+     * @param  $id string   Id du contenu
+     * @return void
+     */
     public function edit($id){
         $content = $this->_contentManager->findOne($id);
         $this->_simpleCM->setCollection($content['collection']);
         $this->_simpleCM->editForm('content', $id, 'contentEdit');
     }
 
-
+    /**
+     * Ajoute un contenu en fonction de son ID type
+     * @param  $type string   Id du type
+     * @return void
+     */
     public function add($type){
         $this->_simpleCM->setCollection($type);
         $this->_simpleCM->addForm('content', 'contentEdit');
     }
 
+    /**
+     * Liste les medias enregistré dans la médiathèque
+     * Utilisé lors de l'édition d'un média au sein d'un select
+     * @return void
+     */
     public function getMedia(){
         $mediaData = $this->_media->load(true);
         $this->_view->assign('mediaData',$mediaData);
         $this->_view->addBlock('data', 'admin_ContentManager_contentMedia.tpl');
     }
 
+    /**
+     * Liste les medias enregistré dans la médiathèque
+     * Utilisé lors de l'édition d'un média dans le RTE
+     * @return void
+     */
     public function getMediaRTE(){
         $mediaData = $this->_media->load(true);
         $this->_view->assign('elementID',$_GET['param'][0]);
@@ -81,7 +125,11 @@ class content_controller extends Component{
         $this->_view->addBlock('data', 'admin_ContentManager_contentMediaRTE.tpl');
     }
 
-
+    /**
+     * Sauvegarde le contenu d'un formulaire de Content Manager
+     * @param  $data array  Contenu de formulaire
+     * @return void
+     */
     public function POST_contentEdit($data){
         if(empty($data['id'])){ // new
             if($this->_contentManager->save($data))

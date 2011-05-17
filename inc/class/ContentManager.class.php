@@ -1,4 +1,11 @@
 <?php
+/**
+* Class Content Manager
+* <<controlleur class>> extends Component
+*
+* @author: Thomas VAN HORDE <thomas.vanhorde@gmail.com>
+* @version: 1
+*/
 
 define('CONTENT_MANAGER_COLLECTION','ContentManager');
 define('COMPILED_DATA', 'compiled_data');
@@ -12,6 +19,9 @@ class ContentManager {
     var $_type;
     var $_struct;
 
+    /**
+     * Class need
+     */
     function __construct(){
        $this->_type = new ContentType();
        $this->_struct = new ContentStruct();
@@ -20,14 +30,15 @@ class ContentManager {
     }
 
     /***
-     * @return 
+     * return All type input in Struct
      */
     public function getType(){
         return $this->_type->get();
     }
 
     /***
-     * @param bool $structID
+     * Return Struct info
+     * @param int $structID
      * @return 
      */
     public function getStruct($structID = false){
@@ -38,6 +49,7 @@ class ContentManager {
     }
 
     /***
+     * Get Struct list
      * @param bool $structID
      * @return 
      */
@@ -49,6 +61,8 @@ class ContentManager {
     }
 
     /***
+     * Get collection name
+     * Déprécié
      * @param  $id
      * @return string
      */

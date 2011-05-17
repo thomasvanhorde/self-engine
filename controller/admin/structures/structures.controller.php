@@ -1,11 +1,27 @@
 <?php
 
+/**
+* Controlleur content manager/structure
+* Edition de structure du content Manager
+*
+* @author: Thomas VAN HORDE <thomas.vanhorde@gmail.com>
+* @version: 1
+*/
+
 class structures_controller extends Component{
 
+    /**
+     * class need
+     */
     public  function __construct(){
         $this->_contentManager = Base::Load(CLASS_CONTENT_MANAGER);
     }
 
+
+    /**
+     * Routage des demandes
+     * @return void
+     */
     public  function defaut(){
         if(isset($_GET['param'][0])){
             if($_GET['param'][0] == 'ajouter')  // Ajouter
@@ -32,13 +48,21 @@ class structures_controller extends Component{
         }
     }
 
-
+    /**
+     * Supprime une structure type
+     * @param  $uid
+     * @return void
+     */
     public function deleteStruct($uid){
         $uid = $this->_contentManager->_struct->delete($uid);
         header('location: '.$_SERVER['REDIRECT_URL'].'../../');
         exit();
     }
 
+    /**
+     * Crée une nouvelle structure type
+     * @return void
+     */
     public function newStruct(){
         $type = $this->_contentManager->getType();
         $structAll = $this->_contentManager->getStructAll();
@@ -53,10 +77,21 @@ class structures_controller extends Component{
         $this->_view->addBlock('content', 'admin_ContentManager_structEdit.tpl');
     }
 
+    /**
+     * Clone une structure type pour edition
+     * @param  $structID string Id de la structure à cloner
+     * @return void
+     */
     public function cloneStruct($structID){
         $this->_view->assign('clone',true);
         $this->editStruct($structID);
     }
+
+    /**
+     * Edition de structure
+     * @param  $structID string Structure ID
+     * @return void
+     */
     public  function editStruct($structID){
         $data = array();
         $struct = $this->_contentManager->getStructAll($structID);
@@ -84,6 +119,11 @@ class structures_controller extends Component{
         $this->newStruct();
     }
 
+    /**
+     * Enregistrement des modification et nouvelles entrées
+     * @param  $data array  Data post
+     * @return void
+     */
     public function POST_structEdit($data){
         $uid = $this->_contentManager->_struct->save($data);
 

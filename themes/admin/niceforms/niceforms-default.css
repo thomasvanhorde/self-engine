@@ -102,3 +102,4 @@ select, input, textarea, button {outline:none; resize:none;}
 
 form.niceform .hidden {display:none;}
 form.niceform .yui-editor-container{line-height: 15px;}
+form.niceform a.mediaSelect {display: block;margin-top: 8px;}

@@ -1,9 +1,13 @@
 <?php
 
 /**
- *  @author Thomas VAN HORDE
- *  @description Singleton & MVC
- */
+* Engine Class Base
+* Routage des controlleur, class loader, singleton
+*
+* @author: Thomas VAN HORDE <thomas.vanhorde@gmail.com>
+* @version: 1
+*/
+
 
 define('CLASS_LOADER_FILE','ClassLoader.php');
 
