@@ -25,6 +25,7 @@
     define_once('CLASS_MEDIA','Media');
     define_once('CLASS_YOUTUBE','Youtube');
     define_once('CLASS_UPLOAD','Upload');
+    define_once('CLASS_WATERMARK','Watermark');
 
 /*
 	Fin du fichier : class.config.php

@@ -1,5 +1,15 @@
 <?xml version="1.0"?>
 <arborescence>
+    <media>
+        <watermark>
+            <generate>
+                <title>Generate Watermark</title>
+                <controller>admin/media</controller>
+                <method>watermark</method>
+                <layout>vide.tpl</layout>
+            </generate>
+        </watermark>
+    </media>
     <robot.txt>
         <title></title>
         <controller>engine</controller>
