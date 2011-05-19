@@ -2,7 +2,7 @@
 
 /**
  * Class permettant d'ajouter un watermark au photo
- * <img src="{$SYS_FOLDER}media/watermark/generate/{$img->url|base64_encode}" />
+ * <img src="{$SYS_FOLDER}media/watermark/generate/{$img->url|base64_encode}.jpg" />
  *
  * Si l'image n'existe pas, elle est générer par la class,
  * dans le cas contraire, le fichier est appelé directement sans passer par la class
