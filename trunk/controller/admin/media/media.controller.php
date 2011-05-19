@@ -143,4 +143,15 @@ class media_controller extends Component{
         foreach($data['data'] as $key => $value)
             $this->_classMedia->editData($data['nodeID'], $key, $value);
     }
+
+    /**
+     * Générer une watermark (pub) sur une image
+     * @return void
+     */
+    function watermark(){
+        if(isset($_GET['param'][0])){
+            Base::Load(CLASS_WATERMARK)->generate($_GET['param'][0]);
+            exit();
+        }
+    }
 }
