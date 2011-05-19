@@ -16,10 +16,14 @@ class Watermark {
 
     public function generate($src){
 
+        if(preg_match('/.jpg/',$src))
+            $src = substr($src, 0, -4);
+        
         $src = base64_decode($src);
 
+
         header('Content-type: image/jpeg');
-        $imgUrl = "media/watermark/generate/".base64_encode($src);
+        $imgUrl = "media/watermark/generate/".base64_encode($src).'.jpg';
 
         //this will prevent the watermark from showing up in the thumbnail images
         $watermark = imagecreatefrompng(self::watermark);
