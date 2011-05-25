@@ -60,7 +60,7 @@ form.niceform .visible .NFTextareaLeft {height:100%!important;}
 .NFFileNew {position:absolute; top:0px; left:0px; z-index:1;}
 /*Selects*/
 .NFSelect {height:21px; position:absolute; border:1px solid transparent;}
-form.niceform .visible .NFSelect {position: static; width:auto!important;}
+form.niceform .visible .NFSelect {position: static; width:auto!important; margin-top:-5px;}
 form.niceform .hidden .NFSelect, form.niceform .hidden .NFCheck {display:none;}
 .NFSelectLeft {float:left; width:3px; height:21px; background:url(img/select-left.png) no-repeat 0 0; vertical-align:middle;}
 .NFSelectRight {height:21px; width:auto; background:url(img/select-right.png) no-repeat 100% 0; cursor:pointer; font:12px/21px Arial, Helvetica, sans-serif; color:#fff; padding-left:3px; margin-left:3px;}

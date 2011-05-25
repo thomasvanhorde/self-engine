@@ -36,7 +36,6 @@ class structures_controller extends Component{
         else {      // List
             $data = array();
             $struct = $this->_contentManager->getStructAll();
-
             foreach($struct as $idS => $strData){
                 $data[$idS]['locked'] = (string)$strData[@locked];
                 $data[$idS]['name'] = (string)$strData->name;
@@ -130,7 +129,7 @@ class structures_controller extends Component{
         if(isset($data['id']) && !empty($data['id']))
             header('location: '.$_SERVER['REDIRECT_URL']);
         else
-            header('location: '.$_SERVER['REDIRECT_URL'].'../structures/'.$uid.'/');
+            header('location: '.$_SERVER['REDIRECT_URL'].'../'.$uid.'/');
 
         exit();
     }

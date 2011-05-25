@@ -61,6 +61,7 @@ class content_controller extends Component{
             }
             foreach($struct[$idS]->types->type as $chmp){
                 if(isset($chmp->index)){
+                    $data[$idS]['indexName'][] = (string)$chmp->name;
                     $data[$idS]['index'][] = (string)$chmp->id;
                 }
             }

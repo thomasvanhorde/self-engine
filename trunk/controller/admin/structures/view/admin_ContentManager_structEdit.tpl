@@ -9,10 +9,11 @@
 
     
     <label>Nom</label><input name="name" type="text" value="{ $struct.name }{if $clone == 'true' } - clone{/if }" />
-    <label>Description</label><textarea name="description">{ $struct.description }</textarea>
-
+    <br /><br />
+    <label>Description</label><textarea name="description" style="width:400px; height:80px;">{ $struct.description }</textarea>
+    <br /><br />
     <strong>Elements</strong>
-
+    <br /><br />
     <table id="StructList">
 
         <tr> 

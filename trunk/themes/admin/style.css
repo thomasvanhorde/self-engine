@@ -362,7 +362,11 @@ ul.content-box-tabs li a.current {
 #main-content table th {
                 padding: 10px;
                 line-height: 1.3em;
-                }        
+                }
+
+#main-content table th {
+    font-weight:bold;
+}
 				
 #main-content table tfoot td .bulk-actions {
                 padding: 15px 0 5px 0;

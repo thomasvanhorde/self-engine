@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 
 <coremessage>
+    <message id="ERR_DEFAULT_METHOD">Methode defaut() inéxistante</message>
     <message id="ERR_LOAD_CLASS">Impossible de charger la class</message>
     <message id="ERR_LOAD_CLASS_GDATA">Impossible de charger la class Zend Gdata</message>
     <message id="ERR_LOAD_CLASS_UPLOAD">Impossible de charger la class d'upload</message>
