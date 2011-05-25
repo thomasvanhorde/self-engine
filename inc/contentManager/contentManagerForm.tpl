@@ -217,6 +217,7 @@
             {/foreach}
         {/foreach}
 
+    <div style="clear:both;"><strong>*</strong> Obligatoire</div>
 
     </fieldset>
 
@@ -262,6 +263,7 @@
 }
 </style>
 {/literal}
+
 
 
 {/strip}

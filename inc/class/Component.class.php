@@ -13,6 +13,10 @@ class Component {
     
 	public $_view;
 
+    public function defaut(){
+        exit(Base::Load(CLASS_CORE_MESSAGE)->Critic('ERR_DEFAULT_METHOD'));
+    }
+
     public function __construct(){ }
 
     /**

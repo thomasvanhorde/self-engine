@@ -4,7 +4,7 @@
         <br /><h4 name="{$type.name}">{$type.name}</h4>
         <table>
             <tr>
-                {foreach from=$type.index key=kI item=dataI}
+                {foreach from=$type.indexName key=kI item=dataI}
                     <th>{$dataI}</th>
                 {/foreach}
                 <th></th>
@@ -27,6 +27,6 @@
             </tr>
             {/foreach}
         </table>
-        <a href="ajouter/{$k}/#{$type.name}">Nouveau {$type.name}</a><br /><br />
+        <a href="ajouter/{$k}/#{$type.name}">Nouvelle {$type.name}</a><br /><br />
     {/if}
 {/foreach}
