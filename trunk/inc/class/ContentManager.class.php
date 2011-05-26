@@ -103,8 +103,11 @@ class ContentManager {
      * @param bool $now
      * @return object
      */
-    public function getDataNext($collection = false, $filter = 'date', $filter2 = false, $limit = 1, $now = false){
-        return $this->getDataOrder($collection, array($filter, 1), $filter2, $limit, $now);
+    public function getDataNext($collection = false, $filter = false, $filter2 = false, $limit = 1, $now = false){
+        if($filter)
+            return $this->getDataOrder($collection, array($filter, 1), $filter2, $limit, $now);
+        else
+            return $this->getDataOrder($collection, $filter, $filter2, $limit, $now);
     }
 
 
@@ -116,8 +119,11 @@ class ContentManager {
      * @param bool $now
      * @return object
      */
-    public function getDataLast($collection = false, $filter = 'date', $filter2 = false, $limit = 1, $now = false){
-        return $this->getDataOrder($collection, array($filter, 0), $filter2, $limit, $now);
+    public function getDataLast($collection = false, $filter = false, $filter2 = false, $limit = 1, $now = false){
+        if($filter)
+            return $this->getDataOrder($collection, array($filter, 0), $filter2, $limit, $now);
+        else
+            return $this->getDataOrder($collection, $filter, $filter2, $limit, $now);
     }
 
 
@@ -131,7 +137,7 @@ class ContentManager {
      * @param bool $now
      * @return object
      */
-    public function getDataOrder($collection = false, $filter = array('date', 1), $filter2 = false, $limit = 1, $now = false){
+    public function getDataOrder($collection = false, $filter = false, $filter2 = false, $limit = 1, $now = false){
 
         if(!$now)
             $now = (string)date('y/m/d', time() - 3600 * 24);
