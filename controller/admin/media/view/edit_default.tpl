@@ -6,6 +6,7 @@
     {switch $media->attr->rel}
         {case 'image/jpeg'}
         {case 'image/png'}
+        {case 'image/gif'}
             <a href="{$SYS_FOLDER}{$media->file->url}" target="_blank" title="Voir l'original">
                 <h3>{$media->data}</h3>
                 {thumb file=$media->file->url height="50" link="false"}
