@@ -88,6 +88,11 @@
     background-position: 0 0;
 }
 
+.jstree-0 li[rel="image/gif"] > a > .jstree-icon {
+    background-image: url("jpeg-icon.png");
+    background-position: 0 0;
+}
+
 .jstree-0 li[rel="image/png"] > a > .jstree-icon {
     background-image: url("png-icon.png");
     background-position: 0 0;
