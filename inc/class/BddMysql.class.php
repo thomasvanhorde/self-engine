@@ -40,6 +40,9 @@ class BddMysqlCM {
     const Table_data = 'contentmanager_data';
 
     private $_collection;
+    private $_sort;
+    private $_limit;
+
     var $_requestArray;
 
     public function __construct(){}
@@ -150,10 +153,22 @@ class BddMysqlCM {
         $data = $this->request('SELECT * FROM '.self::Table_object.' as CM, '.self::Table_data.' as CMD
                                 WHERE CM._id = CMD.contentmanager_id');
         else {
-            if(isset($param['collection'])){
-                $data = $this->request('SELECT * FROM '.self::Table_object.' as CM, '.self::Table_data.' as CMD
-                                        WHERE CM._id = CMD.contentmanager_id AND CM.collection = "'.$param['collection'].'"');
-            }
+            $request = 'SELECT * FROM '.self::Table_object.' as CM, '.self::Table_data.' as CMD
+                        WHERE CM._id = CMD.contentmanager_id';
+
+            /* Listes des parametres */
+            if(isset($param['collection']))
+                $request .= ' AND CM.collection = "'.$param['collection'].'"';
+
+            if(isset($param['sort']))
+                $request .= $param['sort'];
+
+            if(isset($param['limit']))
+                $request .= $param['limit'];
+
+         //   exit($request);
+            
+            $data = $this->request($request);
         }
         return (object)$data;
     }
@@ -195,5 +210,30 @@ class BddMysqlCM {
         }
         return (array)$myData;
     }
+
+    public function execute(){
+        $param = array();
+        if(!empty($this->_sort)){
+            $param['sort'] = ' ORDER BY '.$this->_sort[0];
+            if($this->_sort[1] == 1)
+                $param['sort'] .= ' ASC';
+            else
+                $param['sort'] .= ' DESC';
+        }
+        if(!empty($this->_limit)){
+            $param['limit'] = ' LIMIT '.$this->_limit;
+        }
+
+
+        return $this->find($param);
+    }
+
+    public function setSort($filter){
+        $this->_sort = $filter;
+    }
     
+    public function setLimit($limit){
+        $this->_limit = $limit;
+    }
+
 }

@@ -95,6 +95,109 @@ class ContentManager {
         return $data;
     }
 
+    /**
+     * Retourne les n prochain objets d'une collection
+     * @param bool $collection
+     * @param string $filter
+     * @param int $limit
+     * @param bool $now
+     * @return object
+     */
+    public function getDataNext($collection = false, $filter = 'date', $filter2 = false, $limit = 1, $now = false){
+        return $this->getDataOrder($collection, array($filter, 1), $filter2, $limit, $now);
+    }
+
+
+    /**
+     * Retourne les n derniers objets d'une collection
+     * @param bool $collection
+     * @param string $filter
+     * @param int $limit
+     * @param bool $now
+     * @return object
+     */
+    public function getDataLast($collection = false, $filter = 'date', $filter2 = false, $limit = 1, $now = false){
+        return $this->getDataOrder($collection, array($filter, 0), $filter2, $limit, $now);
+    }
+
+
+
+
+    /**
+     * Permet de sortir des donnes avec un tri
+     * @param bool $collection
+     * @param array $filter
+     * @param int $limit
+     * @param bool $now
+     * @return object
+     */
+    public function getDataOrder($collection = false, $filter = array('date', 1), $filter2 = false, $limit = 1, $now = false){
+
+        if(!$now)
+            $now = (string)date('y/m/d', time() - 3600 * 24);
+        
+        if(CLASS_BDD == 'BddMongoDB'){
+            $ContentManager = $this->_BBD->selectCollection(CONTENT_MANAGER_COLLECTION);
+
+            if($collection) {
+                if(!$filter2){
+                    $filters = array(
+                        'collection' => (string)$collection,
+                        $filter[0] => array('$gt' => $now)
+                    );
+                }else {
+                    $filters = array(
+                        'collection' => (string)$collection,
+                        $filter[0] => array('$gt' => $now),
+                        $filter2[0] => $filter2[1]
+                    );
+                }
+            }
+            else {
+                if(!$filter2){
+                    $filters = array(
+                        $filter[0] => array('$gt' => $now)
+                    );
+                }else {
+                    $filters = array(
+                        $filter[0] => array('$gt' => $now),
+                        $filter2[0] => $filter2[1]
+                    );
+                }
+            }
+
+            $data = $ContentManager
+                    ->find($filters)
+                    ->sort( array($filter[0] => $filter[1] ) )
+                    ->limit($limit);
+
+            return (object)$data;
+        }
+        else {
+            $tmp = $this->getDataAll($collection);
+            $data = $tmpDate = array();
+            foreach($tmp as $k => $d){
+                if(isset($d[$filter[0]]) && $d[$filter2[0]] == $filter2[1])
+                    $tmpDate[$k] = $d[$filter[0]];
+            }
+            asort($tmpDate);
+            $i = 0;
+            foreach($tmpDate as $k => $time){
+                if($time >= $now) {
+                    if($i < $limit)
+                        $data[$k] = $tmp[$k];
+                    $i++;
+                }
+            }
+
+            if($limit == 1)
+                return (object)current($data);
+            else
+                return (object)$data;
+        }
+
+    }
+
     public function save($data, $id = false){
         unset($data['submit']);
         // Pas de sauvegarde d'objet compilé avec findOneWithChild()
