@@ -9,6 +9,7 @@
 
 class access_control_controller extends Component{
 
+    public function defaut(){}
     /**
      * Test if login/mpd is correct and redirect
      * @param  $data array  data post
