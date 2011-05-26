@@ -29,10 +29,29 @@ class SimpleContentManager {
     }
 
     /***
+     * Retourne une liste d'objet
      * @return object data
      */
     public function getAll(){
         return $this->_contentManager->getDataAll($this->_collection);
+    }
+
+    /**
+     * Retourne les n prochain objets
+     * @param  $filter
+     * @return
+     */
+    public function getNext($filter, $filter2, $limit = 1){
+        return $this->_contentManager->getDataNext($this->_collection, $filter, $filter2, $limit);
+    }
+
+    /**
+     * Retourne les n derniers objets
+     * @param  $filter
+     * @return
+     */
+    public function getLast($filter, $filter2, $limit = 1){
+        return $this->_contentManager->getDataLast($this->_collection, $filter, $filter2, $limit);
     }
 
     /***
