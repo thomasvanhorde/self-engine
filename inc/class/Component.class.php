@@ -37,6 +37,13 @@ class Component {
         Base::Load(CLASS_BASE)->setContentType($contentType);
     }
 
+    public function addBreadCrumb($title, $url = null, $titleComplete = null){
+        if($url == null)
+            $url = HTTP_HOST_REQUEST;
+        
+        Base::Load(CLASS_BASE)->addBreadCrumb($title, $url, $titleComplete = null);
+    }
+    
 }
 
 
