@@ -185,6 +185,9 @@ Class Base {
         $_GET['param'] = $Ctr['param'];
         $_GET['url'] = $Ctr['url'];
 
+        $ComponentObj->_view->assign('breadcrumb', $Ctr['breadcrumb']);
+
+        
 		// Include controller
 		if(file_exists(FOLDER_APPLICATION.implode('/',$ControllerName).'/'.$ControllerName[count($ControllerName)-1].CONTROLLER_EXT))
 			include_once FOLDER_APPLICATION.implode('/',$ControllerName).'/'.$ControllerName[count($ControllerName)-1].CONTROLLER_EXT;
@@ -259,7 +262,7 @@ Class Base {
             $folders = explode('/', $Folder);
 
         $f = '';
-        $param = $url = array();
+        $param = $url = $breadcrumb = $tmpTitle = array();
 
 
         /*
@@ -285,6 +288,13 @@ Class Base {
             if(isset($Controller->$f)){ // Identifiate in Xml
                 $Controller = $Controller->$f;
                 $url[] = $f;
+                $tmpTitle[] = $Controller->title;
+                
+                // Breadcrumb
+                $b['title'] = (string)$Controller->title;
+                $b['title_complete'] = implode(' - ',$tmpTitle);
+                $b['url'] = implode('/',$url);
+                $breadcrumb[] = $b;
             }
             elseif(!empty($f)) {  // No indentifiate ? = virtual $_GET param
                 $param[] = $f;
@@ -296,7 +306,7 @@ Class Base {
             $Controller = $Controller->$defaut; // Controlleur pas défaut
         }
 
-        return array('controller' => $Controller, 'param' => $param, 'url' => $url);
+        return array('controller' => $Controller, 'param' => $param, 'url' => $url, 'breadcrumb' => $breadcrumb);
 
     }
 
