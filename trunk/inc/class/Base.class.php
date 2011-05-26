@@ -24,6 +24,7 @@ Class Base {
 	protected $_bdd;
 	protected $_buffer;
     protected $_contentType;
+    protected $_breadcrumb;
 
     /**
      * @return void
@@ -185,7 +186,7 @@ Class Base {
         $_GET['param'] = $Ctr['param'];
         $_GET['url'] = $Ctr['url'];
 
-        $ComponentObj->_view->assign('breadcrumb', $Ctr['breadcrumb']);
+        $this->_breadcrumb = $Ctr['breadcrumb'];
 
         
 		// Include controller
@@ -216,13 +217,25 @@ Class Base {
 
 		// Assignation du Title de la page
 		$this->_view->assign(INFOS_TITLE,$ControllerTitle);
-  	
+
+        // Assignation du breadCrumb
+        $ComponentObj->_view->assign('breadcrumb', $this->_breadcrumb);
+
 		// Assignation du layout
         $this->buffer(FOLDER_LAYOUT.$ControllerLayout);
-		
+
 		if(DEBUG)	Debug::log(Base::Load(CLASS_CORE_MESSAGE)->Generic('MESS_BASE_END'));
 		if(DEBUG)	Debug::logSpeed();
 	}
+
+
+    public function addBreadCrumb($title, $url, $titleComplete = null){
+        $bread['title'] = $title;
+        $bread['url'] = $url;
+        $bread['title_complete'] = $titleComplete;
+        $this->_breadcrumb[] = $bread;
+    }
+
 
     /**
      * @param  $ControllerName
@@ -289,11 +302,11 @@ Class Base {
                 $Controller = $Controller->$f;
                 $url[] = $f;
                 $tmpTitle[] = $Controller->title;
-                
+
                 // Breadcrumb
                 $b['title'] = (string)$Controller->title;
                 $b['title_complete'] = implode(' - ',$tmpTitle);
-                $b['url'] = implode('/',$url);
+                $b['url'] = SYS_FOLDER.implode('/',$url);
                 $breadcrumb[] = $b;
             }
             elseif(!empty($f)) {  // No indentifiate ? = virtual $_GET param
