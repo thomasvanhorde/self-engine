@@ -41,7 +41,7 @@ class SimpleContentManager {
      * @param  $filter
      * @return
      */
-    public function getNext($filter, $filter2, $limit = 1){
+    public function getNext($filter = false, $filter2 = false, $limit = 1){
         return $this->_contentManager->getDataNext($this->_collection, $filter, $filter2, $limit);
     }
 
@@ -50,7 +50,7 @@ class SimpleContentManager {
      * @param  $filter
      * @return
      */
-    public function getLast($filter, $filter2, $limit = 1){
+    public function getLast($filter = false, $filter2 = false, $limit = 1){
         return $this->_contentManager->getDataLast($this->_collection, $filter, $filter2, $limit);
     }
 
