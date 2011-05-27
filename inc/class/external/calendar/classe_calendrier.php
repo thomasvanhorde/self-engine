@@ -234,7 +234,7 @@
 			$this->ajax = true;
 			$this->ajaxDiv = $a_nomDiv;
 			$this->ajaxScript = $a_nomScript;
-			$this->_ecritFonctionAjax();
+		//	$this->_ecritFonctionAjax();
 		}
 
 
