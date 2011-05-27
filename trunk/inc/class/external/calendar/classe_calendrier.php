@@ -501,7 +501,7 @@
 					$code .=  "<th>&nbsp;</th>";
 				for ($j=1; $j<=7; $j++)
 				{
-					$code .=  "<th class=\"jour\">".substr($this->jours[$this->lng][$j],0,3)."</th>";
+					$code .=  "<th class=\"jour\">".substr($this->jours[$this->lng][$j],0,2)."</th>";
 				}
 				$code .=  "</tr>\n";
 			}
