@@ -26,6 +26,7 @@
     define_once('CLASS_YOUTUBE','Youtube');
     define_once('CLASS_UPLOAD','Upload');
     define_once('CLASS_WATERMARK','Watermark');
+    define_once('CLASS_CALENDAR','Calendar');
 
 /*
 	Fin du fichier : class.config.php
