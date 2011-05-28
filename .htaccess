@@ -5,9 +5,13 @@ Options -Indexes
 <IfModule mod_headers.c>
  <FilesMatch "\\.(ico|jpe?g|png|gif|swf|css|gz)$">
  Header set Cache-Control "max-age=2592000, public"
+ Header unset ETag
+ FileETag None
  </FilesMatch>
  <FilesMatch "\\.(js)$">
  Header set Cache-Control "max-age=2592000, private"
+ Header unset ETag
+ FileETag None 
  </FilesMatch>
 <filesMatch "\\.(html|htm)$">
 Header set Cache-Control "max-age=7200, public"
