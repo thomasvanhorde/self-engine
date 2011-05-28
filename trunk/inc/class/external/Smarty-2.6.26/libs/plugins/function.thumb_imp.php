@@ -36,7 +36,7 @@
 // Author: Marcus Gueldenmeister (MG)
 // Internet: http://www.gueldenmeister.de/marcus/
 //
-// Author: Andreas Bösch (AB)
+// Author: Andreas Bï¿½sch (AB)
 //
 // Author: Wolfgang Krane (WK)
 //
@@ -96,13 +96,13 @@
 // 
 // 
 // addgreytohint [bool] (Standard: true)
-//      Set to »false« to get no lightgrey bottombar.
+//      Set to ï¿½falseï¿½ to get no lightgrey bottombar.
 // 
 // cache [string] (Standard: images/cache/)
 //      Set to your favorite cache directory.
 // 
 // crop [bool] (Standard: true)
-//      If set to »true«, image will be cropped in the center to destination width and 
+//      If set to ï¿½trueï¿½, image will be cropped in the center to destination width and 
 //      height params, while keeping aspect ratio. Otherwise the image will get resized.
 // 
 // dev="dev" - string : default=""
@@ -110,7 +110,7 @@
 //      and generate each time a new image
 // 
 // extrapolate [bool] (Standard: true)
-//      Set to »false« if your source image is smaller than the calculated thumb and 
+//      Set to ï¿½falseï¿½ if your source image is smaller than the calculated thumb and 
 //      you do not want the image to get extraploated.
 // 
 // frame [string]
@@ -126,7 +126,7 @@
 //      calculated.
 // 
 // hint [bool] (Standard: true)
-//      If set to »false« the image will get linked but will not have a lens-icon.
+//      If set to ï¿½falseï¿½ the image will get linked but will not have a lens-icon.
 // 
 // html [string]
 //      Will be inserted in the image-tag. Useful, to align text around the thumbnail 
@@ -136,9 +136,9 @@
 //      Text which should be printed as a legend at the bottom of the image
 // 
 // link [bool] (Standard: true)
-//      If set to »false« the image will not get linked and not have a lens-icon.
+//      If set to ï¿½falseï¿½ the image will not get linked and not have a lens-icon.
 // 
-// linkurl [string] (Standard: set to »original image« )
+// linkurl [string] (Standard: set to ï¿½original imageï¿½ )
 //      Set to your target URL (a href="linkurl").
 // 
 // longside [int] (Standard: not set)
@@ -146,7 +146,7 @@
 // 
 // overlay [string]
 //      A PNG image which is used to create an overlay image. The position will be 
-//      determined by »overlay_position«.
+//      determined by ï¿½overlay_positionï¿½.
 //      Please note: For performance reasons the overlay image will not be checked 
 //      for modification.
 // 
@@ -158,7 +158,7 @@
 //      7 8 9
 // 
 // sharpen [bool] (Standard: true)
-//      Set to »false« if you don't want to use the Unsharp-Mask. Thumbnail creation 
+//      Set to ï¿½falseï¿½ if you don't want to use the Unsharp-Mask. Thumbnail creation 
 //      will be faster, but quality is reduced.
 // 
 // shortside [int] (Standard: not set)
@@ -176,7 +176,7 @@
 //      calculated.
 // 
 // window [bool] (Standard: true)
-//      Set to »false« if you don¿t want to open original image in a new window.
+//      Set to ï¿½falseï¿½ if you donï¿½t want to open original image in a new window.
 // /*}}}*/
 // -----------------------------------------------------------------------------
 
@@ -195,7 +195,7 @@ function smarty_function_thumb_imp($params, &$smarty) {/*{{{*/
 		
 	if (!function_exists('UnsharpMask')) {
 		function UnsharpMask($img, $amount, $radius, $threshold) {/*{{{*/
-            // Unsharp mask algorithm by Torstein Hønsi 2003 (thoensi_at_netcom_dot_no)
+            // Unsharp mask algorithm by Torstein Hï¿½nsi 2003 (thoensi_at_netcom_dot_no)
             // Christoph Erdmann: changed it a little, 
             // cause i could not reproduce the darker blurred image, 
             // now it is up to 15% faster with same results
@@ -281,7 +281,7 @@ function smarty_function_thumb_imp($params, &$smarty) {/*{{{*/
     if (empty($params['overlay_position'])) $params['overlay_position'] = 9;
     /*}}}*/
 		
-	### Info über Source (SRC) holen
+	### Info ï¿½ber Source (SRC) holen
 	$temp = getimagesize($params['file']);
 
 	$_SRC['file']		= $params['file'];
@@ -303,7 +303,7 @@ function smarty_function_thumb_imp($params, &$smarty) {/*{{{*/
 	if (is_numeric($params['height'])) $_DST['height']	= $params['height'];
 	else $_DST['height'] = round($params['width']/($_SRC['width']/$_SRC['height']));
 	
-	// Das Größenverhältnis soll erhalten bleiben egal ob das Bild hoch oder querformatig ist.
+	// Das Grï¿½ï¿½enverhï¿½ltnis soll erhalten bleiben egal ob das Bild hoch oder querformatig ist.
 	if (is_numeric($params['longside'])) {
 		if ($_SRC['width'] < $_SRC['height']) {
 			$_DST['height']	= $params['longside'];
@@ -340,7 +340,7 @@ function smarty_function_thumb_imp($params, &$smarty) {/*{{{*/
     }/*}}}*/
 
     // Wenn das Ursprungsbild kleiner als das Ziel-Bild ist, 
-    // soll nicht hochskaliert werden und die neu berechneten Werte werden wieder überschrieben
+    // soll nicht hochskaliert werden und die neu berechneten Werte werden wieder ï¿½berschrieben
 	if ($params['extrapolate'] == 'false' && $_DST['height'] > $_SRC['height'] && $_DST['width'] > $_SRC['width']) {
 		$_DST['width'] = $_SRC['width'];
 		$_DST['height'] = $_SRC['height'];
@@ -374,7 +374,7 @@ function smarty_function_thumb_imp($params, &$smarty) {/*{{{*/
         if ($imagesize[0] != $imagesize[1] OR $imagesize[0]%3 OR !file_exists($params['frame'])) { 
             $smarty->_trigger_fatal_error("thumb: wrong dimensions of 'frame'-image or width and height is not a multiplier of 3"); return; 
         }
-		// Blockgröße brauche ich schon hier, falls ein gecachtes Bild wiedergegeben werden soll
+		// Blockgrï¿½ï¿½e brauche ich schon hier, falls ein gecachtes Bild wiedergegeben werden soll
 		$frame_blocksize = $imagesize[0]/3;
 
 		$_DST['string'] = 'width="'.($_DST['width']+2*$frame_blocksize).'" height="'.($_DST['height']+2*$frame_blocksize+$text_legend_height).'"';
@@ -426,7 +426,7 @@ function smarty_function_thumb_imp($params, &$smarty) {/*{{{*/
 
     // if the image is very large, scale linear to 4x $_DST size and overwrite the source $_SRC/*{{{*/
 	if ($_DST['width']*4 < $_SRC['width'] AND $_DST['height']*4 < $_SRC['height']) {
-		// Multiplikator der Zielgröße
+		// Multiplikator der Zielgrï¿½ï¿½e
 		$_TMP['width'] = round($_DST['width']*4);
 		$_TMP['height'] = round($_DST['height']*4);
 		
@@ -486,7 +486,7 @@ function smarty_function_thumb_imp($params, &$smarty) {/*{{{*/
 		if ($params['overlay_position'] == '9') imagecopy($_DST['image'], $overlay, $_DST['width']-$overlay_size[0], $_DST['height']-$overlay_size[1], 0, 0, $overlay_size[0], $overlay_size[1]); // ecke links oben
     }/*}}}*/
 
-	// Berechnungszeit hinzufügen/*{{{*/
+	// Berechnungszeit hinzufï¿½gen/*{{{*/
 	if ($params['dev']) {
 		// Zeit anhalten
 		$time['end'] = getmicrotime();
@@ -496,7 +496,7 @@ function smarty_function_thumb_imp($params, &$smarty) {/*{{{*/
 		$white_trans = imagecolorallocatealpha($_DST['image'], 255, 255, 255, 25);
 		$black = ImageColorAllocate ($_DST['image'], 0, 0, 0);
 
-		// Weißer Balken oben
+		// Weiï¿½er Balken oben
 		imagefilledrectangle($_DST['image'], 0, 0, $_DST['width'], 10, $white_trans);
 
 		// Schrift mit Zeitangabe
