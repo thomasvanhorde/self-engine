@@ -509,6 +509,7 @@
 			// no de semaine premi�re ligne
 			if ($this->csemaines)
 			{
+
 				$semaine = gmdate("Y-W",mktime(12,0,0,$a_mois,1,$a_annee));
 				$noSemaine = gmdate("W",mktime(12,0,0,$a_mois,1,$a_annee));
 				$curSemaine = gmdate("Y-W");
@@ -530,7 +531,7 @@
 					$code .=  "<tr><th><a href=\"".$lienSemaine."\"".$this->targetLiens.">" . $noSemaine . "</a></th>";
 			}
 			
-			
+			$code .= '<tr>';
 			// jours du mois
 			for ($i=1; $i<43; $i++)
 			{
@@ -546,6 +547,7 @@
 				// affichage du jour
 				if ($jour>0 && $jour<=$max)
 				{
+
 					$event = false;
 					// jours avec liens vers les �v�nements
 					if ($this->cevents)
@@ -638,8 +640,10 @@
 				if ($i%(7)==0)
 				{
 					$code .=  "</tr>\n";
-					if ($i>=($max+$decal-1)) break;
 
+                    
+					if ($i>=($max+$decal-1)) break;
+                    $code .=  "<tr>\n";
 					// no de semaine lignes suivantes
 					if ($this->csemaines && $i<42)
 					{
@@ -667,7 +671,7 @@
 					}
 				}
 			}
-			$code .=  "</tr>\n";
+		//	$code .=  "</tr>\n";
 			$code .=  "</table>\n";
 			// affichage des �v�nements
 			if ($this->cevents)
