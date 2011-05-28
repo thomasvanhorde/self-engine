@@ -229,8 +229,13 @@ class ContentManager {
      */
     private function insert($data){
         $data['date_create'] = time();
-        if($this->_collection->insert($data)){
-            $data['id'] = (string)$data['_id'];
+        $insert = $this->_collection->insert($data);
+        if($insert){
+            if(isset($data['_id']))
+                $data['id'] = (string)$data['_id'];
+            elseif(isset($insert))
+                $data['id'] = $insert;
+
             return $data;
         }
         else
