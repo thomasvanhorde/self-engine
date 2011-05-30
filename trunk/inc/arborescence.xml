@@ -1,151 +1,156 @@
 <?xml version="1.0"?>
 <arborescence>
-    <media>
-        <watermark>
-            <generate>
-                <title>Generate Watermark</title>
-                <controller>admin/media</controller>
-                <method>watermark</method>
-                <layout>vide.tpl</layout>
-            </generate>
-        </watermark>
-    </media>
-    <robot.txt>
-        <title></title>
-        <controller>engine</controller>
-        <method>robot</method>
-        <layout>vide.tpl</layout>
-    </robot.txt>
-    <sitemap.xml>
-        <title></title>
-        <controller>engine</controller>
-        <method>siteMap</method>
-        <layout>vide.tpl</layout>
-    </sitemap.xml>
-    <encode>
-        <title>Chaine encode</title>
-        <controller>encode</controller>
-        <layout>vide.tpl</layout>
-    </encode>
-    <ac_login>
-        <title>Access Control</title>
-        <controller>access_control</controller>
-        <layout>AC_login.tpl</layout>
-        <disconnect>
-            <title>Access Control - Disconnect</title>
+    <blocks>
+        
+    </blocks>
+    <url>
+        <media>
+            <watermark>
+                <generate>
+                    <title>Generate Watermark</title>
+                    <controller>admin/media</controller>
+                    <method>watermark</method>
+                    <layout>vide.tpl</layout>
+                </generate>
+            </watermark>
+        </media>
+        <robot.txt>
+            <title></title>
+            <controller>engine</controller>
+            <method>robot</method>
+            <layout>vide.tpl</layout>
+        </robot.txt>
+        <sitemap.xml>
+            <title></title>
+            <controller>engine</controller>
+            <method>siteMap</method>
+            <layout>vide.tpl</layout>
+        </sitemap.xml>
+        <encode>
+            <title>Chaine encode</title>
+            <controller>encode</controller>
+            <layout>vide.tpl</layout>
+        </encode>
+        <ac_login>
+            <title>Access Control</title>
             <controller>access_control</controller>
             <layout>AC_login.tpl</layout>
-            <method>disconnect</method>
-        </disconnect>
-    </ac_login>
-    <admin>
-        <title>Administrator interface</title>
-        <controller>admin</controller>
-        <layout>admin.tpl</layout>
-        <blocks>
-            <block>
-                <controller>admin/menu_admin</controller>
-            </block>
-        </blocks>
-        <accessControl>
-            <login>admin</login>
-            <password>1d331eb197460fd48f292d0c49411135</password> <!-- admin, voir site/encode/<<string>> -->
-        </accessControl>
-        <media>
-            <title>Médiathèque</title>
-            <controller>admin/media</controller>
+            <disconnect>
+                <title>Access Control - Disconnect</title>
+                <controller>access_control</controller>
+                <layout>AC_login.tpl</layout>
+                <method>disconnect</method>
+            </disconnect>
+        </ac_login>
+        <admin>
+            <title>Administrator interface</title>
+            <controller>admin</controller>
             <layout>admin.tpl</layout>
             <blocks>
                 <block>
                     <controller>admin/menu_admin</controller>
                 </block>
             </blocks>
-            <get-preview>
+            <accessControl>
+                <login>admin</login>
+                <password>1d331eb197460fd48f292d0c49411135</password> <!-- admin, voir site/encode/<<string>> -->
+            </accessControl>
+            <media>
+                <title>Médiathèque</title>
                 <controller>admin/media</controller>
-                <method>getPreview</method>
-                <layout>vide.tpl</layout>
-            </get-preview>
-            <upload>
-                <title>upload file</title>
-                <controller>admin/media</controller>
-                <method>upload</method>
-                <layout>vide.tpl</layout>
-            </upload>
-            <youtube-form>
-                <title>form youtbe file</title>
-                <controller>admin/media</controller>
-                <method>getYoutubeForm</method>
-                <layout>vide.tpl</layout>
-            </youtube-form>
-            <upload-youtube>
-                <title>upload youtbe file</title>
-                <controller>admin/media</controller>
-                <method>uploadYoutbe</method>
-                <layout>vide.tpl</layout>
-            </upload-youtube>
-            <data>
-                <title>get data</title>
-                <controller>admin/media</controller>
-                <method>data</method>
-                <layout>vide.tpl</layout>
-                <create_node>
-                    <title>Create node data</title>
-                    <controller>admin/media</controller>
-                    <method>createNode</method>
-                    <layout>vide.tpl</layout>
-                </create_node>
-                <rename_node>
-                    <title>rename node</title>
-                    <controller>admin/media</controller>
-                    <method>renameNode</method>
-                    <layout>vide.tpl</layout>
-                </rename_node>
-                <remove_node>
-                    <title>rename node</title>
-                    <controller>admin/media</controller>
-                    <method>removeNode</method>
-                    <layout>vide.tpl</layout>
-                </remove_node>
-            </data>
-        </media>
-        <content-manager>
-            <structures>
-                <title>Gestion de structures</title>
-                <controller>admin/structures</controller>
                 <layout>admin.tpl</layout>
                 <blocks>
                     <block>
                         <controller>admin/menu_admin</controller>
                     </block>
                 </blocks>
-            </structures>
-            <contenus>
-                <get-media>
-                    <title>Liste des medias</title>
-                    <controller>admin/content</controller>
-                    <method>getMedia</method>
+                <get-preview>
+                    <controller>admin/media</controller>
+                    <method>getPreview</method>
                     <layout>vide.tpl</layout>
-                </get-media>
-                <get-media-rte>
-                    <title>Liste des medias</title>
-                    <controller>admin/content</controller>
-                    <method>getMediaRTE</method>
+                </get-preview>
+                <upload>
+                    <title>upload file</title>
+                    <controller>admin/media</controller>
+                    <method>upload</method>
                     <layout>vide.tpl</layout>
-                </get-media-rte>
-                <title>Gestion de contenu</title>
-                <controller>admin/content</controller>
-                <layout>admin.tpl</layout>
-                <blocks>
-                    <block>
-                        <controller>admin/menu_admin</controller>
-                    </block>
-                </blocks>
-            </contenus>
-        </content-manager>
-    </admin>
-    <phpinfo>
-        <title>Php Info</title>
-        <controller>admin</controller>
-        <method>phpinfo</method>
-    </phpinfo>
+                </upload>
+                <youtube-form>
+                    <title>form youtbe file</title>
+                    <controller>admin/media</controller>
+                    <method>getYoutubeForm</method>
+                    <layout>vide.tpl</layout>
+                </youtube-form>
+                <upload-youtube>
+                    <title>upload youtbe file</title>
+                    <controller>admin/media</controller>
+                    <method>uploadYoutbe</method>
+                    <layout>vide.tpl</layout>
+                </upload-youtube>
+                <data>
+                    <title>get data</title>
+                    <controller>admin/media</controller>
+                    <method>data</method>
+                    <layout>vide.tpl</layout>
+                    <create_node>
+                        <title>Create node data</title>
+                        <controller>admin/media</controller>
+                        <method>createNode</method>
+                        <layout>vide.tpl</layout>
+                    </create_node>
+                    <rename_node>
+                        <title>rename node</title>
+                        <controller>admin/media</controller>
+                        <method>renameNode</method>
+                        <layout>vide.tpl</layout>
+                    </rename_node>
+                    <remove_node>
+                        <title>rename node</title>
+                        <controller>admin/media</controller>
+                        <method>removeNode</method>
+                        <layout>vide.tpl</layout>
+                    </remove_node>
+                </data>
+            </media>
+            <content-manager>
+                <structures>
+                    <title>Gestion de structures</title>
+                    <controller>admin/structures</controller>
+                    <layout>admin.tpl</layout>
+                    <blocks>
+                        <block>
+                            <controller>admin/menu_admin</controller>
+                        </block>
+                    </blocks>
+                </structures>
+                <contenus>
+                    <get-media>
+                        <title>Liste des medias</title>
+                        <controller>admin/content</controller>
+                        <method>getMedia</method>
+                        <layout>vide.tpl</layout>
+                    </get-media>
+                    <get-media-rte>
+                        <title>Liste des medias</title>
+                        <controller>admin/content</controller>
+                        <method>getMediaRTE</method>
+                        <layout>vide.tpl</layout>
+                    </get-media-rte>
+                    <title>Gestion de contenu</title>
+                    <controller>admin/content</controller>
+                    <layout>admin.tpl</layout>
+                    <blocks>
+                        <block>
+                            <controller>admin/menu_admin</controller>
+                        </block>
+                    </blocks>
+                </contenus>
+            </content-manager>
+        </admin>
+        <phpinfo>
+            <title>Php Info</title>
+            <controller>admin</controller>
+            <method>phpinfo</method>
+        </phpinfo>
+    </url>
 </arborescence>
