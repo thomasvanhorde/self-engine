@@ -2387,7 +2387,8 @@ class upload_vero {
             'text/rtf',
             'text/richtext',
             'text/xml',
-            'video/*'
+            'video/*',
+            'application/download'
         );
 
         $this->mime_types = array(
@@ -2472,7 +2473,7 @@ class upload_vero {
             'onetoc' => 'application/onenote',
             'onetoc2' => 'application/onenote',
             'onetmp' => 'application/onenote',
-            'onepkg' => 'application/onenote',
+            'onepkg' => 'application/onenote'
         );
 
     }

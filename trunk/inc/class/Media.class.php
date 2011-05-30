@@ -13,9 +13,10 @@ class Media extends Model{
     const stateOpen = "open";
 
     private $_data, $dataStruct;
-    
+
     public function __construct(){
         $this->_data = file_get_contents(INFOS_JSON_MEDIA);
+        $this->_numberUp = 0;
     }
 
     public function load($returnArray = false){
@@ -58,11 +59,11 @@ class Media extends Model{
         return false;
     }
 
-    public function addNode($parentID, $title, $type, $file = false){
+    public function addNode($parentID, $title, $type, $file = false, $saltID = ''){
         $data = json_decode($this->load(), true);
         $data = $data['media'];
 
-        $id = time();
+        $id = time().$saltID;
         $new['attr']['id'] = self::IDprefix.$id;
         $new['attr']['parent'] = self::IDprefix.$parentID;
         $new['attr']['rel'] = $type;
@@ -71,7 +72,28 @@ class Media extends Model{
         if($file)
             $new['file'] = $file;
 
-        $data[] = $new;
+        $data[$new['attr']['id']] = $new;
+        
+        $this->save(json_encode(array('media' => $data)));
+
+        return json_encode(array('status'=> 1, 'id' => $id));
+    }
+
+    public function addNodeArray($fileList){
+        $data = json_decode($this->load(), true);
+        $data = $data['media'];
+
+        foreach($fileList as $file){
+            $id = time().$file['saltID'];
+            $new['attr']['id'] = self::IDprefix.$id;
+            $new['attr']['parent'] = self::IDprefix.$file['parentID'];
+            $new['attr']['rel'] = $file['type'];
+            $new['data'] = $file['title'];
+            $new['state'] = self::stateOpen;
+            $new['file']['url'] = $file['file'];
+
+            $data[$new['attr']['id']] = $new;
+        }
 
         $this->save(json_encode(array('media' => $data)));
 
@@ -115,8 +137,11 @@ class Media extends Model{
             $upload->Process('media/images/');
         elseif($upload->file_src_mime == 'application/pdf')
             $upload->Process('media/pdf/');
+        elseif($upload->file_src_name_ext == 'zip')
+            $upload->Process('media/zip/');
         else
             $upload->Process('media/');
+
 
         return $upload;
     }
