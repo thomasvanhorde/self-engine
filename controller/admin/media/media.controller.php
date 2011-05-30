@@ -75,12 +75,46 @@ class media_controller extends Component{
     function upload(){
         $upload = $this->_classMedia->upload($_FILES['new_media']);
         if (empty($upload->error)) {
-            $this->_classMedia->addNode(
-                $_POST['node'],
-                $upload->file_src_name,
-                $upload->file_src_mime,
-                array('url' => stripslashes($upload->file_dst_pathname))
-            );
+            // Upload package
+            if($upload->file_src_name_ext == 'zip'){
+                $zip = zip_open($upload->file_dst_pathname);
+                $salt = time();
+                if ($zip) {
+                  $i = 0;
+                  while ($zip_entry = zip_read($zip)) {
+                    $fName = zip_entry_name($zip_entry);
+                    $fileName = "media/others/".$salt.$i.$fName;
+                    $fp = fopen($fileName, "w");
+                    $i++;
+                    if (zip_entry_open($zip, $zip_entry, "r")) {
+                      $buf = zip_entry_read($zip_entry, zip_entry_filesize($zip_entry));
+                      fwrite($fp,"$buf");
+                      zip_entry_close($zip_entry);
+                      fclose($fp);
+
+                      $data['saltID'] = $i;
+                      $data['parentID'] =  $_POST['node'];
+                      $data['type'] = Tools::getMime($fileName);
+                      $data['title'] = $fName;
+                      $data['file'] = $fileName;
+
+                      $fileArray[] = $data;
+                    }
+
+                  }
+
+                    $this->_classMedia->addNodeArray($fileArray);
+
+                  zip_close($zip);
+                }
+            }else {
+                $this->_classMedia->addNode(
+                    $_POST['node'],
+                    $upload->file_src_name,
+                    $upload->file_src_mime,
+                    array('url' => stripslashes($upload->file_dst_pathname))
+                );
+            }
             header('location: ../');exit();
         } else {
             echo 'error : ' . $upload->error;
