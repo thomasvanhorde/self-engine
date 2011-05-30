@@ -41,8 +41,19 @@ class SimpleContentManager {
      * Compte le nombre d'élément
      * @return void
      */
-    public function count(){
-        return count($this->getAll());
+    public function count($critere = null){
+        if(!$critere)
+            return count($this->getAll());
+        else {
+            $count = 0;
+            $var = key($critere);
+            foreach($this->getAll() as $row){
+                if(isset($row[$var]) && $row[$var] == $critere[$var]){
+                    $count++;
+                }
+            }
+            return $count;
+        }
     }
 
     /**
