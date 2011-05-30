@@ -36,6 +36,15 @@ class SimpleContentManager {
         return $this->_contentManager->getDataAll($this->_collection);
     }
 
+
+    /***
+     * Compte le nombre d'élément
+     * @return void
+     */
+    public function count(){
+        return count($this->getAll());
+    }
+
     /**
      * Retourne les n prochain objets
      * @param  $filter
