@@ -137,6 +137,7 @@ Class Base {
         // Parse URL & Load Xml infos
         $Ctr = $this->LoadDataPath($Folder);
         $Controller = $Ctr['controller'];
+        $blocksList = $Ctr['blocks'];
 
         // Assign Constant to var (necessary for object argument call)
         $INFOS_CONTROLLER = INFOS_CONTROLLER;
@@ -204,11 +205,25 @@ Class Base {
 		// Blocks externe
 		if(isset($ControllerBlocks) && $ControllerBlocks->length != NULL){
 			foreach($ControllerBlocks->children()  as $blk){
-                if(DEBUG) Debug::log(Base::Load(CLASS_CORE_MESSAGE)->Generic('MESS_BLOCK').' '.$blk->controller.'::'.$blk->method);
-				Base::Load(CLASS_CONTROLLER ,array($blk->controller, $blk->method));
+                // Simple block
+                if(isset($blk->controller)) {
+                    if(DEBUG) Debug::log(Base::Load(CLASS_CORE_MESSAGE)->Generic('MESS_BLOCK').' '.$blk->controller.'::'.$blk->method);
+                    Base::Load(CLASS_CONTROLLER ,array($blk->controller, $blk->method));
+                }
+                // Block define
+                elseif($blk->name){
+                    $blk_require = $blk->name;
+                    foreach($blocksList->$blk_require as $blk_call){
+                        if(isset($blk_call->controller)){
+                            if(DEBUG) Debug::log(Base::Load(CLASS_CORE_MESSAGE)->Generic('MESS_BLOCK').' '.$blk_call->controller.'::'.$blk_call->method);
+                            Base::Load(CLASS_CONTROLLER ,array($blk_call->controller, $blk_call->method));
+                        }
+                    }
+                }
+
             }
 		}
-        
+
 		if(isset($ControllerMethod))
 			Base::Load(CLASS_CONTROLLER,array($ControllerName[count($ControllerName)-1],$ControllerMethod));
 		else
@@ -286,15 +301,20 @@ Class Base {
         $XmlFileWeb = INFOS_XML;
         $XmlDomWeb = simplexml_load_file($XmlFileWeb);
 
+
         // Xml from engine/ folder
         $XmlFileEngine = ENGINE_URL.INFOS_XML;
         $XmlDomEngine = simplexml_load_file($XmlFileEngine);
 
         // Merge in unique object
-        $XmlDom = (object) array_merge((array) $XmlDomWeb, (array) $XmlDomEngine);
+        $XmlDom = (object) array_merge((array) $XmlDomWeb->url, (array) $XmlDomEngine->url);
+        // Merge in unique object
+        $XmlDomBlock = (object) array_merge((array) $XmlDomWeb->blocks, (array) $XmlDomEngine->blocks);
 
         // Need double var for after
         $Controller = $XmlDom;
+
+        $Controller = $Controller;
 
         // Test url with arbo
         foreach($folders as $f){
@@ -319,7 +339,13 @@ Class Base {
             $Controller = $Controller->$defaut; // Controlleur pas défaut
         }
 
-        return array('controller' => $Controller, 'param' => $param, 'url' => $url, 'breadcrumb' => $breadcrumb);
+        return array(
+                'controller' => $Controller,
+                'param' => $param,
+                'url' => $url,
+                'breadcrumb' => $breadcrumb,
+                'blocks' => $XmlDomBlock
+        );
 
     }
 
