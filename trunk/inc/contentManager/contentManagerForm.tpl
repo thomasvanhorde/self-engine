@@ -13,6 +13,9 @@
 <script type="text/javascript" src="{$ENGINE_RESSOURCE}js/engine/yui.wysiwyg.js"></script>
 
 <link rel="stylesheet" href="{$ENGINE_RESSOURCE}themes/admin/nyroModal/nyroModal.css" type="text/css" media="screen" />
+
+<!-- Invalid Stylesheet. This makes stuff look pretty. Remove it if you want the CSS completely valid -->
+<link rel="stylesheet" href="{ $ENGINE_RESSOURCE }themes/admin/datepicker/datepicker.css" type="text/css" media="screen">
 {/if}
 
 <form method="post" class="validity niceform yui-skin-sam" id="form_{$formUID}">
@@ -169,7 +172,7 @@
 
                         {* media *}
                         {if $refT == '40'}
-                            <div {if $hidden}style="display:none;"{/if} class="media">
+                            <div style="display:none;" class="media">
                                 <input class="hidden {if $element->requis}require{/if}" type="text" name="{$uid}" value="{$data->$uid}{if $valueDefaut != false}{$valueDefaut}{/if}"/>
                             </div>
                             <a href="{$SYS_FOLDER}admin/content-manager/contenus/get-media" class="mediaSelect">Select</a>
