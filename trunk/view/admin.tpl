@@ -22,9 +22,6 @@
         <!-- Invalid Stylesheet. This makes stuff look pretty. Remove it if you want the CSS completely valid -->
         <link rel="stylesheet" href="{ $ENGINE_RESSOURCE }themes/admin/invalid.css" type="text/css" media="screen">
 
-        <!-- Invalid Stylesheet. This makes stuff look pretty. Remove it if you want the CSS completely valid -->
-        <link rel="stylesheet" href="{ $ENGINE_RESSOURCE }themes/admin/datepicker/datepicker.css" type="text/css" media="screen">
-
 		<!-- Colour Schemes
 
 		Default colour scheme is green. Uncomment prefered stylesheet to use it.

@@ -51,6 +51,9 @@ class SimpleContentManager {
                 if(isset($row[$var]) && $row[$var] == $critere[$var]){
                     $count++;
                 }
+                elseif(!isset($row[$var]) && $critere[$var] === '0'){
+                    $count++;
+                }
             }
             return $count;
         }

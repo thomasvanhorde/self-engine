@@ -21,10 +21,14 @@
 <form method="post" class="validity niceform yui-skin-sam" id="form_{$formUID}">
     <fieldset>
         <legend>
-            {if $id==''}
-                Nouveau contenu { $structure->name }
+            {if $formParam.title == ''}
+                {if $id==''}
+                    Nouveau contenu { $structure->name }
+                {else}
+                    Edition de contenu { $structure->name }
+                {/if}
             {else}
-                Edition de contenu { $structure->name }
+                {$formParam.title}
             {/if}
         </legend>
 
