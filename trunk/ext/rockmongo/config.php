@@ -43,10 +43,10 @@ $MONGO["servers"] = array(
 		),
 */
 		// show only following databases (and also allow to pick custom db by name):
-		"show_dbs" => array(
+/*		"show_dbs" => array(
 		    'test'
 		)
-
+*/
 	),
 	/**array(
 		"host" => "192.168.1.1",
