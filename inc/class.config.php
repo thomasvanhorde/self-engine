@@ -22,6 +22,7 @@
     define_once('CLASS_SIMPLE_CM','SimpleContentManager');
 	define_once('CLASS_PDF','Pdf');
     define_once('CLASS_LESS','Less_php');
+    define_once('CLASS_TURBINE','Turbine');
     define_once('CLASS_MEDIA','Media');
     define_once('CLASS_YOUTUBE','Youtube');
     define_once('CLASS_UPLOAD','Upload');
