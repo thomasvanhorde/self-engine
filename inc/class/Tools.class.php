@@ -8,6 +8,12 @@
 class Tools {
     public function __construct(){}
 
+    /***
+     * Retourne le mime type d'un fichier
+     * @static
+     * @param  $file
+     * @return String
+     */
     static function getMime($file){
         $folder = ENGINE_URL.FOLDER_CLASS_EXT.'tools/php-mime-type-class/';
         require_once $folder.'class.mime.php';
@@ -16,7 +22,30 @@ class Tools {
         return $object->getMimeType($file);
     }
 
+    /***
+     * Retourne la médiane d'une liste de nombre
+     * @static
+     * @param array $notes
+     * @return float
+     */
+	static function mediane(array $notes)
+	{
+		$milieu = floor(count($notes) / 2);
+		if (0 == (count($notes)) % 2)
+		{
+			return ($notes[$milieu] + $notes[$milieu - 1]) / 2; //médiane financière
+		}
+		else
+		{
+			return $notes[$milieu];
+		}
+	}
 
+    /***
+     * Retourne la liste de tout les mimes de fichiers
+     * @static
+     * @return array
+     */
     static function getMimeList(){
         return array(
           '3dm'    => 'x-world/x-3dmf',
