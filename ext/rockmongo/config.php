@@ -21,11 +21,11 @@ $MONGO["servers"] = array(
 		"port" => "27017", // MongoDB connection port
 		"username" => "", // MongoDB connection username
 		"auth_enabled" => true,//Enable authentication, set to "false" to disable authentication
-		/*"admins" => array(
+		"admins" => array(
 			"lpcm" => "lpcm", // Administrator's USERNAME => PASSWORD
 			//"iwind" => "123456",
 		),
-*/
+
 		// show only following databases (and also allow to pick custom db by name):
 /*		"show_dbs" => array(
 		    'test'
