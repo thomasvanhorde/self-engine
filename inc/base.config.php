@@ -82,3 +82,38 @@ if(isset($_SERVER['REDIRECT_URL']))
     define('HTTP_HOST_REQUEST','http://'.$_SERVER['HTTP_HOST'].$_SERVER['REDIRECT_URL']);
 else
     define('HTTP_HOST_REQUEST','http://'.$_SERVER['HTTP_HOST']);
+
+
+/* Error reporting */
+
+// No effects if they are already defined
+define_once(DEBUG_LEVEL, 0);
+define_once(DEV, false);
+
+if (DEV) {
+    switch (DEBUG_LEVEL) {
+        case 0:
+            $show_errors = 0;
+        break;
+        case 1:
+            $show_errors = E_ALL ^ E_NOTICE;
+        break;
+        case 2:
+            $show_errors = E_ALL;
+        break;
+        case 3:
+            $show_errors = -1;
+        break;
+        default:
+            throw new InvalidArgumentException(
+                'The constant DEBUG_LEVEL does not have a good value.'
+            );
+        break;
+    }
+} else {
+    $show_errors = 0;
+}
+
+error_reporting($show_errors);
+
+/* -- Fin du fichier -- */
