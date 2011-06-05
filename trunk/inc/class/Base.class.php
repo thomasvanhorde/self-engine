@@ -25,6 +25,7 @@ Class Base {
 	protected $_buffer;
     protected $_contentType;
     protected $_breadcrumb;
+    public $_layout;
 
     /**
      * @return void
@@ -59,6 +60,10 @@ Class Base {
 
     public function setContentType($contentType){
         $this->_contentType = $contentType;
+    }
+
+    public function setLayout($tpl){
+        $this->_layout = $tpl;
     }
 
     /**
@@ -156,7 +161,7 @@ Class Base {
         $ControllerAccessControl = $Controller->$INFOS_ACCES_CONTROL;
 
 
-
+        $this->_layout = $ControllerLayout;
 
 		// Class Component
 		$ComponentObj = Base::Load(CLASS_COMPONENT);
@@ -237,7 +242,7 @@ Class Base {
         $ComponentObj->_view->assign('breadcrumb', $this->_breadcrumb);
 
 		// Assignation du layout
-        $this->buffer(FOLDER_LAYOUT.$ControllerLayout);
+        $this->buffer(FOLDER_LAYOUT.$this->_layout);
 
 		if(DEBUG)	Debug::log(Base::Load(CLASS_CORE_MESSAGE)->Generic('MESS_BASE_END'));
 		if(DEBUG)	Debug::logSpeed();
