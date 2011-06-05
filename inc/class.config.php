@@ -28,7 +28,7 @@
     define_once('CLASS_UPLOAD','Upload');
     define_once('CLASS_WATERMARK','Watermark');
     define_once('CLASS_CALENDAR','Calendar');
-
+    define_once('CLASS_IP_LOCATOR', 'Ip_locator');
 /*
 	Fin du fichier : class.config.php
 	Chemin du fichier : /engine/inc/
