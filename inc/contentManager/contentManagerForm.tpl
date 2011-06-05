@@ -3,7 +3,7 @@
 {if $formCompteur == 1}
 <link rel="stylesheet" href="{ $ENGINE_RESSOURCE}themes/admin/niceforms/niceforms-default.css" type="text/css" media="screen">
 <script type="text/javascript">var ENGINE_RESSOURCE = "{$ENGINE_RESSOURCE}";</script>
-<script type="text/javascript" src="{$ENGINE_RESSOURCE}js/engine/jquery-1.5.1.min.js"></script>
+
 <script type="text/javascript" src="{$ENGINE_RESSOURCE}js/admin/datepicker/datepicker.packed.js"></script>
 
 <script type="text/javascript" src="{$ENGINE_RESSOURCE}js/admin/jquery.nyroModal.custom.min.js"></script>
