@@ -12,7 +12,7 @@
     <br /><br />
     <label>Description</label><textarea name="description" style="width:400px; height:80px;">{ $struct.description }</textarea>
     <br /><br />
-    <strong>Elements</strong>
+    <strong>Éléments</strong>
     <br /><br />
     <table id="StructList">
 
@@ -85,7 +85,7 @@
     <input type="submit" name="register" value="Enregistrer" /> 
 
 </form>
-
+<br />
 <table id="elementList" style="display:none;">
     <tr class="elementListAdd" style="display:none;">
         <td>

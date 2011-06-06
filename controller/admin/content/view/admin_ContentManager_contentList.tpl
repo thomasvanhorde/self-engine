@@ -19,7 +19,7 @@
                     {/if}
                 {/foreach}
                 <td>
-                    <a href="{$k2}/">Editer</a>
+                    <a href="{$k2}/">Éditer</a>
                 </td>
                 <td>
                     <a href="delete/{$k2}/">Supprimer</a>

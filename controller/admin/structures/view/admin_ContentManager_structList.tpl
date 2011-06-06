@@ -4,9 +4,7 @@
     <tr>
         <th>Nom</th>
         <th>Description</th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <th colspan="3">Actions</th>
     </tr>
     {foreach from=$struct key=k item=element}
         <tr>
@@ -20,17 +18,17 @@
                 {if $element.locked =="false"}
                     <a href="{ $k }/">Modifier</a>
                 {else}
-                    verrouiller
+                    Verrouillé
                 {/if }
             </td>
             <td>
-                <a href="clone/{ $k }/">Cloner</a>
+                <a href="clone/{ $k }/">Clôner</a>
             </td>
             <td>
                 {if $element.locked =="false"}
                     <a href="delete/{ $k }/">Supprimer</a>
                 {else}
-                    verrouiller
+                    Verrouillé
                 {/if }
             </td>
         </tr>
@@ -38,9 +36,7 @@
     <tr>
         <th>Nom</th>
         <th>Description</th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <th colspan="3">Actions</th>
     </tr>    
 </table>    
 
