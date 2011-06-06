@@ -18,7 +18,11 @@ class access_control_controller extends Component{
     public function POST_connect($data){
         if(isset($data['user_name']) && isset($data['user_password'])){
             // To redirect 
-            $redirect = selDecode($_SESSION['redirect'], 'base64');
+            if (isset($_SESSION['redirect'])) {
+                $redirect = selDecode($_SESSION['redirect'], 'base64');
+            } else {
+                $redirect = './';
+            }
 
             // Load redirect data
             $dataC = Base::LoadDataPath($redirect);

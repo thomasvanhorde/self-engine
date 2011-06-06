@@ -289,7 +289,12 @@ Class Base {
 
         if(SYS_FOLDER != '/'){
             $a = explode(SYS_FOLDER, $Folder);
-            $folders = explode('/', $a[1]);
+
+            if (isset($a[1])) {
+                $folders = explode('/', $a[1]);
+            } else {
+                $folders = $a[0];
+            }
         }
         else
             $folders = explode('/', $Folder);
