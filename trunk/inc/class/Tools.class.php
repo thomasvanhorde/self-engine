@@ -9,6 +9,19 @@ class Tools {
     public function __construct(){}
 
     /***
+     * retourn les coordonés GPS d'une position
+     * @static
+     * @param  $villeID
+     * @param  $adress
+     * @return
+     */
+    static function getGPS($villeID, $adress){
+        $v = Base::Load(CLASS_LOC)->getVille($villeID);
+        $urlLoc = str_replace(' ', '%20', 'http://maps.google.com/maps/api/geocode/json?address='.$adress.', '.$v[2].'&sensor=false');
+        return json_decode(file_get_contents($urlLoc))->results[0]->geometry->location;
+    }
+
+    /***
      * Retourne le mime type d'un fichier
      * @static
      * @param  $file
