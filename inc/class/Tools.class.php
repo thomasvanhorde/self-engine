@@ -53,6 +53,10 @@ class Tools {
 		}
 	}
 
+    static function moyenne(array $number_array){
+        return array_sum($number_array) / count($number_array);
+    }
+
     /***
      * Retourne la liste de tout les mimes de fichiers
      * @static
