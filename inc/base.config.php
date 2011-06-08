@@ -91,6 +91,7 @@ define_once(DEBUG_LEVEL, 0);
 define_once(DEV, false);
 
 if (DEV) {
+    require_once ENGINE_URL.FOLDER_CLASS_EXT.'firephp/fb.php';
     switch (DEBUG_LEVEL) {
         case 0:
             $show_errors = 0;
