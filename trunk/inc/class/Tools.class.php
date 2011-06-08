@@ -20,6 +20,44 @@ class Tools {
         return json_decode(file_get_contents($urlLoc))->results[0]->geometry->location;
     }
 
+
+    static function replaceAccent($string){
+        $remplace = array('à'=>'a',
+                         'á'=>'a',
+                         'â'=>'a', 
+                         'ã'=>'a',
+                         'ä'=>'a',
+                         'å'=>'a',
+                         'ò'=>'o',
+                         'ó'=>'o',
+                         'ô'=>'o',
+                         'õ'=>'o',
+                         'ö'=>'o',
+                         'è'=>'e',
+                         'é'=>'e',
+                         'ê'=>'e',
+                         'ë'=>'e',
+                         'ì'=>'i',
+                         'í'=>'i',
+                         'î'=>'i',
+                         'ï'=>'i',
+                         'ù'=>'u',
+                         'ú'=>'u',
+                         'û'=>'u',
+                         'ü'=>'u',
+                         'ÿ'=>'y',
+                         'ñ'=>'n',
+                         'ç'=>'c',
+                         'ø'=>'0'
+                         );
+        return strtr($string,$remplace);
+    }
+
+    static function toLevel($string){
+        $string = strtolower($string);
+        return Tools::replaceAccent($string);
+    }
+
     /***
      * Retourne le mime type d'un fichier
      * @static
