@@ -1,21 +1,21 @@
 <?php
 
 /**
-* Fichier d'accès admin & phpInfo()
-*
-* @author: Thomas VAN HORDE <thomas.vanhorde@gmail.com>
-* @version: 1
-*/
+ * Contrôleur de l'administration
+ */
 
-class admin_controller extends Component {
-
-    public  function defaut(){}
-
-    public function phpinfo(){
-        phpinfo();
-        exit();
+class admin_controller extends Component
+{
+    public  function defaut()
+    {
+        $this->_view->addBlock('content', 'defaut.tpl');
     }
 
+    public function phpinfo()
+    {
+        exit(phpinfo());
+    }
 }
 
 
+/* -- Fin du fichier -- */
