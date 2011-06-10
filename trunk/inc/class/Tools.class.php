@@ -15,8 +15,8 @@ class Tools {
      * @param  $adress
      * @return
      */
-    static function getGPS($villeID, $adress){
-        $urlLoc = str_replace(' ', '%20', 'http://maps.google.com/maps/api/geocode/json?address='.$adress.', '.$villeID.'&sensor=false');
+    static function getGPS($villeName, $adress){
+        $urlLoc = utf8_encode(str_replace(' ', '%20', 'http://maps.google.com/maps/api/geocode/json?address='.$adress.', '.$villeName.'&sensor=false'));
         return json_decode(file_get_contents($urlLoc))->results[0]->geometry->location;
     }
 
