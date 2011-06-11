@@ -29,6 +29,7 @@
     define_once('CLASS_WATERMARK','Watermark');
     define_once('CLASS_CALENDAR','Calendar');
     define_once('CLASS_IP_LOCATOR', 'Ip_locator');
+    define_once('CLASS_MEMCACHE', 'MemcacheInstance');
 /*
 	Fin du fichier : class.config.php
 	Chemin du fichier : /engine/inc/
