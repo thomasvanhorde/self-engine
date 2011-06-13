@@ -87,7 +87,7 @@ else
 /* Error reporting */
 
 // No effects if they are already defined
-define_once(DEBUG_LEVEL, 0);
+define_once('DEBUG_LEVEL', 0);
 define_once(DEV, false);
 
 if (DEV) {
