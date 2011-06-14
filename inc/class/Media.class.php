@@ -117,13 +117,17 @@ class Media extends Model{
         $id = self::IDprefix.$nodeID;
 
         if($data->$id->state != self::stateClose){
-
-            foreach($this->getExtensions() as $extension)
-                if(isset($data->$id))
-                    $extension->removeNode($data->$id);
+            $nodeID = $data->$id;
 
             unset($data->$id);
+
+
             $this->save(json_encode(array('media' => $data)));
+
+            foreach($this->getExtensions() as $extension)
+                if(isset($nodeID))
+                    $extension->removeNode($nodeID);
+
             return json_encode(array('status'=> 1));
         }
     }
