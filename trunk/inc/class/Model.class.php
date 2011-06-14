@@ -13,7 +13,7 @@ class Model {
         $folder = FOLDER_CLASS_EXTENSION.$class;
         $extensions = array();
         foreach($this->ScanDirectory(ENGINE_URL.$folder) as $ext){
-            include $ext['directory'].'/'.$ext['file'];
+            include_once $ext['directory'].'/'.$ext['file'];
 
             $className = $class.'_'.$ext['name'].EXTENSION_NAME_EXT;
             $extensions[] = new $className();
