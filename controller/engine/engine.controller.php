@@ -12,6 +12,10 @@ class engine_controller extends Component{
 
     public function defaut(){}
 
+    /**
+     * Générate QRCODE media/qrcode/<<string>>
+     * @return void
+     */
     public function qrcode(){
         if(isset($_GET['param'][0])){
             Base::Load(CLASS_QR)->png($_GET['param'][0], false, 'L', 8);
