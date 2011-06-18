@@ -11,7 +11,7 @@ class Tools {
     /***
      * retourn les coordonés GPS d'une position
      * @static
-     * @param  $villeID
+     * @param  $villeName
      * @param  $adress
      * @return
      */
@@ -20,7 +20,23 @@ class Tools {
         return json_decode(file_get_contents($urlLoc))->results[0]->geometry->location;
     }
 
+    /**
+     * Applani une chaine comparaison
+     * @static
+     * @param  $string
+     * @return string
+     */
+    static function toLevel($string){
+        $string = strtolower($string);
+        return Tools::replaceAccent($string);
+    }
 
+    /**
+     * Fonction pour remplacer les accents
+     * @static
+     * @param  $string
+     * @return string
+     */
     static function replaceAccent($string){
         $remplace = array('à'=>'a',
                          'á'=>'a',
@@ -53,10 +69,6 @@ class Tools {
         return strtr($string,$remplace);
     }
 
-    static function toLevel($string){
-        $string = strtolower($string);
-        return Tools::replaceAccent($string);
-    }
 
     /***
      * Retourne le mime type d'un fichier
