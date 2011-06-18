@@ -12,6 +12,13 @@ class engine_controller extends Component{
 
     public function defaut(){}
 
+    public function qrcode(){
+        if(isset($_GET['param'][0])){
+            Base::Load(CLASS_QR)->png($_GET['param'][0], false, 'L', 8);
+            exit();
+        }
+    }
+
     /**
      * Générate /robot.txt
      * @return void

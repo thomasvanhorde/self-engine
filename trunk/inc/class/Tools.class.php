@@ -8,6 +8,7 @@
 class Tools {
     public function __construct(){}
 
+
     /***
      * retourn les coordonés GPS d'une position
      * @static
