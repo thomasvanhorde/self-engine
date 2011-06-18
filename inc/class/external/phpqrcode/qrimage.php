@@ -71,12 +71,14 @@
             $imgW = $w + 2*$outerFrame;
             $imgH = $h + 2*$outerFrame;
             
-            $base_image =ImageCreate($imgW, $imgH);
-            
-            $col[0] = ImageColorAllocate($base_image,255,255,255);
+            $base_image =imagecreatetruecolor($imgW, $imgH);
+
+
+            $col[0] = ImageColorAllocate($base_image,50,255,255);
             $col[1] = ImageColorAllocate($base_image,0,0,0);
 
             imagefill($base_image, 0, 0, $col[0]);
+
 
             for($y=0; $y<$h; $y++) {
                 for($x=0; $x<$w; $x++) {
@@ -85,11 +87,18 @@
                     }
                 }
             }
+
+
             
-            $target_image =ImageCreate($imgW * $pixelPerPoint, $imgH * $pixelPerPoint);
+            $target_image =imagecreatetruecolor($imgW * $pixelPerPoint, $imgH * $pixelPerPoint);
             ImageCopyResized($target_image, $base_image, 0, 0, 0, 0, $imgW * $pixelPerPoint, $imgH * $pixelPerPoint, $imgW, $imgH);
             ImageDestroy($base_image);
-            
+
+            /*
+             * Patch Thomas VAN HORDE for transparence
+             */
+            $tmpColor = imagecolorallocate($target_image, 50,255,255);
+            imagecolortransparent($target_image, $tmpColor);
             return $target_image;
         }
     }
