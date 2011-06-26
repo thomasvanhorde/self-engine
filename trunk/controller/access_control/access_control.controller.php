@@ -25,7 +25,7 @@ class access_control_controller extends Component{
             }
 
             // Load redirect data
-            $dataC = Base::LoadDataPath($redirect);
+            $dataC = Base::LoadDataPath($redirect, false);
             $Controller = $dataC['controller'];
             $INFOS_ACCES_CONTROL = INFOS_ACCESS_CONTROL;
             $ControllerAccessControl = $Controller->$INFOS_ACCES_CONTROL;
@@ -44,8 +44,6 @@ class access_control_controller extends Component{
             if(is_array($ControllerAccessControlPassword))
                 $ControllerAccessControlPassword = $ControllerAccessControlPassword[count($ControllerAccessControlPassword) - 1];
 
-
-            
             // TEST LOGIN & MDP
             if($ControllerAccessControlLogin == $data['user_name'] && selEncode($data['user_password'], ENCODE_METHOD) == $ControllerAccessControlPassword){
                 unset($_SESSION[SESSION_REDIRECT]);
