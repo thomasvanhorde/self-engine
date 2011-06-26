@@ -130,7 +130,7 @@
                                         //If the selected element is an image, do the normal thing so they can manipulate the image
                                         if (_sel && _sel.tagName && (_sel.tagName.toLowerCase() == 'img')) {
                                         } else {
-                                            win = window.open({/literal}'{$SYS_FOLDER}admin/content-manager/contenus/get-media-rte/{$uid}_editor'{literal}, 'IMAGE_BROWSER',
+                                            win = window.open({/literal}'../../content-manager/contenus/get-media-rte/{$uid}_editor'{literal}, 'IMAGE_BROWSER',
                                                 'left=20,top=20,width=500,height=500,toolbar=0,resizable=0,status=0');
                                             if (!win) {
                                                 alert('La fenêtre à été bloqué, desactivez le blocage');
@@ -180,7 +180,7 @@
                             <div style="display:none;" class="media">
                                 <input class="hidden {if $element->requis}require{/if}" type="text" name="{$uid}" value="{$data->$uid}{if $valueDefaut != false}{$valueDefaut}{/if}"/>
                             </div>
-                            <a href="{$SYS_FOLDER}admin/content-manager/contenus/get-media" class="mediaSelect">Select</a>
+                            <a href="../../content-manager/contenus/get-media" class="mediaSelect">Select</a>
                             <div id="media_apercu_{$uid}"></div>
                         {/if }
 
