@@ -1,5 +1,6 @@
 {switch $media->attr->rel}
     {case 'image/jpeg'}
+    {case 'image/jpg'}
     {case 'image/png'}
     {case 'image/gif'}
         <a href="{$SYS_FOLDER}{$media->file->url}" target="_blank" id="{$media->attr->id}" title="Voir l'original">
