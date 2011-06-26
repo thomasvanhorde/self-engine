@@ -169,24 +169,6 @@ Class Base {
 		$ComponentObj->_view = &$this->_view;
 		// Views controller path
 		$ComponentObj->_view->_folder = FOLDER_APPLICATION.implode('/',$ControllerName).'/'.FOLDER_VIEW;
-
-
-        // Access Control
-        if(!empty($ControllerAccessControl)){
-
-            if(isset($ControllerAccessControl->login) && isset($ControllerAccessControl->password)) {
-                $url_access = selEncode($Folder,'base64');
-                if(!isset($_SESSION[SESSION_ACCESS_CONTROL][$ControllerName[count($ControllerName)-1]]) || !$_SESSION[SESSION_ACCESS_CONTROL][$ControllerName[count($ControllerName)-1]]){    // Access denied ?
-                    $this->redirectAC($url_access);
-                }
-            }
-
-            if(isset($ControllerAccessControl->$INFOS_CONTROLLER) && isset($ControllerAccessControl->$INFOS_METHOD)) {
-                Base::Load(CLASS_CONTROLLER,array($ControllerAccessControl->$INFOS_CONTROLLER,$ControllerAccessControl->$INFOS_METHOD));
-            }
-
-
-        }
         
 		// virtual $param to $_GET
         $_GET['param'] = $Ctr['param'];
@@ -285,7 +267,7 @@ Class Base {
      * @param  $Folder
      * @return 
      */
-    public static function LoadDataPath($Folder){
+    public static function LoadDataPath($Folder, $withAccess = true){
 
         if(SYS_FOLDER != '/'){
             $a = explode(SYS_FOLDER, $Folder);
@@ -330,6 +312,38 @@ Class Base {
         foreach($folders as $f){
             if(isset($Controller->$f)){ // Identifiate in Xml
                 $Controller = $Controller->$f;
+
+                if(isset($Controller->accessControl))
+                    $ControllerAccessControl = $Controller->accessControl;
+                else
+                    $ControllerAccessControl = null;
+                // Access Control
+                if(!empty($ControllerAccessControl)){
+                    if($withAccess){
+                        $INFOS_CONTROLLER = INFOS_CONTROLLER;
+                        $INFOS_METHOD = INFOS_METHOD;
+
+                        // Assign values
+                        $ControllerName = explode('/', $Controller->$INFOS_CONTROLLER);
+
+                        if(isset($ControllerAccessControl->login) && isset($ControllerAccessControl->password)) {
+                            $url_access = selEncode($Folder,'base64');
+                            if(!isset($_SESSION[SESSION_ACCESS_CONTROL][$ControllerName[count($ControllerName)-1]]) || !$_SESSION[SESSION_ACCESS_CONTROL][$ControllerName[count($ControllerName)-1]]){    // Access denied ?
+                                Base::redirectAC($url_access);
+                            }
+                        }
+
+                        if(isset($ControllerAccessControl->$INFOS_CONTROLLER) && isset($ControllerAccessControl->$INFOS_METHOD)) {
+                            Base::Load(CLASS_CONTROLLER,array($ControllerAccessControl->$INFOS_CONTROLLER,$ControllerAccessControl->$INFOS_METHOD));
+                        }
+                    }
+                    else
+                        break;
+
+
+                }
+
+                
                 $url[] = $f;
                 $tmpTitle[] = $Controller->title;
 
