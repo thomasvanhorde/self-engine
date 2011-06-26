@@ -1,6 +1,3 @@
-<script type="text/javascript" src="{$ENGINE_RESSOURCE}js/admin/jquery-1.js"></script>
-
-
 <h2>Selectionnez un média</h2>
 
 {capture name=sampleTpk}{$ENGINE_URL}controller/admin/media/view/sample.tpl{/capture}
