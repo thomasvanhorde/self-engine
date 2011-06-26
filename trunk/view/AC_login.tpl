@@ -11,7 +11,6 @@
 			<div id="wrapper">
                 <div id="content">
                     <div id="header">
-                        try admin/admin <br />
                         <span style="color:red;">{ $return_access }</span>
                     </div>
                     <div id="darkbanner" class="banner320">
