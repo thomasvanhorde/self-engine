@@ -255,7 +255,24 @@
 
 
         jQuery('.mediaSelect')
-                .nyroModal()
+                .nyroModal(
+                    {
+                        callbacks: {
+                        afterShowCont: function(nm) {
+                            jQuery.each( jQuery('#mediaList a'), function(k, v){
+                                var element = jQuery(v);
+                                var id = element.attr('id');
+
+                                element.click(function (){
+                                    jQuery(mediaSelect).val(id);
+                                    jQuery.nmTop().close();
+                                    return false;
+                                });
+
+                             });
+                            }
+                        }}
+                )
                 .click(function(){
                      mediaSelect = jQuery(this).parent().find('input');
                 });

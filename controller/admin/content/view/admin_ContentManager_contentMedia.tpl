@@ -9,21 +9,3 @@
         {/if}
     {/foreach}
 </div>
-
-{literal}
-<script type="text/javascript">
-    jQuery(document).ready(function() {
-        jQuery.each( jQuery('#mediaList a'), function(k, v){
-            var element = jQuery(v);
-            var id = element.attr('id');
-
-            element.click(function (){
-                jQuery(mediaSelect).val(id);
-                jQuery.nmTop().close();
-                return false;
-            });
-
-         });
-    });
-</script>
-{/literal}
