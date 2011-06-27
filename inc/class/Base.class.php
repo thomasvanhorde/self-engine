@@ -238,6 +238,10 @@ Class Base {
         $this->_breadcrumb[] = $bread;
     }
 
+    public function getBreadCrumb(){
+        return $this->_breadcrumb;
+    }
+
 
     /**
      * @param  $ControllerName
