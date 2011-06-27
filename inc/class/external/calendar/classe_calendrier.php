@@ -470,7 +470,7 @@
 				)
 					$code .= "<th class=\"mois\">&nbsp;</th>";
 				else
-					$code .= "<th class=\"mois\"><a ". (strlen($lienMoisPrec)>0 ? "href=\"".$lienMoisPrec."\"" : "") .$onclickPrec.$this->targetNavig."><b><</b></a></th>";
+					$code .= "<th class=\"mois\"><a class='prev' ". (strlen($lienMoisPrec)>0 ? "href=\"".$lienMoisPrec."\"" : "") .$onclickPrec.$this->targetNavig."><b><</b></a></th>";
 
 
 				// lien mois en cours	
@@ -487,7 +487,7 @@
 				)
 					$code .= "<th class=\"mois\">&nbsp;</th>";
 				else
-					$code .= "<th class=\"mois\"><a ". (strlen($lienMoisSuiv)>0 ? "href=\"".$lienMoisSuiv."\"" : "") .$onclickSuiv.$this->targetNavig."><b>></b></a></th>";
+					$code .= "<th class=\"mois\"><a class='next' ". (strlen($lienMoisSuiv)>0 ? "href=\"".$lienMoisSuiv."\"" : "") .$onclickSuiv.$this->targetNavig."><b>></b></a></th>";
 
 				$code .=  "</tr>\n";
 			}
