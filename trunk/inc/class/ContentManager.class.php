@@ -216,8 +216,10 @@ class ContentManager {
                     return $save;
             }
             else {// update
-                if($this->update($data, $id))
+                if($this->update($data, $id)){
+                    $_SESSION[SESSION_CM_UPDATE] = true;
                     return true;
+                }
             }
             return false;
         }
