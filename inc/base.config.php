@@ -47,6 +47,7 @@ define('CLASS_EXTENSION', '.class.php');
  */
 define('SESSION_ACCESS_CONTROL', 'access_control');
 define('SESSION_REDIRECT', 'redirect');
+define('SESSION_CM_UPDATE', 'CM_update');
 
 /*
  * Listeners define

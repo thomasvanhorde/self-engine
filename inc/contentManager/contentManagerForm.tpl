@@ -19,6 +19,7 @@
 <link rel="stylesheet" href="{ $ENGINE_RESSOURCE }themes/admin/datepicker/datepicker.css" type="text/css" media="screen">
 {/if}
 
+
 <form method="post" class="validity niceform yui-skin-sam" id="form_{$formUID}">
     <fieldset>
         <legend>
@@ -33,6 +34,10 @@
             {/if}
         </legend>
 
+        {if $CM_update == "true"}
+            <div id="CM_update">Mis à jour.</div>
+        {/if}
+        
         {assign var="strucId" value=$structure.id}
         <input type="hidden" name="todo" value="{$action}" />
         <input type="hidden" name="collection" value="{$strucId }" />

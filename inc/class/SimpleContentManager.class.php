@@ -162,6 +162,11 @@ class SimpleContentManager {
     public function editForm($blockName, $objectId, $action = false, $template = false){
         global $editForm;
 
+        if(isset($_SESSION[SESSION_CM_UPDATE]) && $_SESSION[SESSION_CM_UPDATE]){
+            $this->_view->assign('CM_update', true);
+            unset($_SESSION[SESSION_CM_UPDATE]);
+        }
+
         $editForm = true;
         $data = $this->get($objectId, true);
         $this->_view->assign('data', $data);
