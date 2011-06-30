@@ -433,7 +433,7 @@
 					$lienMois = sprintf($this->formatLienMois,$a_annee,$a_mois);
 				else
 					$lienMois = $this->_ecritLien($this->lienMois,$a_annee,$a_mois);
-	
+	            
 				// lien ajax
 				if ($this->ajax)
 				{
