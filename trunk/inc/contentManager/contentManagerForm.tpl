@@ -17,6 +17,7 @@
 
 <!-- Invalid Stylesheet. This makes stuff look pretty. Remove it if you want the CSS completely valid -->
 <link rel="stylesheet" href="{ $ENGINE_RESSOURCE }themes/admin/datepicker/datepicker.css" type="text/css" media="screen">
+
 {/if}
 
 
@@ -120,10 +121,10 @@
 
                         {* textarea wysiwyg *}
                         {if $refT == '21'}
-                            <textarea {if $hidden}style="display:none;"{/if} rows="20" cols="100" class="{if $element->requis}require{/if} yui_wysiwyg noNiceForm" id="{$uid}_editor">{$data->$uid}{if $valueDefaut != false}{$valueDefaut}{/if}</textarea>
+                            <textarea {if $hidden}style="position:absolute;top:-1000px;"{/if} rows="20" cols="100" class="{if $element->requis}require{/if} yui_wysiwyg noNiceForm" id="{$uid}_editor">{$data->$uid}{if $valueDefaut != false}{$valueDefaut}{/if}</textarea>
 
                             <div style="position:absolute;top:-1000px;">
-                                <textarea {if $hidden}style="display:none;"{/if} rows="20" cols="100" class="{if $element->requis}require{/if} " id="{$uid}" name="{$uid}" >{$data->$uid}{if $valueDefaut != false}{$valueDefaut}{/if}</textarea>
+                                <textarea {if $hidden}style="display:none;"{/if} rows="20" cols="100" class="{if $element->requis}require {/if} noNiceForm" id="{$uid}" name="{$uid}" >{$data->$uid}{if $valueDefaut != false}{$valueDefaut}{/if}</textarea>
                             </div>
                             <div class="">
                             <script type="text/javascript">
@@ -253,9 +254,9 @@
         var niceFormID = 'form_{/literal}{$formUID}{literal}';
         jQuery(function() {
             jQuery("form#form_{/literal}{$formUID}{literal}.validity").validity(function() {
-                jQuery("form#form_{/literal}{$formUID}{literal} .require").require('necessaire');
-                jQuery("form#form_{/literal}{$formUID}{literal} .email").match("email");
-                jQuery("form#form_{/literal}{$formUID}{literal} .number").match("number");
+                jQuery(niceFormID+" .require").require('necessaire');
+                jQuery(niceFormID+" .email").match("email");
+                jQuery(niceFormID+" .number").match("number");
             });
 
 
