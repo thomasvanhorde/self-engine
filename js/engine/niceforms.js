@@ -6,7 +6,6 @@ URL: http://www.emblematiq.com/projects/niceforms/
 
 Feel free to use and modify but please keep this copyright intact.
 #################################################################*/
-
 //Theme Variables - edit these to match your theme
 var imagesPath = ENGINE_RESSOURCE+"themes/admin/niceforms/img/";
 var selectRightWidthSimple = 19;
@@ -80,13 +79,15 @@ function niceform(nf) {
 		}
 		var allTextareas = this.getElementsByTagName('textarea');
 		for(var w = 0; w < allTextareas.length; w++) {
-			this.add_textarea(allTextareas[w]);
+            if(!jQuery(allTextareas[w]).hasClass('noNiceForm'))
+			    this.add_textarea(allTextareas[w]);
 		}
 		var allSelects = this.getElementsByTagName('select');
 		for(var w = 0; w < allSelects.length; w++) {
 			if(allSelects[w].size == "1") {this.add_select(allSelects[w]);}
 			else {this.add_multiselect(allSelects[w]);}
 		}
+
 		//Start
 		for(w = 0; w < this._inputText.length; w++) {this._inputText[w].init();}
 		for(w = 0; w < this._inputRadio.length; w++) {this._inputRadio[w].init();}
@@ -305,62 +306,64 @@ function inputFile(el) { //extend File inputs
 	}
 }
 function textarea(el) { //extend Textareas
-	el.oldClassName = el.className;
-	el.height = el.offsetHeight - textareaTopPadding;
-	el.width = el.offsetWidth - textareaSidePadding;
-	el.topLeft = document.createElement('img');
-	el.topLeft.src = imagesPath + "0.png";
-	el.topLeft.className = "NFTextareaTopLeft";
-	el.topRight = document.createElement('div');
-	el.topRight.className = "NFTextareaTop";
-	el.bottomLeft = document.createElement('img');
-	el.bottomLeft.src = imagesPath + "0.png";
-	el.bottomLeft.className = "NFTextareaBottomLeft";
-	el.bottomRight = document.createElement('div');
-	el.bottomRight.className = "NFTextareaBottom";
-	el.left = document.createElement('div');
-	el.left.className = "NFTextareaLeft";
-	el.right = document.createElement('div');
-	el.right.className = "NFTextareaRight";
-	el.init = function() {
-		var top = this.parentNode;
-		if(this.previousSibling) {var where = this.previousSibling;}
-		else {var where = top.childNodes[0];}
-		if(!jQuery(el).hasClass('noNiceForm')) top.insertBefore(el.topRight, where);
-		if(!jQuery(el).hasClass('noNiceForm')) top.insertBefore(el.right, where);
-		if(!jQuery(el).hasClass('noNiceForm')) top.insertBefore(el.bottomRight, where);
-		this.topRight.appendChild(this.topLeft);
-		this.right.appendChild(this.left);
-		this.right.appendChild(this);
-		this.bottomRight.appendChild(this.bottomLeft);
-		el.style.width = el.topRight.style.width = el.bottomRight.style.width = el.width + 'px';
-		el.style.height = el.left.style.height = el.right.style.height = el.height + 'px';
-		this.className = "NFTextarea";
-	}
-	el.unload = function() {
-		this.parentNode.parentNode.appendChild(this);
-		this.parentNode.removeChild(this.topRight);
-		this.parentNode.removeChild(this.bottomRight);
-		this.parentNode.removeChild(this.right);
-		this.className = this.oldClassName;
-		this.style.width = this.style.height = "";
-	}
-	el.onfocus = function() {
-		this.topLeft.className = "NFTextareaTopLeft NFh";
-		this.topRight.className = "NFTextareaTop NFhr";
-		this.left.className = "NFTextareaLeftH";
-		this.right.className = "NFTextareaRightH";
-		this.bottomLeft.className = "NFTextareaBottomLeft NFh";
-		this.bottomRight.className = "NFTextareaBottom NFhr";
-	}
-	el.onblur = function() {
-		this.topLeft.className = "NFTextareaTopLeft";
-		this.topRight.className = "NFTextareaTop";
-		this.left.className = "NFTextareaLeft";
-		this.right.className = "NFTextareaRight";
-		this.bottomLeft.className = "NFTextareaBottomLeft";
-		this.bottomRight.className = "NFTextareaBottom";
-	}
+    if(!jQuery(el).hasClass('noNiceForm')) {
+        el.oldClassName = el.className;
+        el.height = el.offsetHeight - textareaTopPadding;
+        el.width = el.offsetWidth - textareaSidePadding;
+        el.topLeft = document.createElement('img');
+        el.topLeft.src = imagesPath + "0.png";
+        el.topLeft.className = "NFTextareaTopLeft";
+        el.topRight = document.createElement('div');
+        el.topRight.className = "NFTextareaTop";
+        el.bottomLeft = document.createElement('img');
+        el.bottomLeft.src = imagesPath + "0.png";
+        el.bottomLeft.className = "NFTextareaBottomLeft";
+        el.bottomRight = document.createElement('div');
+        el.bottomRight.className = "NFTextareaBottom";
+        el.left = document.createElement('div');
+        el.left.className = "NFTextareaLeft";
+        el.right = document.createElement('div');
+        el.right.className = "NFTextareaRight";
+        el.init = function() {
+            var top = this.parentNode;
+            if(this.previousSibling) {var where = this.previousSibling;}
+            else {var where = top.childNodes[0];}
+            if(!jQuery(el).hasClass('noNiceForm')) top.insertBefore(el.topRight, where);
+            if(!jQuery(el).hasClass('noNiceForm')) top.insertBefore(el.right, where);
+            if(!jQuery(el).hasClass('noNiceForm')) top.insertBefore(el.bottomRight, where);
+            this.topRight.appendChild(this.topLeft);
+            this.right.appendChild(this.left);
+            this.right.appendChild(this);
+            this.bottomRight.appendChild(this.bottomLeft);
+            el.style.width = el.topRight.style.width = el.bottomRight.style.width = el.width + 'px';
+            el.style.height = el.left.style.height = el.right.style.height = el.height + 'px';
+            this.className = "NFTextarea";
+        }
+        el.unload = function() {
+            this.parentNode.parentNode.appendChild(this);
+            this.parentNode.removeChild(this.topRight);
+            this.parentNode.removeChild(this.bottomRight);
+            this.parentNode.removeChild(this.right);
+            this.className = this.oldClassName;
+            this.style.width = this.style.height = "";
+        }
+        el.onfocus = function() {
+            this.topLeft.className = "NFTextareaTopLeft NFh";
+            this.topRight.className = "NFTextareaTop NFhr";
+            this.left.className = "NFTextareaLeftH";
+            this.right.className = "NFTextareaRightH";
+            this.bottomLeft.className = "NFTextareaBottomLeft NFh";
+            this.bottomRight.className = "NFTextareaBottom NFhr";
+        }
+        el.onblur = function() {
+            this.topLeft.className = "NFTextareaTopLeft";
+            this.topRight.className = "NFTextareaTop";
+            this.left.className = "NFTextareaLeft";
+            this.right.className = "NFTextareaRight";
+            this.bottomLeft.className = "NFTextareaBottomLeft";
+            this.bottomRight.className = "NFTextareaBottom";
+        }
+    }
 }
 function selects(el) { //extend Selects
 	el.oldClassName = el.className;
