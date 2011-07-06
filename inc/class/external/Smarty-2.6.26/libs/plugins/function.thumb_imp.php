@@ -181,7 +181,6 @@
 // -----------------------------------------------------------------------------
 
 function smarty_function_thumb_imp($params, &$smarty) {/*{{{*/
-
 	// Start time measurement/*{{{*/
 	if ($params['dev']) {
 		if (!function_exists('getmicrotime')) {
@@ -381,8 +380,12 @@ function smarty_function_thumb_imp($params, &$smarty) {/*{{{*/
     }/*}}}*/
 
 	### generate return string/*{{{*/
-	if (empty($params['html'])) $_RETURN['img'] = '<img src="/'.$_DST['file'].'" '.$params['html'].' '.$_DST['string'].' alt="" title="" />';
-	else $_RETURN['img'] = '<img src="/'.$_DST['file'].'" '.$params['html'].' '.$_DST['string'].' />';
+    if($params['balise'] === false || $params['balise'] === 'false'){
+        $_RETURN['img'] = $_DST['file'];
+    }else {
+        if (empty($params['html'])) $_RETURN['img'] = '<img src="/'.$_DST['file'].'" '.$params['html'].' '.$_DST['string'].' alt="" title="" />';
+        else $_RETURN['img'] = '<img src="/'.$_DST['file'].'" '.$params['html'].' '.$_DST['string'].' />';
+    }
 
 	if ($params['link'] == "true") {
 		if (empty($params['linkurl'])) $params['linkurl'] = $_SRC['file'];
