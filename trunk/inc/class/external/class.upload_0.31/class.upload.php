@@ -2388,7 +2388,8 @@ class upload_vero {
             'text/richtext',
             'text/xml',
             'video/*',
-            'application/download'
+            'application/download',
+            'application/force-download'
         );
 
         $this->mime_types = array(
