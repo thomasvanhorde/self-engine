@@ -1,25 +1,53 @@
 <?php
+
 /**
-* Engine Class Bdd MongoDB
-* Init db connexion
-*
-* @author: Thomas VAN HORDE <thomas.vanhorde@gmail.com>
-* @version: 1
-*/
+ * Handles connection to a MongoDB server.
+ *
+ * @author  Thomas Van Horde
+ * @author  Fabien Nouaillat
+ * @version 1.1
+ * @package self-engine
+ */
+class BddMongoDB
+{
+    /**
+     * Well, this attribute must not be public...
+     *
+     * @todo Make this property private or protected and use the getter below.
+     */
+    public $_connexion;
 
-class BddMongoDB {
-
-    var $_connexion;
-
-    function __construct() {
-        try {
-            $connexion = new mongo(MONGO_HOST);
-        } catch (Exception $e) {
-            throw new Exception('Can\'t connect MongoDB server');
+    /**
+     * Constructor. Connects to a Mongo database. It requires the MongoDB
+     * extension for PHP.
+     *
+     * @todo Do not use the constants anymore. Give them as parameters of the
+     *       constructor (e.g. public function __construct($host, $dbname)
+     */
+    public function __construct()
+    {
+        try
+        {
+            $mongo = new Mongo(MONGO_HOST);
+        }
+        catch (MongoConnectionException $exception)
+        {
+            exit(sprintf(
+                'Cannot find the MongoDB server named <strong>%s</strong>.',
+                MONGO_HOST
+            ));
         }
 
-        $this->_connexion = $connexion->selectDB(MONGO_BASE);
+        $this->_connexion = $mongo->selectDB(MONGO_BASE);
     }
 
+    /**
+     * Returns the current database access.
+     *
+     * Not in use for the moment.
+     */
+     public function getConnection()
+     {
+         return $this->_connection;
+     }
 }
-
