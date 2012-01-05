@@ -3,7 +3,8 @@ First of all: PHP 5.2 => PHP 5.3
 
 PHP Class Loader (S. Roch) no update since 2008 => replace it by :
     https://github.com/symfony/ClassLoader
-    (it is the only one I know which allows us to use APC and namespaces)
+    (it is the only one I know which allows us to use APC and namespaces but if
+     you find a smaller library, up to you!)
 
 lessphp 0.2 => 0.3.0
 
@@ -17,7 +18,7 @@ Smarty => Twig
     Smarty 2        12.9        610
     Smarty 3        14.9        799
     eZ Templates    53          2,783 (lol)
-    
+
 And why not use an ORM like Doctrine, an image library like Imagine and an
 asset manager like Assetic?
 Sources:
