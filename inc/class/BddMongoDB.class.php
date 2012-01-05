@@ -64,5 +64,5 @@ class BddMongoDB
 
   Then, just call it like that:
 
-  $dbh = $mongoConnection('mongodb://thomas-vanhorde.fr', 'macrise');
+  $dbh = $mongoConnection('mongodb://myserver.com', 'mydb');
 ----------------------------------------------------------------------------- */
