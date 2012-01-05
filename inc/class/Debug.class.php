@@ -1,57 +1,52 @@
 <?php
 
+require_once ENGINE_URL.'inc/class/ext/pqp/index.php';
+
 /**
- *  @author Thomas VAN HORDE
- *  @description Use PqP Debug
+ * Uses PqP Debug.
+ *
+ * @author Thomas VAN HORDE
  */
-
-
-include ENGINE_URL.'inc/class/ext/pqp/index.php';
-
-class Debug {
-
+class Debug
+{
     /**
      * @param  $data
-     * @return void
      */
-	public function log($data){
-		Console::log($data);
-	}
+    public function log($data){
+        Console::log($data);
+    }
 
     /**
      * @param  $exception
-     * @return void
      */
-	public function logError($exception){
-		Console::logError($exception);
-	}
+    public function logError($exception){
+        Console::logError($exception);
+    }
 
     /**
      * @param  $var
      * @param  $name
-     * @return void
      */
-	public function logMemory($var = null, $name = null){
-		Console::logMemory($var, $name);
-	}
+    public function logMemory($var = null, $name = null){
+        Console::logMemory($var, $name);
+    }
 
-    /**
-     * @return void
-     */
-	public function logSpeed(){
-		Console::logSpeed();
-	}
+    public function logSpeed(){
+        Console::logSpeed();
+    }
 
     /**
      * @param  $sql
      * @param  $start
-     * @return void
      */
-	public function logQuery($sql, $start){
-		Console::logQuery($sql, $start);
-	}
-
-
+    public function logQuery($sql, $start){
+        Console::logQuery($sql, $start);
+    }
 }
 
+/* -----------------------------------------------------------------------------
+  ~ Aenyhm's thoughts ~
 
+  I wonder: why not simply use PqP? You do not modify the class, you just
+  rewrite it without any change.
+----------------------------------------------------------------------------- */
