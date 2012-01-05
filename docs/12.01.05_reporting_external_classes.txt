@@ -1,0 +1,18 @@
+PHP 5.2 => PHP 5.3
+------------------
+
+PHP Class Loader (S. Roch) no update since 2008 => replace by :
+    https://github.com/symfony/ClassLoader 18.12.2011
+
+lessphp 0.2 => 0.3.0
+
+PHPMailer 5.1 => 5.2.0
+
+Smarty => Twig
+    Library         Time (sec)  Memory (Kb)
+    ---------------------------------------
+    Plain PHP       2.4         114
+    Twig            3           383
+    Smarty 2        12.9        610
+    Smarty 3        14.9        799
+    eZ Templates    53          2,783 (lol)
