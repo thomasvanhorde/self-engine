@@ -51,3 +51,18 @@ class BddMongoDB
          return $this->_connection;
      }
 }
+
+/* -----------------------------------------------------------------------------
+  ~ Aenyhm's thoughts ~
+
+  You can also do it easier using PHP5.3 or later:
+
+  $mongoConnection = function ($host, $dbname) {
+    $mongo = new Mongo($host);
+    return $mongo->selectDB($dbname);
+  };
+
+  Then, just call it like that:
+
+  $dbh = $mongoConnection('mongodb://thomas-vanhorde.fr', 'macrise');
+----------------------------------------------------------------------------- */

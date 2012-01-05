@@ -1,37 +1,46 @@
 <?php
 
-	/**
-	 *	Configuration des classes
-	 *
-	 *	@author Thomas Van Horde
-	 *	@version 1.0
-	 */
+// Classes of the engine
+define('CLASS_VIEW',            'View');
+define('CLASS_BASE',            'Base');
+define('CLASS_BDD',             'BddMongoDB');
+define('CLASS_CORE_MESSAGE',    'Coremessage');
+define('CLASS_EMAIL',           'Email');
+define('CLASS_COMPONENT',       'Component');
+define('CLASS_CONTROLLER',      'Controller');
+define('CLASS_DEBUG',           'Debug');
+define('CLASS_INSTALL',         'Install');
+define('CLASS_CSS',             'Css');
+define('CLASS_CONTENT_MANAGER', 'ContentManager');
+define('CLASS_SIMPLE_CM',       'SimpleContentManager');
+define('CLASS_PDF',             'Pdf');
+define('CLASS_LESS',            'Less_php');
+define('CLASS_TURBINE',         'Turbine');
+define('CLASS_MEDIA',           'Media');
+define('CLASS_YOUTUBE',         'Youtube');
+define('CLASS_UPLOAD',          'Upload');
+define('CLASS_WATERMARK',       'Watermark');
+define('CLASS_CALENDAR',        'Calendar');
+define('CLASS_IP_LOCATOR',      'Ip_locator');
+define('CLASS_MEMCACHE',        'MemcacheInstance');
+define('CLASS_QR',              'QR');
 
-	// Classes de l'engine
-	define_once('CLASS_VIEW','View');
-	define_once('CLASS_BASE','Base');
-	define_once('CLASS_BDD','BddMongoDB');
-	define_once('CLASS_CORE_MESSAGE','Coremessage');
-	define_once('CLASS_EMAIL','Email');
-	define_once('CLASS_COMPONENT','Component');
-	define_once('CLASS_CONTROLLER','Controller');
-	define_once('CLASS_DEBUG','Debug');
-	define_once('CLASS_INSTALL','Install');
-	define_once('CLASS_CSS','Css');
-    define_once('CLASS_CONTENT_MANAGER','ContentManager');
-    define_once('CLASS_SIMPLE_CM','SimpleContentManager');
-	define_once('CLASS_PDF','Pdf');
-    define_once('CLASS_LESS','Less_php');
-    define_once('CLASS_TURBINE','Turbine');
-    define_once('CLASS_MEDIA','Media');
-    define_once('CLASS_YOUTUBE','Youtube');
-    define_once('CLASS_UPLOAD','Upload');
-    define_once('CLASS_WATERMARK','Watermark');
-    define_once('CLASS_CALENDAR','Calendar');
-    define_once('CLASS_IP_LOCATOR', 'Ip_locator');
-    define_once('CLASS_MEMCACHE', 'MemcacheInstance');
-    define_once('CLASS_QR', 'QR');
-/*
-	Fin du fichier : class.config.php
-	Chemin du fichier : /engine/inc/
-*/
+/* -----------------------------------------------------------------------------
+  ~ Aenyhm's thoughts ~
+
+  Replace this by an autoload stack will increase performances and remove those
+  useless declarations, don't you think? Like below.
+
+  // PHP5.3+ way:
+
+  spl_autoload_register(function ($className) {
+    require_once sprintf('class/%s.php', $className);
+  });
+
+  // Or for older versions if you want to keep the compatibility (but keep in
+  // mind that PHP5.3 is 2x much faster than PHP5.2 ;-)):
+
+  function __autoload($className) {
+    require_once sprintf('class/%s.php', $className);
+  }
+----------------------------------------------------------------------------- */
