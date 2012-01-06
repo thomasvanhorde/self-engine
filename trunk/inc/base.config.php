@@ -1,8 +1,8 @@
 <?php
 
-/*
- * Folder define
- */
+/* ------------------------------- CONSTANTS -------------------------------- */
+
+// Folders
 define('FOLDER_INC', 'inc/');
 define('FOLDER_CLASS', FOLDER_INC.'class/');
 define('FOLDER_CLASS_EXT', FOLDER_CLASS.'external/');
@@ -19,45 +19,30 @@ define('FOLDER_THEME',SYS_FOLDER.'themes/');
 define('FOLDER_MEDIA_IMAGE',SYS_FOLDER.'media/images/');
 define('FOLDER_CONTENT_MANAGER','contentManager/');
 
-/*
- * Template define
- */
+// Template
 define('TEMPLATE_EXT','');
 
-/*
- * Controller define
- */
+// Controllers
 define('CONTROLLER_EXT','.controller.php');
 define('CONTROLLER_NAME_EXT','_controller');
 define('CONTROLLER_POST_PREC','POST_');
 
-/*
- * Extension define
- */
+// Extensions
 define('EXTENSION_EXT','.ext.php');
 define('EXTENSION_NAME_EXT','_extension');
 
-/*
- * Class define
- */
+// Classes
 define('CLASS_EXTENSION', '.class.php');
 
-/*
- * Session define
- */
+// Sessions
 define('SESSION_ACCESS_CONTROL', 'access_control');
 define('SESSION_REDIRECT', 'redirect');
 define('SESSION_CM_UPDATE', 'CM_update');
 
-/*
- * Listeners define
- */
+// Listeners
 define('LISTENER_POST_TODO', 'todo');
 
-
-/*
- * File info define
- */
+// File info
 define('INFOS_XML_CORE_MESSAGE','coremessage.xml');
 define('INFOS_XML_CONTENT_TYPE','content_type.xml');
 define('INFOS_XML_CONTENT_STRUCT','content_struct.xml');
@@ -74,22 +59,29 @@ define('INFOS_ACCESS_CONTROL','accessControl');
 define('INFOS_ACCESS_CONTROL_LOGIN','login');
 define('INFOS_ACCESS_CONTROL_PASSWORD','password');
 
-/*
- * Others define
- */
-define('HTTP_HOST',$_SERVER['HTTP_HOST']);
+// Server
+define('HTTP_HOST', $_SERVER['HTTP_HOST']);
 
-if(isset($_SERVER['REDIRECT_URL']))
-    define('HTTP_HOST_REQUEST','http://'.$_SERVER['HTTP_HOST'].$_SERVER['REDIRECT_URL']);
-else
-    define('HTTP_HOST_REQUEST','http://'.$_SERVER['HTTP_HOST']);
+if (isset($_SERVER['REDIRECT_URL'])) {
+    define('HTTP_HOST_REQUEST', 'http://'.HTTP_HOST.$_SERVER['REDIRECT_URL']);
+} else {
+    define('HTTP_HOST_REQUEST', 'http://'.HTTP_HOST);
+}
+
+/* -----------------------------------------------------------------------------
+  ~ Aenyhm's thoughts ~
+
+  Same remark as in class.config.php.
+  Too much of constants kills constants!
+  Why not put them in a serialized format (XML/JSON/YAML)?
+----------------------------------------------------------------------------- */
 
 
-/* Error reporting */
+/* ---------------------------- ERROR REPORTING ----------------------------- */
 
-// No effects if they are already defined
+// No effect if they are already defined
 define_once('DEBUG_LEVEL', 0);
-define_once(DEV, false);
+define_once('DEV', false);
 
 if (DEV) {
     switch (DEBUG_LEVEL) {
@@ -109,12 +101,9 @@ if (DEV) {
             throw new InvalidArgumentException(
                 'The constant DEBUG_LEVEL does not have a good value.'
             );
-        break;
     }
 } else {
     $show_errors = 0;
 }
 
 error_reporting($show_errors);
-
-/* -- Fin du fichier -- */
