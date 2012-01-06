@@ -26,22 +26,5 @@ define('CLASS_QR',              'QR');
 /* -----------------------------------------------------------------------------
   ~ Aenyhm's thoughts ~
 
-  Replace this by an autoload stack will increase performances and remove those
-  useless declarations, don't you think? Like below.
-
-  PHP5.3+ way:
-
-  spl_autoload_register(function ($className) {
-    require_once sprintf('class/%s.php', $className);
-  });
-
-  Or for older versions if you want to keep the compatibility (but keep in mind
-  that PHP5.3 is 2x much faster than PHP5.2 ;-)):
-
-  function __autoload($className) {
-    require_once sprintf('class/%s.php', $className);
-  }
-
-  Or combine it with the ClassLoader file, but I do not think that we need to
-  define all these prefixes.
+  I don't think all these constants are relevant...
 ----------------------------------------------------------------------------- */
