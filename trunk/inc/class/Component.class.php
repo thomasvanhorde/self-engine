@@ -1,49 +1,50 @@
 <?php
-
 /**
-* Class component pour gérer les vue automatiquement dans les controlleur
-* <<controlleur class>> extends Component
-*
-* @author: Thomas VAN HORDE <thomas.vanhorde@gmail.com>
-* @version: 1
-*/
+ * Allows children to manage views inside controllers.
+ *
+ * @author  Thomas Van Horde
+ * @author  Fabien Nouaillat
+ * @package self-engine
+ */
 
+class Component
+{
+    public $_view;
 
-class Component {
-    
-	public $_view;
-
-    public function defaut(){
+    public function defaut()
+    {
         exit(Base::Load(CLASS_CORE_MESSAGE)->Critic('ERR_DEFAULT_METHOD'));
     }
 
-    public function __construct(){ }
-
     /**
-     * Assigne la vue principal
-     * @return void
+     * Assignes main view.
      */
-    public function setConstruct(){
+    public function setConstruct()
+    {
         $this->_view = Base::Load(CLASS_BASE)->getView();
     }
 
     /**
-     * Changé le type de contenu
-     * defaut : html
-     * @param  $contentType
-     * @return void
+     * Changes the content type.
+     *
+     * @param  string $contentType
      */
-    public function setContentType($contentType){
+    public function setContentType($contentType)
+    {
         Base::Load(CLASS_BASE)->setContentType($contentType);
     }
 
-    public function addBreadCrumb($title, $url = null, $titleComplete = null){
-        if($url == null)
+    /**
+     * @param  string $title
+     * @param  mixed  $url
+     * @param  mixed  $titleComplete
+     */
+    public function addBreadCrumb($title, $url = null, $titleComplete = null)
+    {
+        if (is_null($url)) {
             $url = HTTP_HOST_REQUEST;
-        
-        Base::Load(CLASS_BASE)->addBreadCrumb($title, $url, $titleComplete = null);
+        }
+
+        Base::Load(CLASS_BASE)->addBreadCrumb($title, $url, $titleComplete);
     }
-    
 }
-
-

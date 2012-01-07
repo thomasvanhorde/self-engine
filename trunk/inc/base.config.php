@@ -71,7 +71,6 @@ if (isset($_SERVER['REDIRECT_URL'])) {
 /* -----------------------------------------------------------------------------
   ~ Aenyhm's thoughts ~
 
-  Same remark as in class.config.php.
   Too much of constants kills constants!
   Why not put them in a serialized format (XML/JSON/YAML)?
 ----------------------------------------------------------------------------- */
