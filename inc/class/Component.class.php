@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Allows children to manage views inside controllers.
  *
@@ -6,7 +7,6 @@
  * @author  Fabien Nouaillat
  * @package self-engine
  */
-
 class Component
 {
     public $_view;
