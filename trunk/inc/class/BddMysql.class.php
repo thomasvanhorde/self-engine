@@ -5,20 +5,37 @@
  *
  * @author  Thomas Van Horde
  * @author  Fabien Nouaillat
- * @version 1.1
  * @package self-engine
  */
 class BddMysql
 {
-    // Ahem...
+    /**
+     * @todo Make this property private or protected and use the getter below.
+     */
     public $_connexion;
 
+    /**
+     * Constructor. Sets the MySQL connection.
+     *
+     * @todo Do not use the constants anymore. Give them as parameters of the
+     *       constructor (e.g. public function __construct($host, $dbname)
+     */
     public function __construct()
     {
         $db = mysql_connect(MYSQL_HOST, MYSQL_LOGIN, MYSQL_PWD);
-        mysql_select_db(MYSQL_BASE,$db);
+        mysql_select_db(MYSQL_BASE, $db);
         $this->_connexion = new BddMysqlCM();
     }
+
+    /**
+     * Returns the current database access.
+     *
+     * @return BddMysqlCM Object
+     */
+     public function getConnection()
+     {
+         return $this->_connection;
+     }
 }
 
 /* -----------------------------------------------------------------------------
@@ -99,8 +116,9 @@ class BddMysqlCM
     {
         unset($dataArray['collection']);
         $this->removeData($ObjectId);
-        if ($this->insertCM($ObjectId, $dataArray))
+        if ($this->insertCM($ObjectId, $dataArray)) {
             return true;
+        }
     }
 
     /**
@@ -258,10 +276,11 @@ class BddMysqlCM
 
         $req = mysql_query($request)
             or die('Erreur SQL !<br>'.$request.'<br>'.mysql_error());
-        
-        if (is_bool($req))
+
+        if (is_bool($req)) {
             return $req;
-        
+        }
+
         while ($data = mysql_fetch_assoc($req)) {
             foreach ($data as $d) {
                 $myData[$data['contentmanager_id']]['_id'] = $data['contentmanager_id'];

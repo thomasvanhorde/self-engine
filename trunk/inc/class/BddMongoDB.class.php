@@ -5,14 +5,11 @@
  *
  * @author  Thomas Van Horde
  * @author  Fabien Nouaillat
- * @version 1.1
  * @package self-engine
  */
 class BddMongoDB
 {
     /**
-     * Well, this attribute must not be public...
-     *
      * @todo Make this property private or protected and use the getter below.
      */
     public $_connexion;
@@ -26,25 +23,14 @@ class BddMongoDB
      */
     public function __construct()
     {
-        try
-        {
-            $mongo = new Mongo(MONGO_HOST);
-        }
-        catch (MongoConnectionException $exception)
-        {
-            exit(sprintf(
-                'Cannot find the MongoDB server named <strong>%s</strong>.',
-                MONGO_HOST
-            ));
-        }
-
+        $mongo = new Mongo(MONGO_HOST);
         $this->_connexion = $mongo->selectDB(MONGO_BASE);
     }
 
     /**
      * Returns the current database access.
      *
-     * Not in use for the moment.
+     * @return MongoDB Object
      */
      public function getConnection()
      {
@@ -55,7 +41,7 @@ class BddMongoDB
 /* -----------------------------------------------------------------------------
   ~ Aenyhm's thoughts ~
 
-  You can also do it easier using PHP5.3 or later:
+  You can also do it easier:
 
   $mongoConnection = function ($host, $dbname) {
     $mongo = new Mongo($host);
