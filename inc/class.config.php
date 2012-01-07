@@ -26,5 +26,7 @@ define('CLASS_QR',              'QR');
 /* -----------------------------------------------------------------------------
   ~ Aenyhm's thoughts ~
 
-  I don't think all these constants are relevant...
+  I don't think declaring all these constants is relevant...
+
+  Why not just create a file (php|xml) which references the classes to load ?
 ----------------------------------------------------------------------------- */

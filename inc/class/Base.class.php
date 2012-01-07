@@ -429,6 +429,8 @@ class Base
      * Imports the class loading file.
      *
      * @param string $file
+     *
+     * @throws Exception if the file cannot be found
      */
     private function getClassLoader($file)
     {
