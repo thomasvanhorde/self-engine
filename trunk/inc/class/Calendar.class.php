@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Calendar control
+ * Calendar control.
  *
  * @author  Thomas Van Horde
  * @author  Fabien Nouaillat
