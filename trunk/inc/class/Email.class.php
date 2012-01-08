@@ -1,36 +1,40 @@
 <?php
 
+$loadParent = function ($file) {
+    if (file_exists(FOLDER_CLASS_EXT.$file)) {
+        require_once FOLDER_CLASS_EXT.$file;
+    } elseif (file_exists(ENGINE_URL.FOLDER_CLASS_EXT.$file)) {
+        require_once ENGINE_URL.FOLDER_CLASS_EXT.$file;
+    } else {
+       throw new Exception(sprintf('Unable to find %s.', $file));
+    }
+};
+$loadParent('PHPMailer_v5.1/class.phpmailer.php');
+
 /**
- *  @author Thomas VAN HORDE
- *  @description Use PhpMailer
+ * Extends PHPMailer.
+ *
+ * Do not forget to configure the mail() function on your Apache server.
+ *
+ * @author  Thomas Van Horde
+ * @author  Fabien Nouaillat
+ * @package self-engine
  */
-
-/*
- * Dont forget config mail() function in your Apache server !
- */
-
-
-if(file_exists(FOLDER_CLASS_EXT.'PHPMailer_v5.1/class.phpmailer.php'))
-	require_once FOLDER_CLASS_EXT.'PHPMailer_v5.1/class.phpmailer.php';
-elseif(file_exists(ENGINE_URL.FOLDER_CLASS_EXT.'PHPMailer_v5.1/class.phpmailer.php'))
-	require_once ENGINE_URL.FOLDER_CLASS_EXT.'PHPMailer_v5.1/class.phpmailer.php';
-else
-    Base::Load(CLASS_CORE_MESSAGE)->Warning('ERR_LOAD_CLASS_PHPMAILER');
-
-
-class Email extends PHPMailer{
-
-
+class Email extends PHPMailer
+{
     /**
+     * @todo   Stop using it: it just redeclares SimpleMail().
+     *
      * @param  $FromMail
      * @param  $FromName
      * @param  $ToMail
      * @param  $Subject
      * @param  $content
+     *
      * @return bool
      */
-    public function SimpleMailHTML($FromMail, $FromName, $ToMail, $Subject, $content){
-        $this->IsHTML(true);
+    public function SimpleMailHTML($FromMail, $FromName, $ToMail, $Subject, $content)
+    {
         return $this->SimpleMail($FromMail, $FromName, $ToMail, $Subject, $content);
     }
 
@@ -40,21 +44,19 @@ class Email extends PHPMailer{
      * @param  $ToMail
      * @param  $Subject
      * @param  $content
+     *
      * @return bool
      */
-    public function SimpleMail($FromMail, $FromName, $ToMail, $Subject, $content){
+    public function SimpleMail($FromMail, $FromName, $ToMail, $Subject, $content)
+    {
         $this->IsHTML(true);
-        $this->CharSet="utf8";
-        $this->From=$FromMail;
-        $this->FromName=$FromName;
+        $this->CharSet  = "utf8";
+        $this->From     = $FromMail;
+        $this->FromName = $FromName;
         $this->AddAddress($ToMail);
-        $this->Subject=$Subject;
-        $this->Body=$content;
-        if($this->Send())
-            return true;
-        else
-            return false;
+        $this->Subject  = $Subject;
+        $this->Body     = $content;
+
+        return $this->Send();
     }
-
 }
-

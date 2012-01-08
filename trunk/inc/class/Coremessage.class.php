@@ -1,45 +1,63 @@
 <?php
 
 /**
- * Define CoreMessage
+ * Manages important messages (coremessage.xml).
+ *
+ * @author  Thomas Van Horde
+ * @author  Fabien Nouaillat
+ * @package self-engine
  */
-class Coremessage {
-
+class Coremessage
+{
     private $_data;
-    
-	function __construct(){
-        // Load data from engine coremssage.xml
-        foreach(simplexml_load_file(ENGINE_URL.'inc/'.INFOS_XML_CORE_MESSAGE, NULL, true)->children() as $k => $e)
-            $this->_data[(string)$e['id']] = utf8_decode($e);
 
-        // Load data from www coremssage.xml 
-        foreach(simplexml_load_file('inc/'.INFOS_XML_CORE_MESSAGE, NULL, true)->children() as $k => $e)
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        // Loads data from the engine.
+        foreach (simplexml_load_file(ENGINE_URL.'inc/'.INFOS_XML_CORE_MESSAGE, null, true)->children() as $k => $e) {
             $this->_data[(string)$e['id']] = utf8_decode($e);
+        }
+
+        // Load data from the project.
+        foreach(simplexml_load_file('inc/'.INFOS_XML_CORE_MESSAGE, null, true)->children() as $k => $e) {
+            $this->_data[(string)$e['id']] = utf8_decode($e);
+        }
     }
 
     /**
+     * Sends a critic error.
+     *
      * @param  $key
-     * @return exit()
      */
-	public function Critic($key){
+    public function Critic($key)
+    {
         exit((string)$this->_data[$key]);
-	}
+    }
 
     /**
+     * Sends a warning.
+     *
      * @param  $key
+     *
      * @return string
      */
-	public function Warning($key){
+    public function Warning($key)
+    {
         return (string)$this->_data[$key];
-	}
+    }
 
     /**
+     * Sends a generic message.
+     *
      * @param  $key
+     *
      * @return string
      */
-	public function Generic($key){
+    public function Generic($key)
+    {
         return (string)$this->_data[$key];
-	}
-
+    }
 }
-
