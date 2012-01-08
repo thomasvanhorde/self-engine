@@ -24,7 +24,7 @@ class Base
     {
         $this->_contentType = 'text/html';
 
-        $this->getClassLoader('ClassLoader.php');
+        $this->loadClassLoader('ClassLoader.php');
         $this->_view = Base::Load(CLASS_VIEW);
     }
 
@@ -428,11 +428,11 @@ class Base
     /**
      * Imports the class loading file.
      *
-     * @param string $file
+     * @param  string $file
      *
      * @throws Exception if the file cannot be found
      */
-    private function getClassLoader($file)
+    private function loadClassLoader($file)
     {
         if (file_exists(FOLDER_CLASS_EXT.$file)) {
             require_once FOLDER_CLASS_EXT.$file;

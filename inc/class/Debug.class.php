@@ -5,21 +5,25 @@ require_once ENGINE_URL.'inc/class/ext/pqp/index.php';
 /**
  * Uses PqP Debug.
  *
- * @author Thomas VAN HORDE
+ * @author  Thomas Van Horde
+ * @author  Fabien Nouaillat
+ * @package self-engine
  */
 class Debug
 {
     /**
      * @param  $data
      */
-    public function log($data){
+    public function log($data)
+    {
         Console::log($data);
     }
 
     /**
      * @param  $exception
      */
-    public function logError($exception){
+    public function logError($exception)
+    {
         Console::logError($exception);
     }
 
@@ -27,11 +31,13 @@ class Debug
      * @param  $var
      * @param  $name
      */
-    public function logMemory($var = null, $name = null){
+    public function logMemory($var = null, $name = null)
+    {
         Console::logMemory($var, $name);
     }
 
-    public function logSpeed(){
+    public function logSpeed()
+    {
         Console::logSpeed();
     }
 
@@ -39,7 +45,8 @@ class Debug
      * @param  $sql
      * @param  $start
      */
-    public function logQuery($sql, $start){
+    public function logQuery($sql, $start)
+    {
         Console::logQuery($sql, $start);
     }
 }
@@ -47,6 +54,6 @@ class Debug
 /* -----------------------------------------------------------------------------
   ~ Aenyhm's thoughts ~
 
-  I wonder: why not simply use PqP? You do not modify the class, you just
-  rewrite it without any change.
+  I wonder why not simply use PqP? You do not modify the class, you just rewrite
+  it without any change.
 ----------------------------------------------------------------------------- */

@@ -1,22 +1,22 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <coremessage>
-    <message id="ERR_DEFAULT_METHOD">Methode defaut() inéxistante</message>
-    <message id="ERR_LOAD_CLASS">Impossible de charger la class</message>
-    <message id="ERR_LOAD_CLASS_GDATA">Impossible de charger la class Zend Gdata</message>
-    <message id="ERR_LOAD_CLASS_UPLOAD">Impossible de charger la class d'upload</message>
-    <message id="ERR_LOAD_CLASS_LESS">Impossible de charger la class Less PHP</message>
-    <message id="ERR_LOAD_CLASS_PHPMAILER">Impossible d'inclure la class PhpMailer</message>
-    <message id="ERR_LOAD_CLASS_LOADER">Impossible d'inclure la class ClassLoader</message>
-    <message id="ERR_LOAD_CLASS_SMARTY">Impossible d'inclure Smarty</message>
-    <message id="ERR_LOAD_CLASS_PDF">Impossible d'inclure la class Html2PDF</message>
-    <message id="ERR_EXTENDS_CONTROLLER">Erreur, les contrôleurs doivent être étendu de Component</message>
+    <message id="ERR_DEFAULT_METHOD">You have to declare a defaut() method.</message>
+    <message id="ERR_LOAD_CLASS">Unable to load the class.</message>
+    <message id="ERR_LOAD_CLASS_GDATA">Unable to load the class Zend Gdata.</message>
+    <message id="ERR_LOAD_CLASS_UPLOAD">Unable to load the class d'upload.</message>
+    <!--<message id="ERR_LOAD_CLASS_LESS">Unable to load the class Less PHP.</message>-->
+    <!--<message id="ERR_LOAD_CLASS_PHPMAILER">Unable to load the class PhpMailer.</message>-->
+    <!--<message id="ERR_LOAD_CLASS_LOADER">Unable to load the class ClassLoader.</message>-->
+    <message id="ERR_LOAD_CLASS_SMARTY">Unable to import Smarty.</message>
+    <message id="ERR_LOAD_CLASS_PDF">Unable to load the class Html2PDF.</message>
+    <message id="ERR_EXTENDS_CONTROLLER">Controllers must inherit from Component.</message>
     <message id="MESS_BASE_START">Base::start()</message>
     <message id="MESS_BASE_END">End Base::start()</message>
     <message id="MESS_BLOCK">Block</message>
-    <message id="MESS_FOLDER_BDD_NOT_FOUND">Bdd folder not found in </message>
-    <message id="MESS_ERR_ACCESS_CONTROL">Access control denied</message>
-    <message id="MESS_ERR_SAVE_COMPILED_OBJ">Sauvegarde d'objet compilé interdit!</message>
-    <message id="MESS_ERR_ACCESS_CONTROL_BAD_MDP">Login/password failed</message>
-    <message id="MESS_ACCESS_CONTROL_ALLOW">Access control allowed</message>
+    <message id="MESS_FOLDER_BDD_NOT_FOUND">Database folder cannot be found in </message>
+    <message id="MESS_ERR_ACCESS_CONTROL">Access control denied.</message>
+    <message id="MESS_ERR_SAVE_COMPILED_OBJ">Saving compiled object is forbidden.</message>
+    <message id="MESS_ERR_ACCESS_CONTROL_BAD_MDP">Authentication failed.</message>
+    <message id="MESS_ACCESS_CONTROL_ALLOW">Access control allowed.</message>
 </coremessage>
